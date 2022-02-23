@@ -1,1 +1,3 @@
 # SzoftverProjektLab
+
+Feladatbeosztás: trello
