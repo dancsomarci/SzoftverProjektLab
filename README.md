@@ -1,8 +1,8 @@
 # SzoftverProjektLab
 
-Feladatbeosztás: https://trello.com/szoftverprojektlab1
+Feladatbeosztás: https://trello.com/b/7ZNwUaj2/2-k%C3%B6vetelm%C3%A9ny-projekt-funkcionalit%C3%A1s
 
-doku: https://1drv.ms/w/s!Ag1iKA_kam73gyEyH0w-j1BBGUmY?e=Hla2Cf
+doku: https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EbBOGEfONCRKq15ngBnmJZcB1PGO0FhqBabNLw3wgTGZ5Q?e=TcdyQT
 
 2. Követelmény, projekt, funkcionalitás 
 ---------------------------------------
