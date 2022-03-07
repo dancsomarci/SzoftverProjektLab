@@ -1,8 +1,7 @@
 # SzoftverProjektLab
 
-Feladatbeosztás: https://trello.com/b/7ZNwUaj2/2-k%C3%B6vetelm%C3%A9ny-projekt-funkcionalit%C3%A1s
+Feladatbeosztás: https://trello.com/
 
-doku: https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EbBOGEfONCRKq15ngBnmJZcB1PGO0FhqBabNLw3wgTGZ5Q?e=TcdyQT
 
 2. Követelmény, projekt, funkcionalitás 
 ---------------------------------------
@@ -15,3 +14,4 @@ Sem a leírásban, sem a szótárban nem szerepelhetnek számítástechnikai és
 
 Ne feledkezzünk el a fedőlapról és (az első) naplóról sem!
 
+doku: https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EbBOGEfONCRKq15ngBnmJZcB1PGO0FhqBabNLw3wgTGZ5Q?e=TcdyQT
