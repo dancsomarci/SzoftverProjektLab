@@ -31496,11 +31496,11 @@
 <XPD:REF name="RepresentedClassifier">gcTMG+2flU6MI1O7JfTCZQAA</XPD:REF>
 <XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="ySY22zCco0Gv+oHBWOpTjAAA">
-<XPD:ATTR name="Name" type="string">Loot NucleotideAcid from other Virologist</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Loot Nucleotide from other Virologist</XPD:ATTR>
 <XPD:REF name="Context">sM6wKuMdu0qlcdV0kUWrwQAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="Um0XtasydkOVBvcA9/E2nwAA">
-<XPD:ATTR name="Name" type="string">Loot NucleotideAcid from other Virologist</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Loot Nucleotide from other Virologist</XPD:ATTR>
 <XPD:ATTR name="ShowSequenceNumber" type="boolean">False</XPD:ATTR>
 <XPD:ATTR name="MessageSignature" type="UMLMessageSignatureKind">mskNameAndType</XPD:ATTR>
 <XPD:REF name="DiagramOwner">ySY22zCco0Gv+oHBWOpTjAAA</XPD:REF>
@@ -31517,7 +31517,7 @@
 <XPD:ATTR name="Height" type="integer">637</XPD:ATTR>
 <XPD:REF name="Model">3dj0z8W1V0Ohqybze2l6lQAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="LabelView" guid="YsNlv/648Ey3hqPX8dLMwQAA">
-<XPD:ATTR name="Text" type="string">Loot NucleotideAcid from other Virologist</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Loot Nucleotide from other Virologist</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="FrameTypeLabel" type="LabelView" guid="pElOId1nlU+QHnmFEbb+AgAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
@@ -32975,7 +32975,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedFrames" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="OwnedFrames[0]" type="UMLFrame" guid="3dj0z8W1V0Ohqybze2l6lQAA">
-<XPD:ATTR name="Name" type="string">Loot NucleotideAcid from other Virologist</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Loot Nucleotide from other Virologist</XPD:ATTR>
 <XPD:ATTR name="FrameKind" type="string">sd</XPD:ATTR>
 <XPD:REF name="InteractionInstanceSet">ySY22zCco0Gv+oHBWOpTjAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
