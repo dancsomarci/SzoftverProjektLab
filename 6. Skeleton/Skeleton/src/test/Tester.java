@@ -1,6 +1,7 @@
 package test;
 
 import java.lang.reflect.Method;
+import java.util.Scanner;
 
 /**
  * Tesztelést vezérlő osztály, ebben van megvalósítva a teszteseteket kezelő menürendszer
@@ -65,5 +66,4 @@ public class Tester {
 
         System.out.println(m.getName()+"()");
     }
-
 }
