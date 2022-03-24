@@ -11,10 +11,11 @@ package model.strategy;//
 
 
 import model.Virologist;
+import model.codes.GeneticCode;
 
 public class DefInject implements IInjectStr
 {
-	public void Inject(Virologist v, Virologist target)
+	public void Inject(Virologist v, Virologist target, GeneticCode gc)
 	{
 	}
 }
