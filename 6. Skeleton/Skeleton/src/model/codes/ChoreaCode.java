@@ -3,6 +3,7 @@ package model.codes;
 
 import model.Virologist;
 
+import model.agents.Agent;
 import model.agents.Chorea;
 import test.Tester;
 
@@ -28,7 +29,7 @@ public class ChoreaCode extends GeneticCode
 	 * @return a létrehozot vitustánc ágens
 	 * @throws Exception ha nem hozható létre az Agent, mert nincs hozzá elég anyaga a paraméterül kapott virológusnak.
 	 */
-	public Chorea Create(Virologist v) throws Exception
+	public Agent Create(Virologist v) throws Exception
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		v.RemoveNucleotide(nucleotidePrice);

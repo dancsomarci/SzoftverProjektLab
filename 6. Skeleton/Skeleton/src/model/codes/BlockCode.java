@@ -2,6 +2,7 @@ package model.codes;
 
 
 import model.Virologist;
+import model.agents.Agent;
 import model.agents.Block;
 import test.Tester;
 
@@ -30,7 +31,7 @@ public class BlockCode extends GeneticCode
 	 * @return az elkészített ágens
 	 * @throws Exception ha a virológusnak nem volt elég anyaga az ágenskészítéshez
 	 */
-	public Block Create(Virologist v) throws Exception
+	public Agent Create(Virologist v) throws Exception
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 

@@ -3,6 +3,7 @@ package model.codes;
 
 
 import model.Virologist;
+import model.agents.Agent;
 import model.agents.Forget;
 import test.Tester;
 
@@ -27,7 +28,7 @@ public class ForgetCode extends GeneticCode
 	 * @return a létrehozott ágens.
 	 * @throws Exception ha nem hozható létre az Agent, mert nincs hozzá elég anyag a paraméterül kapott virológusnak.
 	 */
-	public Forget Create(Virologist v) throws Exception
+	public Agent Create(Virologist v) throws Exception
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		v.RemoveNucleotide(nucleotidePrice);
