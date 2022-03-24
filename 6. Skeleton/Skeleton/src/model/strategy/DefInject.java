@@ -11,7 +11,6 @@ package model.strategy;//
 
 
 import model.Virologist;
-import model.agents.Agent;
 import model.codes.GeneticCode;
 import test.Tester;
 
@@ -24,16 +23,18 @@ public class DefInject implements IInjectStr
 	 * A felkenést végző függvény, ami elvégzi a felkenést a célpontra, valamint csökkenti v leléphető köreinek számát.
 	 * @param v A virológus aki a kenést akarja végezni.
 	 * @param target A célpont akit fel akar kenni.
-	 * @param code A genetikai kód, ami a felkenendő ágenst gyártja.
+	 * @param gc A genetikai kód, ami a felkenendő ágenst gyártja.
 	 */
-	public void Inject(Virologist v, Virologist target, GeneticCode code) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+	public void Inject(Virologist v, Virologist target, GeneticCode gc) {
+		Tester.methodStart(new Object() {
+		}.getClass().getEnclosingMethod());
 		try {
-			target.TargetedWith(code.Create(v));
+			target.TargetedWith(gc.Create(v));
 			v.DecreaseActions();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		Tester.methodEnd(new Object() {
+		}.getClass().getEnclosingMethod());
 	}
 }
