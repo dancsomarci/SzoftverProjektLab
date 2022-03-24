@@ -14,6 +14,8 @@
 
 4)     https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EdaQeD5IFN5Kkeoc_73e9csBjCGoZi0rYbmvo12jx7DWDA?e=XnHhF7
 
+5)     https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EdXcNQQ4Y-FNik9J8wix1PwBr2BLdYDeVe4Bwl2p7PU7Kg?e=NojUkW
+
 [Pontok]  Feladat | Max | Kapott
 ----------------------------------
 1)      | 10  | 8
