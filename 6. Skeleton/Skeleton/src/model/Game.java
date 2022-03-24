@@ -35,13 +35,11 @@ public class Game
 	 * Game osztály konstruktora, inicializálja a tagváltozók listáit
 	 */
 	public Game(){
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		fields = new ArrayList<>();
 		codes = new ArrayList<>();
 		virologists = new ArrayList<>();
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -61,7 +59,7 @@ public class Game
 
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		// A VIROL,ÓGUSNÁL KELL MEGKÉRDEZNI, HOGY MEGVAN-E AZ ÖSSZES KÓDJA
+		// A VIROLÓGUSNÁL KELL MEGKÉRDEZNI, HOGY MEGVAN-E AZ ÖSSZES KÓDJA
 		// EZ ALAPJÁN KELL MEGFELELŐEN PARAMÉTEREZNI MAJD A FÜGGVÉNYHÍVÁST
 		if(codes == this.codes.size())
 			EndGame();

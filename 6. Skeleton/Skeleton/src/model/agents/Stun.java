@@ -11,10 +11,23 @@ package model.agents;//
 
 
 import model.Virologist;
+import test.Tester;
 
 public class Stun extends Agent
 {
+	/**
+	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
+	 * @param tL a beállítandó hatásidő
+	 */
+	public Stun(int tL){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		timeToLive = tL;
+	}
+
 	public void ApplyStrategy(Virologist v)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

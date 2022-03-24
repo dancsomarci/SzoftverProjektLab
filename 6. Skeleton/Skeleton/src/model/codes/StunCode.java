@@ -12,11 +12,15 @@ package model.codes;//
 
 import model.Virologist;
 import model.agents.Agent;
+import test.Tester;
 
 public class StunCode extends GeneticCode
 {
 	public Agent Create(Virologist v)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 }
