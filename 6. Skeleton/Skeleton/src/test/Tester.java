@@ -1,13 +1,20 @@
 package test;
 
+import java.lang.reflect.Method;
+
+/**
+ * Tesztelést vezérlő osztály, ebben van megvalósítva a teszteseteket kezelő menürendszer
+ * és a teszteseteket végrehajtó függvények, továbbá a tesztekhez szükséges
+ * függvnényneveket kiíró segédfüggvények.
+ */
 public class Tester {
 
     /**
      * indentálási szint
      */
-    private int indention = 0;
+    private static int indention = 0;
 
-    /**
+    /*
      * Technically this will work...
      *
      * String name = new Object(){}.getClass().getEnclosingMethod().getName();
@@ -28,9 +35,35 @@ public class Tester {
      * During blocks outside of (named) methods, getEnclosingMethod() returns null
      */
 
+    /**
+     * Tesztelés során az aktuálisan meghívott függvény nevét és osztályát írja ki
+     * @param m a hívott függvény reflekciója
+     */
+    public static void methodStart(Method m){
+        for(int i = 0; i < indention; i++)
+            System.out.print("/t");
+        System.out.println(m.getDeclaringClass()+"::"+m.getName()+"()");
+        indention++;
+    }
 
-    public static void methodStart(Object method){}
+    /**
+     * Tesztelés során az aktuálisan visszatérő függvény nevét és osztályát írja ki
+     * @param m a visszatérő függvény reflekciója
+     */
+    public static void methodEnd(Method m){
+        indention--;
+        for(int i = 0; i < indention; i++)
+            System.out.print("/t");
+        System.out.println(m.getDeclaringClass()+"::"+m.getName()+"()");
+    }
 
-    public static void methodEnd(Object method){}
+    /**
+     * Tesztelés során az aktuálisan meghívott konstruktor függvény nevét írja ki indentálás nélkül
+     * @param m a hívott függvény reflekciója
+     */
+    public static void ctrMethodStart(Method m){
+
+        System.out.println(m.getName()+"()");
+    }
 
 }

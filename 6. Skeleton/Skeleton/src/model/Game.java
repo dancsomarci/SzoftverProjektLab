@@ -4,7 +4,7 @@ import model.codes.GeneticCode;
 import model.map.Field;
 import test.Tester;
 
-import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,21 +32,37 @@ public class Game
 	private List<Virologist> virologists;
 
 	/**
-	 * Elindít egy új játékot, inicializálja a pályát és a virológusokat.
+	 * Game osztály konstruktora, inicializálja a tagváltozók listáit
 	 */
-	public void NewGame()
-	{
+	public Game(){
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
+		fields = new ArrayList<>();
+		codes = new ArrayList<>();
+		virologists = new ArrayList<>();
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
+	 * Elindít egy új játékot, inicializálja a pályát.
+	 */
+	public void NewGame() {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
 	 * Átadja az irányítást a sorrendben a következő játékosnak, az aktuálisnak lezárja a körét.
 	 * @param codes a megismert genetikai kódok száma
 	 */
-	public void NextPlayer(int codes)
-	{
+	public void NextPlayer(int codes){
+
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
+		// A VIROL,ÓGUSNÁL KELL MEGKÉRDEZNI, HOGY MEGVAN-E AZ ÖSSZES KÓDJA
+		// EZ ALAPJÁN KELL MEGFELELŐEN PARAMÉTEREZNI MAJD A FÜGGVÉNYHÍVÁST
 		if(codes == this.codes.size())
 			EndGame();
 		else {
@@ -57,13 +73,45 @@ public class Game
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
-	
+
+	/**
+	 * Befejezi a játékot és kihírdeti a nyertest
+	 */
 	public void EndGame()
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
-	
+
+	/**
+	 * Hozzáad egy virológust a játékhoz
+	 * @param v a hozzáadandó virológus
+	 */
 	public void AddVirologist(Virologist v)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		virologists.add(v);
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
 
+	/**
+	 * Hozzáad egy új genetikai kódot a játékhoz
+	 * @param gc hozzáadandó genetikai kód
+	 */
+	public void AddGeneticCode(GeneticCode gc){
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		codes.add(gc);
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
+	 * Hozzáad egy mezőt a játékhoz
+	 * @param f hozzáadandó mező
+	 */
+	public void AddField(Field f){
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		fields.add(f);
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }
