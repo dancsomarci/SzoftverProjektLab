@@ -140,11 +140,11 @@ public class Virologist
 	{
 	}
 	
-	public void RemoveNucleotide(int delta)
+	public void RemoveNucleotide(int delta) throws Exception
 	{
 	}
 	
-	public void RemoveAminoAcid(int delta)
+	public void RemoveAminoAcid(int delta) throws Exception
 	{
 	}
 	
@@ -167,7 +167,10 @@ public class Virologist
 	public void Update()
 	{
 	}
-	
+
+	//azert lehetne private, mert a block-nak nem kell meghivnia, eleg a removeagents-et,
+	// ami meg majd meghivja a restetet, de meg azert ne hivja meg a restet,
+	// mert a szekvencian sem abrazoltam, hogy meghivna a restet
 	public void Reset()
 	{
 	}
@@ -188,7 +191,7 @@ public class Virologist
 	{
 	}
 	
-	public void SetInject(IInjectStr i)
+	public void SetInjectStr(IInjectStr i)
 	{
 	}
 	
