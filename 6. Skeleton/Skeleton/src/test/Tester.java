@@ -13,6 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.function.Function;
 
 /**
  * Tesztelést vezérlő osztály, ebben van megvalósítva a teszteseteket kezelő menürendszer
@@ -340,6 +341,7 @@ public class Tester {
                 "12) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
                 "13) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
                 "14) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+
                 "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
                 "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
                 "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
