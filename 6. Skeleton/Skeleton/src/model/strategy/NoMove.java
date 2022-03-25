@@ -13,10 +13,14 @@ package model.strategy;//
 
 import model.Virologist;
 import model.map.Field;
+import test.Tester;
 
 public class NoMove implements IMoveStr
 {
 	public void Move(Virologist v, Field f)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

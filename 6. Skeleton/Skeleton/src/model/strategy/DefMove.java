@@ -12,10 +12,18 @@ package model.strategy;//
 
 import model.Virologist;
 import model.map.Field;
+import test.Tester;
 
 public class DefMove implements IMoveStr
 {
 	public void Move(Virologist v, Field f)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		v.getField().RemoveVirologist(v);
+		f.AddVirologist(v);
+		v.DecreaseActions();
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

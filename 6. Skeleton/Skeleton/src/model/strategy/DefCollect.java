@@ -11,11 +11,25 @@ package model.strategy;//
 
 
 import model.Virologist;
-import model.map.Field;
+import test.Tester;
 
 public class DefCollect implements ICollectStr
 {
-	public void Collect(Virologist v, Field f)
-	{
+	@Override
+	public void CollectAminoacid(Virologist v) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		v.getField().CollectNucleotide(v);
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	@Override
+	public void CollectNucleotide(Virologist v) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		v.getField().CollectAminoacid(v);
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

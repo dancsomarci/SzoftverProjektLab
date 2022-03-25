@@ -11,11 +11,21 @@ package model.strategy;//
 
 
 import model.Virologist;
-import model.map.Field;
+import test.Tester;
 
 public class NoCollect implements ICollectStr
 {
-	public void Collect(Virologist v, Field f) {
+	@Override
+	public void CollectAminoacid(Virologist v) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	@Override
+	public void CollectNucleotide(Virologist v) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

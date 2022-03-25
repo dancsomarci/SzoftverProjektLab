@@ -13,10 +13,19 @@ package model.strategy;//
 
 import model.Virologist;
 import model.equipments.Equipment;
+import test.Tester;
 
 public class DefDrop implements IDropStr
 {
 	public void Drop(Virologist v, Equipment e)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		e.Disable(v);
+		v.getField().Drop(e);
+		v.Reset();
+		v.DecreaseActions();
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

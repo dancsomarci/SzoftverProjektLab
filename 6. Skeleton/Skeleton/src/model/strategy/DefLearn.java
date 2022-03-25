@@ -11,11 +11,17 @@ package model.strategy;//
 
 
 import model.Virologist;
-import model.map.Field;
+import test.Tester;
 
 public class DefLearn implements ILearnStr
 {
-	public void Learn(Virologist v, Field f)
+	public void Learn(Virologist v)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		v.getField().LearnGeneticCode(v);
+		v.DecreaseActions();
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }
