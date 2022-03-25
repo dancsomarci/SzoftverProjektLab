@@ -11,10 +11,11 @@ package model.strategy;//
 
 
 import model.Virologist;
+import model.map.Field;
 
 public class NoLearn implements ILearnStr
 {
-	public void Learn(Virologist v)
+	public void Learn(Virologist v, Field f)
 	{
 	}
 }

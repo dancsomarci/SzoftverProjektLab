@@ -74,6 +74,20 @@ public class Tester {
     }
 
     /**
+     * UserInput egységes kezelésére használandó függvény.
+     * @param message A kiírandó üzenet. Ajánlott benne megfogalmazni az elvárt bemenet formátumát.
+     * @param trueMatch A bemenet, ami esetén igazzal tér majd vissza a függvény.
+     * @return A felhasználói bemenet megegyezett-e trueMatch-el.
+     */
+    public static boolean getUserInput(String message, String trueMatch)
+    {
+        boolean ret = false;
+        System.out.println(message);
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine().equals(trueMatch);
+    }
+
+    /**
      * 5.1.2.1.-es teszteset
      * Lebénult virológus megpróbál Aminosavat lopni egy másiktól,
      * de mivel béna, ezért nem tud.

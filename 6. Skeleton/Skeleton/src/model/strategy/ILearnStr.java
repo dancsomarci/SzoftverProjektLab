@@ -11,9 +11,10 @@ package model.strategy;//
 
 
 import model.Virologist;
+import model.map.Field;
 
 public interface ILearnStr
 {
-	void Learn(Virologist v);
+	void Learn(Virologist v, Field f);
 
 }

@@ -32,7 +32,7 @@ public class Virologist
 	private ILootedStr lootedStr;
 
 	public Virologist(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 
 		//TODO be kell állítani a def str-eket meg a valtozokat
 	}
@@ -83,16 +83,10 @@ public class Virologist
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		System.out.print("Van még akciója hátra a virológusnak? (Y/N) ");
-		Scanner sc = new Scanner(System.in);
-		String ans = sc.nextLine();
-
-		if(ans.equals("Y")) {
-			System.out.print("Tele van a virológus táskája felszerelésekkel  -3 a max-?  (Y/N) ");
-			String ans2 = sc.nextLine();
-
-			if(ans2.equals("N"))
+		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+			if (Tester.getUserInput("Van hely a virológusnál védőfelszerlésnek? (Y/N) ", "Y")){
 				lootStr.LootEquipment(this, v);
+			}
 		}
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
@@ -102,12 +96,8 @@ public class Virologist
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		System.out.print("Van még akciója hátra a virológusnak? (Y/N) ");
-		Scanner sc = new Scanner(System.in);
-		String ans = sc.nextLine();
-
-		if(ans.equals("Y")){
-
+		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+			collectStr.Collect(this, field);
 		}
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
@@ -117,12 +107,8 @@ public class Virologist
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		System.out.print("Van még akciója hátra a virológusnak? (Y/N) ");
-		Scanner sc = new Scanner(System.in);
-		String ans = sc.nextLine();
-
-		if(ans.equals("Y")){
-
+		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+			learnStr.Learn(this, field);
 		}
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
@@ -132,12 +118,8 @@ public class Virologist
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		System.out.print("Van még akciója hátra a virológusnak? (Y/N) ");
-		Scanner sc = new Scanner(System.in);
-		String ans = sc.nextLine();
-
-		if(ans.equals("Y")){
-
+		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+			equipStr.Equip(this, field);
 		}
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
@@ -187,12 +169,10 @@ public class Virologist
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		System.out.print("Van még akciója hátra a virológusnak? (Y/N) ");
-		Scanner sc = new Scanner(System.in);
-		String ans = sc.nextLine();
-
-		if(ans.equals("Y"))
+		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y"))
+		{
 			injectStr.Inject(this, v, code);
+		}
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}

@@ -11,10 +11,11 @@ package model.strategy;//
 
 
 import model.Virologist;
+import model.map.Field;
 
 public class NoCollect implements ICollectStr
 {
-	public void Collect(Virologist v)
-	{
+	public void Collect(Virologist v, Field f) {
+
 	}
 }
