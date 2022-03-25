@@ -21,6 +21,13 @@ import test.Tester;
 public class NoInjected implements IInjectedStr
 {
 	/**
+	 * Default ctor, csak a kiíratás miatt.
+	 */
+	public NoInjected(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
 	 * A felkenődést nem engedélyezi v-re a stratégia, így nem történik semmi.
 	 * @param v A virológus, akire felkenték az ágenst.
 	 * @param a A felkent ágens.

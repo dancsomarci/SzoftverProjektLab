@@ -69,7 +69,6 @@ public class Tester {
      * @param m a hívott függvény reflekciója
      */
     public static void ctrMethodStart(Method m){
-
         System.out.println(m.getName()+"()");
     }
 

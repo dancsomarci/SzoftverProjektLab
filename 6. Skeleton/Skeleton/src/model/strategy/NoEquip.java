@@ -21,6 +21,13 @@ import test.Tester;
 public class NoEquip implements IEquipStr
 {
 	/**
+	 * Default ctor, csak a kiíratás miatt.
+	 */
+	public NoEquip(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
 	 * A metódus üres, hiszen nem engedélyezi a felvételt.
 	 * @param v A felvételt végző virológus.
 	 * @param f Erről a mezőről próbálkozik védőfelszerelés felvételével v.

@@ -20,6 +20,13 @@ import test.Tester;
 public class NoInject implements IInjectStr
 {
 	/**
+	 * Default ctor, csak a kiíratás miatt.
+	 */
+	public NoInject(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
 	 * A felkenést nem engedélyezi v-nek a stratégia, így nem csinál semmit.
 	 * @param v A virológus aki a kenést akarja végezni.
 	 * @param target A célpont akit fel akar kenni.

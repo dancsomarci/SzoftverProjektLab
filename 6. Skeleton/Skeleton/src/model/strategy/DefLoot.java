@@ -19,6 +19,13 @@ import test.Tester;
 public class DefLoot implements ILootStr
 {
 	/**
+	 * Default ctor, csak a kiíratás miatt.
+	 */
+	public DefLoot(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
 	 * Amniosav zsákmányolást kezdeményez v a target virológus felé.
 	 * @param v A zsákmányoló virológus.
 	 * @param target A kizsákmányolandó virológus.

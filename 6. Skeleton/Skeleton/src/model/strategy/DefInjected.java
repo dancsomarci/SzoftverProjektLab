@@ -21,6 +21,13 @@ import test.Tester;
 public class DefInjected implements IInjectedStr
 {
 	/**
+	 * Default ctor, csak a kiíratás miatt.
+	 */
+	public DefInjected(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
 	 * A stratégia alkalmazásakor hívott metódus.
 	 * @param v A virológus, akire felkenték az ágenst.
 	 * @param a A felkent ágens.

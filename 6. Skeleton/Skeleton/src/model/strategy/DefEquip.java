@@ -21,6 +21,13 @@ import test.Tester;
 public class DefEquip implements IEquipStr
 {
 	/**
+	 * Default ctor, csak a kiíratás miatt.
+	 */
+	public DefEquip(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
 	 * A parqaméterül kapott virológussal megpróbáltat felvenni egy védőfelszerelést, valamint csökkenti körei számát.
 	 * @param v A felvételt végző virológus.
 	 * @param f Erről a mezőről próbálkozik védőfelszerelés felvételével v.

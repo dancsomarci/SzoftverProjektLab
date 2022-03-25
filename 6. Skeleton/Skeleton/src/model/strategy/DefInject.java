@@ -20,6 +20,13 @@ import test.Tester;
 public class DefInject implements IInjectStr
 {
 	/**
+	 * Default ctor, csak a kiíratás miatt.
+	 */
+	public DefInject(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	/**
 	 * A felkenést végző függvény, ami elvégzi a felkenést a célpontra, valamint csökkenti v leléphető köreinek számát.
 	 * @param v A virológus aki a kenést akarja végezni.
 	 * @param target A célpont akit fel akar kenni.
