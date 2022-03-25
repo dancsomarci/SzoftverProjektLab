@@ -23,7 +23,7 @@ public class NoInject implements IInjectStr
 	 * Default ctor, csak a kiíratás miatt.
 	 */
 	public NoInject(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}
 
 	/**

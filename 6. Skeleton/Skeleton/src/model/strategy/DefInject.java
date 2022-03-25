@@ -23,7 +23,7 @@ public class DefInject implements IInjectStr
 	 * Default ctor, csak a kiíratás miatt.
 	 */
 	public DefInject(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}
 
 	/**

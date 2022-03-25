@@ -22,7 +22,7 @@ public class NoLoot implements ILootStr
 	 * Default ctor, csak a kiíratás miatt.
 	 */
 	public NoLoot(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}
 
 	/**

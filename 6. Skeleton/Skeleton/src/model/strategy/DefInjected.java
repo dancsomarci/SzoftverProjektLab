@@ -24,7 +24,7 @@ public class DefInjected implements IInjectedStr
 	 * Default ctor, csak a kiíratás miatt.
 	 */
 	public DefInjected(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}
 
 	/**

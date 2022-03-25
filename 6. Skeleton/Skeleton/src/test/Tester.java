@@ -6,6 +6,7 @@ import model.map.Field;
 import model.strategy.Looted;
 import model.strategy.NoLoot;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Scanner;
 
@@ -68,7 +69,7 @@ public class Tester {
      * Tesztelés során az aktuálisan meghívott konstruktor függvény nevét írja ki indentálás nélkül
      * @param m a hívott függvény reflekciója
      */
-    public static void ctrMethodStart(Method m){
+    public static void ctrMethodStart(Constructor<?> m){
         System.out.println(m.getName()+"()");
     }
 

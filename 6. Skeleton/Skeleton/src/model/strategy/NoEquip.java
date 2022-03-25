@@ -24,7 +24,7 @@ public class NoEquip implements IEquipStr
 	 * Default ctor, csak a kiíratás miatt.
 	 */
 	public NoEquip(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}
 
 	/**
