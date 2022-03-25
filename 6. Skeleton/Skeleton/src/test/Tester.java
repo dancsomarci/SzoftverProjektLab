@@ -88,7 +88,9 @@ public class Tester {
         boolean ret = false;
         System.out.println(message);
         Scanner sc = new Scanner(System.in);
-        return sc.nextLine().equals(trueMatch);
+        ret = sc.nextLine().equals(trueMatch);
+        sc.close();
+        return ret;
     }
 
     /**
@@ -397,6 +399,8 @@ public class Tester {
                     break;
             }
         }
+
+
 
     }
 }
