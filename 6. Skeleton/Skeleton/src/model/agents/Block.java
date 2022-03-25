@@ -15,7 +15,7 @@ public class Block extends Agent
 	 * @param tL a beállítandó hatásidő
 	 */
 	public Block(int tL){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 		timeToLive = tL;
 	}
 

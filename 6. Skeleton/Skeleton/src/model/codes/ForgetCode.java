@@ -16,7 +16,7 @@ public class ForgetCode extends GeneticCode
 	 * Konstruktor, mely beállítja a létrehozhatóü felejtő ágens költségeit és időtartamát.
 	 */
 	public ForgetCode(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 		turnsLeft = 1;
 		aminoAcidPrice = 6;
 		nucleotidePrice = 6;

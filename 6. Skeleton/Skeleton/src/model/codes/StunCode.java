@@ -16,6 +16,7 @@ public class StunCode extends GeneticCode
 	 * a jövendőbeli ágens élettartamát a bénító ágens legyártásához.
 	 */
 	public void StunCode(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 			aminoAcidPrice = 7;
 			nucleotidePrice = 2;
 			turnsLeft = 1;

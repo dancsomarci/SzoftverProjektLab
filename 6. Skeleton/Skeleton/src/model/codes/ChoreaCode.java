@@ -17,7 +17,7 @@ public class ChoreaCode extends GeneticCode
 	 * a jövendőbeli ágens élettartamát a vitustánc ágens legyártásához.
 	 */
 	public ChoreaCode(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 		aminoAcidPrice = 5;
 		nucleotidePrice = 6;
 		turnsLeft = 1;

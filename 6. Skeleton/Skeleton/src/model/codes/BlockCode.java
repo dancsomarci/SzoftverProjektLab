@@ -17,7 +17,7 @@ public class BlockCode extends GeneticCode
 	 * hatásánakl időtartamát
 	 */
 	public BlockCode() {
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 		aminoAcidPrice = 4;
 		nucleotidePrice = 3;
 		turnsLeft = 2;
