@@ -181,7 +181,7 @@ public class Virologist
 	/**
 	 * egy másik virológus megkenése egy ágenssel.
 	 * @param v a másik virológus
-	 * @param code az ágens
+	 * @param code az ágens létrehozásához szükséges genetikai kód
 	 */
 	public void Inject(Virologist v, GeneticCode code)
 	{
