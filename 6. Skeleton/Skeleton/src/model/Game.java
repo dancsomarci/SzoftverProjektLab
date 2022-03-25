@@ -35,7 +35,7 @@ public class Game
 	 * Game osztály konstruktora, inicializálja a tagváltozók listáit
 	 */
 	public Game(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 
 		fields = new ArrayList<>();
 		codes = new ArrayList<>();

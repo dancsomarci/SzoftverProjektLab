@@ -177,7 +177,7 @@ public class Virologist
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 	
-	public boolean TargetedWith(Agent a)
+	public void TargetedWith(Agent a)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
