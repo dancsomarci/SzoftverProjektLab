@@ -9,7 +9,9 @@ import model.map.Shelter;
 import model.strategy.*;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -322,7 +324,7 @@ public class Tester {
 
     private static void test33(){}
 
-    public static void main(String[] args){
+    public static void menu(){
         System.out.println("1) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
                 "2) 5.1.2.2 Virologist tries to loot other Virologist who is not stunned\n" +
                 "   5.1.2.3 Virologist tries to loot with 3 equipment stored already\n" +
@@ -363,6 +365,27 @@ public class Tester {
                 "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
                 "" +
                 "99) EXIT");
+    }
+
+    public static void main(String[] args){
+        /*HashMap<String, Method> tests = new HashMap<>();
+
+        for (Method method : Tester.class.getMethods()){
+            if (method.getName().matches("test(\\d*)")){
+                tests.put(method.getName(), method);
+            }
+        }
+
+        String input;
+        while (!(input = sc.nextLine()).equals("exit")){
+            Method m = tests.get(input);
+            try {
+                m.invoke(null); //kezelődik a null dereferálás, invoke exception-ök is.
+            } catch (Exception e){
+                System.out.println("Nem megfelelő input!");
+            }
+        }*/
+
         Scanner sc = new Scanner(System.in);
         boolean run = true;
 
@@ -394,8 +417,5 @@ public class Tester {
                     break;
             }
         }
-
-
-
     }
 }
