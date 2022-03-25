@@ -216,8 +216,77 @@ public class Tester {
     private static void test33(){}
 
     public static void main(String[] args){
+        System.out.println("1) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "2) 5.1.2.2 Virologist tries to loot other Virologist who is not stunned\n" +
+                "   5.1.2.3 Virologist tries to loot with 3 equipment stored already\n" +
+                "4) 5.1.2.4 Virologist loots Nucleotide from other Virologist\n" +
+                "5) 5.1.2.5 Virologist tries to loot equipment from other Virologist who has none\n" +
+                "6) 5.1.2.6 Virologist tries to loot equipment from other Virologist who has a cloak\n" +
+                "7) 5.1.2.7 Virologist moves to field\n" +
 
-        //TODO menü
+                "8) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "9) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "10) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "11) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "12) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "13) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "14) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+                "" +
+                "99) EXIT");
+        Scanner sc = new Scanner(System.in);
+        boolean run = true;
+
+        while(run){
+            int test = Integer.parseInt(sc.nextLine());
+            switch(test){
+                case 1:
+                    test1();
+                    break;
+                case 2:
+                    test2();
+                    break;
+                case 4:
+                    test4();
+                    break;
+                case 5:
+                    test5();
+                    break;
+                case 6:
+                    test6();
+                case 7:
+                    test7();
+                    break;
+
+                    //TODO ...
+
+                case 99:
+                    run = false;
+                    break;
+            }
+        }
 
     }
 }
