@@ -368,4 +368,8 @@ public class Virologist
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
+
+	public void AddgeneticCode(GeneticCode code){
+
+	}
 }

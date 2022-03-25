@@ -1,10 +1,12 @@
 package test;
 
 import model.Virologist;
+import model.codes.BlockCode;
+import model.equipments.Bag;
 import model.equipments.Cloak;
 import model.map.Field;
-import model.strategy.Looted;
-import model.strategy.NoLoot;
+import model.map.Shelter;
+import model.strategy.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -177,19 +179,108 @@ public class Tester {
         v1.Move(f);
     }
 
-    private static void test8(){}
+    /**
+     * 5.1.2.8-as teszteset
+     * Azt a folyamatot szimulálja, mikor egy virológus megakadályozódik abban,
+     * hogy átlépjen egy mezőről egy másik, szomszédos mezőre. Persze csak akkor, ha még van rendelkezésre álló akciója.
+     */
+    private static void test8(){
+        Field field = new Field();
+        Virologist v = new Virologist();
+        field.AddVirologist(v);
+        IMoveStr s = new NoMove();
+        v.SetMoveStr(s);
 
-    private static void test9(){}
+        v.Move(new Field());
+    }
 
-    private static void test10(){}
+    /**
+     * 5.1.2.9-es teszteset
+     * Azt a folyamatot szimulálja, mikor egy virológus sikeresen felvesz egy felszerelést az adott mezőről,
+     * feltéve ha van még háta akciója.
+     */
+    private static void test9(){
+        Virologist v = new Virologist();
+        Field field = new Field();
+        field.AddVirologist(v);
+        Bag e = new Bag();
+        field.Drop(e);
 
-    private static void test11(){}
+        v.Equip();
+    }
 
-    private static void test12(){}
+    /**
+     * 5.1.2.10-es teszteset
+     * Azt a folyamatot szimulálja, mikor egy virológus megpróbál egy felszerelést felvenni az adott mezőről,
+     * de a mezőn nincsenek felszerelések.
+     * Csak akkor próbálkozik, ha van mág hátra akciója.
+     */
+    private static void test10(){
+        Virologist v = new Virologist();
+        Field field = new Field();
+        field.AddVirologist(v);
 
-    private static void test13(){}
+        v.Equip();
+    }
 
-    private static void test14(){}
+    /**
+     * 5.1.2.11-es teszteset
+     * Azt a folyamatot szimulálja, mikor egy virológus sikeresen felvesz egy felszerelést egy óvóhely,
+     * feltéve ha van még akciója.
+     */
+    private static void test11(){
+        Virologist v = new Virologist();
+        Shelter field = new Shelter();
+        field.AddVirologist(v);
+        Bag e = new Bag();
+        field.Drop(e);
+
+        v.Equip();
+    }
+
+    /**
+     * 5.1.2.12-es teszteset
+     * Azt a folyamatot szimulálja, mikor egy virológus megpróbál egy felszerelést felvenni egy óvóhelyről,
+     * de az óvóhelyen nincsenek felszerelések.
+     * Egyáltalán csak akkor próbálja meg felvenni, ha van akciója.
+     */
+    private static void test12(){
+        Virologist v = new Virologist();
+        Shelter field = new Shelter();
+        field.AddVirologist(v);
+
+        v.Equip();
+    }
+
+    /**
+     * 5.1.2.13-as teszteset
+     * Azt a folyamatot szimulálja, mikor egy virológus megakadályozódik abban,
+     * hogy felvegyen egy felszerelést az adott mezőről.
+     * Egyáltalán csak akkor próbálja meg, ha van akciója.
+     */
+    private static void test13(){
+        Virologist v = new Virologist();
+        NoEquip s = new NoEquip();
+        v.SetEquipStr(s);
+
+        v.Equip();
+    }
+
+    /**
+     * 5.1.2.14-es teszteset
+     * A virológus megpróbál megkenni egy másik virológust, de a virológus nem képes rá.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    private static void test14(){
+        Virologist v = new Virologist();
+        NoInject injectStr = new NoInject();
+        BlockCode bCode = new BlockCode();
+        Virologist target = new Virologist();
+        v.AddgeneticCode(bCode);
+        v.SetInjectStr(injectStr);
+
+        v.Inject(target, bCode);
+    }
 
     private static void test15(){}
 
