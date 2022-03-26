@@ -16,12 +16,12 @@ import test.Tester;
 
 public class DefMove implements IMoveStr
 {
-	public void Move(Virologist v, Field f)
+	public void Move(Virologist v, Field from, Field to)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		v.getField().RemoveVirologist(v);
-		f.AddVirologist(v);
+		from.RemoveVirologist(v);
+		to.AddVirologist(v);
 		v.DecreaseActions();
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());

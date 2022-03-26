@@ -17,7 +17,7 @@ import test.Tester;
 
 public class NoMove implements IMoveStr
 {
-	public void Move(Virologist v, Field f)
+	public void Move(Virologist v, Field from, Field to)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 

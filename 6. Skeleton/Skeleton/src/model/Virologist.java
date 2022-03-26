@@ -371,14 +371,9 @@ public class Virologist
 	}
 
 	public void AddgeneticCode(GeneticCode code){
-
-	}
-
-	public Field getField(){
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 
-		return field;
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 }

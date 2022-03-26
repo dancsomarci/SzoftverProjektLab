@@ -11,11 +11,12 @@ package model.strategy;//
 
 
 import model.Virologist;
+import model.map.Field;
 import test.Tester;
 
 public class NoLearn implements ILearnStr
 {
-	public void Learn(Virologist v)
+	public void Learn(Virologist v, Field f)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 

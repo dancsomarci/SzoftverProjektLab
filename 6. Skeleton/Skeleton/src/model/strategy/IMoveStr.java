@@ -16,5 +16,5 @@ import model.map.Field;
 
 public interface IMoveStr
 {
-	void Move(Virologist v, Field f);
+	void Move(Virologist v, Field from, Field to);
 }
