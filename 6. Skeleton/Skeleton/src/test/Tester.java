@@ -13,11 +13,9 @@ import model.map.Shelter;
 import model.strategy.*;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.function.Function;
 
 /**
  * Tesztelést vezérlő osztály, ebben van megvalósítva a teszteseteket kezelő menürendszer
@@ -103,6 +101,7 @@ public class Tester {
      * Lebénult virológus megpróbál Aminosavat lopni egy másiktól,
      * de mivel béna, ezért nem tud.
      */
+    @SkeletonTestCase
     private static void test1(){
         Virologist v1 = new Virologist();
         NoLoot nl = new NoLoot();
@@ -119,6 +118,7 @@ public class Tester {
      * Ha a virológusnál 3 felszerelés van, akkor se lesz sikeres, de akkor az 5.1.2.3.-as teszteset
      * fog végrehajtódni.
      */
+    @SkeletonTestCase
     private static void test2(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
@@ -131,6 +131,7 @@ public class Tester {
      * Egy virológus nukleotidot lop egy másik, lebénult virológustól. Aminosav lopás is ugyanígy nézne ki.
      * Akkor fog a várt eredménnyel lefutni, ha a virológusnak van még hátra akciója.
      */
+    @SkeletonTestCase
     private static void test4(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
@@ -147,6 +148,7 @@ public class Tester {
      * Akkor fog a várt eredménnyel lefutni, ha a virológusnak van még hátra akciója és van helye
      * plusz felszerelésre.
      */
+    @SkeletonTestCase
     private static void test5(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
@@ -162,6 +164,7 @@ public class Tester {
      * Akkor fog a várt eredménnyel lefutni, ha a virológusnak van még hátra akciója és van helye
      * plusz felszerelésre.
      */
+    @SkeletonTestCase
     private static void test6(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
@@ -179,6 +182,7 @@ public class Tester {
      * Akkor fog a várt eredménnyel lefutni a teszt, hogyha van még rendelkezésre álló akciója
      * a virológusnak, különben visszatér a move(Field: f) függvényből.
      */
+    @SkeletonTestCase
     private static void test7(){
         Field field = new Field();
         Virologist v1 = new Virologist();
@@ -193,6 +197,7 @@ public class Tester {
      * Azt a folyamatot szimulálja, mikor egy virológus megakadályozódik abban,
      * hogy átlépjen egy mezőről egy másik, szomszédos mezőre. Persze csak akkor, ha még van rendelkezésre álló akciója.
      */
+    @SkeletonTestCase
     private static void test8(){
         Field field = new Field();
         Virologist v = new Virologist();
@@ -208,6 +213,7 @@ public class Tester {
      * Azt a folyamatot szimulálja, mikor egy virológus sikeresen felvesz egy felszerelést az adott mezőről,
      * feltéve ha van még háta akciója.
      */
+    @SkeletonTestCase
     private static void test9(){
         Virologist v = new Virologist();
         Field field = new Field();
@@ -224,6 +230,7 @@ public class Tester {
      * de a mezőn nincsenek felszerelések.
      * Csak akkor próbálkozik, ha van mág hátra akciója.
      */
+    @SkeletonTestCase
     private static void test10(){
         Virologist v = new Virologist();
         Field field = new Field();
@@ -237,6 +244,7 @@ public class Tester {
      * Azt a folyamatot szimulálja, mikor egy virológus sikeresen felvesz egy felszerelést egy óvóhely,
      * feltéve ha van még akciója.
      */
+    @SkeletonTestCase
     private static void test11(){
         Virologist v = new Virologist();
         Bag e = new Bag();
@@ -252,6 +260,7 @@ public class Tester {
      * de az óvóhelyen nincsenek felszerelések.
      * Egyáltalán csak akkor próbálja meg felvenni, ha van akciója.
      */
+    @SkeletonTestCase
     private static void test12(){
         Virologist v = new Virologist();
         Shelter field = new Shelter(null);
@@ -266,6 +275,7 @@ public class Tester {
      * hogy felvegyen egy felszerelést az adott mezőről.
      * Egyáltalán csak akkor próbálja meg, ha van akciója.
      */
+    @SkeletonTestCase
     private static void test13(){
         Virologist v = new Virologist();
         NoEquip s = new NoEquip();
@@ -279,6 +289,7 @@ public class Tester {
      * A virológus megpróbál megkenni egy másik virológust, de a virológus nem képes rá.
      * Csak akkor próbálkozik, ha van még hátra akciója.
      */
+    @SkeletonTestCase
     private static void test14(){
         Virologist v = new Virologist();
         NoInject injectStr = new NoInject();
@@ -290,24 +301,32 @@ public class Tester {
         v.Inject(target, bCode);
     }
 
+    @SkeletonTestCase
     private static void test15(){}
 
+    @SkeletonTestCase
     private static void test16(){}
 
+    @SkeletonTestCase
     private static void test17(){}
 
+    @SkeletonTestCase
     private static void test18(){}
 
+    @SkeletonTestCase
     private static void test19(){}
 
+    @SkeletonTestCase
     private static void test20(){}
 
+    @SkeletonTestCase
     private static void test21(){}
 
     /**
      * 5.4.22-es teszteset
      * A virológus sikeresen megken egy virológust
      */
+    @SkeletonTestCase
     private static void test22(){
         Virologist v = new Virologist();
         ChoreaCode code = new ChoreaCode();
@@ -321,6 +340,7 @@ public class Tester {
      * 5.4.23-es teszteset
      * A virológus próbál megkenni egy virológust, de a célpont stratégiája nem engedi
      */
+    @SkeletonTestCase
     private static void test23(){
         Virologist v = new Virologist();
         ChoreaCode code = new ChoreaCode();
@@ -336,6 +356,7 @@ public class Tester {
      * 5.4.24-es teszteset
      * Kör vége és játék vége
      */
+    @SkeletonTestCase
     private static void test24(){
         Game g = new Game();
         Virologist v = new Virologist();
@@ -374,6 +395,7 @@ public class Tester {
      * 5.4.26-os teszteset
      * Sikeres eldobás
      */
+    @SkeletonTestCase
     private static void test26(){
         Virologist v = new Virologist();
         Field f = new Field();
@@ -390,67 +412,40 @@ public class Tester {
         v.Drop();
     }
 
+    @SkeletonTestCase
     private static void test30(){}
 
+    @SkeletonTestCase
     private static void test31(){}
 
+    @SkeletonTestCase
     private static void test32(){}
 
+    @SkeletonTestCase
     private static void test33(){}
 
     public static void menu(){
-        System.out.println("1) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
+        System.out.println(
+                "1) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
                 "2) 5.1.2.2 Virologist tries to loot other Virologist who is not stunned\n" +
                 "   5.1.2.3 Virologist tries to loot with 3 equipment stored already\n" +
                 "4) 5.1.2.4 Virologist loots Nucleotide from other Virologist\n" +
                 "5) 5.1.2.5 Virologist tries to loot equipment from other Virologist who has none\n" +
                 "6) 5.1.2.6 Virologist tries to loot equipment from other Virologist who has a cloak\n" +
-                "7) 5.1.2.7 Virologist moves to field\n" +
-
-                "8) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "9) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "10) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "11) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "12) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "13) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "14) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "a) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "" +
-                "99) EXIT");
+                "7) 5.1.2.7 Virologist moves to field\n"
+        );
     }
 
     public static void main(String[] args){
-        /*HashMap<String, Method> tests = new HashMap<>();
-
+        HashMap<String, Method> tests = new HashMap<>();
         for (Method method : Tester.class.getMethods()){
-            if (method.getName().matches("test(\\d*)")){
+            if (method.isAnnotationPresent(SkeletonTestCase.class)){
                 tests.put(method.getName(), method);
             }
         }
 
+        menu();
+        Scanner sc = new Scanner(System.in);
         String input;
         while (!(input = sc.nextLine()).equals("exit")){
             Method m = tests.get(input);
@@ -458,38 +453,6 @@ public class Tester {
                 m.invoke(null); //kezelődik a null dereferálás, invoke exception-ök is.
             } catch (Exception e){
                 System.out.println("Nem megfelelő input!");
-            }
-        }*/
-
-        Scanner sc = new Scanner(System.in);
-        boolean run = true;
-
-        while(run){
-            int test = Integer.parseInt(sc.nextLine());
-            switch(test){
-                case 1:
-                    test1();
-                    break;
-                case 2:
-                    test2();
-                    break;
-                case 4:
-                    test4();
-                    break;
-                case 5:
-                    test5();
-                    break;
-                case 6:
-                    test6();
-                case 7:
-                    test7();
-                    break;
-
-                    //TODO ...
-
-                case 99:
-                    run = false;
-                    break;
             }
         }
     }
