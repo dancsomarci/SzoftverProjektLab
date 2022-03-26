@@ -11,9 +11,9 @@ package model.strategy;//
 
 
 import model.Virologist;
+import model.map.Field;
 
 public interface ICollectStr
 {
-	void CollectAminoacid(Virologist v);
-	void CollectNucleotide(Virologist v);
+	void Collect(Virologist v, Field f);
 }

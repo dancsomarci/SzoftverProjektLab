@@ -397,7 +397,6 @@ public class Tester {
         Virologist v = new Virologist();
         Field f = new Field();
         f.AddVirologist(v);
-        //v.SetField(f);
         Cloak c = new Cloak();
         v.AddEquipment(c);
 
@@ -405,6 +404,7 @@ public class Tester {
     }
 
     /**
+     * 5.4.29-es teszteset
      * Sikertelen eldobás stratégia miatt
      */
     @SkeletonTestCase
@@ -412,7 +412,6 @@ public class Tester {
         Virologist v = new Virologist();
         Field f = new Field();
         f.AddVirologist(v);
-        //v.SetField(f);
         Cloak c = new Cloak();
         v.AddEquipment(c);
 

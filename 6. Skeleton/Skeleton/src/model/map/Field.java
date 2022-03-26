@@ -62,7 +62,7 @@ public class Field
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		virologists.add(v);
-
+		v.SetField(this);
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
@@ -81,13 +81,14 @@ public class Field
 	/**
 	 * Megadja az adott sorszámú virológust a mezőn
 	 * @param virologist virológus sorszáma
+	 * @throws IndexOutOfBoundsException csak egy virológus tartózkodik a mezőn
 	 * @return adott sorszámú virológus
 	 */
 	public Virologist GetVirologist(int virologist) {
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		if (this.virologists.size() == 0) {
-			throw new IndexOutOfBoundsException("There is no virologist on this field");
+		if (this.virologists.size() < 2) {
+			throw new IndexOutOfBoundsException("There is no other virologist on this field");
 		}
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
