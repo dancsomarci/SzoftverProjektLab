@@ -102,7 +102,7 @@ public class Tester {
      * de mivel béna, ezért nem tud.
      */
     @SkeletonTestCase
-    private static void test1(){
+    public static void test1(){
         Virologist v1 = new Virologist();
         NoLoot nl = new NoLoot();
         Virologist v2 = new Virologist();
@@ -119,7 +119,7 @@ public class Tester {
      * fog végrehajtódni.
      */
     @SkeletonTestCase
-    private static void test2(){
+    public static void test2(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
 
@@ -132,7 +132,7 @@ public class Tester {
      * Akkor fog a várt eredménnyel lefutni, ha a virológusnak van még hátra akciója.
      */
     @SkeletonTestCase
-    private static void test4(){
+    public static void test4(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
         Looted ltd = new Looted();
@@ -149,7 +149,7 @@ public class Tester {
      * plusz felszerelésre.
      */
     @SkeletonTestCase
-    private static void test5(){
+    public static void test5(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
         Looted lt = new Looted();
@@ -165,7 +165,7 @@ public class Tester {
      * plusz felszerelésre.
      */
     @SkeletonTestCase
-    private static void test6(){
+    public static void test6(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
         Looted lt = new Looted();
@@ -183,7 +183,7 @@ public class Tester {
      * a virológusnak, különben visszatér a move(Field: f) függvényből.
      */
     @SkeletonTestCase
-    private static void test7(){
+    public static void test7(){
         Field field = new Field();
         Virologist v1 = new Virologist();
         field.AddVirologist(v1);
@@ -198,7 +198,7 @@ public class Tester {
      * hogy átlépjen egy mezőről egy másik, szomszédos mezőre. Persze csak akkor, ha még van rendelkezésre álló akciója.
      */
     @SkeletonTestCase
-    private static void test8(){
+    public static void test8(){
         Field field = new Field();
         Virologist v = new Virologist();
         field.AddVirologist(v);
@@ -214,7 +214,7 @@ public class Tester {
      * feltéve ha van még háta akciója.
      */
     @SkeletonTestCase
-    private static void test9(){
+    public static void test9(){
         Virologist v = new Virologist();
         Field field = new Field();
         field.AddVirologist(v);
@@ -231,7 +231,7 @@ public class Tester {
      * Csak akkor próbálkozik, ha van mág hátra akciója.
      */
     @SkeletonTestCase
-    private static void test10(){
+    public static void test10(){
         Virologist v = new Virologist();
         Field field = new Field();
         field.AddVirologist(v);
@@ -245,7 +245,7 @@ public class Tester {
      * feltéve ha van még akciója.
      */
     @SkeletonTestCase
-    private static void test11(){
+    public static void test11(){
         Virologist v = new Virologist();
         Bag e = new Bag();
         Shelter field = new Shelter(e);
@@ -261,7 +261,7 @@ public class Tester {
      * Egyáltalán csak akkor próbálja meg felvenni, ha van akciója.
      */
     @SkeletonTestCase
-    private static void test12(){
+    public static void test12(){
         Virologist v = new Virologist();
         Shelter field = new Shelter(null);
         field.AddVirologist(v);
@@ -276,7 +276,7 @@ public class Tester {
      * Egyáltalán csak akkor próbálja meg, ha van akciója.
      */
     @SkeletonTestCase
-    private static void test13(){
+    public static void test13(){
         Virologist v = new Virologist();
         NoEquip s = new NoEquip();
         v.SetEquipStr(s);
@@ -290,7 +290,7 @@ public class Tester {
      * Csak akkor próbálkozik, ha van még hátra akciója.
      */
     @SkeletonTestCase
-    private static void test14(){
+    public static void test14(){
         Virologist v = new Virologist();
         NoInject injectStr = new NoInject();
         BlockCode bCode = new BlockCode();
@@ -302,32 +302,32 @@ public class Tester {
     }
 
     @SkeletonTestCase
-    private static void test15(){}
+    public static void test15(){}
 
     @SkeletonTestCase
-    private static void test16(){}
+    public static void test16(){}
 
     @SkeletonTestCase
-    private static void test17(){}
+    public static void test17(){}
 
     @SkeletonTestCase
-    private static void test18(){}
+    public static void test18(){}
 
     @SkeletonTestCase
-    private static void test19(){}
+    public static void test19(){}
 
     @SkeletonTestCase
-    private static void test20(){}
+    public static void test20(){}
 
     @SkeletonTestCase
-    private static void test21(){}
+    public static void test21(){}
 
     /**
      * 5.4.22-es teszteset
      * A virológus sikeresen megken egy virológust
      */
     @SkeletonTestCase
-    private static void test22(){
+    public static void test22(){
         Virologist v = new Virologist();
         ChoreaCode code = new ChoreaCode();
         Virologist target = new Virologist();
@@ -341,7 +341,7 @@ public class Tester {
      * A virológus próbál megkenni egy virológust, de a célpont stratégiája nem engedi
      */
     @SkeletonTestCase
-    private static void test23(){
+    public static void test23(){
         Virologist v = new Virologist();
         ChoreaCode code = new ChoreaCode();
         v.AddGeneticCode(code);
@@ -357,27 +357,10 @@ public class Tester {
      * Kör vége és játék vége
      */
     @SkeletonTestCase
-    private static void test24(){
+    public static void test24(){
         Game g = new Game();
         Virologist v = new Virologist();
         g.AddVirologist(v);
-
-        /*
-        Q: vége vagy sem?
-
-     * 5.4.25-ös teszteset
-     * Kör vége és játék vége nélkül
-
-        private static void test25(){
-            Game g = new Game();
-            Virologist v = new Virologist();
-            g.AddVirologist(v);
-            BlockCode b = new BlockCode();
-            v.AddGeneticCode(b);
-
-            v.EndTurn();
-        }
-        */
 
         ChoreaCode c = new ChoreaCode();
         BlockCode b = new BlockCode();
@@ -392,20 +375,44 @@ public class Tester {
     }
 
     /**
+     * 5.4.25-ös teszteset
+     * Kör vége és játék vége nélkül
+     */
+    public static void test25(){
+        Game g = new Game();
+        Virologist v = new Virologist();
+        g.AddVirologist(v);
+        BlockCode b = new BlockCode();
+        v.AddGeneticCode(b);
+
+        v.EndTurn();
+    }
+
+    /**
      * 5.4.26-os teszteset
      * Sikeres eldobás
      */
     @SkeletonTestCase
-    private static void test26(){
+    public static void test26(){
         Virologist v = new Virologist();
         Field f = new Field();
         f.AddVirologist(v);
-        v.SetField(f);
+        //v.SetField(f);
+        Cloak c = new Cloak();
+        v.AddEquipment(c);
 
+        v.Drop();
+    }
 
-        /**
-         * Q: van-e actionje, equipmnet, str
-         */
+    /**
+     * Sikertelen eldobás stratégia miatt
+     */
+    @SkeletonTestCase
+    public static void test29(){
+        Virologist v = new Virologist();
+        Field f = new Field();
+        f.AddVirologist(v);
+        //v.SetField(f);
         Cloak c = new Cloak();
         v.AddEquipment(c);
 
@@ -413,16 +420,16 @@ public class Tester {
     }
 
     @SkeletonTestCase
-    private static void test30(){}
+    public static void test30(){}
 
     @SkeletonTestCase
-    private static void test31(){}
+    public static void test31(){}
 
     @SkeletonTestCase
-    private static void test32(){}
+    public static void test32(){}
 
     @SkeletonTestCase
-    private static void test33(){}
+    public static void test33(){}
 
     public static void menu(){
         System.out.println(
@@ -438,8 +445,10 @@ public class Tester {
 
     public static void main(String[] args){
         HashMap<String, Method> tests = new HashMap<>();
+
         for (Method method : Tester.class.getMethods()){
             if (method.isAnnotationPresent(SkeletonTestCase.class)){
+                System.out.println(method.getName());
                 tests.put(method.getName(), method);
             }
         }
