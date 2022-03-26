@@ -12,19 +12,42 @@ package model.strategy;//
 
 import model.Virologist;
 import model.equipments.Equipment;
+import test.Tester;
 
-
+/**
+ * Alapértelmezett virológusra irányuló kifosztásért felelős stratégia, blokkolja a kifosztást
+ */
 public class DefLooted implements ILootedStr
 {
-	public void LootedForEquipment(Virologist v, Virologist from, Equipment e)
-	{
+
+	/**
+	 * Felszerelésre irányuló kifosztás
+	 * @param v kifosztó virológus
+	 * @param from kifosztandó virológus
+	 * @param e kifosztandó felszerelés
+	 */
+	public void LootedForEquipment(Virologist v, Virologist from, Equipment e) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
-	
-	public void LootedForAminoAcid(Virologist v, Virologist from)
-	{
+
+	/**
+	 * Aminosavra irányuló kifosztás
+	 * @param v kifosztó virológus
+	 * @param from kifosztandó virológus
+	 */
+	public void LootedForAminoAcid(Virologist v, Virologist from) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
-	
-	public void LootedForNukleotide(Virologist v, Virologist from)
-	{
+
+	/**
+	 * Nukleotidra irányuló kifosztás
+	 * @param v kifosztó virológus
+	 * @param from kifosztandó virológus
+	 */
+	public void LootedForNukleotide(Virologist v, Virologist from) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

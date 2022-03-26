@@ -11,10 +11,20 @@ package model.map;//
 
 
 import model.Virologist;
+import model.equipments.Equipment;
+import test.Tester;
 
+/**
+ *
+ */
 public class Shelter extends Field
 {
-	public void PickUpEquipment(Virologist v)
-	{
+	public Shelter(Equipment e) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		if (e != null)
+			equipments.add(e);
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

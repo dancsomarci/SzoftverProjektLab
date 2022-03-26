@@ -278,8 +278,8 @@ public class Virologist
 	public int GetAminoAcid()
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		return aminoAcid;
 	}
 	
 	public int GetNucleotide()
@@ -287,6 +287,7 @@ public class Virologist
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		return nucleotide;
 	}
 	
 	public void Update()
@@ -372,4 +373,12 @@ public class Virologist
 	public void AddgeneticCode(GeneticCode code){
 
 	}
+
+	public Field getField(){
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+
+		return field;
+	}
+
 }

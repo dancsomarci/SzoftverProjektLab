@@ -13,11 +13,28 @@ package model.map;//
 
 import model.Virologist;
 import model.codes.GeneticCode;
+import test.Tester;
 
+/**
+ *
+ */
 public class Laboratory extends Field
 {
 	private GeneticCode code;
-	public void LearnGeneticCode(Virologist v)
-	{
+
+	public Laboratory(GeneticCode c){
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		code = c;
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	public void LearnGeneticCode(Virologist v) {
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		v.AddGeneticCode(code);
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

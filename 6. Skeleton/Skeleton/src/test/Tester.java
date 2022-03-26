@@ -1,7 +1,11 @@
 package test;
 
+import model.Game;
 import model.Virologist;
 import model.codes.BlockCode;
+import model.codes.ChoreaCode;
+import model.codes.ForgetCode;
+import model.codes.StunCode;
 import model.equipments.Bag;
 import model.equipments.Cloak;
 import model.map.Field;
@@ -235,11 +239,10 @@ public class Tester {
      */
     private static void test11(){
         Virologist v = new Virologist();
-        Shelter field = new Shelter();
-        field.AddVirologist(v);
         Bag e = new Bag();
+        Shelter field = new Shelter(e);
+        field.AddVirologist(v);
         field.Drop(e);
-
         v.Equip();
     }
 
@@ -251,7 +254,7 @@ public class Tester {
      */
     private static void test12(){
         Virologist v = new Virologist();
-        Shelter field = new Shelter();
+        Shelter field = new Shelter(null);
         field.AddVirologist(v);
 
         v.Equip();
@@ -301,21 +304,91 @@ public class Tester {
 
     private static void test21(){}
 
-    private static void test22(){}
+    /**
+     * 5.4.22-es teszteset
+     * A virológus sikeresen megken egy virológust
+     */
+    private static void test22(){
+        Virologist v = new Virologist();
+        ChoreaCode code = new ChoreaCode();
+        Virologist target = new Virologist();
+        v.AddGeneticCode(code);
 
-    private static void test23(){}
+        v.Inject(target, code);
+    }
 
-    private static void test24(){}
+    /**
+     * 5.4.23-es teszteset
+     * A virológus próbál megkenni egy virológust, de a célpont stratégiája nem engedi
+     */
+    private static void test23(){
+        Virologist v = new Virologist();
+        ChoreaCode code = new ChoreaCode();
+        v.AddGeneticCode(code);
+        Virologist target = new Virologist();
+        NoInjected iStr = new NoInjected();
+        target.SetInjectedStr(iStr);
 
-    private static void test25(){}
+        v.Inject(target, code);
+    }
 
-    private static void test26(){}
+    /**
+     * 5.4.24-es teszteset
+     * Kör vége és játék vége
+     */
+    private static void test24(){
+        Game g = new Game();
+        Virologist v = new Virologist();
+        g.AddVirologist(v);
 
-    private static void test27(){}
+        /*
+        Q: vége vagy sem?
 
-    private static void test28(){}
+     * 5.4.25-ös teszteset
+     * Kör vége és játék vége nélkül
 
-    private static void test29(){}
+        private static void test25(){
+            Game g = new Game();
+            Virologist v = new Virologist();
+            g.AddVirologist(v);
+            BlockCode b = new BlockCode();
+            v.AddGeneticCode(b);
+
+            v.EndTurn();
+        }
+        */
+
+        ChoreaCode c = new ChoreaCode();
+        BlockCode b = new BlockCode();
+        ForgetCode f = new ForgetCode();
+        StunCode s = new StunCode();
+        v.AddGeneticCode(c);
+        v.AddGeneticCode(b);
+        v.AddGeneticCode(f);
+        v.AddGeneticCode(s);
+
+        v.EndTurn();
+    }
+
+    /**
+     * 5.4.26-os teszteset
+     * Sikeres eldobás
+     */
+    private static void test26(){
+        Virologist v = new Virologist();
+        Field f = new Field();
+        f.AddVirologist(v);
+        v.SetField(f);
+
+
+        /**
+         * Q: van-e actionje, equipmnet, str
+         */
+        Cloak c = new Cloak();
+        v.AddEquipment(c);
+
+        v.Drop();
+    }
 
     private static void test30(){}
 
