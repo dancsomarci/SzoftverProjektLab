@@ -8,6 +8,7 @@ import model.map.*;
 import model.strategy.*;
 import test.Tester;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Virologist
@@ -20,7 +21,7 @@ public class Virologist
 	private Field field;
 	private Agent agents;
 	private GeneticCode codes;
-	private Equipment equipments;
+	private ArrayList<Equipment> equipments;
 	private IMoveStr moveStr;
 	private ILearnStr learnStr;
 	private IInjectedStr injectedStr;
@@ -145,12 +146,20 @@ public class Virologist
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
-	
+
+	/**
+	 *
+	 * @return
+	 */
 	public Equipment GetEquipment()
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		if (equipments.size() == 0)
+			throw new IndexOutOfBoundsException("Üres a felszerelés tároló");
+		Equipment e = equipments.remove(equipments.size()-1);
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		return e;
 	}
 	
 	public void AddGeneticCode(GeneticCode code)
