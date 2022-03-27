@@ -438,8 +438,8 @@ public class Tester {
     @SkeletonTestCase(name = "Learn Agent success", id = "5.1.2.30")
     public static void test30(){
         Virologist v = new Virologist();
-        GeneticCode gc = new GeneticCode();
-        Laboratory l = new Laboratory(gc);
+        ChoreaCode cc = new ChoreaCode();
+        Laboratory l = new Laboratory(cc);
         l.AddVirologist(v);
         DefLearn dl = new DefLearn();
         v.SetLearnStr(dl);
@@ -450,8 +450,8 @@ public class Tester {
     @SkeletonTestCase(name = "Learn agent fail", id = "5.1.2.31")
     public static void test31(){
         Virologist v = new Virologist();
-        GeneticCode gc = new GeneticCode();
-        Laboratory l = new Laboratory(gc);
+        ChoreaCode cc = new ChoreaCode();
+        Laboratory l = new Laboratory(cc);
         l.AddVirologist(v);
         NoLearn nl = new NoLearn();
         v.SetLearnStr(nl);
@@ -489,6 +489,9 @@ public class Tester {
         v.Collect();
     }
 
+    /**
+     *
+     */
     @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.35")
     public static void test35(){
         Virologist v = new Virologist();

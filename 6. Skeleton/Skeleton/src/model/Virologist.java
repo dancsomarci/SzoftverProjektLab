@@ -370,8 +370,8 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
-	 * @param a
+	 * Adott virológust lehet ezzel függvénnyel  megcélozni egy ágensfelkenéssel.
+	 * @param a Az az ágens amit szeretnénk kenni
 	 */
 	public void TargetedWith(Agent a)
 	{
@@ -574,7 +574,7 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
+	 * Vissza stratégiákat az alapállapotukba. Azt értjük alapnak ami a konstruktorban van.
 	 */
 	public void Reset()
 	{
