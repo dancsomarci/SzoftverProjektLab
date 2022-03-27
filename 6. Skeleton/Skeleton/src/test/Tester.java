@@ -536,8 +536,8 @@ public class Tester {
         l.AddVirologist(v);
         DefLearn dl = new DefLearn();
         v.SetLearnStr(dl);
-        v.Learn();
 
+        v.Learn();
     }
 
     /**
@@ -552,6 +552,7 @@ public class Tester {
         l.AddVirologist(v);
         NoLearn nl = new NoLearn();
         v.SetLearnStr(nl);
+
         v.Learn();
     }
 
@@ -566,8 +567,8 @@ public class Tester {
         wh.AddVirologist(v);
         DefCollect dc = new DefCollect();
         v.SetCollectStr(dc);
-        v.Collect();
 
+        v.Collect();
     }
 
     /**
@@ -583,7 +584,6 @@ public class Tester {
         v.SetCollectStr(nc);
         v.Collect();
     }
-
 
     /**
      * A teszteseteket tartalmazo Map
