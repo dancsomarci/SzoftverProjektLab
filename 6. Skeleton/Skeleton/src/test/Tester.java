@@ -403,7 +403,7 @@ public class Tester {
 
     /**
      * 5.4.28-as teszteset
-     * Sikeres eldobás
+     * Eldobás felszerelés nélkül
      */
     @SkeletonTestCase(name = "Default drop without equipment", id = "5.1.2.28")
     public static void test28(){
@@ -423,10 +423,11 @@ public class Tester {
         Virologist v = new Virologist();
         Field f = new Field();
         f.AddVirologist(v);
-        Cloak c = new Cloak();
-        v.AddEquipment(c);
+        NoDrop d = new NoDrop();
+        Bag b = new Bag();
+        v.AddEquipment(b);
+        v.SetDropStr(d);
 
-        
         v.Drop();
     }
 

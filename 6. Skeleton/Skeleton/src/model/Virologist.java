@@ -116,6 +116,11 @@ public class Virologist
 	public Virologist(){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 
+
+		equipments = new ArrayList<>(3);
+		codes = new ArrayList<>();
+		agents = new ArrayList<>();
+
 		lootedStr = new DefLooted();
 		injectedStr = new DefInjected();
 		collectStr = new DefCollect();
