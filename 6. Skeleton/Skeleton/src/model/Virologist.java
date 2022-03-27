@@ -132,6 +132,10 @@ public class Virologist
 		moveStr = new DefMove();
 	}
 
+	/**
+	 * Beállítja a játék osztály példányának referenciáját
+	 * @param g a beállítandó objektum
+	 */
 	public void AddGame(Game g){
 		game = g;
 	}
