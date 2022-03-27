@@ -14,8 +14,7 @@ import model.strategy.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Tesztelést vezérlő osztály, ebben van megvalósítva a teszteseteket kezelő menürendszer
@@ -97,11 +96,11 @@ public class Tester {
     }
 
     /**
-     * 5.1.2.1.-es teszteset
+     * 5.1.2.1-es teszteset
      * Lebénult virológus megpróbál Aminosavat lopni egy másiktól,
      * de mivel béna, ezért nem tud.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Stunned Virologist tries to loot AminoAcid", id = "5.1.2.1")
     public static void test1(){
         Virologist v1 = new Virologist();
         NoLoot nl = new NoLoot();
@@ -112,13 +111,13 @@ public class Tester {
     }
 
     /**
-     * 5.1.2.2.-es teszteset
+     * 5.1.2.2-es teszteset
      * Egy virológus megpróbál egy másikat kirabolni (felszerelést lopni tőle), de mivel az nem bénult,
      * ezért nem lesz sikeres.
      * Ha a virológusnál 3 felszerelés van, akkor se lesz sikeres, de akkor az 5.1.2.3.-as teszteset
      * fog végrehajtódni.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist tries to loot other Virologist who is not stunned", id = "5.1.2.2")
     public static void test2(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
@@ -127,11 +126,11 @@ public class Tester {
     }
 
     /**
-     * 5.1.2.4.-es teszteset
+     * 5.1.2.4-es teszteset
      * Egy virológus nukleotidot lop egy másik, lebénult virológustól. Aminosav lopás is ugyanígy nézne ki.
      * Akkor fog a várt eredménnyel lefutni, ha a virológusnak van még hátra akciója.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist loots Nukleotide from other Virologist", id = "5.1.2.4")
     public static void test4(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
@@ -143,12 +142,12 @@ public class Tester {
     }
 
     /**
-     * 5.1.2.5.-ös teszteset
+     * 5.1.2.5-ös teszteset
      * Egy virológus egy másik, bénult virológustól szeretne felszerelést lopni, de annak nincs.
      * Akkor fog a várt eredménnyel lefutni, ha a virológusnak van még hátra akciója és van helye
      * plusz felszerelésre.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist tries to loot equipment from other Virologist who has none", id = "5.1.2.5")
     public static void test5(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
@@ -159,12 +158,12 @@ public class Tester {
     }
 
     /**
-     * 5.1.2.6.-os teszteset
+     * 5.1.2.6-os teszteset
      * A virológus sikeresen lop egy köpenyt egy másik, bénult virológustól.
      * Akkor fog a várt eredménnyel lefutni, ha a virológusnak van még hátra akciója és van helye
      * plusz felszerelésre.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist tries to loot equipment from other Virologist who has a cloak", id = "5.1.2.6")
     public static void test6(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
@@ -182,7 +181,7 @@ public class Tester {
      * Akkor fog a várt eredménnyel lefutni a teszt, hogyha van még rendelkezésre álló akciója
      * a virológusnak, különben visszatér a move(Field: f) függvényből.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist moves to field successfully", id = "5.1.2.7")
     public static void test7(){
         Field field = new Field();
         Virologist v1 = new Virologist();
@@ -197,7 +196,7 @@ public class Tester {
      * Azt a folyamatot szimulálja, mikor egy virológus megakadályozódik abban,
      * hogy átlépjen egy mezőről egy másik, szomszédos mezőre. Persze csak akkor, ha még van rendelkezésre álló akciója.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist is prevented from moving to field", id = "5.1.2.8")
     public static void test8(){
         Field field = new Field();
         Virologist v = new Virologist();
@@ -213,7 +212,7 @@ public class Tester {
      * Azt a folyamatot szimulálja, mikor egy virológus sikeresen felvesz egy felszerelést az adott mezőről,
      * feltéve ha van még háta akciója.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist picks up equipment from field successfully", id = "5.1.2.9")
     public static void test9(){
         Virologist v = new Virologist();
         Field field = new Field();
@@ -230,7 +229,7 @@ public class Tester {
      * de a mezőn nincsenek felszerelések.
      * Csak akkor próbálkozik, ha van mág hátra akciója.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist tries to pick up equipment from field but there are none", id = "5.1.2.10")
     public static void test10(){
         Virologist v = new Virologist();
         Field field = new Field();
@@ -244,7 +243,7 @@ public class Tester {
      * Azt a folyamatot szimulálja, mikor egy virológus sikeresen felvesz egy felszerelést egy óvóhely,
      * feltéve ha van még akciója.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist picks up equipment from shelter", id = "5.1.2.11")
     public static void test11(){
         Virologist v = new Virologist();
         Bag e = new Bag();
@@ -260,7 +259,7 @@ public class Tester {
      * de az óvóhelyen nincsenek felszerelések.
      * Egyáltalán csak akkor próbálja meg felvenni, ha van akciója.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist tries to pick up equipment from shelter but shelter has none", id = "5.1.2.12")
     public static void test12(){
         Virologist v = new Virologist();
         Shelter field = new Shelter(null);
@@ -275,7 +274,7 @@ public class Tester {
      * hogy felvegyen egy felszerelést az adott mezőről.
      * Egyáltalán csak akkor próbálja meg, ha van akciója.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist is prevented from picking up equipment from field ", id = "5.1.2.13")
     public static void test13(){
         Virologist v = new Virologist();
         NoEquip s = new NoEquip();
@@ -289,7 +288,7 @@ public class Tester {
      * A virológus megpróbál megkenni egy másik virológust, de a virológus nem képes rá.
      * Csak akkor próbálkozik, ha van még hátra akciója.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist tries to inject an other, but prevented", id = "5.1.2.14")
     public static void test14(){
         Virologist v = new Virologist();
         NoInject injectStr = new NoInject();
@@ -301,32 +300,32 @@ public class Tester {
         v.Inject(target, bCode);
     }
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "?", id = "5.1.2.15")
     public static void test15(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "?", id = "5.1.2.16")
     public static void test16(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "?", id = "5.1.2.17")
     public static void test17(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "?", id = "5.1.2.18")
     public static void test18(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "?", id = "5.1.2.19")
     public static void test19(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "?", id = "5.1.2.20")
     public static void test20(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "?", id = "5.1.2.21")
     public static void test21(){}
 
     /**
      * 5.4.22-es teszteset
-     * A virológus sikeresen megken egy virológust
+     * A virológus sikeresen megken egy virológust vitustánccal.
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist injects other virologist with chorea agent successfully", id = "5.1.2.22")
     public static void test22(){
         Virologist v = new Virologist();
         ChoreaCode code = new ChoreaCode();
@@ -338,9 +337,9 @@ public class Tester {
 
     /**
      * 5.4.23-es teszteset
-     * A virológus próbál megkenni egy virológust, de a célpont stratégiája nem engedi
+     * A virológus próbál megkenni egy virológust vitustánccal, de a célpont stratégiája nem engedi
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Virologist injects other virologist with chorea agent unsuccessfully", id = "5.1.2.23")
     public static void test23(){
         Virologist v = new Virologist();
         ChoreaCode code = new ChoreaCode();
@@ -356,7 +355,7 @@ public class Tester {
      * 5.4.24-es teszteset
      * Kör vége és játék vége
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "End Turn / End Game", id = "5.1.2.24")
     public static void test24(){
         Game g = new Game();
         Virologist v = new Virologist();
@@ -378,6 +377,7 @@ public class Tester {
      * 5.4.25-ös teszteset
      * Kör vége és játék vége nélkül
      */
+    @SkeletonTestCase(name = "End Turn", id = "5.1.2.25")
     public static void test25(){
         Game g = new Game();
         Virologist v = new Virologist();
@@ -392,7 +392,7 @@ public class Tester {
      * 5.4.26-os teszteset
      * Sikeres eldobás
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Default drop", id = "5.1.2.26")
     public static void test26(){
         Virologist v = new Virologist();
         Field f = new Field();
@@ -407,7 +407,7 @@ public class Tester {
      * 5.4.29-es teszteset
      * Sikertelen eldobás stratégia miatt
      */
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Can’t drop due to strategy", id = "5.1.2.29")
     public static void test29(){
         Virologist v = new Virologist();
         Field f = new Field();
@@ -418,51 +418,86 @@ public class Tester {
         v.Drop();
     }
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Learn Agent success", id = "5.1.2.30")
     public static void test30(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Learn agent fail", id = "5.1.2.31")
     public static void test31(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.32")
     public static void test32(){}
 
-    @SkeletonTestCase
+    @SkeletonTestCase(name = "Collect aminoacid from field success", id = "5.1.2.33")
     public static void test33(){}
 
+    @SkeletonTestCase(name = "Collect aminoacid from field fail", id = "5.1.2.34")
+    public static void test34(){}
 
+    @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.35")
+    public static void test35(){}
 
-    public static void menu(){
-        System.out.println(
-                "1) 5.1.2.1 Stunned Virologist tries to loot AminoAcid\n" +
-                "2) 5.1.2.2 Virologist tries to loot other Virologist who is not stunned\n" +
-                "   5.1.2.3 Virologist tries to loot with 3 equipment stored already\n" +
-                "4) 5.1.2.4 Virologist loots Nucleotide from other Virologist\n" +
-                "5) 5.1.2.5 Virologist tries to loot equipment from other Virologist who has none\n" +
-                "6) 5.1.2.6 Virologist tries to loot equipment from other Virologist who has a cloak\n" +
-                "7) 5.1.2.7 Virologist moves to field\n"
-        );
+    private static TreeMap<String, Method> tests = new TreeMap<>();
+
+    /**
+     * A menü kiíratásáért felelős osztály.
+     */
+    public void menu(){
+        System.out.println("Menu:");
+        System.out.println("Az adott tesztesetek eléréséhez a kulcsszavakat kell begépelni! (kilépéshez: exit)");
+        System.out.println("------------------------");
+        System.out.println("Kulcsszó\t\tElnevezés");
+
+        for (Map.Entry<String, Method> set : tests.entrySet()){
+            System.out.format("%-15s\t%-20s\n", set.getKey(), set.getValue().getAnnotation(SkeletonTestCase.class).name()); //Ez vajon működik?
+            //System.out.println(set.getKey() + "\t|\t" + set.getValue().getAnnotation(SkeletonTestCase.class).name());
+        }
+    }
+
+    /**
+     * A tesztesetek inicializálását végzi.
+     */
+    public Tester() throws Exception{
+        try{
+            List<Method> l = new ArrayList<>();
+            for (Method method : Tester.class.getMethods()){
+                if (method.isAnnotationPresent(SkeletonTestCase.class)){
+                    l.add(method);
+                }
+            }
+            Collections.sort(l, Comparator.comparing(m -> m.getAnnotation(SkeletonTestCase.class).id()));
+            for (Method m : l){
+                tests.put(m.getAnnotation(SkeletonTestCase.class).id(), m);
+            }
+        } catch (Exception e){
+            throw new Exception("Error parsing TestCases...");
+        }
+    }
+
+    /**
+     * Tesztesetet futtat, ha nem megfelelő az input, akkor újra kiírj a menüt.
+     * @param id A teszteset id-ja. (SkeletonTestCase annotációban adható meg)
+     */
+    public void runTest(String id) {
+        Method m = tests.get(id);
+        try {
+            m.invoke(null); //kezelődik a null dereferálás, invoke exception-ök is.
+        } catch (Exception e){
+            System.out.println("Nem megfelelő input, válasszon a kulcsszavak közül!");
+            menu();
+        }
     }
 
     public static void main(String[] args){
-        HashMap<String, Method> tests = new HashMap<>();
-
-        for (Method method : Tester.class.getMethods()){
-            if (method.isAnnotationPresent(SkeletonTestCase.class)){
-                tests.put(method.getName(), method);
+        try {
+            Tester tester = new Tester();
+            tester.menu();
+            Scanner sc = new Scanner(System.in);
+            String input;
+            while (!(input = sc.nextLine()).equals("exit")){
+                tester.runTest(input);
             }
-        }
-
-        menu();
-        Scanner sc = new Scanner(System.in);
-        String input;
-        while (!(input = sc.nextLine()).equals("exit")){
-            Method m = tests.get(input);
-            try {
-                m.invoke(null); //kezelődik a null dereferálás, invoke exception-ök is.
-            } catch (Exception e){
-                System.out.println("Nem megfelelő input!");
-            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
         }
     }
 }
