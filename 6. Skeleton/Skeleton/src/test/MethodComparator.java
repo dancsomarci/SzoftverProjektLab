@@ -15,7 +15,6 @@ public class MethodComparator implements Comparator<Method> {
         while (id1.size() < id2.size()) id1.add("0"); //0-ák elhagyhatóak a végéről
         while (id1.size() > id2.size()) id2.add("0");
 
-
         for (int i = 0; i < id1.size(); i++){
             if (Integer.parseInt(id1.get(i)) == Integer.parseInt(id2.get(i))){
                 continue;

@@ -12,6 +12,7 @@ import model.map.Field;
 import model.map.Shelter;
 import model.strategy.*;
 
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -55,7 +56,7 @@ public class Tester {
      */
     public static void methodStart(Method m){
         for(int i = 0; i < indention; i++)
-            System.out.print("/t");
+            System.out.print("\t");
         System.out.println(m.getDeclaringClass()+"::"+m.getName()+"()");
         indention++;
     }
@@ -67,7 +68,7 @@ public class Tester {
     public static void methodEnd(Method m){
         indention--;
         for(int i = 0; i < indention; i++)
-            System.out.print("/t");
+            System.out.print("\t");
         System.out.println(m.getDeclaringClass()+"::"+m.getName()+"()");
     }
 
@@ -76,7 +77,7 @@ public class Tester {
      * @param m a hívott függvény reflekciója
      */
     public static void ctrMethodStart(Constructor<?> m){
-        System.out.println(m.getName()+"()");
+        System.out.println("Ctor: " + m.getName()+"()");
     }
 
     /**
@@ -87,12 +88,9 @@ public class Tester {
      */
     public static boolean getUserInput(String message, String trueMatch)
     {
-        boolean ret = false;
-        System.out.println(message);
-        Scanner sc = new Scanner(System.in);
-        ret = sc.nextLine().equals(trueMatch);
-        sc.close();
-        return ret;
+        System.out.print(message);
+        return sc.nextLine().equals(trueMatch);
+        //sc.close(); Nem szabad bezárni, mert még máshol kellhet!
     }
 
     /**
@@ -437,6 +435,7 @@ public class Tester {
     public static void test35(){}
 
     private static LinkedHashMap<String, Method> tests = new LinkedHashMap<>();
+    private static Scanner sc = new Scanner(System.in);
 
     /**
      * A menü kiíratásáért felelős osztály.
@@ -449,7 +448,6 @@ public class Tester {
 
         for (Map.Entry<String, Method> set : tests.entrySet()){
             System.out.format("%-15s\t%-20s\n", set.getKey(), set.getValue().getAnnotation(SkeletonTestCase.class).name()); //Ez vajon működik?
-            //System.out.println(set.getKey() + "\t|\t" + set.getValue().getAnnotation(SkeletonTestCase.class).name());
         }
     }
 
@@ -475,30 +473,48 @@ public class Tester {
     }
 
     /**
-     * Tesztesetet futtat, ha nem megfelelő az input, akkor újra kiírj a menüt.
+     * Tesztesetet futtat, nem megfelelő inputot jelzi a felhasználó felé.
      * @param id A teszteset id-ja. (SkeletonTestCase annotációban adható meg)
      */
-    public void runTest(String id) {
+    private void runTest(String id) {
         Method m = tests.get(id);
         try {
-            m.invoke(null); //kezelődik a null dereferálás, invoke exception-ök is.
+            m.invoke(this); //kezelődik a null dereferálás, invoke exception-ök is.
         } catch (Exception e){
             System.out.println("Nem megfelelő input, válasszon a kulcsszavak közül!");
+        }
+    }
+
+    /**
+     * A fő eseményhurkor reprezentálja.
+     * @throws Exception Ha megoldhatatlan hiba adódik a futás során jelzi a felhasználó felé.
+     */
+    public void run() throws Exception {
+        try {
             menu();
+            String input;
+            while (!(input = sc.nextLine()).equals("exit")){
+                runTest(input);
+                System.out.print("Press any key to continue...");
+                System.in.read();
+                menu();
+            }
+            sc.close();
+        } catch (Exception e){
+            throw new Exception("An error occured while running Tester: " + e.getMessage());
+        }
+        finally{
+            if (sc != null)
+                sc.close();
         }
     }
 
     public static void main(String[] args){
         try {
             Tester tester = new Tester();
-            tester.menu();
-            Scanner sc = new Scanner(System.in);
-            String input;
-            while (!(input = sc.nextLine()).equals("exit")){
-                tester.runTest(input);
-            }
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+            tester.run();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

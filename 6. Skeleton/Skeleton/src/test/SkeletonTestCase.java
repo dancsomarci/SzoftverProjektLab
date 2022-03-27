@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * A Skeleton tesztesetek megjelölésére alkalmas annotáció.
+ * A tesztesetek metódusainak statikusnak kell lennie, és publikusnak a működéshez.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
