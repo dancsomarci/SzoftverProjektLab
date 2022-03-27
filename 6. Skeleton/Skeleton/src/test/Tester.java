@@ -478,6 +478,8 @@ public class Tester {
     /**
      * 5.4.26-os teszteset
      * Sikeres eldobás
+     * 5.4.27-es teszteset
+     * Eldobás hátralévő akció nélkül
      */
     @SkeletonTestCase(name = "Default drop", id = "5.1.2.26")
     public static void test26(){
@@ -571,8 +573,8 @@ public class Tester {
         Virologist v = new Virologist();
         Warehouse wh = new Warehouse();
         wh.AddVirologist(v);
-        DefCollect dc = new DefCollect();
-        v.SetCollectStr(dc);
+        NoCollect nc = new NoCollect();
+        v.SetCollectStr(nc);
         v.Collect();
     }
 
