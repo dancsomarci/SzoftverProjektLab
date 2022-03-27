@@ -349,11 +349,37 @@ public class Tester {
         injecter.Inject(target, fCode);
     }
 
-    @SkeletonTestCase(name = "?", id = "5.1.2.19")
-    public static void test19(){}
+    /**
+     * 5.1.2.19-es teszteset
+     * A virolúgus sikertelenül megken egy másik virológust felejtő ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    @SkeletonTestCase(name = "Virologist injects other virologist with forget agent unsuccessfully", id = "5.1.2.19")
+    public static void test19(){
+        Virologist injecter = new Virologist();
+        ForgetCode fCode = new ForgetCode();
+        Virologist target = new Virologist();
+        NoInjected injectedStr = new NoInjected();
+        injecter.AddGeneticCode(fCode);
+        target.SetInjectedStr(injectedStr);
 
-    @SkeletonTestCase(name = "?", id = "5.1.2.20")
-    public static void test20(){}
+        injecter.Inject(target, fCode);
+    }
+
+    /**
+     * 5.1.2.20-es teszteset
+     * A virolúgus sikeresen megken egy másik virológust blokkoló ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    @SkeletonTestCase(name = "Virologist injects other virologist with block agent successfully", id = "5.1.2.20")
+    public static void test20(){
+        Virologist injecter = new Virologist();
+        BlockCode bCode = new BlockCode();
+        Virologist target = new Virologist();
+        injecter.AddGeneticCode(bCode);
+
+        injecter.Inject(target, bCode);
+    }
 
     @SkeletonTestCase(name = "?", id = "5.1.2.21")
     public static void test21(){}
