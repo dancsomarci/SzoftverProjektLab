@@ -6,7 +6,7 @@ import model.map.Field;
 import test.Tester;
 
 /**
- * Sikeres genetikai kód tanulásért felelős stratégia
+ * Alapértelmezett tanulási stratégia, ami által a virológus megtanulja a mezőn lévő genetikai kódot, ha van.
  */
 public class DefLearn implements ILearnStr
 {
@@ -18,7 +18,8 @@ public class DefLearn implements ILearnStr
 	}
 
 	/**
-	 * Genetikai kód tanulás
+	 * A stratégia alkalmazásakor hívott metódus.
+	 * Megtanulja a virológus a mezőn lévő genetikai kódot, ha van ott olyan.
 	 * @param v Tanuló virológus
 	 * @param f Virológus mezője
 	 */

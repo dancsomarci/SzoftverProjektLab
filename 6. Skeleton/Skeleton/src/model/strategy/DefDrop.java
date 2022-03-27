@@ -8,17 +8,24 @@ import model.map.Field;
 import test.Tester;
 
 /**
- * Sikeres védőfelszerelés eldobásért felelős stratégia
+ * Alapértelmezett eldobási stratégia, ami által a virológus eldob egy felszerelést.
  */
 public class DefDrop implements IDropStr
 {
 	/**
-	 * TODO
+	 * Alapértelmezett konstruktor
 	 */
 	public DefDrop(){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}
 
+	/**
+	 * A stratégia alkalmazásakor hívott metódus.
+	 * Eldobja a virológus a megadott felszerlést, majd csökkenti az akciói számát eggyel.
+	 * @param v A virológus, aki el próbál dobni egy felszerelést.
+	 * @param e A felszerelés, amit el próbál dobni.
+	 * @param f a virológus aktuális mezeje
+	 */
 	public void Drop(Virologist v, Field f, Equipment e)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

@@ -6,7 +6,8 @@ import model.map.Field;
 import test.Tester;
 
 /**
- * Sikeres anyag gyüjtésért felelős stratégia
+ * Alapértelmezett aminosav vagy nukleotid gyűjtési stratégia, ami által a virológus aminosavat vagy nukleotidot
+ * gyűjt össze a mezőről, ha van ott olyan.
  */
 public class DefCollect implements ICollectStr
 {
@@ -18,7 +19,8 @@ public class DefCollect implements ICollectStr
 	}
 
 	/**
-	 * Sikeres anyag gyüjtés
+	 * Az aminosav gyűjtés stratégia alkalmazásakor hívott metódus.
+	 * Adott mennyiségű aminosavat ad a virológusnak, ha van a mezőn.
 	 * @param v gyüjtő virológus
 	 * @param f a mező, amelyen gyüjtődik az anyag
 	 */
