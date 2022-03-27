@@ -469,6 +469,8 @@ public class Tester {
     /**
      * 5.4.26-os teszteset
      * Sikeres eldobás
+     * 5.4.27-es teszteset
+     * Eldobás hátralévő akció nélkül
      */
     @SkeletonTestCase(name = "Default drop", id = "5.1.2.26")
     public static void test26(){
