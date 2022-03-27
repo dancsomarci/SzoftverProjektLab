@@ -7,10 +7,14 @@ import test.Tester;
 import java.util.Random;
 
 /**
- *
+ * Olyan mező, amelyen anyag gyüjthető
  */
 public class Warehouse extends Field
 {
+	/**
+	 * Anyag gyüjtése
+	 * @param v gyüjtő virológus
+	 */
 	public void CollectMaterial(Virologist v) {
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 

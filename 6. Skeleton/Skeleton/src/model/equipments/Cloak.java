@@ -11,7 +11,7 @@ import test.Tester;
 public class Cloak extends Equipment
 {
 	/**
-	 * TODO
+	 * Köpeny védőfelszerelés létrehozása
 	 */
 	public Cloak(){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());

@@ -11,7 +11,7 @@ import test.Tester;
 public class Glove extends Equipment
 {
 	/**
-	 * TODO
+	 * Létrehozza a kesztyű védőfelszerelést
 	 */
 	public Glove(){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());

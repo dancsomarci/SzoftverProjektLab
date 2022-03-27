@@ -5,14 +5,14 @@ import model.Virologist;
 import model.map.Field;
 
 /**
- * TODO
+ * Genetikai kód tanulásért felelős stratégia
  */
 public interface ILearnStr
 {
 	/**
-	 * TODO
-	 * @param v
-	 * @param f
+	 * Genetikai kód tanulás
+	 * @param v Tanuló virológus
+	 * @param f Virológus mezője
 	 */
 	void Learn(Virologist v, Field f);
 

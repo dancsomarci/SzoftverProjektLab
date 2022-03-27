@@ -15,6 +15,7 @@ public class Bag extends Equipment
 	private int delta;
 
 	/**
+	 * Zsák felszerelés létrehozása
 	 * Beállítja a növelő mennyiséget
 	 */
 	public Bag(){

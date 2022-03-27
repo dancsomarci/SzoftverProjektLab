@@ -6,14 +6,14 @@ import model.equipments.Equipment;
 import test.Tester;
 
 /**
- *
+ * Olyan mező, amelyen egy védőfelszerelés gyüjthető
  */
 public class Shelter extends Field
 {
 
 	/**
-	 * TODO
-	 * @param e
+	 * Védőfelszerelés hozzáadása
+	 * @param e hozzáadandó felszerelés
 	 */
 	public Shelter(Equipment e) {
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());

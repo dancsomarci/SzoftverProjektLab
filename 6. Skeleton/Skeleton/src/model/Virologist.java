@@ -176,7 +176,7 @@ public class Virologist
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
 			if (equipments.size() > 0) {
-				dropStr.Drop(this, equipments.remove(new Random().nextInt(equipments.size())));
+				dropStr.Drop(this, field, equipments.remove(new Random().nextInt(equipments.size())));
 			}
 		}
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());

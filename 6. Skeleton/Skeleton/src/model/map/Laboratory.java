@@ -9,15 +9,15 @@ import model.codes.StunCode;
 import test.Tester;
 
 /**
- *
+ * Olyan mező, amelyen genetikai kód tanulható
  */
 public class Laboratory extends Field
 {
 	private GeneticCode code;
 
 	/**
-	 * TODO
-	 * @param c
+	 * Genetikai kód hozzáadása a mezőhöz
+	 * @param c hozzáadandó genetikai kód
 	 */
 	public Laboratory(GeneticCode c){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
@@ -26,7 +26,7 @@ public class Laboratory extends Field
 	}
 
 	/**
-	 * TODO
+	 * Genetikai kód tanuása a mezőn
 	 * @param v tanuló virológus
 	 */
 	public void LearnGeneticCode(Virologist v) {
