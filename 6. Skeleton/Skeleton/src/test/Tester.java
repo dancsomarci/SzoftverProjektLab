@@ -447,7 +447,6 @@ public class Tester {
 
         for (Method method : Tester.class.getMethods()){
             if (method.isAnnotationPresent(SkeletonTestCase.class)){
-                System.out.println(method.getName());
                 tests.put(method.getName(), method);
             }
         }

@@ -18,6 +18,7 @@ import test.Tester;
  */
 public abstract class Equipment
 {
+
 	/**
 	 * Megszakítja a hatását a viselőjén
 	 * @param v viselő virológus

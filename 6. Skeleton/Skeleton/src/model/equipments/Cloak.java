@@ -20,6 +20,13 @@ import test.Tester;
 public class Cloak extends Equipment
 {
 	/**
+	 * TODO
+	 */
+	public Cloak(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
+	}
+
+	/**
 	 * Alkalmazza az ágensek felől érinthetetlen stratégiát bizonyos eséllyel
 	 * @param v viselő virológus
 	 */

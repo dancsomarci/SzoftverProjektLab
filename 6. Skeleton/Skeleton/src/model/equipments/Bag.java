@@ -27,11 +27,9 @@ public class Bag extends Equipment
 	 * Beállítja a növelő mennyiséget
 	 */
 	public Bag(){
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 
 		delta = 5;
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**

@@ -22,13 +22,11 @@ public class Field
 	 * Létrehozza a tárolókat
 	 */
 	public Field(){
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 
-		neighbours = new ArrayList();
-		virologists = new ArrayList();
-		equipments = new ArrayList();
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		neighbours = new ArrayList<>();
+		virologists = new ArrayList<>();
+		equipments = new ArrayList<>();
 	}
 
 	/**

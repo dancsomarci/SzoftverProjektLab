@@ -16,6 +16,10 @@ import test.Tester;
 
 public class DefMove implements IMoveStr
 {
+	public DefMove(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
+	}
+
 	public void Move(Virologist v, Field from, Field to)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

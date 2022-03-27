@@ -20,6 +20,13 @@ import test.Tester;
 public class Glove extends Equipment
 {
 	/**
+	 * TODO
+	 */
+	public Glove(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
+	}
+
+	/**
 	 * Alkalmazza az ágensek felől érinthetetlen stratégiát
 	 * @param v viselő virológus
 	 */
