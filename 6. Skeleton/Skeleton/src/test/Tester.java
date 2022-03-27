@@ -408,7 +408,7 @@ public class Tester {
     }
 
     /**
-     * 5.4.2.22-es teszteset
+     * 5.1.2.22-es teszteset
      * A virológus sikeresen megken egy virológust vitustánccal.
      */
     @SkeletonTestCase(name = "Virologist injects other virologist with chorea agent successfully", id = "5.1.2.22")
@@ -422,7 +422,7 @@ public class Tester {
     }
 
     /**
-     * 5.4.23-es teszteset
+     * 5.1.2.23-es teszteset
      * A virológus próbál megkenni egy virológust vitustánccal, de a célpont stratégiája nem engedi
      */
     @SkeletonTestCase(name = "Virologist injects other virologist with chorea agent unsuccessfully", id = "5.1.2.23")
@@ -433,12 +433,14 @@ public class Tester {
         Virologist target = new Virologist();
         NoInjected iStr = new NoInjected();
         target.SetInjectedStr(iStr);
+        v.AddNucleotide(20);
+        v.AddAminoAcid(20);
 
         v.Inject(target, code);
     }
 
     /**
-     * 5.4.24-es teszteset
+     * 5.1.2.24-es teszteset
      * Kör vége és játék vége
      */
     @SkeletonTestCase(name = "End Turn / End Game", id = "5.1.2.24")
@@ -460,7 +462,7 @@ public class Tester {
     }
 
     /**
-     * 5.4.25-ös teszteset
+     * 5.1.2.25-ös teszteset
      * Kör vége és játék vége nélkül
      */
     @SkeletonTestCase(name = "End Turn", id = "5.1.2.25")
@@ -476,7 +478,7 @@ public class Tester {
     }
 
     /**
-     * 5.4.26-os teszteset
+     * 5.1.2.26-os teszteset
      * Sikeres eldobás
      * 5.4.27-es teszteset
      * Eldobás hátralévő akció nélkül
@@ -493,7 +495,7 @@ public class Tester {
     }
 
     /**
-     * 5.4.28-as teszteset
+     * 5.1.2.28-as teszteset
      * Eldobás felszerelés nélkül
      */
     @SkeletonTestCase(name = "Default drop without equipment", id = "5.1.2.28")
@@ -506,7 +508,7 @@ public class Tester {
     }
 
     /**
-     * 5.4.29-es teszteset
+     * 5.1.2.29-es teszteset
      * Sikertelen eldobás stratégia miatt
      */
     @SkeletonTestCase(name = "Can’t drop due to strategy", id = "5.1.2.29")
@@ -523,6 +525,7 @@ public class Tester {
     }
 
     /**
+     * 5.1.2.30-as teszteset
      * Ez az a teszt eset amikor, megpróbálunk megtanulni egy ágenst és az sikeres is.
      */
     @SkeletonTestCase(name = "Learn Agent success", id = "5.1.2.30")
@@ -538,6 +541,7 @@ public class Tester {
     }
 
     /**
+     * 5.1.2.31-es teszteset
      *  Ez az a teszt eset amikor, megpróbálunk megtanulni egy ágenst de az nem sikerül.
      */
     @SkeletonTestCase(name = "Learn agent fail", id = "5.1.2.31")
@@ -552,6 +556,7 @@ public class Tester {
     }
 
     /**
+     * 5.1.2.32-es teszteset
      * Ez az a teszt eset amikor egy shelter típusú mezőről anyagot veszünk fel sikeresen.
      */
     @SkeletonTestCase(name = "Collect material from field success", id = "5.1.2.32")
@@ -566,6 +571,7 @@ public class Tester {
     }
 
     /**
+     * 5.1.2.33-as teszteset
      * Ez az a teszt eset amikor egy shelter típusú mezőről anyagot próbálunk fel venni de ez nem sikerül.
      */
     @SkeletonTestCase(name = "Collect material from field fail", id = "5.1.2.33")
