@@ -619,6 +619,7 @@ public class Tester {
         for (Map.Entry<String, Method> set : tests.entrySet()){
             System.out.format("%-15s\t%-20s\n", set.getKey(), set.getValue().getAnnotation(SkeletonTestCase.class).name());
         }
+        System.out.print("Input: ");
     }
 
     /**
@@ -652,6 +653,7 @@ public class Tester {
         Method m = tests.get(id);
         try {
             m.invoke(this); //kezelődik a null dereferálás, invoke exception-ök is.
+            System.out.println("Teszteset vége!");
         } catch (Exception e){
             System.out.println("Nem megfelelo input, valasszon a kulcsszavak kozul!");
         }
@@ -668,10 +670,10 @@ public class Tester {
             menu();
             String input;
             while (!(input = sc.nextLine()).equals("exit")){
-                runTest(input);
-                System.out.print("Press any key to continue...");
-                System.in.read();
-                menu();
+                if (input.equals("menu"))
+                    menu();
+                else
+                    runTest(input);
             }
             sc.close();
         } catch (Exception e){
