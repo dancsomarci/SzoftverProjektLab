@@ -116,6 +116,11 @@ public class Virologist
 	public Virologist(){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 
+
+		equipments = new ArrayList<>(3);
+		codes = new ArrayList<>();
+		agents = new ArrayList<>();
+
 		lootedStr = new DefLooted();
 		injectedStr = new DefInjected();
 		collectStr = new DefCollect();
@@ -125,6 +130,14 @@ public class Virologist
 		injectStr = new DefInject();
 		learnStr = new DefLearn();
 		moveStr = new DefMove();
+	}
+
+	/**
+	 * Beállítja a játék osztály példányának referenciáját
+	 * @param g a beállítandó objektum
+	 */
+	public void AddGame(Game g){
+		game = g;
 	}
 
 	/**

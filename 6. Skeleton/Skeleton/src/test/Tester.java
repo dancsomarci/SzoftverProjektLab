@@ -358,7 +358,7 @@ public class Tester {
         Game g = new Game();
         Virologist v = new Virologist();
         g.AddVirologist(v);
-
+        v.AddGame(g);
         ChoreaCode c = new ChoreaCode();
         BlockCode b = new BlockCode();
         ForgetCode f = new ForgetCode();
@@ -380,6 +380,7 @@ public class Tester {
         Game g = new Game();
         Virologist v = new Virologist();
         g.AddVirologist(v);
+        v.AddGame(g);
         BlockCode b = new BlockCode();
         v.AddGeneticCode(b);
 
@@ -402,6 +403,19 @@ public class Tester {
     }
 
     /**
+     * 5.4.28-as teszteset
+     * Eldobás felszerelés nélkül
+     */
+    @SkeletonTestCase(name = "Default drop without equipment", id = "5.1.2.28")
+    public static void test28(){
+        Virologist v = new Virologist();
+        Field f = new Field();
+        f.AddVirologist(v);
+
+        v.Drop();
+    }
+
+    /**
      * 5.4.29-es teszteset
      * Sikertelen eldobás stratégia miatt
      */
@@ -410,8 +424,10 @@ public class Tester {
         Virologist v = new Virologist();
         Field f = new Field();
         f.AddVirologist(v);
-        Cloak c = new Cloak();
-        v.AddEquipment(c);
+        NoDrop d = new NoDrop();
+        Bag b = new Bag();
+        v.AddEquipment(b);
+        v.SetDropStr(d);
 
         v.Drop();
     }
@@ -486,7 +502,7 @@ public class Tester {
     }
 
     /**
-     * A fő eseményhurkor reprezentálja.
+     * A fő eseményhurkot reprezentálja.
      * @throws Exception Ha megoldhatatlan hiba adódik a futás során jelzi a felhasználó felé.
      */
     public void run() throws Exception {
