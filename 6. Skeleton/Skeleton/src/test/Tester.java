@@ -435,6 +435,9 @@ public class Tester {
         v.Drop();
     }
 
+    /**
+     * Ez az a teszt eset amikor, megpróbálunk megtanulni egy ágenst és az sikeres is.
+     */
     @SkeletonTestCase(name = "Learn Agent success", id = "5.1.2.30")
     public static void test30(){
         Virologist v = new Virologist();
@@ -447,6 +450,9 @@ public class Tester {
 
     }
 
+    /**
+     *  Ez az a teszt eset amikor, megpróbálunk megtanulni egy ágenst de az nem sikerül.
+     */
     @SkeletonTestCase(name = "Learn agent fail", id = "5.1.2.31")
     public static void test31(){
         Virologist v = new Virologist();
@@ -458,7 +464,10 @@ public class Tester {
         v.Learn();
     }
 
-    @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.32")
+    /**
+     * Ez az a teszt eset amikor egy shelter típusú mezőről anyagot veszünk fel sikeresen.
+     */
+    @SkeletonTestCase(name = "Collect material from field success", id = "5.1.2.32")
     public static void test32(){
         Virologist v = new Virologist();
         Warehouse wh = new Warehouse();
@@ -469,7 +478,10 @@ public class Tester {
 
     }
 
-    @SkeletonTestCase(name = "Collect aminoacid from field success", id = "5.1.2.33")
+    /**
+     * Ez az a teszt eset amikor egy shelter típusú mezőről anyagot próbálunk fel venni de ez nem sikerül.
+     */
+    @SkeletonTestCase(name = "Collect material from field fail", id = "5.1.2.33")
     public static void test33(){
         Virologist v = new Virologist();
         Warehouse wh = new Warehouse();
@@ -479,28 +491,6 @@ public class Tester {
         v.Collect();
     }
 
-    @SkeletonTestCase(name = "Collect aminoacid from field fail", id = "5.1.2.34")
-    public static void test34(){
-        Virologist v = new Virologist();
-        Warehouse wh = new Warehouse();
-        wh.AddVirologist(v);
-        NoCollect nc = new NoCollect();
-        v.SetCollectStr(nc);
-        v.Collect();
-    }
-
-    /**
-     *
-     */
-    @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.35")
-    public static void test35(){
-        Virologist v = new Virologist();
-        Warehouse wh = new Warehouse();
-        wh.AddVirologist(v);
-        NoCollect nc = new NoCollect();
-        v.SetCollectStr(nc);
-        v.Collect();
-    }
 
     private static LinkedHashMap<String, Method> tests = new LinkedHashMap<>();
     private static Scanner sc = new Scanner(System.in);
