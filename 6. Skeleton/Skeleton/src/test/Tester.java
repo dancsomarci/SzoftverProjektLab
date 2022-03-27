@@ -562,8 +562,8 @@ public class Tester {
         Virologist v = new Virologist();
         Warehouse wh = new Warehouse();
         wh.AddVirologist(v);
-        DefCollect dc = new DefCollect();
-        v.SetCollectStr(dc);
+        NoCollect nc = new NoCollect();
+        v.SetCollectStr(nc);
         v.Collect();
     }
 

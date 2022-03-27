@@ -28,6 +28,8 @@ public class Warehouse extends Field
 			v.AddNucleotide(5);
 		}
 
+		v.DecreaseActions();
+
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }
