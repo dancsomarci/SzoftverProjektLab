@@ -8,8 +8,8 @@ import java.util.List;
 
 /**
  * Metodusok komparalasara szolgalo osztaly
- * Csak olyan metódusokhoz használható, amin rajta van a SkeletonTestCase annotáció
- * Az annotáció id-je alapján rendez, ez a szemantikus verziózásnál meg
+ * Csak olyan metodusokhoz hasznalhato, amin rajta van a SkeletonTestCase annotacio
+ * Az annotacio id-je alapjan rendez, ez a szemantikus verziozasnal megszokott modon epül fel, és ennek megfeleloen komparal.
  */
 public class MethodComparator implements Comparator<Method> {
     @Override
