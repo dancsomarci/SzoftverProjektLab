@@ -436,7 +436,7 @@ public class Tester {
     @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.35")
     public static void test35(){}
 
-    private static TreeMap<String, Method> tests = new TreeMap<>();
+    private static LinkedHashMap<String, Method> tests = new LinkedHashMap<>();
 
     /**
      * A menü kiíratásáért felelős osztály.
@@ -458,18 +458,19 @@ public class Tester {
      */
     public Tester() throws Exception{
         try{
-            List<Method> l = new ArrayList<>();
+            ArrayList<Method> l = new ArrayList<>();
             for (Method method : Tester.class.getMethods()){
                 if (method.isAnnotationPresent(SkeletonTestCase.class)){
                     l.add(method);
                 }
             }
-            Collections.sort(l, Comparator.comparing(m -> m.getAnnotation(SkeletonTestCase.class).id()));
+            l.sort(new MethodComparator()); //og java with no lambda
+
             for (Method m : l){
                 tests.put(m.getAnnotation(SkeletonTestCase.class).id(), m);
             }
         } catch (Exception e){
-            throw new Exception("Error parsing TestCases...");
+            throw new Exception("Error parsing TestCases... hint: " + e.getMessage());
         }
     }
 
