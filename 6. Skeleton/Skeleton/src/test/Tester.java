@@ -286,6 +286,7 @@ public class Tester {
 
     /**
      * 5.1.2.14-es teszteset
+     * 5.1.2.15-ös teszteset
      * A virológus megpróbál megkenni egy másik virológust, de a virológus nem képes rá.
      * Csak akkor próbálkozik, ha van még hátra akciója.
      */
@@ -301,17 +302,52 @@ public class Tester {
         v.Inject(target, bCode);
     }
 
-    @SkeletonTestCase(name = "?", id = "5.1.2.15")
-    public static void test15(){}
+    /**
+     * 5.1.2.16-os teszteset
+     * A virolúgus sikeresen megken egy másik virológust bénító ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    @SkeletonTestCase(name = "Virologist injects other virologist with stun agent succesfully", id = "5.1.2.16")
+    public static void test16(){
+        Virologist injecter = new Virologist();
+        StunCode sCode = new StunCode();
+        Virologist target = new Virologist();
+        injecter.AddGeneticCode(sCode);
 
-    @SkeletonTestCase(name = "?", id = "5.1.2.16")
-    public static void test16(){}
+        injecter.Inject(target, sCode);
+    }
 
-    @SkeletonTestCase(name = "?", id = "5.1.2.17")
-    public static void test17(){}
+    /**
+     * 5.1.2.17-es teszteset
+     * A virolúgus sikertelenül megken egy másik virológust bénító ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    @SkeletonTestCase(name = "Virologist injects other virologist with stun agent unsuccessfully", id = "5.1.2.17")
+    public static void test17(){
+        Virologist injecter = new Virologist();
+        StunCode sCode = new StunCode();
+        Virologist target = new Virologist();
+        NoInjected injectedStr = new NoInjected();
+        injecter.AddGeneticCode(sCode);
+        target.SetInjectedStr(injectedStr);
 
-    @SkeletonTestCase(name = "?", id = "5.1.2.18")
-    public static void test18(){}
+        injecter.Inject(target, sCode);
+    }
+
+    /**
+     * 5.1.2.18-es teszteset
+     * A virolúgus sikeresen megken egy másik virológust felejtő ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    @SkeletonTestCase(name = "Virologist injects other virologist with forget agent successfully", id = "5.1.2.18")
+    public static void test18(){
+        Virologist injecter = new Virologist();
+        ForgetCode fCode = new ForgetCode();
+        Virologist target = new Virologist();
+        injecter.AddGeneticCode(fCode);
+
+        injecter.Inject(target, fCode);
+    }
 
     @SkeletonTestCase(name = "?", id = "5.1.2.19")
     public static void test19(){}
