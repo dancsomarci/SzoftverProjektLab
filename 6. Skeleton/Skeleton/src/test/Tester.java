@@ -402,6 +402,19 @@ public class Tester {
     }
 
     /**
+     * 5.4.28-as teszteset
+     * Sikeres eldobás
+     */
+    @SkeletonTestCase(name = "Default drop without equipment", id = "5.1.2.28")
+    public static void test28(){
+        Virologist v = new Virologist();
+        Field f = new Field();
+        f.AddVirologist(v);
+
+        v.Drop();
+    }
+
+    /**
      * 5.4.29-es teszteset
      * Sikertelen eldobás stratégia miatt
      */
