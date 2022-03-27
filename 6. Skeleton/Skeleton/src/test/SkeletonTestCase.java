@@ -20,6 +20,7 @@ public @interface SkeletonTestCase {
 
     /**
      * A teszteset azonosítója.
+     * A szemantikus verziózásban megszokott módon pontokkal elválasztott számokból kell álljon. pl.: 1.2.3.4
      * @return A teszteset azonosítójával tér vissza.
      */
     String id();

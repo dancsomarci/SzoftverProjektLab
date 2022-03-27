@@ -60,7 +60,7 @@ public class Tester {
     public static void methodStart(Method m){
         for(int i = 0; i < indention; i++)
             System.out.print("\t");
-        System.out.println(m.getDeclaringClass()+"::"+m.getName()+"()");
+        System.out.println("=>" + m.getDeclaringClass()+"::"+m.getName()+"()");
         indention++;
     }
 
@@ -72,7 +72,7 @@ public class Tester {
         indention--;
         for(int i = 0; i < indention; i++)
             System.out.print("\t");
-        System.out.println(m.getDeclaringClass()+"::"+m.getName()+"()");
+        System.out.println("<=" + m.getDeclaringClass()+"::"+m.getName()+"()");
     }
 
     /**
@@ -345,6 +345,8 @@ public class Tester {
         Virologist injecter = new Virologist();
         ForgetCode fCode = new ForgetCode();
         Virologist target = new Virologist();
+        injecter.AddNucleotide(20);
+        injecter.AddAminoAcid(20);
         injecter.AddGeneticCode(fCode);
 
         injecter.Inject(target, fCode);
@@ -363,6 +365,8 @@ public class Tester {
         NoInjected injectedStr = new NoInjected();
         injecter.AddGeneticCode(fCode);
         target.SetInjectedStr(injectedStr);
+        injecter.AddNucleotide(20);
+        injecter.AddAminoAcid(20);
 
         injecter.Inject(target, fCode);
     }
@@ -378,11 +382,14 @@ public class Tester {
         BlockCode bCode = new BlockCode();
         Virologist target = new Virologist();
         injecter.AddGeneticCode(bCode);
+        injecter.AddNucleotide(20);
+        injecter.AddAminoAcid(20);
 
         injecter.Inject(target, bCode);
     }
 
     /**
+     * 5.1.2.21-es teszteset
      * Azt a folyamatot szimulálja, mikor egy virológus sikertelenül ken meg egy másik virológust blokkoló ágenssel,
      * mivel az ki tudja védeni a kenéseket.
      */
@@ -394,12 +401,14 @@ public class Tester {
         NoInjected injectedStr = new NoInjected();
         injecter.AddGeneticCode(bCode);
         target.SetInjectedStr(injectedStr);
+        injecter.AddNucleotide(20);
+        injecter.AddAminoAcid(20);
 
         injecter.Inject(target, bCode);
     }
 
     /**
-     * 5.4.22-es teszteset
+     * 5.4.2.22-es teszteset
      * A virológus sikeresen megken egy virológust vitustánccal.
      */
     @SkeletonTestCase(name = "Virologist injects other virologist with chorea agent successfully", id = "5.1.2.22")
