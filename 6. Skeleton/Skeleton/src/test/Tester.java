@@ -426,6 +426,7 @@ public class Tester {
         Cloak c = new Cloak();
         v.AddEquipment(c);
 
+        
         v.Drop();
     }
 
