@@ -1,7 +1,6 @@
 package model.map;
 
 
-import model.Virologist;
 import model.equipments.Equipment;
 import test.Tester;
 

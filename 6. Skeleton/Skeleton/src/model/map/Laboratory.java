@@ -3,9 +3,7 @@ package model.map;
 
 
 import model.Virologist;
-import model.agents.Agent;
 import model.codes.GeneticCode;
-import model.codes.StunCode;
 import test.Tester;
 
 /**

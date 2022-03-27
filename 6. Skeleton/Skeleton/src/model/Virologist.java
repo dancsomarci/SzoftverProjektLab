@@ -10,7 +10,6 @@ import test.Tester;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *  A virologusert felelo osztaly. Ezeket az objektumokat
