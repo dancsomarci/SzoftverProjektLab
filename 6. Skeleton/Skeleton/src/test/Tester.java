@@ -558,6 +558,7 @@ public class Tester {
 
     /**
      * 5.1.2.32-es teszteset
+     * 5.1.2.33-es teszteset
      * Ez az a teszt eset amikor egy shelter típusú mezőről anyagot veszünk fel sikeresen.
      */
     @SkeletonTestCase(name = "Collect material from field success", id = "5.1.2.32")
@@ -572,16 +573,18 @@ public class Tester {
     }
 
     /**
-     * 5.1.2.33-as teszteset
+     * 5.1.2.34-as teszteset
+     * 5.1.2.35-os teszteset
      * Ez az a teszt eset amikor egy shelter típusú mezőről anyagot próbálunk fel venni de ez nem sikerül.
      */
-    @SkeletonTestCase(name = "Collect material from field fail", id = "5.1.2.33")
+    @SkeletonTestCase(name = "Collect material from field fail", id = "5.1.2.34")
     public static void test33(){
         Virologist v = new Virologist();
         Warehouse wh = new Warehouse();
         wh.AddVirologist(v);
         NoCollect nc = new NoCollect();
         v.SetCollectStr(nc);
+
         v.Collect();
     }
 
