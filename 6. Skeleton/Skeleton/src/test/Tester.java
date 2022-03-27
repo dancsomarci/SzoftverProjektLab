@@ -381,8 +381,21 @@ public class Tester {
         injecter.Inject(target, bCode);
     }
 
-    @SkeletonTestCase(name = "?", id = "5.1.2.21")
-    public static void test21(){}
+    /**
+     * Azt a folyamatot szimulálja, mikor egy virológus sikertelenül ken meg egy másik virológust blokkoló ágenssel,
+     * mivel az ki tudja védeni a kenéseket.
+     */
+    @SkeletonTestCase(name = "Virologist injects other virologist with block agent unsuccessfully", id = "5.1.2.21")
+    public static void test21(){
+        Virologist injecter = new Virologist();
+        BlockCode bCode = new BlockCode();
+        Virologist target = new Virologist();
+        NoInjected injectedStr = new NoInjected();
+        injecter.AddGeneticCode(bCode);
+        target.SetInjectedStr(injectedStr);
+
+        injecter.Inject(target, bCode);
+    }
 
     /**
      * 5.4.22-es teszteset
