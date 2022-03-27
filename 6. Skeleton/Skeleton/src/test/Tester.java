@@ -78,6 +78,8 @@ public class Tester {
      * @param m a hívott függvény reflekciója
      */
     public static void ctrMethodStart(Constructor<?> m){
+        for(int i = 0; i < indention; i++)
+            System.out.print("\t");
         System.out.println("Ctor: " + m.getName()+"()");
     }
 
@@ -89,6 +91,8 @@ public class Tester {
      */
     public static boolean getUserInput(String message, String trueMatch)
     {
+        for(int i = 0; i < indention; i++)
+            System.out.print("\t");
         System.out.print(message);
         return sc.nextLine().equals(trueMatch);
         //sc.close(); Nem szabad bezárni, mert még máshol kellhet!
