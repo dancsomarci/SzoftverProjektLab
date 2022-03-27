@@ -2,6 +2,7 @@ package test;
 
 import model.Game;
 import model.Virologist;
+import model.codes.GeneticCode;
 import model.codes.BlockCode;
 import model.codes.ChoreaCode;
 import model.codes.ForgetCode;
@@ -9,7 +10,9 @@ import model.codes.StunCode;
 import model.equipments.Bag;
 import model.equipments.Cloak;
 import model.map.Field;
+import model.map.Laboratory;
 import model.map.Shelter;
+import model.map.Warehouse;
 import model.strategy.*;
 
 import java.io.IOException;
@@ -358,7 +361,7 @@ public class Tester {
         Game g = new Game();
         Virologist v = new Virologist();
         g.AddVirologist(v);
-
+        v.AddGame(g);
         ChoreaCode c = new ChoreaCode();
         BlockCode b = new BlockCode();
         ForgetCode f = new ForgetCode();
@@ -380,6 +383,7 @@ public class Tester {
         Game g = new Game();
         Virologist v = new Virologist();
         g.AddVirologist(v);
+        v.AddGame(g);
         BlockCode b = new BlockCode();
         v.AddGeneticCode(b);
 
@@ -431,23 +435,62 @@ public class Tester {
         v.Drop();
     }
 
+    /**
+     * Ez az a teszt eset amikor, megpróbálunk megtanulni egy ágenst és az sikeres is.
+     */
     @SkeletonTestCase(name = "Learn Agent success", id = "5.1.2.30")
-    public static void test30(){}
+    public static void test30(){
+        Virologist v = new Virologist();
+        ChoreaCode cc = new ChoreaCode();
+        Laboratory l = new Laboratory(cc);
+        l.AddVirologist(v);
+        DefLearn dl = new DefLearn();
+        v.SetLearnStr(dl);
+        v.Learn();
 
+    }
+
+    /**
+     *  Ez az a teszt eset amikor, megpróbálunk megtanulni egy ágenst de az nem sikerül.
+     */
     @SkeletonTestCase(name = "Learn agent fail", id = "5.1.2.31")
-    public static void test31(){}
+    public static void test31(){
+        Virologist v = new Virologist();
+        ChoreaCode cc = new ChoreaCode();
+        Laboratory l = new Laboratory(cc);
+        l.AddVirologist(v);
+        NoLearn nl = new NoLearn();
+        v.SetLearnStr(nl);
+        v.Learn();
+    }
 
-    @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.32")
-    public static void test32(){}
+    /**
+     * Ez az a teszt eset amikor egy shelter típusú mezőről anyagot veszünk fel sikeresen.
+     */
+    @SkeletonTestCase(name = "Collect material from field success", id = "5.1.2.32")
+    public static void test32(){
+        Virologist v = new Virologist();
+        Warehouse wh = new Warehouse();
+        wh.AddVirologist(v);
+        DefCollect dc = new DefCollect();
+        v.SetCollectStr(dc);
+        v.Collect();
 
-    @SkeletonTestCase(name = "Collect aminoacid from field success", id = "5.1.2.33")
-    public static void test33(){}
+    }
 
-    @SkeletonTestCase(name = "Collect aminoacid from field fail", id = "5.1.2.34")
-    public static void test34(){}
+    /**
+     * Ez az a teszt eset amikor egy shelter típusú mezőről anyagot próbálunk fel venni de ez nem sikerül.
+     */
+    @SkeletonTestCase(name = "Collect material from field fail", id = "5.1.2.33")
+    public static void test33(){
+        Virologist v = new Virologist();
+        Warehouse wh = new Warehouse();
+        wh.AddVirologist(v);
+        DefCollect dc = new DefCollect();
+        v.SetCollectStr(dc);
+        v.Collect();
+    }
 
-    @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.35")
-    public static void test35(){}
 
     private static LinkedHashMap<String, Method> tests = new LinkedHashMap<>();
     private static Scanner sc = new Scanner(System.in);
@@ -501,7 +544,7 @@ public class Tester {
     }
 
     /**
-     * A fő eseményhurkor reprezentálja.
+     * A fő eseményhurkot reprezentálja.
      * @throws Exception Ha megoldhatatlan hiba adódik a futás során jelzi a felhasználó felé.
      */
     public void run() throws Exception {

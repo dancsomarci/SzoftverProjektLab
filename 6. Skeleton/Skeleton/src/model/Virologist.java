@@ -133,6 +133,14 @@ public class Virologist
 	}
 
 	/**
+	 * Beállítja a játék osztály példányának referenciáját
+	 * @param g a beállítandó objektum
+	 */
+	public void AddGame(Game g){
+		game = g;
+	}
+
+	/**
 	 * A virologus random mozgásáért felel, ezt egy bizonyos ágens válthatja ki.
 	 */
 	public void Move()
@@ -362,8 +370,8 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
-	 * @param a
+	 * Adott virológust lehet ezzel függvénnyel  megcélozni egy ágensfelkenéssel.
+	 * @param a Az az ágens amit szeretnénk kenni
 	 */
 	public void TargetedWith(Agent a)
 	{
@@ -395,7 +403,7 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
+	 * Véletlenszerűen kiválaszt egy felszerelést a meglévők közül
 	 * @param self a virológus aki elszeretné tulajdonítani a felszerelést
 	 */
 	public void StealEquipment(Virologist self)
@@ -421,7 +429,7 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
+	 * Kiveszi a tárolóból az összes ágenst.
 	 */
 	public void RemoveAgents()
 	{
@@ -554,7 +562,7 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
+	 * Frissíti a virológus stratégiáit
 	 */
 	public void Update()
 	{
@@ -566,7 +574,7 @@ public class Virologist
 	}
 
 	/**
-	 *
+	 * Vissza stratégiákat az alapállapotukba. Azt értjük alapnak ami a konstruktorban van.
 	 */
 	public void Reset()
 	{

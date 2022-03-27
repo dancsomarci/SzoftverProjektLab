@@ -135,6 +135,7 @@ public class Field
 			Equipment equipment = equipments.remove(equipments.size()-1);
 			equipment.Apply(v);
 			v.AddEquipment(equipment);
+			equipment.ApplyStrategy(v);
 		}
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
