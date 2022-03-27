@@ -56,7 +56,7 @@ public class Tester {
      */
     public static void methodStart(Method m){
         for(int i = 0; i < indention; i++)
-            System.out.print("/t");
+            System.out.print("\t");
         System.out.println(m.getDeclaringClass()+"::"+m.getName()+"()");
         indention++;
     }
@@ -68,7 +68,7 @@ public class Tester {
     public static void methodEnd(Method m){
         indention--;
         for(int i = 0; i < indention; i++)
-            System.out.print("/t");
+            System.out.print("\t");
         System.out.println(m.getDeclaringClass()+"::"+m.getName()+"()");
     }
 
@@ -284,13 +284,16 @@ public class Tester {
         v.Equip();
     }
 
+    @SkeletonTestCase
+    public static void test14(){} // TODO?
+
     /**
-     * 5.1.2.14-es teszteset
+     * 5.1.2.15-ös teszteset
      * A virológus megpróbál megkenni egy másik virológust, de a virológus nem képes rá.
      * Csak akkor próbálkozik, ha van még hátra akciója.
      */
     @SkeletonTestCase
-    public static void test14(){
+    public static void test15(){
         Virologist v = new Virologist();
         NoInject injectStr = new NoInject();
         BlockCode bCode = new BlockCode();
@@ -301,26 +304,133 @@ public class Tester {
         v.Inject(target, bCode);
     }
 
+    /**
+     * 5.1.2.16-os teszteset
+     * A virolúgus megpróbál megkenni egy másik virológust, de megakadályozódik abban.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
     @SkeletonTestCase
-    public static void test15(){}
+    public static void test16(){
+        Virologist v = new Virologist();
+        NoInject injectStr = new NoInject();
+        BlockCode bCode = new BlockCode();
+        Virologist target = new Virologist();
 
-    @SkeletonTestCase
-    public static void test16(){}
+        v.AddGeneticCode(bCode);
+        v.SetInjectStr(injectStr);
+        v.Inject(target, bCode);
+    }
 
+    /**
+     * 5.1.2.17-es teszteset
+     * A virolúgus sikeresen megken egy másik virológust bénító ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
     @SkeletonTestCase
-    public static void test17(){}
+    public static void test17(){
+        Virologist injecter = new Virologist();
+        StunCode sCode = new StunCode();
+        Virologist target = new Virologist();
+        DefInject injectStr = new DefInject();
+        DefInjected injectedStr = new DefInjected();
 
-    @SkeletonTestCase
-    public static void test18(){}
+        injecter.AddGeneticCode(sCode);
 
-    @SkeletonTestCase
-    public static void test19(){}
+        // TODO: nem így van a diagrammon
+        injecter.SetInjectStr(injectStr);
 
-    @SkeletonTestCase
-    public static void test20(){}
+        target.SetInjectedStr(injectedStr);
 
+        injecter.Inject(target, sCode);
+    }
+
+    /**
+     * 5.1.2.18-as teszteset
+     * A virolúgus sikertelenül megken egy másik virológust bénító ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
     @SkeletonTestCase
-    public static void test21(){}
+    public static void test18(){
+        Virologist injecter = new Virologist();
+        StunCode sCode = new StunCode();
+        Virologist target = new Virologist();
+        DefInject injectStr = new DefInject();
+        NoInjected injectedStr = new NoInjected();
+
+        injecter.AddGeneticCode(sCode);
+        target.SetInjectedStr(injectedStr);
+
+        // TODO: nem így van a diagrammon
+        injecter.SetInjectStr(injectStr);
+        injecter.Inject(target, sCode);
+    }
+
+    /**
+     * 5.1.2.19-es teszteset
+     * A virolúgus sikeresen megken egy másik virológust felejtő ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    @SkeletonTestCase
+    public static void test19(){
+        Virologist injecter = new Virologist();
+        DefInject injectStr = new DefInject();
+        ForgetCode fCode = new ForgetCode();
+        Virologist target = new Virologist();
+        DefInjected injectedStr = new DefInjected();
+
+        injecter.AddGeneticCode(fCode);
+
+        // TODO: nem így van a diagrammon
+        injecter.SetInjectStr(injectStr);
+
+        target.SetInjectedStr(injectedStr);
+
+        injecter.Inject(target, fCode);
+    }
+
+    /**
+     * 5.1.2.20-as teszteset
+     * A virolúgus sikertelenül megken egy másik virológust felejtő ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    @SkeletonTestCase
+    public static void test20(){
+        Virologist injecter = new Virologist();
+        DefInject injectStr = new DefInject();
+        ForgetCode fCode = new ForgetCode();
+        Virologist target = new Virologist();
+        NoInjected injectedStr = new NoInjected();
+
+        injecter.AddGeneticCode(fCode);
+        target.SetInjectedStr(injectedStr);
+
+        // TODO: nem így van a diagrammon
+        injecter.SetInjectStr(injectStr);
+        injecter.Inject(target, fCode);
+    }
+
+    /**
+     * 5.1.2.21-es teszteset
+     * A virolúgus sikeresen megken egy másik virológust blokkoló ágenssel.
+     * Csak akkor próbálkozik, ha van még hátra akciója.
+     */
+    @SkeletonTestCase
+    public static void test21(){
+        Virologist injecter = new Virologist();
+        DefInject injectStr = new DefInject();
+        BlockCode bCode = new BlockCode();
+        Virologist target = new Virologist();
+        DefInjected injectedStr = new DefInjected();
+
+        injecter.AddGeneticCode(bCode);
+
+        // TODO: nem így van a diagrammon
+        injecter.SetInjectStr(injectStr);
+
+        target.SetInjectedStr(injectedStr);
+
+        injecter.Inject(target, bCode);
+    }
 
     /**
      * 5.4.22-es teszteset
