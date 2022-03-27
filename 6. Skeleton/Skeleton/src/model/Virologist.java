@@ -13,105 +13,105 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *  A virológusért felelő osztály. Ezeket az objektumokat
- *  fogják tudni irányítani a játékosok a játék során és
- *  különbőző interakciókat végrehajtani velük.
+ *  A virologusert felelo osztaly. Ezeket az objektumokat
+ *  fogjak tudni iranyitani a jatekosok a jatek soran es
+ *  kulonbozo interakciokat vegrehajtani veluk.
  */
 public class Virologist
 {
 	/**
-	 *  Azt a mennyiséget tárolja, hogy mennyi lépést tud végre hajtani a körben a virológus.
+	 *  Azt a mennyiseget tarolja, hogy mennyi lepest tud vegre hajtani a korben a virologus.
 	 * */
 	private int actionCount;
 
 	/**
-	 *  A virológus által birtokolt aminosav mennyiségét tárolja.
+	 *  A virologus altal birtokolt aminosav mennyiseget tarolja.
 	 * */
 	private int aminoAcid;
 
 	/**
-	 *  A virológus által birtokolt nukleotid mennyiségét tárolja.
+	 *  A virologus altal birtokolt nukleotid mennyiseget tarolja.
 	 * */
 	private int nucleotide;
 
 	/**
-	 *  A virológus által maximum birtokolható nukleotid és aminosav mennyiségét rögzíti.
+	 *  A virologus altal maximum birtokolhato nukleotid es aminosav mennyiseget rogziti.
 	 * */
 	private int limit;
 
 
 	/**
-	 *  Azt a mezőt tárolja ahol éppen a virológus tartózkodik.
+	 *  Azt a mezot tarolja ahol eppen a virologus tartozkodik.
 	 * */
 	private Field field;
 
 	/**
-	 * A Game osztály példánya ami a körök vezérlésehez szükséges
+	 * A Game osztaly peldanya ami a korok vezerlesehez szukseges
 	 */
 	private Game game;
 
 	/**
-	 *  Megtanult ágensek listája
+	 *  Megtanult agensek listaja
 	 */
 	private ArrayList<Agent> agents;
 
 	/**
-	 * Az eddigi megtanult genetikai kódok listája
+	 * Az eddigi megtanult genetikai kodok listaja
 	 */
 	private ArrayList<GeneticCode> codes;
 
 	/**
-	 * A birtokolt felszerelések listája
+	 * A birtokolt felszerelesek listaja
 	 */
 	private ArrayList<Equipment> equipments;
 
 	/**
-	 * A virológus mozgási startégiáját tárolja.
+	 * A virologus mozgasi startegiajat tarolja.
 	 */
 	private IMoveStr moveStr;
 
 	/**
-	 * A virológus tanulási startégiáját tárolja.
+	 * A virologus tanulasi startegiajat tarolja.
 	 */
 	private ILearnStr learnStr;
 
 	/**
-	 * Erre a virológusra felkenendő ágensekkel kapcsolatos stratégiát tárolja
+	 * Erre a virologusra felkenendo agensekkel kapcsolatos strategiat tarolja
 	 */
 	private IInjectedStr injectedStr;
 
 	/**
-	 * A virológus tárgy eldobási stratégiáját tárolja.
+	 * A virologus targy eldobasi strategiajat tarolja.
 	 */
 	private IDropStr dropStr;
 
 	/**
-	 * A virológus lootolási stratégiáját tárolja.
+	 * A virologus lootolasi strategiajat tarolja.
 	 */
 	private ILootStr lootStr;
 
 	/**
-	 * A virológus tárgyfelvételi startégiáját tárolja.
+	 * A virologus targyfelveteli startegiajat tarolja.
 	 */
 	private IEquipStr equipStr;
 
 	/**
-	 * A virológus anyag gyűjtési stratégiáját tárolja.
+	 * A virologus anyag gyujtesi strategiajat tarolja.
 	 */
 	private ICollectStr collectStr;
 
 	/**
-	 * A virológus ágensfelkenési startégiáját tárolja.
+	 * A virologus agensfelkenesi startegiajat tarolja.
 	 */
 	private IInjectStr injectStr;
 
 	/**
-	 * A virológus kirablására vonatkozó startégiáját tárolja.
+	 * A virologus kirablasara vonatkozo startegiajat tarolja.
 	 */
 	private ILootedStr lootedStr;
 
 	/**
-	 * Az osztály konstruktora, beállítja az alapértelmezett stratégiákat.
+	 * Az osztaly konstruktora, beallitja az alapertelmezett strategiakat.
 	 */
 	public Virologist(){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
@@ -133,21 +133,21 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a játék osztály példányának referenciáját
-	 * @param g a beállítandó objektum
+	 * Beallitja a jatek osztaly peldanyanak referenciajat
+	 * @param g a beallitando objektum
 	 */
 	public void AddGame(Game g){
 		game = g;
 	}
 
 	/**
-	 * A virologus random mozgásáért felel, ezt egy bizonyos ágens válthatja ki.
+	 * A virologus random mozgasaert felel, ezt egy bizonyos agens valthatja ki.
 	 */
 	public void Move()
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			ArrayList<Field> fields = field.GetNeighbours();
 			if (fields.size() == 0) {
 				Random random = new Random();
@@ -160,24 +160,24 @@ public class Virologist
 	}
 
 	/**
-	 *  Ez a függvény kezdeményezi a tartózkodási mezőről való elmozdulást,
-	 *  meghívja IMoveStr-t ami elvégzi a többi függvény hívást a stratégiának megfelelően.
+	 *  Ez a fuggveny kezdemenyezi a tartozkodasi mezorol valo elmozdulast,
+	 *  meghivja IMoveStr-t ami elvegzi a tobbi fuggveny hivast a strategianak megfeleloen.
 	 *
-	 * @param field  Megadjuk azt a mezőt amire elszeretnénk mozdítani a virológust
+	 * @param field  Megadjuk azt a mezot amire elszeretnenk mozditani a virologust
 	 */
 	public void Move(Field field)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			moveStr.Move(this, this.field, field);
 		}
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
-	 * Beállítja a függvény a paraméterül kapott mezőt, a tartózkodási mezőre
+	 * Beallitja a fuggveny a parameterul kapott mezot, a tartozkodasi mezore
 	 *
-	 * @param f Az a mező amire éppen átléptünk
+	 * @param f Az a mezo amire eppen atleptunk
 	 */
 	public void SetField(Field f)
 	{
@@ -187,12 +187,12 @@ public class Virologist
 	}
 
 	/**
-	 * A függvény egy véletlenszerű felszerelés eldobásáért felel.
+	 * A fuggveny egy veletlenszeru felszereles eldobasaert felel.
 	 */
 	public void Drop()
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			if (equipments.size() > 0) {
 				dropStr.Drop(this, field, equipments.remove(new Random().nextInt(equipments.size())));
 			}
@@ -201,47 +201,47 @@ public class Virologist
 	}
 
 	/**
-	 * A függvény a paraméterül kapott virológustól való aminosav lootolást kezdeményezi,
-	 * meghívja ILootStr függvényét ami elvégzi a megfelelő függvény hívásokat.
+	 * A fuggveny a parameterul kapott virologustol valo aminosav lootolast kezdemenyezi,
+	 * meghivja ILootStr fuggvenyet ami elvegzi a megfelelo fuggveny hivasokat.
 	 *
-	 * @param v A kiválaszott virológus akitől szeretnénk lootolni
+	 * @param v A kivalaszott virologus akitol szeretnenk lootolni
 	 */
 	public void LootAminoAcidFrom(Virologist v)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			lootStr.LootAmino(this, v);
 		}
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
-	 * A függvény a paraméterül kapott virológustól való aminosav lootolást kezdeményezi,
-	 * meghívja ILootStr függvényét ami elvégzi a megfelelő függvény hívásokat.
+	 * A fuggveny a parameterul kapott virologustol valo aminosav lootolast kezdemenyezi,
+	 * meghivja ILootStr fuggvenyet ami elvegzi a megfelelo fuggveny hivasokat.
 	 *
-	 * @param v @param v A kiválaszott virológus akitől szeretnénk lootolni
+	 * @param v @param v A kivalaszott virologus akitol szeretnenk lootolni
 	 */
 	public void LootNucleotideFrom(Virologist v)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			lootStr.LootNucleotide(this, v);
 		}
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
-	 * A függvény a paraméterül kapott virológustól való aminosav lootolást kezdeményezi,
-	 * meghívja ILootStr függvényét ami elvégzi a megfelelő függvény hívásokat.
+	 * A fuggveny a parameterul kapott virologustol valo aminosav lootolast kezdemenyezi,
+	 * meghivja ILootStr fuggvenyet ami elvegzi a megfelelo fuggveny hivasokat.
 	 *
-	 * @param v A kiválaszott virológus akitől szeretnénk lootolni
+	 * @param v A kivalaszott virologus akitol szeretnenk lootolni
 	 */
 	public void LootEquipmentFrom(Virologist v)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
-			if (Tester.getUserInput("Van hely a virológusnál védőfelszerlésnek? (Y/N) ", "Y")){
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
+			if (Tester.getUserInput("Van hely a virologusnal vedofelszerlesnek? (Y/N) ", "Y")){
 				lootStr.LootEquipment(this, v);
 			}
 		}
@@ -250,13 +250,13 @@ public class Virologist
 	}
 
 	/**
-	 * Anyag felvételt kezdeményez az adott mezőn, a stratégia kezeli a megfelelő függvény hívásokat
+	 * Anyag felvetelt kezdemenyez az adott mezon, a strategia kezeli a megfelelo fuggveny hivasokat
 	 */
 	public void Collect()
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			collectStr.Collect(this, field);
 		}
 
@@ -264,14 +264,14 @@ public class Virologist
 	}
 
 	/**
-	 * Az adott mezőn lévő genetikai kód megtanulását kezdeményezi, ehhez meghívja a learnStr-t,
-	 * ami elvégzi az állapotnak megfelelő függvény hívásokat.
+	 * Az adott mezon levo genetikai kod megtanulasat kezdemenyezi, ehhez meghivja a learnStr-t,
+	 * ami elvegzi az allapotnak megfelelo fuggveny hivasokat.
 	 */
 	public void Learn()
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			learnStr.Learn(this, field);
 		}
 
@@ -279,13 +279,13 @@ public class Virologist
 	}
 
 	/**
-	 * Ez a függvény kezdeményezi egy mezőn lévő felszerelés felvételét.
+	 * Ez a fuggveny kezdemenyezi egy mezon levo felszereles felvetelet.
 	 */
 	public void Equip()
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y")) {
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			equipStr.Equip(this, field);
 		}
 
@@ -293,8 +293,8 @@ public class Virologist
 	}
 
 	/**
-	 * Új ágenst helyezünk a tárolóba
-	 * @param a Ágens amit eltárolunk
+	 * uj agenst helyezunk a taroloba
+	 * @param a agens amit eltarolunk
 	 */
 	public void AddAgent(Agent a)
 	{
@@ -304,8 +304,8 @@ public class Virologist
 	}
 
 	/**
-	 * Kivesz egy ágenst a tárolóból
-	 * @param a Ágens amit kiakarunk venni
+	 * Kivesz egy agenst a tarolobol
+	 * @param a agens amit kiakarunk venni
 	 */
 	public void RemoveAgent(Agent a)
 	{
@@ -315,8 +315,8 @@ public class Virologist
 	}
 
 	/**
-	 * A paraméterben szereplő felszereléssel bővíti, az éppen birtokolt felszereléseket sikeres lefutás esetén.
-	 * @param e A felszerelést amit felvettünk
+	 * A parameterben szereplo felszerelessel boviti, az eppen birtokolt felszereleseket sikeres lefutas eseten.
+	 * @param e A felszerelest amit felvettunk
 	 */
 	public void AddEquipment(Equipment e)
 	{
@@ -327,14 +327,14 @@ public class Virologist
 	}
 
 	/**
-	 * Az equipment getter függvénye.
-	 * @return Vissza tér a birtokolt felszerelésekkel, ha nincs akkor kivételt dob
+	 * Az equipment getter fuggvenye.
+	 * @return Vissza ter a birtokolt felszerelesekkel, ha nincs akkor kivetelt dob
 	 */
 	public Equipment GetEquipment()
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (equipments.size() == 0)
-			throw new IndexOutOfBoundsException("Üres a felszerelés tároló");
+			throw new IndexOutOfBoundsException("ures a felszereles tarolo");
 		Equipment e = equipments.remove(equipments.size()-1);
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
@@ -342,8 +342,8 @@ public class Virologist
 	}
 
 	/**
-	 * A megtanult genetikai kódok listáját bővíti
-	 * @param code Az új kód
+	 * A megtanult genetikai kodok listajat boviti
+	 * @param code Az uj kod
 	 */
 	public void AddGeneticCode(GeneticCode code)
 	{
@@ -353,15 +353,15 @@ public class Virologist
 	}
 
 	/**
-	 * egy másik virológus megkenése egy ágenssel.
-	 * @param v a másik virológus
-	 * @param code az ágens létrehozásához szükséges genetikai kód
+	 * egy masik virologus megkenese egy agenssel.
+	 * @param v a masik virologus
+	 * @param code az agens letrehozasahoz szukseges genetikai kod
 	 */
 	public void Inject(Virologist v, GeneticCode code)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		if (Tester.getUserInput("Van még akciója hátra a virológusnak? (Y/N) ", "Y"))
+		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y"))
 		{
 			injectStr.Inject(this, v, code);
 		}
@@ -370,8 +370,8 @@ public class Virologist
 	}
 
 	/**
-	 * Adott virológust lehet ezzel függvénnyel  megcélozni egy ágensfelkenéssel.
-	 * @param a Az az ágens amit szeretnénk kenni
+	 * Adott virologust lehet ezzel fuggvennyel  megcelozni egy agensfelkenessel.
+	 * @param a Az az agens amit szeretnenk kenni
 	 */
 	public void TargetedWith(Agent a)
 	{
@@ -381,8 +381,8 @@ public class Virologist
 	}
 
 	/**
-	 * Kezdeményezi aminosav levonását a virológustól ami a stratégiának megfelelően történik
-	 * @param self a virológus akitől levonjuk az aminosav mennyiséget
+	 * Kezdemenyezi aminosav levonasat a virologustol ami a strategianak megfeleloen tortenik
+	 * @param self a virologus akitol levonjuk az aminosav mennyiseget
 	 */
 	public void StealAminoAcid(Virologist self)
 	{
@@ -392,19 +392,19 @@ public class Virologist
 	}
 
 	/**
-	 * Kezdeményezi nukleotid levonását a virológustól ami a stratégiának megfelelően történik
-	 * @param self a virológus akitől levonjuk a nukleotid mennyiséget
+	 * Kezdemenyezi nukleotid levonasat a virologustol ami a strategianak megfeleloen tortenik
+	 * @param self a virologus akitol levonjuk a nukleotid mennyiseget
 	 */
 	public void StealNukleotid(Virologist self)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		lootedStr.LootedForNukleotide(this, self);
+		lootedStr.LootedForNukleotide(self, this);
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
-	 * Véletlenszerűen kiválaszt egy felszerelést a meglévők közül
-	 * @param self a virológus aki elszeretné tulajdonítani a felszerelést
+	 * Veletlenszeruen kivalaszt egy felszerelest a meglevok kozul
+	 * @param self a virologus aki elszeretne tulajdonitani a felszerelest
 	 */
 	public void StealEquipment(Virologist self)
 	{
@@ -419,7 +419,7 @@ public class Virologist
 	}
 
 	/**
-	 * A törli az eddig megtanult genetikai kódokat.
+	 * A torli az eddig megtanult genetikai kodokat.
 	 */
 	public void RemoveGeneticCodes()
 	{
@@ -429,7 +429,7 @@ public class Virologist
 	}
 
 	/**
-	 * Kiveszi a tárolóból az összes ágenst.
+	 * Kiveszi a tarolobol az osszes agenst.
 	 */
 	public void RemoveAgents()
 	{
@@ -439,7 +439,7 @@ public class Virologist
 	}
 
 	/**
-	 * Drekementálja a köben végrehajtható interakciók számát
+	 * Drekementalja a koben vegrehajthato interakciok szamat
 	 */
 	public void DecreaseActions()
 	{
@@ -450,7 +450,7 @@ public class Virologist
 	}
 
 	/**
-	 * Tovább adja a kört(átadja a lépési jogot) a soron következő virológusnak
+	 * Tovabb adja a kort(atadja a lepesi jogot) a soron kovetkezo virologusnak
 	 */
 	public void EndTurn()
 	{
@@ -462,8 +462,8 @@ public class Virologist
 	}
 
 	/**
-	 * A paraméter mértékével növeli a birtokolt aminosav mennyiséget
-	 * @param delta a mennyiség amivel növelünk
+	 * A parameter mertekevel noveli a birtokolt aminosav mennyiseget
+	 * @param delta a mennyiseg amivel novelunk
 	 */
 	public void AddAminoAcid(int delta)
 	{
@@ -473,8 +473,8 @@ public class Virologist
 	}
 
 	/**
-	 * A paraméter mértékével növeli a birtokolt nukleotid mennyiséget
-	 * @param delta a mennyiség amivel növelünk
+	 * A parameter mertekevel noveli a birtokolt nukleotid mennyiseget
+	 * @param delta a mennyiseg amivel novelunk
 	 */
 	public void AddNucleotide(int delta)
 	{
@@ -484,9 +484,9 @@ public class Virologist
 	}
 
 	/**
-	 * A paraméter mértékével csökkenti a birtokolt nukleotid mennyiséget
-	 * @param delta a mennyiség amivel csökkentünk
-	 * @throws Exception ha nincs megfelelő mennyiség akkor kivételt dobunk
+	 * A parameter mertekevel csokkenti a birtokolt nukleotid mennyiseget
+	 * @param delta a mennyiseg amivel csokkentunk
+	 * @throws Exception ha nincs megfelelo mennyiseg akkor kivetelt dobunk
 	 */
 	public void RemoveNucleotide(int delta) throws Exception
 	{
@@ -501,9 +501,9 @@ public class Virologist
 	}
 
 	/**
-	 * A paraméter mértékével csökkenti a birtokolt aminosav mennyiséget
-	 * @param delta a mennyiség amivel csökkentünk
-	 * @throws Exception ha nincs megfelelő mennyiség akkor kivételt dobunk
+	 * A parameter mertekevel csokkenti a birtokolt aminosav mennyiseget
+	 * @param delta a mennyiseg amivel csokkentunk
+	 * @throws Exception ha nincs megfelelo mennyiseg akkor kivetelt dobunk
 	 */
 	public void RemoveAminoAcid(int delta) throws Exception
 	{
@@ -518,8 +518,8 @@ public class Virologist
 	}
 
 	/**
-	 * növeli a birtokolható anyag(aminosav és nukleotid) mennyiséget
-	 * @param delta növelés mértéke
+	 * noveli a birtokolhato anyag(aminosav es nukleotid) mennyiseget
+	 * @param delta noveles merteke
 	 */
 	public void IncreaseLimit(int delta)
 	{
@@ -529,8 +529,8 @@ public class Virologist
 	}
 
 	/**
-	 * Csökkenti a birtokolható anyag(aminosav és nukleotid) mennyiséget
-	 * @param delta csökkentés mértéke
+	 * Csokkenti a birtokolhato anyag(aminosav es nukleotid) mennyiseget
+	 * @param delta csokkentes merteke
 	 */
 	public void DecreaseLimit(int delta)
 	{
@@ -540,8 +540,8 @@ public class Virologist
 	}
 
 	/**
-	 * Az aminosav mező gettere
-	 * @return A birtokolt aminosav mennyiség
+	 * Az aminosav mezo gettere
+	 * @return A birtokolt aminosav mennyiseg
 	 */
 	public int GetAminoAcid()
 	{
@@ -551,8 +551,8 @@ public class Virologist
 	}
 
 	/**
-	 * A nulceotide mező gettere
-	 * @return A birtokolt nukleotid mennyisége
+	 * A nulceotide mezo gettere
+	 * @return A birtokolt nukleotid mennyisege
 	 */
 	public int GetNucleotide()
 	{
@@ -562,7 +562,7 @@ public class Virologist
 	}
 
 	/**
-	 * Frissíti a virológus stratégiáit
+	 * Frissiti a virologus strategiait
 	 */
 	public void Update()
 	{
@@ -574,7 +574,7 @@ public class Virologist
 	}
 
 	/**
-	 * Vissza stratégiákat az alapállapotukba. Azt értjük alapnak ami a konstruktorban van.
+	 * Vissza strategiakat az alapallapotukba. Azt ertjuk alapnak ami a konstruktorban van.
 	 */
 	public void Reset()
 	{
@@ -584,8 +584,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus IDropStr-jét
-	 * @param d beállítandó stratégia
+	 * Beallitja a virologus IDropStr-jet
+	 * @param d beallitando strategia
 	 */
 	public void SetDropStr(IDropStr d)
 	{
@@ -595,8 +595,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus IMoveStr-jét
-	 * @param m beállítandó stratégia
+	 * Beallitja a virologus IMoveStr-jet
+	 * @param m beallitando strategia
 	 */
 	public void SetMoveStr(IMoveStr m)
 	{
@@ -606,8 +606,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus ILearnnStr-jét
-	 * @param l beállítandó stratégia
+	 * Beallitja a virologus ILearnnStr-jet
+	 * @param l beallitando strategia
 	 */
 	public void SetLearnStr(ILearnStr l)
 	{
@@ -617,8 +617,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus ILootStr-jét
-	 * @param l beállítandó stratégia
+	 * Beallitja a virologus ILootStr-jet
+	 * @param l beallitando strategia
 	 */
 	public void SetLootStr(ILootStr l)
 	{
@@ -628,8 +628,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus IInject-jét
-	 * @param i beállítandó stratégia
+	 * Beallitja a virologus IInject-jet
+	 * @param i beallitando strategia
 	 */
 	public void SetInjectStr(IInjectStr i)
 	{
@@ -639,8 +639,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus IInjected-jét
-	 * @param i beállítandó stratégia
+	 * Beallitja a virologus IInjected-jet
+	 * @param i beallitando strategia
 	 */
 	public void SetInjectedStr(IInjectedStr i)
 	{
@@ -650,8 +650,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus IEquipStr-jét
-	 * @param e beállítandó stratégia
+	 * Beallitja a virologus IEquipStr-jet
+	 * @param e beallitando strategia
 	 */
 	public void SetEquipStr(IEquipStr e)
 	{
@@ -661,8 +661,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus ICollectStr-jét
-	 * @param c beállítandó stratégia
+	 * Beallitja a virologus ICollectStr-jet
+	 * @param c beallitando strategia
 	 */
 	public void SetCollectStr(ICollectStr c)
 	{
@@ -672,8 +672,8 @@ public class Virologist
 	}
 
 	/**
-	 * Beállítja a virológus ILootedStr-jét
-	 * @param l beállítandó stratégia
+	 * Beallitja a virologus ILootedStr-jet
+	 * @param l beallitando strategia
 	 */
 	public void SetLootedStr(ILootedStr l)
 	{

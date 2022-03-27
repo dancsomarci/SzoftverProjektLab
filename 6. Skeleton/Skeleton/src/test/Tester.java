@@ -122,7 +122,8 @@ public class Tester {
     public static void test2(){
         Virologist v1 = new Virologist();
         Virologist v2 = new Virologist();
-
+        Bag b = new Bag();
+        v2.AddEquipment(b);
         v1.LootEquipmentFrom(v2);
     }
 
@@ -528,7 +529,14 @@ public class Tester {
     }
 
 
+    /**
+     * A teszteseteket tartalmazo Map
+     */
     private static LinkedHashMap<String, Method> tests = new LinkedHashMap<>();
+
+    /**
+     * Beolvasásért felelős objektum
+     */
     private static Scanner sc = new Scanner(System.in);
 
     /**
@@ -536,17 +544,19 @@ public class Tester {
      */
     public void menu(){
         System.out.println("Menu:");
-        System.out.println("Az adott tesztesetek eléréséhez a kulcsszavakat kell begépelni! (kilépéshez: exit)");
+        System.out.println("Az adott tesztesetek eleresehez a kulcsszavakat kell begepelni! (kilepeshez: exit)");
         System.out.println("------------------------");
-        System.out.println("Kulcsszó\t\tElnevezés");
+        System.out.println("Kulcsszo\t\tElnevezes");
 
         for (Map.Entry<String, Method> set : tests.entrySet()){
-            System.out.format("%-15s\t%-20s\n", set.getKey(), set.getValue().getAnnotation(SkeletonTestCase.class).name()); //Ez vajon működik?
+            System.out.format("%-15s\t%-20s\n", set.getKey(), set.getValue().getAnnotation(SkeletonTestCase.class).name());
         }
     }
 
     /**
      * A tesztesetek inicializálását végzi.
+     * Kigyűjti a SkeletonTestCase annotacioval ellatott publikus metodusokat,
+     * Sorba rendezi őket (ennek szabalyait a MethodComparator-banlehet megtekinteni)
      */
     public Tester() throws Exception{
         try{
@@ -568,19 +578,21 @@ public class Tester {
 
     /**
      * Tesztesetet futtat, nem megfelelő inputot jelzi a felhasználó felé.
-     * @param id A teszteset id-ja. (SkeletonTestCase annotációban adható meg)
+     * @param id A teszteset id-ja. (SkeletonTestCase annotációval adható meg)
      */
     private void runTest(String id) {
         Method m = tests.get(id);
         try {
             m.invoke(this); //kezelődik a null dereferálás, invoke exception-ök is.
         } catch (Exception e){
-            System.out.println("Nem megfelelő input, válasszon a kulcsszavak közül!");
+            System.out.println("Nem megfelelo input, valasszon a kulcsszavak kozul!");
         }
     }
 
     /**
      * A fő eseményhurkot reprezentálja.
+     * Speciális parancsok:
+     * "exit": kilépés
      * @throws Exception Ha megoldhatatlan hiba adódik a futás során jelzi a felhasználó felé.
      */
     public void run() throws Exception {
@@ -603,6 +615,10 @@ public class Tester {
         }
     }
 
+    /**
+     * Alkalmazás belépési pontja.
+     * @param args parancsori argumentumok.
+     */
     public static void main(String[] args){
         try {
             Tester tester = new Tester();

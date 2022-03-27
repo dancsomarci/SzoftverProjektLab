@@ -6,6 +6,11 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Metodusok komparalasara szolgalo osztaly
+ * Csak olyan metódusokhoz használható, amin rajta van a SkeletonTestCase annotáció
+ * Az annotáció id-je alapján rendez, ez a szemantikus verziózásnál meg
+ */
 public class MethodComparator implements Comparator<Method> {
     @Override
     public int compare(Method m1, Method m2) {
