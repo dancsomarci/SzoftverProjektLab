@@ -11,6 +11,9 @@ import test.Tester;
 public class Looted implements ILootedStr
 {
 
+	/**
+	 * Sikeres kifosztásért felelős stratégia létrehozása
+	 */
 	public Looted(){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}

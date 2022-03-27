@@ -11,6 +11,9 @@ import test.Tester;
 public class DefLooted implements ILootedStr
 {
 
+	/**
+	 * Nem sikeres kifosztásért felelős stratégia létrehozása
+	 */
 	public DefLooted(){
 		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}
