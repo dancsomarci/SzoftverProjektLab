@@ -295,7 +295,7 @@ public class Tester {
         NoInject injectStr = new NoInject();
         BlockCode bCode = new BlockCode();
         Virologist target = new Virologist();
-        v.AddgeneticCode(bCode);
+        v.AddGeneticCode(bCode);
         v.SetInjectStr(injectStr);
 
         v.Inject(target, bCode);
@@ -429,6 +429,8 @@ public class Tester {
 
     @SkeletonTestCase
     public static void test33(){}
+
+
 
     public static void menu(){
         System.out.println(

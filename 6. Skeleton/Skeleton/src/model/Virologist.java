@@ -43,6 +43,10 @@ public class Virologist
 	 */
 	private Field field;
 
+	/**
+	 * TODO
+	 */
+	private Game game;
 
 	/**
 	 * TODO
@@ -311,11 +315,15 @@ public class Virologist
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 		return e;
 	}
-	
+
+	/**
+	 * TODO
+	 * @param code
+	 */
 	public void AddGeneticCode(GeneticCode code)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
+		codes.add(code);
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
@@ -423,6 +431,8 @@ public class Virologist
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
+		game.NextPlayer(codes.size());
+
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
@@ -433,7 +443,7 @@ public class Virologist
 	public void AddAminoAcid(int delta)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
+		aminoAcid+= delta;
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
@@ -444,7 +454,7 @@ public class Virologist
 	public void AddNucleotide(int delta)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
+		nucleotide+= delta;
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
@@ -456,6 +466,11 @@ public class Virologist
 	public void RemoveNucleotide(int delta) throws Exception
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
+		if(delta > nucleotide){
+			throw new Exception("I don't have such many nucleotide!");
+		}
+		nucleotide -= delta;
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
@@ -469,6 +484,11 @@ public class Virologist
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
+		if(delta > aminoAcid){
+			throw new Exception("I don't have such many amino acid!");
+		}
+		aminoAcid -= delta;
+
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
@@ -479,7 +499,7 @@ public class Virologist
 	public void IncreaseLimit(int delta)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
+		limit += delta;
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
@@ -490,7 +510,7 @@ public class Virologist
 	public void DecreaseLimit(int delta)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
+		limit -= delta;
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
@@ -634,16 +654,6 @@ public class Virologist
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		lootedStr =l;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
-	}
-
-	/**
-	 * TODO
-	 * @param code
-	 */
-	public void AddgeneticCode(GeneticCode code){
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		codes.add(code);
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
