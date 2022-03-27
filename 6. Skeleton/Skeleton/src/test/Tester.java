@@ -417,6 +417,13 @@ public class Tester {
         ChoreaCode code = new ChoreaCode();
         Virologist target = new Virologist();
         v.AddGeneticCode(code);
+        v.AddAminoAcid(20);
+        v.AddNucleotide(20);
+        Field f1 = new Field();
+        Field f2 = new Field();
+        f1.AddNeighbour(f2);
+        f2.AddNeighbour(f1);
+        f1.AddVirologist(target);
 
         v.Inject(target, code);
     }
