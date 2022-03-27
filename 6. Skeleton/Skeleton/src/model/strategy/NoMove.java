@@ -24,6 +24,7 @@ public class NoMove implements IMoveStr
 	 * @param from Virológus aktuális mezője
 	 * @param to Új mező, amelyre lépni szeretne
 	 */
+	@Override
 	public void Move(Virologist v, Field from, Field to)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

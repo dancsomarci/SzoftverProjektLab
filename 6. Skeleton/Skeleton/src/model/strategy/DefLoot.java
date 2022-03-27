@@ -21,6 +21,7 @@ public class DefLoot implements ILootStr
 	 * @param v A zsákmányoló virológus.
 	 * @param target A kizsákmányolandó virológus.
 	 */
+	@Override
 	public void LootAmino(Virologist v, Virologist target)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
@@ -34,6 +35,7 @@ public class DefLoot implements ILootStr
 	 * @param v A zsákmányoló virológus.
 	 * @param target A kizsákmányolandó virológus.
 	 */
+	@Override
 	public void LootNucleotide(Virologist v, Virologist target)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
@@ -47,6 +49,7 @@ public class DefLoot implements ILootStr
 	 * @param v A zsákmányoló virológus.
 	 * @param target A kizsákmányolandó virológus.
 	 */
+	@Override
 	public void LootEquipment(Virologist v, Virologist target)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

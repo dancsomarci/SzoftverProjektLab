@@ -23,6 +23,7 @@ public class DefLearn implements ILearnStr
 	 * @param v Tanuló virológus
 	 * @param f Virológus mezője
 	 */
+	@Override
 	public void Learn(Virologist v, Field f)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

@@ -23,6 +23,7 @@ public class NoEquip implements IEquipStr
 	 * @param v A felvételt végző virológus.
 	 * @param f Erről a mezőről próbálkozik védőfelszerelés felvételével v.
 	 */
+	@Override
 	public void Equip(Virologist v, Field f)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

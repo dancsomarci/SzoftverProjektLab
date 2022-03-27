@@ -26,6 +26,7 @@ public class DefDrop implements IDropStr
 	 * @param e A felszerelés, amit el próbál dobni.
 	 * @param f a virológus aktuális mezeje
 	 */
+	@Override
 	public void Drop(Virologist v, Field f, Equipment e)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

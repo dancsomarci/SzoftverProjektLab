@@ -23,6 +23,7 @@ public class NoInjected implements IInjectedStr
 	 * @param v A virológus, akire felkenték az ágenst.
 	 * @param a A felkent ágens.
 	 */
+	@Override
 	public void Injected(Virologist v, Agent a)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

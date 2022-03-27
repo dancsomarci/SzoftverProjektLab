@@ -24,6 +24,7 @@ public class NoDrop implements IDropStr
 	 * @param f Virológus mezője
 	 * @param e Eldobandó felszerelés
 	 */
+	@Override
 	public void Drop(Virologist v, Field f, Equipment e)
 	{
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());

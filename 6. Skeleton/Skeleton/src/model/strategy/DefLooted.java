@@ -24,6 +24,7 @@ public class DefLooted implements ILootedStr
 	 * @param from kifosztandó virológus
 	 * @param e kifosztandó felszerelés
 	 */
+	@Override
 	public void LootedForEquipment(Virologist v, Virologist from, Equipment e) {
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
@@ -34,6 +35,7 @@ public class DefLooted implements ILootedStr
 	 * @param v kifosztó virológus
 	 * @param from kifosztandó virológus
 	 */
+	@Override
 	public void LootedForAminoAcid(Virologist v, Virologist from) {
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
@@ -44,6 +46,7 @@ public class DefLooted implements ILootedStr
 	 * @param v kifosztó virológus
 	 * @param from kifosztandó virológus
 	 */
+	@Override
 	public void LootedForNukleotide(Virologist v, Virologist from) {
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
