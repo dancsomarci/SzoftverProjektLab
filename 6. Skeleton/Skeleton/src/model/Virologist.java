@@ -390,7 +390,7 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
+	 * Véletlenszerűen kiválaszt egy felszerelést a meglévők közül
 	 * @param self a virológus aki elszeretné tulajdonítani a felszerelést
 	 */
 	public void StealEquipment(Virologist self)
@@ -416,7 +416,7 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
+	 * Kiveszi a tárolóból az összes ágenst.
 	 */
 	public void RemoveAgents()
 	{
@@ -549,7 +549,7 @@ public class Virologist
 	}
 
 	/**
-	 * TODO
+	 * Frissíti a virológus stratégiáit
 	 */
 	public void Update()
 	{
@@ -561,7 +561,7 @@ public class Virologist
 	}
 
 	/**
-	 *
+	 * TODO
 	 */
 	public void Reset()
 	{
