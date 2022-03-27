@@ -2,7 +2,6 @@ package test;
 
 import model.Game;
 import model.Virologist;
-import model.codes.GeneticCode;
 import model.codes.BlockCode;
 import model.codes.ChoreaCode;
 import model.codes.ForgetCode;
@@ -15,7 +14,6 @@ import model.map.Shelter;
 import model.map.Warehouse;
 import model.strategy.*;
 
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.*;
