@@ -7,7 +7,7 @@ import model.map.Field;
 import test.Tester;
 
 /**
- * Sikertelen védőfelszerelés eldobásért felelős stratégia
+ * Eldobási stratégia, amely megakadályozza, hogy a virológus eldobjon egy felszerelést.
  */
 public class NoDrop implements IDropStr
 {
