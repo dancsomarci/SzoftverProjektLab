@@ -2,6 +2,7 @@ package test;
 
 import model.Game;
 import model.Virologist;
+import model.codes.GeneticCode;
 import model.codes.BlockCode;
 import model.codes.ChoreaCode;
 import model.codes.ForgetCode;
@@ -9,7 +10,9 @@ import model.codes.StunCode;
 import model.equipments.Bag;
 import model.equipments.Cloak;
 import model.map.Field;
+import model.map.Laboratory;
 import model.map.Shelter;
+import model.map.Warehouse;
 import model.strategy.*;
 
 import java.io.IOException;
@@ -433,22 +436,68 @@ public class Tester {
     }
 
     @SkeletonTestCase(name = "Learn Agent success", id = "5.1.2.30")
-    public static void test30(){}
+    public static void test30(){
+        Virologist v = new Virologist();
+        GeneticCode gc = new GeneticCode();
+        Laboratory l = new Laboratory(gc);
+        l.AddVirologist(v);
+        DefLearn dl = new DefLearn();
+        v.SetLearnStr(dl);
+        v.Learn();
+
+    }
 
     @SkeletonTestCase(name = "Learn agent fail", id = "5.1.2.31")
-    public static void test31(){}
+    public static void test31(){
+        Virologist v = new Virologist();
+        GeneticCode gc = new GeneticCode();
+        Laboratory l = new Laboratory(gc);
+        l.AddVirologist(v);
+        NoLearn nl = new NoLearn();
+        v.SetLearnStr(nl);
+        v.Learn();
+    }
 
     @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.32")
-    public static void test32(){}
+    public static void test32(){
+        Virologist v = new Virologist();
+        Warehouse wh = new Warehouse();
+        wh.AddVirologist(v);
+        DefCollect dc = new DefCollect();
+        v.SetCollectStr(dc);
+        v.Collect();
+
+    }
 
     @SkeletonTestCase(name = "Collect aminoacid from field success", id = "5.1.2.33")
-    public static void test33(){}
+    public static void test33(){
+        Virologist v = new Virologist();
+        Warehouse wh = new Warehouse();
+        wh.AddVirologist(v);
+        DefCollect dc = new DefCollect();
+        v.SetCollectStr(dc);
+        v.Collect();
+    }
 
     @SkeletonTestCase(name = "Collect aminoacid from field fail", id = "5.1.2.34")
-    public static void test34(){}
+    public static void test34(){
+        Virologist v = new Virologist();
+        Warehouse wh = new Warehouse();
+        wh.AddVirologist(v);
+        NoCollect nc = new NoCollect();
+        v.SetCollectStr(nc);
+        v.Collect();
+    }
 
     @SkeletonTestCase(name = "Collect nucleotid from field success", id = "5.1.2.35")
-    public static void test35(){}
+    public static void test35(){
+        Virologist v = new Virologist();
+        Warehouse wh = new Warehouse();
+        wh.AddVirologist(v);
+        NoCollect nc = new NoCollect();
+        v.SetCollectStr(nc);
+        v.Collect();
+    }
 
     private static LinkedHashMap<String, Method> tests = new LinkedHashMap<>();
     private static Scanner sc = new Scanner(System.in);
