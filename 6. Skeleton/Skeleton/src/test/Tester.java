@@ -358,7 +358,7 @@ public class Tester {
         Game g = new Game();
         Virologist v = new Virologist();
         g.AddVirologist(v);
-
+        v.AddGame(g);
         ChoreaCode c = new ChoreaCode();
         BlockCode b = new BlockCode();
         ForgetCode f = new ForgetCode();
@@ -380,6 +380,7 @@ public class Tester {
         Game g = new Game();
         Virologist v = new Virologist();
         g.AddVirologist(v);
+        v.AddGame(g);
         BlockCode b = new BlockCode();
         v.AddGeneticCode(b);
 

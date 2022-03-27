@@ -132,6 +132,10 @@ public class Virologist
 		moveStr = new DefMove();
 	}
 
+	public void AddGame(Game g){
+		game = g;
+	}
+
 	/**
 	 * A virologus random mozgásáért felel, ezt egy bizonyos ágens válthatja ki.
 	 */
