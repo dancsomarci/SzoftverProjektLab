@@ -502,7 +502,7 @@ public class Tester {
     }
 
     /**
-     * A fő eseményhurkor reprezentálja.
+     * A fő eseményhurkot reprezentálja.
      * @throws Exception Ha megoldhatatlan hiba adódik a futás során jelzi a felhasználó felé.
      */
     public void run() throws Exception {

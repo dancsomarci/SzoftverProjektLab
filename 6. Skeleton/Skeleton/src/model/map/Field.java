@@ -134,8 +134,8 @@ public class Field
 		if (equipments.size()>0) {
 			Equipment equipment = equipments.remove(equipments.size()-1);
 			equipment.Apply(v);
-			equipment.ApplyStrategy(v);
 			v.AddEquipment(equipment);
+			equipment.ApplyStrategy(v);
 		}
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
