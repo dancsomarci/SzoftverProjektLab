@@ -31,6 +31,7 @@ Virologist:
 	Virologist::Kill() - meghívja a Game::RemoveVirologist()-ot, ezután már nem vesz részt a játékban.
 	Virologist::Attack(v: Virologist) - megtámad egy másikat.
 	Virologist::TargetedWith(who: Virologist, a: Agent) - visszadobós kesztyűhöz
+	Virologist::RemoveEquipment(e: Equipment) - hogy a kesztyű le tudja magát szedni.
 
 Game:
 	Game::RemoveVirologist(v: Virologist) - Ahogy a neve sugallja.
@@ -50,5 +51,4 @@ IInjectedStr:
 Glove:
 	Implementálja az injectedStrategyt!
 	Ha felkenik, visszainjecteli a másikat (visszadobás)
-	Ha a felkenő játékosnak is van kesztyűje ő is visszadobja, de egy körben a kesztyűs injected strategy csak egyszer tud blokkolni, ezért bekapja a felkenést.
-	Minden visszadobás öregíti a kesztyűt, és ha a 3.alkalommal is visszadob valamit, akkor le is olvad (Virologist::RemoveAgent()), ez persze csak akkor hívódik, ha a kör végén updatelődik az agent (Glove::Update(v: Virologist)
+	Ha a felkenő játékosnak is van kesztyűje ő is visszadobja, a kesztyű élettartama azonban véges (3 szor dobhat vissza), ha elhasználódott eltűnik automatikusan, de még abban a körben úgy viselkedik, mint egy DefInjected
