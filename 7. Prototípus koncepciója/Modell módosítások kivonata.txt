@@ -10,7 +10,7 @@ DefAttack:
 Axe:
 	Ez egy equipment, ami egyben attack strategy is.
 	Amikor a strategy-ja lefutott egyszer, utána "kicsorbítja a baltát", és többé nem működik strategyként, vagyis az apply strategy-je nem csinál semmit.
-	Stratégiaként úgy működik megöli a megtámadott virológust. (Virologist::Kill())
+	Stratégiaként úgy működik, hogy megöli a megtámadott virológust. (Virologist::Kill())
 	
 InfectedLaboratory:
 	Olyan labor, ami medvevírussal fertőzi meg a rálépő virológust, ehhez a Laboratory::AddVirologist() függvényét írja felül.
@@ -29,6 +29,8 @@ Változtatott osztályok:
 -----------------------
 Virologist:
 	Virologist::Kill() - meghívja a Game::RemoveVirologist()-ot, ezután már nem vesz részt a játékban.
+	Virologist::Attack(v: Virologist) - megtámad egy másikat.
+	Virologist::TargetedWith(who: Virologist, a: Agent) - visszadobós kesztyűhöz
 
 Game:
 	Game::RemoveVirologist(v: Virologist) - Ahogy a neve sugallja.
