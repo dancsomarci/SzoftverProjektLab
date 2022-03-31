@@ -30,7 +30,7 @@ Változtatott osztályok:
 Virologist:
 	Virologist::Kill() - meghívja a Game::RemoveVirologist()-ot, ezután már nem vesz részt a játékban.
 	Virologist::Attack(v: Virologist) - megtámad egy másikat.
-	Virologist::TargetedWith(who: Virologist, a: Agent) - visszadobós kesztyűhöz
+	Virologist::TargetedWith(who: Virologist, a: Agent) - !ha a who: Virologist == null -> ha nem virológus kente fel.
 	Virologist::RemoveEquipment(e: Equipment) - hogy a kesztyű le tudja magát szedni.
 
 Game:
@@ -38,6 +38,7 @@ Game:
 
 Field:
 	Field::DestroyMaterial() - Alapból nem csinál semmit.
+	Field::GetVirologists(): Virologist[0..*]
 
 WareHouse:
 	delta értékkel növeli mindig a virológus amino vagy nukleotidját (random választva a kettő között)
