@@ -1190,7 +1190,7 @@
 <XPD:ATTR name="Left" type="integer">228</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">80</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">177</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">61</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">69</XPD:ATTR>
 <XPD:REF name="Model">fbCfBsJwEEWYWh7o8cwWKgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="VSwjkm1NVEiwqIFLLPQUqQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="CeNxsQoOXUe8ELfPw0wN7AAA">
@@ -5630,7 +5630,7 @@
 <XPD:ATTR name="Left" type="integer">8</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">80</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">165</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">57</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">69</XPD:ATTR>
 <XPD:REF name="Model">6/i1JrECsECutPgmkW/QFgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="QB57dmE8OEm3cf/l35MxpwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="ESuG5hBGek60xp3mJKmByQAA">
@@ -5658,7 +5658,7 @@
 <XPD:OBJ name="OwnedViews[127]" type="UMLGeneralizationView" guid="leRGS+Q5jUaeapJ4lajaEgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">172,109;228,109</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">172,114;228,114</XPD:ATTR>
 <XPD:REF name="Model">Tto8rCHw4EKCaz0x/Sa1SQAA</XPD:REF>
 <XPD:REF name="Head">36UG4PIGDUS8SuLcXp5+zAAA</XPD:REF>
 <XPD:REF name="Tail">wcwBdHJob0eyWYvOb5zh5AAA</XPD:REF>
@@ -5741,7 +5741,7 @@
 <XPD:OBJ name="OwnedViews[130]" type="UMLDependencyView" guid="cMhGgugEiEelho5B6E2RVgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">127,136;984,788</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">135,148;983,788</XPD:ATTR>
 <XPD:REF name="Model">wdIvA1zRt0mgi3isM+pTKAAA</XPD:REF>
 <XPD:REF name="Head">7wiQGBLqD0ivwFQM0oSKGwAA</XPD:REF>
 <XPD:REF name="Tail">wcwBdHJob0eyWYvOb5zh5AAA</XPD:REF>
@@ -7109,7 +7109,7 @@
 <XPD:REF name="Generalizations[0]">Q4GVypUTmkamfJjfjhHM3gAA</XPD:REF>
 <XPD:ATTR name="#Specializations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Specializations[0]">Tto8rCHw4EKCaz0x/Sa1SQAA</XPD:REF>
-<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="Bb/+5rB4oUC+hEQ/xk7/JgAA">
 <XPD:ATTR name="Name" type="string">LearnGeneticCode</XPD:ATTR>
 <XPD:REF name="Owner">fbCfBsJwEEWYWh7o8cwWKgAA</XPD:REF>
@@ -7119,6 +7119,10 @@
 <XPD:REF name="BehavioralFeature">Bb/+5rB4oUC+hEQ/xk7/JgAA</XPD:REF>
 <XPD:REF name="Type_">aKgGh2CEykmgWkJJoYXzrgAA</XPD:REF>
 </XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="wssnMPea80StJUGWCaqhHwAA">
+<XPD:ATTR name="Name" type="string">DestroyMaterial</XPD:ATTR>
+<XPD:REF name="Owner">fbCfBsJwEEWYWh7o8cwWKgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">dZltuIkLykaNOu1C9AlFVAAA</XPD:REF>
