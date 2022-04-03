@@ -30,7 +30,8 @@ Változtatott osztályok:
 Virologist:
 	Virologist::Kill() - meghívja a Game::RemoveVirologist()-ot, ezután már nem vesz részt a játékban.
 	Virologist::Attack(v: Virologist) - megtámad egy másikat.
-	Virologist::TargetedWith(who: Virologist, a: Agent) - !ha a who: Virologist == null -> ha nem virológus kente fel.
+	Virologist::TargetedWith(who: Virologist, a: Agent) - akkor használandó, ha virológus keni fel.
+	Virologist::TargetedWith(a: Agent) - ha nem virológus ken fel. (azért kell mind2, mert a kesztyű nek a 2 esetet klün van.)
 	Virologist::RemoveEquipment(e: Equipment) - hogy a kesztyű le tudja magát szedni.
 
 Game:
@@ -46,6 +47,7 @@ WareHouse:
 
 IInjectedStr:
 	megváltozik a függvény paraméterezése: Injected(by: Virologist, injected: Virologist, a: Agent)
+	Injected(injected: Virologist, a: Agent) is megmarad
 	A változtatás azért szükséges, hogy működjön a kesztyűs visszadobás.
 	(hasonlóan a DefInjected, NoInjected is változik)
 	
