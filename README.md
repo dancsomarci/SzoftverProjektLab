@@ -30,6 +30,12 @@ Prototípus koncepció
 
 6)     https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EbHOn2jOZjBNuxKaMCWFwF8BSCXRn8XzO09xlo_2m5VllA?e=AComIS
 
+Részletes terv
+
+7)     https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EcjOISaChoRLgLs2lXLqqQEBe9SBmqXlx9koeFZNpN13aQ?e=mwrBqF
+
+
+
 [Pontok]  Feladat | Max | Kapott
 ----------------------------------
 1)      | 10  | 8
@@ -37,4 +43,5 @@ Prototípus koncepció
 3)      | 30  | 20
 4)      | 20  | 17,5
 5)      | 20  |
-6)      | 20
+6)      | 20  |
+7)      | 45  ||
