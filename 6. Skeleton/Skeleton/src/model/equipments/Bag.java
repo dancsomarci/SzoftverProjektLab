@@ -2,7 +2,7 @@ package model.equipments;
 
 
 import model.Virologist;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan felszerelés, amely növeli a maximális nukleotid és aminosav tárhelyet

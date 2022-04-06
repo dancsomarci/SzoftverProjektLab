@@ -4,7 +4,7 @@ package model.codes;
 import model.Virologist;
 import model.agents.Agent;
 import model.agents.Block;
-import test.Tester;
+import control.Tester;
 
 
 /**

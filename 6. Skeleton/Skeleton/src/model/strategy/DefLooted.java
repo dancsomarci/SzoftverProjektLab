@@ -3,7 +3,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.equipments.Equipment;
-import test.Tester;
+import control.Tester;
 
 /**
  * Alapértelmezett virológusra irányuló kifosztásért felelős stratégia, blokkolja a kifosztást

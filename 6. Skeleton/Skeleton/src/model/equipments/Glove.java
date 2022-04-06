@@ -3,7 +3,7 @@ package model.equipments;
 
 import model.Virologist;
 import model.strategy.NoInjected;
-import test.Tester;
+import control.Tester;
 
 /**
  * Védőfelszerelés, amely stratégiát biztosít viselőjén, érinthetetlenné teszi, ágensek felől

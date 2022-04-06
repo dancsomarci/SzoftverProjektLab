@@ -3,7 +3,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.codes.GeneticCode;
-import test.Tester;
+import control.Tester;
 
 /**
  * Az a felkenés stratégia, ami nem engedélyezi a felkenést.

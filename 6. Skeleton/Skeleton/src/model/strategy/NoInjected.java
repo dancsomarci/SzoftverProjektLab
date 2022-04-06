@@ -4,7 +4,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.agents.Agent;
-import test.Tester;
+import control.Tester;
 
 /**
  * Az a felkenődés stratégia, mikor a virológusra nem engedi felkenődni az adott ágenst.

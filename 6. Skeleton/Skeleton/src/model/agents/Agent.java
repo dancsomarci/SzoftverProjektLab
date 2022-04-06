@@ -2,7 +2,7 @@ package model.agents;
 
 
 import model.Virologist;
-import test.Tester;
+import control.Tester;
 
 /**
  * Egy ágens, amely valamilyen hatással van a virológusra és ez időben elévül.

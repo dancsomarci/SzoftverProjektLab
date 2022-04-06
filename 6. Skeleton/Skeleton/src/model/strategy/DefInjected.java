@@ -4,7 +4,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.agents.Agent;
-import test.Tester;
+import control.Tester;
 
 /**
  * A felkenés default stratégiája, mikor ténylegesen megtörténik a felkenés.

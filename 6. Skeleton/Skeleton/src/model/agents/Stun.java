@@ -3,7 +3,7 @@ package model.agents;
 
 import model.Virologist;
 import model.strategy.*;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan ágens, ami lebénítja a virológust, megafosztja minden körében a végezhető tevékenységtől,

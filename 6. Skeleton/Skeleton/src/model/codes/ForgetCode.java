@@ -5,7 +5,7 @@ package model.codes;
 import model.Virologist;
 import model.agents.Agent;
 import model.agents.Forget;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan genetikai kód, ami egy felejtő (Forget) típusú ágenst tud előállítani.

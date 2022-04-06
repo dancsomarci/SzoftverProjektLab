@@ -2,7 +2,7 @@ package model.strategy;
 
 
 import model.Virologist;
-import test.Tester;
+import control.Tester;
 
 /**
  * Zsákmányolási stratégia, ami nem engedélyez zsákmányolást.

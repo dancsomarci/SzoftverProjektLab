@@ -4,7 +4,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.map.Field;
-import test.Tester;
+import control.Tester;
 
 /**
  * Default engedélyezett a tárgyfelvétel (védőfelszerlés), így ezt a stratégiát valósítja meg.

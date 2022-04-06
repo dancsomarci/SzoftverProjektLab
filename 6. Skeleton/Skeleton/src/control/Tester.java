@@ -1,4 +1,4 @@
-package test;
+package control;
 
 import model.Game;
 import model.Virologist;
@@ -56,10 +56,10 @@ public class Tester {
      * @param m a hívott függvény reflekciója
      */
     public static void methodStart(Method m){
-        for(int i = 0; i < indention; i++)
+        /*for(int i = 0; i < indention; i++)
             System.out.print("\t");
         System.out.println("=>" + m.getDeclaringClass()+"::"+m.getName()+"()");
-        indention++;
+        indention++;*/
     }
 
     /**
@@ -67,10 +67,10 @@ public class Tester {
      * @param m a visszatérő függvény reflekciója
      */
     public static void methodEnd(Method m){
-        indention--;
+        /*indention--;
         for(int i = 0; i < indention; i++)
             System.out.print("\t");
-        System.out.println("<=" + m.getDeclaringClass()+"::"+m.getName()+"()");
+        System.out.println("<=" + m.getDeclaringClass()+"::"+m.getName()+"()");*/
     }
 
     /**
@@ -78,9 +78,9 @@ public class Tester {
      * @param m a hívott függvény reflekciója
      */
     public static void ctrMethodStart(Constructor<?> m){
-        for(int i = 0; i < indention; i++)
+        /*for(int i = 0; i < indention; i++)
             System.out.print("\t");
-        System.out.println("Ctor: " + m.getName()+"()");
+        System.out.println("Ctor: " + m.getName()+"()");*/
     }
 
     /**

@@ -2,7 +2,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.map.Field;
-import test.Tester;
+import control.Tester;
 
 /**
  * Sikertelen anyag gyüjtésért felelős stratégia

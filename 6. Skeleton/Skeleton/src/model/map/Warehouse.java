@@ -2,7 +2,7 @@ package model.map;
 
 
 import model.Virologist;
-import test.Tester;
+import control.Tester;
 
 import java.util.Random;
 

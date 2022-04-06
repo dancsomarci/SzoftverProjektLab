@@ -4,7 +4,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.map.Field;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan védőfelszerelés felvételének mechanikájáért felelős stratégia, ami nem engedélyezi a felvételt.

@@ -4,7 +4,7 @@ package model.map;
 
 import model.Virologist;
 import model.equipments.Equipment;
-import test.Tester;
+import control.Tester;
 
 import java.util.ArrayList;
 

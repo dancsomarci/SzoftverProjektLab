@@ -6,7 +6,7 @@ import model.codes.*;
 import model.equipments.*;
 import model.map.*;
 import model.strategy.*;
-import test.Tester;
+import control.Tester;
 
 import java.util.ArrayList;
 import java.util.Random;

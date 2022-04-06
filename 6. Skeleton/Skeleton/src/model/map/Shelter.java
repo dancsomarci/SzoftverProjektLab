@@ -2,7 +2,7 @@ package model.map;
 
 
 import model.equipments.Equipment;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan mező, amelyen egy védőfelszerelés gyüjthető

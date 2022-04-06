@@ -2,7 +2,7 @@ package model;
 
 import model.codes.GeneticCode;
 import model.map.Field;
-import test.Tester;
+import control.Tester;
 
 import java.util.ArrayList;
 import java.util.List;

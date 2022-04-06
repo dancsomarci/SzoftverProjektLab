@@ -3,7 +3,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.map.Field;
-import test.Tester;
+import control.Tester;
 
 /**
  * Alapértelmezett aminosav vagy nukleotid gyűjtési stratégia, ami által a virológus aminosavat vagy nukleotidot

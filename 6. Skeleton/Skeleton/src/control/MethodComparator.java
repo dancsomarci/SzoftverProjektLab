@@ -1,4 +1,4 @@
-package test;
+package control;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

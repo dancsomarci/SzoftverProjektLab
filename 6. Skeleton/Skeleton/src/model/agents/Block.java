@@ -3,7 +3,7 @@ package model.agents;
 
 import model.Virologist;
 import model.strategy.NoInjected;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan ágens, ami hatástalanítja az összes aktuálisan aktív ágenst a felkent virológuson

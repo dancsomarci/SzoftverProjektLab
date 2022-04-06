@@ -3,7 +3,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.map.Field;
-import test.Tester;
+import control.Tester;
 
 /**
  * Alapértelmezett lépési stratégia, ami átlépteti a virológust egy másik mezőre.

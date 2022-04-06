@@ -2,7 +2,7 @@ package model.agents;
 
 
 import model.Virologist;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan ágens, ami felkenéskor elfelejteti a virológussal az összes megtanult genetikai kódját.

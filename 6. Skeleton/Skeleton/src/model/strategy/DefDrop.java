@@ -5,7 +5,7 @@ package model.strategy;
 import model.Virologist;
 import model.equipments.Equipment;
 import model.map.Field;
-import test.Tester;
+import control.Tester;
 
 /**
  * Alapértelmezett eldobási stratégia, ami által a virológus eldob egy felszerelést.

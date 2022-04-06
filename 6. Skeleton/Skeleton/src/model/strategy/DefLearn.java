@@ -3,7 +3,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.map.Field;
-import test.Tester;
+import control.Tester;
 
 /**
  * Alapértelmezett tanulási stratégia, ami által a virológus megtanulja a mezőn lévő genetikai kódot, ha van.

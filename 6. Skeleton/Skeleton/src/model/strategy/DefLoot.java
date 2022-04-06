@@ -2,7 +2,7 @@ package model.strategy;
 
 
 import model.Virologist;
-import test.Tester;
+import control.Tester;
 
 /**
  * A default zsákmányolási stratégia, engedélyezi a zsákmányolás kezdeményezését.

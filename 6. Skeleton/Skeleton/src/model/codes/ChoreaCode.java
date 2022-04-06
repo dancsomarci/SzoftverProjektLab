@@ -5,7 +5,7 @@ import model.Virologist;
 
 import model.agents.Agent;
 import model.agents.Chorea;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan genetikai kód, ami egy vitustánc (Chorea) típusú ágenst tud előállítani.

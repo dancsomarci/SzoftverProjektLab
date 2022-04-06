@@ -4,7 +4,7 @@ package model.map;
 
 import model.Virologist;
 import model.codes.GeneticCode;
-import test.Tester;
+import control.Tester;
 
 /**
  * Olyan mező, amelyen genetikai kód tanulható

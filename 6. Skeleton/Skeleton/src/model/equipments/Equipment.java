@@ -2,7 +2,7 @@ package model.equipments;
 
 
 import model.Virologist;
-import test.Tester;
+import control.Tester;
 
 /**
  * Védőfelszerelés, amely hatással van a viselőjére vagy/és stratégiát biztosít számára
