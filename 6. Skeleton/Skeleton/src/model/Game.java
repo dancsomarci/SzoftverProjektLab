@@ -26,17 +26,21 @@ public class Game
 	 */
 	private List<GeneticCode> codes;
 
+	public ArrayList<Virologist> getVirologists() {
+		return virologists;
+	}
+
 	/**
 	 * A játékban szereplő virpológusok
 	 */
-	private List<Virologist> virologists;
+	private ArrayList<Virologist> virologists;
+
+	private int currentPlayer = 0;
 
 	/**
 	 * Game osztály konstruktora, inicializálja a tagváltozók listáit
 	 */
 	public Game(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
-
 		fields = new ArrayList<>();
 		codes = new ArrayList<>();
 		virologists = new ArrayList<>();
@@ -46,9 +50,7 @@ public class Game
 	 * Elindít egy új játékot, inicializálja a pályát.
 	 */
 	public void NewGame() {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		//töröljük ki ha nem lesz használva!
 	}
 
 	/**
@@ -56,9 +58,6 @@ public class Game
 	 * @param codes a megismert genetikai kódok száma
 	 */
 	public void NextPlayer(int codes){
-
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		// A VIROLÓGUSNÁL KELL MEGKÉRDEZNI, HOGY MEGVAN-E AZ ÖSSZES KÓDJA
 		// EZ ALAPJÁN KELL MEGFELELŐEN PARAMÉTEREZNI MAJD A FÜGGVÉNYHÍVÁST
 		if(codes == this.codes.size())
@@ -67,9 +66,13 @@ public class Game
 			for (Virologist v: virologists) {
 				v.Update();
 			}
+			currentPlayer++;
+			if (currentPlayer == virologists.size()) currentPlayer = 0;
 		}
+	}
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	public Virologist GetCurrentPlayer(){
+		return virologists.get(currentPlayer);
 	}
 
 	/**
@@ -77,9 +80,8 @@ public class Game
 	 */
 	public void EndGame()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		System.out.println("YoureWinner");
+		System.exit(0);
 	}
 
 	/**
@@ -88,9 +90,7 @@ public class Game
 	 */
 	public void AddVirologist(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		virologists.add(v);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -98,9 +98,7 @@ public class Game
 	 * @param gc hozzáadandó genetikai kód
 	 */
 	public void AddGeneticCode(GeneticCode gc){
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		codes.add(gc);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -108,8 +106,6 @@ public class Game
 	 * @param f hozzáadandó mező
 	 */
 	public void AddField(Field f){
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		fields.add(f);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

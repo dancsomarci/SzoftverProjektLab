@@ -12,6 +12,14 @@ import model.agents.Agent;
  */
 public abstract class GeneticCode
 {
+	public int getAminoAcidPrice() {
+		return aminoAcidPrice;
+	}
+
+	public int getNucleotidePrice() {
+		return nucleotidePrice;
+	}
+
 	/**
 	 * A kódhoz tartozó ágens előállításához szükséges aminosav mennyiség
 	 */

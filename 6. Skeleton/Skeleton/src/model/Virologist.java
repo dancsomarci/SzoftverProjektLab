@@ -18,6 +18,33 @@ import java.util.Random;
  */
 public class Virologist
 {
+	public void bark(){
+		System.out.println("Virologist: " + name);
+		System.out.println("\tNumber of actions left: " + actionCount);
+		System.out.println("\tAmino acid: " + aminoAcid);
+		System.out.println("\tNucleotide: " + nucleotide);
+		System.out.println("\tEquipment: " + nucleotide);
+		for (Equipment e: equipments
+			 ) {
+			System.out.println("\t\t" + e.toString()); //id in equipment
+		}
+		System.out.println("\tGenetic codes: " + nucleotide);
+		for (GeneticCode c: codes
+		) {
+			System.out.println("\t\t" + c.toString()); //id in equipment
+		}
+	}
+
+	private String name;
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 	/**
 	 *  Azt a mennyiseget tarolja, hogy mennyi lepest tud vegre hajtani a korben a virologus.
 	 * */
@@ -27,6 +54,8 @@ public class Virologist
 	 *  A virologus altal birtokolt aminosav mennyiseget tarolja.
 	 * */
 	private int aminoAcid;
+
+
 
 	/**
 	 *  A virologus altal birtokolt nukleotid mennyiseget tarolja.
@@ -44,6 +73,10 @@ public class Virologist
 	 * */
 	private Field field;
 
+	public Field getField(){
+		return field;
+	}
+
 	/**
 	 * A Game osztaly peldanya ami a korok vezerlesehez szukseges
 	 */
@@ -58,6 +91,10 @@ public class Virologist
 	 * Az eddigi megtanult genetikai kodok listaja
 	 */
 	private ArrayList<GeneticCode> codes;
+
+	public ArrayList<GeneticCode> getGeneticCodes(){
+		return codes;
+	}
 
 	/**
 	 * A birtokolt felszerelesek listaja
@@ -113,8 +150,6 @@ public class Virologist
 	 * Az osztaly konstruktora, beallitja az alapertelmezett strategiakat.
 	 */
 	public Virologist(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
-
 		equipments = new ArrayList<>(3);
 		codes = new ArrayList<>();
 		agents = new ArrayList<>();
@@ -143,8 +178,6 @@ public class Virologist
 	 */
 	public void Move()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			ArrayList<Field> fields = field.GetNeighbours();
 			if (fields.size() == 0) {
@@ -154,7 +187,6 @@ public class Virologist
 				fields.get(r).AddVirologist(this);
 			}
 		}
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -165,11 +197,9 @@ public class Virologist
 	 */
 	public void Move(Field field)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			moveStr.Move(this, this.field, field);
 		}
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -179,9 +209,7 @@ public class Virologist
 	 */
 	public void SetField(Field f)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		field = f;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -189,13 +217,11 @@ public class Virologist
 	 */
 	public void Drop()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			if (equipments.size() > 0) {
 				dropStr.Drop(this, field, equipments.remove(new Random().nextInt(equipments.size())));
 			}
 		}
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -206,11 +232,9 @@ public class Virologist
 	 */
 	public void LootAminoAcidFrom(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			lootStr.LootAmino(this, v);
 		}
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -221,11 +245,9 @@ public class Virologist
 	 */
 	public void LootNucleotideFrom(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			lootStr.LootNucleotide(this, v);
 		}
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -236,15 +258,11 @@ public class Virologist
 	 */
 	public void LootEquipmentFrom(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			if (Tester.getUserInput("Van hely a virologusnal vedofelszerlesnek? (Y/N) ", "Y")){
 				lootStr.LootEquipment(this, v);
 			}
 		}
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -252,13 +270,11 @@ public class Virologist
 	 */
 	public void Collect()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			collectStr.Collect(this, field);
 		}
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -267,13 +283,11 @@ public class Virologist
 	 */
 	public void Learn()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			learnStr.Learn(this, field);
 		}
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -281,13 +295,11 @@ public class Virologist
 	 */
 	public void Equip()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
 			equipStr.Equip(this, field);
 		}
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -296,9 +308,7 @@ public class Virologist
 	 */
 	public void AddAgent(Agent a)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		agents.add(a);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -307,9 +317,7 @@ public class Virologist
 	 */
 	public void RemoveAgent(Agent a)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		agents.remove(a);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -318,10 +326,8 @@ public class Virologist
 	 */
 	public void AddEquipment(Equipment e)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (equipments.size() < 3)
 			equipments.add(e);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -330,12 +336,10 @@ public class Virologist
 	 */
 	public Equipment GetEquipment()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (equipments.size() == 0)
 			throw new IndexOutOfBoundsException("ures a felszereles tarolo");
 		Equipment e = equipments.remove(equipments.size()-1);
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 		return e;
 	}
 
@@ -345,9 +349,7 @@ public class Virologist
 	 */
 	public void AddGeneticCode(GeneticCode code)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		codes.add(code);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -357,14 +359,12 @@ public class Virologist
 	 */
 	public void Inject(Virologist v, GeneticCode code)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y"))
 		{
 			injectStr.Inject(this, v, code);
 		}
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -373,9 +373,7 @@ public class Virologist
 	 */
 	public void TargetedWith(Agent a)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		injectedStr.Injected(this, a);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -384,9 +382,8 @@ public class Virologist
 	 */
 	public void StealAminoAcid(Virologist self)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
 		lootedStr.LootedForAminoAcid(this, self);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -395,9 +392,7 @@ public class Virologist
 	 */
 	public void StealNukleotid(Virologist self)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		lootedStr.LootedForNukleotide(self, this);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -406,14 +401,12 @@ public class Virologist
 	 */
 	public void StealEquipment(Virologist self)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (equipments.size() > 0) {
 			Random random = new Random();
 			int r = random.nextInt(equipments.size());
 			Equipment e = equipments.get(r);
 			lootedStr.LootedForEquipment(this, self, e);
 		}
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -421,9 +414,7 @@ public class Virologist
 	 */
 	public void RemoveGeneticCodes()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		codes.clear();
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -431,9 +422,7 @@ public class Virologist
 	 */
 	public void RemoveAgents()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		agents.clear();
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -441,10 +430,8 @@ public class Virologist
 	 */
 	public void DecreaseActions()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		if (actionCount > 0)
 		actionCount--;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -452,11 +439,9 @@ public class Virologist
 	 */
 	public void EndTurn()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		game.NextPlayer(codes.size());
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -465,9 +450,7 @@ public class Virologist
 	 */
 	public void AddAminoAcid(int delta)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		aminoAcid+= delta;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -476,9 +459,7 @@ public class Virologist
 	 */
 	public void AddNucleotide(int delta)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		nucleotide+= delta;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -488,14 +469,12 @@ public class Virologist
 	 */
 	public void RemoveNucleotide(int delta) throws Exception
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		if(delta > nucleotide){
 			throw new Exception("I don't have such many nucleotide!");
 		}
 		nucleotide -= delta;
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -505,14 +484,12 @@ public class Virologist
 	 */
 	public void RemoveAminoAcid(int delta) throws Exception
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
 		if(delta > aminoAcid){
 			throw new Exception("I don't have such many amino acid!");
 		}
 		aminoAcid -= delta;
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -521,9 +498,7 @@ public class Virologist
 	 */
 	public void IncreaseLimit(int delta)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		limit += delta;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -532,9 +507,8 @@ public class Virologist
 	 */
 	public void DecreaseLimit(int delta)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		limit -= delta;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		if (limit < 0) limit = 0;
 	}
 
 	/**
@@ -543,8 +517,6 @@ public class Virologist
 	 */
 	public int GetAminoAcid()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 		return aminoAcid;
 	}
 
@@ -554,8 +526,6 @@ public class Virologist
 	 */
 	public int GetNucleotide()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 		return nucleotide;
 	}
 
@@ -564,11 +534,9 @@ public class Virologist
 	 */
 	public void Update()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		for(Agent a: agents){
 			a.Update(this);
 		}
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -576,9 +544,7 @@ public class Virologist
 	 */
 	public void Reset()
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -587,9 +553,7 @@ public class Virologist
 	 */
 	public void SetDropStr(IDropStr d)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		dropStr = d;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -598,9 +562,7 @@ public class Virologist
 	 */
 	public void SetMoveStr(IMoveStr m)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		moveStr = m;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -609,9 +571,7 @@ public class Virologist
 	 */
 	public void SetLearnStr(ILearnStr l)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		learnStr = l;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -620,9 +580,7 @@ public class Virologist
 	 */
 	public void SetLootStr(ILootStr l)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		lootStr = l;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -631,9 +589,7 @@ public class Virologist
 	 */
 	public void SetInjectStr(IInjectStr i)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		injectStr = i;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -642,9 +598,7 @@ public class Virologist
 	 */
 	public void SetInjectedStr(IInjectedStr i)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		injectedStr = i;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -653,9 +607,7 @@ public class Virologist
 	 */
 	public void SetEquipStr(IEquipStr e)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		equipStr = e;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -664,9 +616,7 @@ public class Virologist
 	 */
 	public void SetCollectStr(ICollectStr c)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		collectStr= c;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -675,9 +625,7 @@ public class Virologist
 	 */
 	public void SetLootedStr(ILootedStr l)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		lootedStr =l;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 }

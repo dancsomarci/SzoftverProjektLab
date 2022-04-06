@@ -34,10 +34,11 @@ public class Field
 	 * @return szomszéd mezők
 	 */
 	public ArrayList<Field> GetNeighbours() {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
-
 		return neighbours;
+	}
+
+	public ArrayList<Virologist> GetVirologists(){
+		return virologists;
 	}
 
 	/**
@@ -57,11 +58,8 @@ public class Field
 	 * @param v elehelyezendő virológus
 	 */
 	public void AddVirologist(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		virologists.add(v);
 		v.SetField(this);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -69,11 +67,7 @@ public class Field
 	 * @param v eltávolítandó virológus
 	 */
 	public void RemoveVirologist(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		virologists.remove(v);
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
