@@ -1,6 +1,7 @@
 package model.map;
 
 import model.Virologist;
+import model.agents.Bear;
 import model.codes.GeneticCode;
 
 public class InfectedLaboratory extends Laboratory{
@@ -15,6 +16,7 @@ public class InfectedLaboratory extends Laboratory{
 
     @Override
     public void AddVirologist(Virologist v){
-        
+        v.TargetedWith(new Bear());
+        super.AddVirologist(v);
     }
 }

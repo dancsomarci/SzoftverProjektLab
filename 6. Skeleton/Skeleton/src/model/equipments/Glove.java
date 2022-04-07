@@ -12,6 +12,8 @@ import control.Tester;
  */
 public class Glove extends Equipment implements IInjectedStr
 {
+	private int useCount = 3;
+
 	/**
 	 * Létrehozza a kesztyű védőfelszerelést
 	 */
@@ -29,11 +31,24 @@ public class Glove extends Equipment implements IInjectedStr
 
 	@Override
 	public void Injected(Virologist v, Agent a) {
-		//szekvencia alapján implementálni
+		if (useCount > 0){
+			useCount--;
+		} else{
+			v.RemoveEquipment(this);
+			v.Reset();
+			v.TargetedWith(a);
+		}
 	}
 
 	@Override
 	public void Injected(Virologist by, Virologist injected, Agent a) {
-		//szekvencia alapján implementálni
+		if (useCount > 0){
+			useCount--;
+			by.TargetedWith(injected, a);
+		} else{
+			injected.RemoveEquipment(this);
+			injected.Reset();
+			injected.TargetedWith(by, a);
+		}
 	}
 }

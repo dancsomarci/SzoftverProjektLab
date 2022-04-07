@@ -75,7 +75,7 @@ public class Field
 	 * @param virologist virológus sorszáma
 	 * @throws IndexOutOfBoundsException csak egy virológus tartózkodik a mezőn
 	 * @return adott sorszámú virológus
-	 */
+
 	public Virologist GetVirologist(int virologist) {
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
@@ -86,7 +86,7 @@ public class Field
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 
 		return this.virologists.get(virologist%this.virologists.size());
-	}
+	}*/
 
 	/**
 	 * Eldobja az adott felszerelést a mezőre

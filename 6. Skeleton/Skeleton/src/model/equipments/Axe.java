@@ -15,6 +15,9 @@ public class Axe extends Equipment implements IAttackStr {
 
     @Override
     public void Attack(Virologist attacker, Virologist target) {
+        attacker.DecreaseActions();
         target.Kill();
+        used = false;
+        attacker.Reset();
     }
 }

@@ -184,11 +184,13 @@ public class Virologist
 	}
 
 	public void Attack(Virologist v){
-
+		if (actionCount > 0){
+			attackStr.Attack(this, v);
+		}
 	}
 
 	public void TargetedWith(Virologist who, Agent a){
-
+		injectedStr.Injected(who, this, a);
 	}
 
 	public void RemoveEquipment(Equipment e){
