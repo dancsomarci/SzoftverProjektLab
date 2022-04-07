@@ -45,6 +45,12 @@ public class Virologist
 		return name;
 	}
 
+	private IAttackStr attackStr;
+
+	public void SetAttackStr(IAttackStr a){
+		attackStr = a;
+	}
+
 	/**
 	 *  Azt a mennyiseget tarolja, hogy mennyi lepest tud vegre hajtani a korben a virologus.
 	 * */
