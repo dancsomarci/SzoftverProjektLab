@@ -15,4 +15,6 @@ public interface IInjectedStr
 	 * @param a A felkent ágens.
 	 */
 	void Injected(Virologist v, Agent a);
+
+	void Injected(Virologist by, Virologist injected, Agent a);
 }

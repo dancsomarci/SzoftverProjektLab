@@ -32,4 +32,9 @@ public class DefInjected implements IInjectedStr
 		a.ApplyStrategy(v);
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
+
+	@Override
+	public void Injected(Virologist by, Virologist injected, Agent a) {
+		Injected(injected, a);
+	}
 }

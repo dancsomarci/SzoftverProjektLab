@@ -11,6 +11,9 @@ import java.util.Random;
  */
 public class Warehouse extends Field
 {
+
+	private int delta = 5;
+
 	/**
 	 * Anyag gyüjtése
 	 * @param v gyüjtő virológus
@@ -22,14 +25,19 @@ public class Warehouse extends Field
 		int r = random.nextInt(2) ;
 
 		if (r == 0) {
-			v.AddAminoAcid(5);
+			v.AddAminoAcid(delta);
 		}
 		else {
-			v.AddNucleotide(5);
+			v.AddNucleotide(delta);
 		}
 
 		v.DecreaseActions();
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	@Override
+	public void DestroyMaterial(){
+		delta = 0;
 	}
 }

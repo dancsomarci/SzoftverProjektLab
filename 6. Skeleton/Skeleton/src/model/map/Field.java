@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class Field
 {
-
 	protected ArrayList<Field> neighbours;
 	protected ArrayList<Virologist> virologists;
 	protected ArrayList<Equipment> equipments;
@@ -22,8 +21,6 @@ public class Field
 	 * Létrehozza a tárolókat
 	 */
 	public Field(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
-
 		neighbours = new ArrayList<>();
 		virologists = new ArrayList<>();
 		equipments = new ArrayList<>();
@@ -51,6 +48,9 @@ public class Field
 		neighbours.add(f);
 
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	public void DestroyMaterial(){
 	}
 
 	/**

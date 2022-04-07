@@ -108,4 +108,8 @@ public class Game
 	public void AddField(Field f){
 		fields.add(f);
 	}
+
+	public void RemoveVirologist(Virologist virologist) {
+		virologists.remove(virologist);
+	}
 }

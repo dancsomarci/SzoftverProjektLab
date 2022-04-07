@@ -173,6 +173,22 @@ public class Virologist
 		game = g;
 	}
 
+	public void Kill(){
+		game.RemoveVirologist(this);
+	}
+
+	public void Attack(Virologist v){
+
+	}
+
+	public void TargetedWith(Virologist who, Agent a){
+
+	}
+
+	public void RemoveEquipment(Equipment e){
+		equipments.remove(e);
+	}
+
 	/**
 	 * A virologus random mozgasaert felel, ezt egy bizonyos agens valthatja ki.
 	 */

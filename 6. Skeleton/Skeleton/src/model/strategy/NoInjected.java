@@ -26,7 +26,9 @@ public class NoInjected implements IInjectedStr
 	@Override
 	public void Injected(Virologist v, Agent a)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	}
+
+	@Override
+	public void Injected(Virologist by, Virologist injected, Agent a) {
 	}
 }
