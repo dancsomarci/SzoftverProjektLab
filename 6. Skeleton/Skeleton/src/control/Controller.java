@@ -10,10 +10,7 @@ import model.codes.BlockCode;
 import model.codes.ForgetCode;
 import model.codes.GeneticCode;
 import model.equipments.Bag;
-import model.map.Field;
-import model.map.Laboratory;
-import model.map.Shelter;
-import model.map.Warehouse;
+import model.map.*;
 
 public class Controller {
     private static LinkedHashMap<String, Method> inputs = new LinkedHashMap<>();
@@ -39,7 +36,6 @@ public class Controller {
         try {
             String input;
             while (!(input = sc.nextLine()).equals("exit")){ //exit parancs itt kezelődik
-                System.out.println("The current input was: [" + input + "]");
                 String[] inputArr = input.split(" ");
                 Method m = inputs.get(inputArr[0]);
                 if (m != null)
@@ -71,8 +67,23 @@ public class Controller {
 
     private Game game;
 
+    private HashMap<String, Class<?>> fieldTypes = new HashMap<>();
+
+    @ProtoInput(name="CreateField")
+    public void CreateField(String[] params){
+
+    }
+
+    
+
     @ProtoInput(name="wau")
     public void wau(String[] params){
+        fieldTypes.put("Field", Field.class);
+        fieldTypes.put("Warehouse", Warehouse.class);
+        fieldTypes.put("Laboratory", Laboratory.class);
+        fieldTypes.put("InfectedLaboratory", InfectedLaboratory.class);
+        fieldTypes.put("Shelter", Shelter.class);
+
         game = new Game(); //bemeneti nyelvet kitalálni!
         Field f = new Field();
         Laboratory labor = new Laboratory(new ForgetCode());

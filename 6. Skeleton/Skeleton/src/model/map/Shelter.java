@@ -8,7 +8,6 @@ import model.equipments.Equipment;
  */
 public class Shelter extends Field
 {
-
 	/**
 	 * Védőfelszerelés hozzáadása
 	 * @param e hozzáadandó felszerelés
