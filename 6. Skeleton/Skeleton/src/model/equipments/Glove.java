@@ -4,8 +4,6 @@ package model.equipments;
 import model.Virologist;
 import model.agents.Agent;
 import model.strategy.IInjectedStr;
-import model.strategy.NoInjected;
-import control.Tester;
 
 /**
  * Védőfelszerelés, amely stratégiát biztosít viselőjén, érinthetetlenné teszi, ágensek felől
@@ -13,13 +11,6 @@ import control.Tester;
 public class Glove extends Equipment implements IInjectedStr
 {
 	private int useCount = 3;
-
-	/**
-	 * Létrehozza a kesztyű védőfelszerelést
-	 */
-	public Glove(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
-	}
 
 	/**
 	 * Alkalmazza az ágensek felől érinthetetlen stratégiát

@@ -10,4 +10,8 @@ public class Bear extends Agent {
     public void ApplyStrategy(Virologist v){
         v.SetMoveStr(new BearMove());
     }
+
+    @Override
+    public void Update(Virologist v){ //Sosem évül el
+    }
 }

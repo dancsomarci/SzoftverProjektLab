@@ -2,7 +2,6 @@ package model.equipments;
 
 
 import model.Virologist;
-import control.Tester;
 
 /**
  * Olyan felszerelés, amely növeli a maximális nukleotid és aminosav tárhelyet
@@ -19,8 +18,6 @@ public class Bag extends Equipment
 	 * Beállítja a növelő mennyiséget
 	 */
 	public Bag(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
-
 		delta = 5;
 	}
 
@@ -29,11 +26,7 @@ public class Bag extends Equipment
 	 * @param v viselő virológus
 	 */
 	public void Apply(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		v.IncreaseLimit(delta);
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -41,11 +34,7 @@ public class Bag extends Equipment
 	 * @param v viselő virológus
 	 */
 	public void Disable(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		v.DecreaseLimit(delta);
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 }

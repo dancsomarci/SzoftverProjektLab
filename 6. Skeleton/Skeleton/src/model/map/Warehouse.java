@@ -2,7 +2,6 @@ package model.map;
 
 
 import model.Virologist;
-import control.Tester;
 
 import java.util.Random;
 
@@ -19,8 +18,6 @@ public class Warehouse extends Field
 	 * @param v gyüjtő virológus
 	 */
 	public void CollectMaterial(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		Random random = new Random();
 		int r = random.nextInt(2) ;
 
@@ -32,8 +29,6 @@ public class Warehouse extends Field
 		}
 
 		v.DecreaseActions();
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	@Override

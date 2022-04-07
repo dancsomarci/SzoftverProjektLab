@@ -2,7 +2,6 @@ package model.agents;
 
 
 import model.Virologist;
-import control.Tester;
 
 /**
  * Olyan ágens, ami random lépésekre készteti a virológust a felkenés pillanatában.
@@ -15,7 +14,6 @@ public class Chorea extends Agent
 	 * @param tL a beállítandó hatásidő
 	 */
 	public Chorea(int tL){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 		timeToLive = tL;
 	}
 
@@ -25,10 +23,8 @@ public class Chorea extends Agent
 	 */
 	public void Apply(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		v.Move();
 		v.Move();
 		v.Move();
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

@@ -6,7 +6,6 @@ import model.codes.*;
 import model.equipments.*;
 import model.map.*;
 import model.strategy.*;
-import control.Tester;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -51,6 +50,8 @@ public class Virologist
 		attackStr = a;
 	}
 
+	private int maxNumberOfItems = 3;
+
 	/**
 	 *  Azt a mennyiseget tarolja, hogy mennyi lepest tud vegre hajtani a korben a virologus.
 	 * */
@@ -60,8 +61,6 @@ public class Virologist
 	 *  A virologus altal birtokolt aminosav mennyiseget tarolja.
 	 * */
 	private int aminoAcid;
-
-
 
 	/**
 	 *  A virologus altal birtokolt nukleotid mennyiseget tarolja.
@@ -156,19 +155,11 @@ public class Virologist
 	 * Az osztaly konstruktora, beallitja az alapertelmezett strategiakat.
 	 */
 	public Virologist(){
-		equipments = new ArrayList<>(3);
+		equipments = new ArrayList<>(maxNumberOfItems);
 		codes = new ArrayList<>();
 		agents = new ArrayList<>();
 
-		lootedStr = new DefLooted();
-		injectedStr = new DefInjected();
-		collectStr = new DefCollect();
-		equipStr = new DefEquip();
-		lootStr = new DefLoot();
-		dropStr = new DefDrop();
-		injectStr = new DefInject();
-		learnStr = new DefLearn();
-		moveStr = new DefMove();
+		Reset(); //sets the default strategies
 	}
 
 	/**
@@ -202,13 +193,11 @@ public class Virologist
 	 */
 	public void Move()
 	{
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
+		if (actionCount > 0) {
 			ArrayList<Field> fields = field.GetNeighbours();
 			if (fields.size() == 0) {
 				Random random = new Random();
-				int r = random.nextInt(fields.size());
-				field.RemoveVirologist(this);
-				fields.get(r).AddVirologist(this);
+				Move(fields.get(random.nextInt(fields.size())));
 			}
 		}
 	}
@@ -221,7 +210,7 @@ public class Virologist
 	 */
 	public void Move(Field field)
 	{
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
+		if (actionCount > 0) {
 			moveStr.Move(this, this.field, field);
 		}
 	}
@@ -237,14 +226,12 @@ public class Virologist
 	}
 
 	/**
-	 * A fuggveny egy veletlenszeru felszereles eldobasaert felel.
+	 * A fuggveny az utolsónak felvett equipment eldobásáért felel
 	 */
 	public void Drop()
 	{
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
-			if (equipments.size() > 0) {
-				dropStr.Drop(this, field, equipments.remove(new Random().nextInt(equipments.size())));
-			}
+		if (actionCount > 0 && equipments.size() > 0) {
+			dropStr.Drop(this, field, equipments.remove(equipments.size()-1));
 		}
 	}
 
@@ -256,7 +243,7 @@ public class Virologist
 	 */
 	public void LootAminoAcidFrom(Virologist v)
 	{
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
+		if (actionCount > 0) {
 			lootStr.LootAmino(this, v);
 		}
 	}
@@ -269,7 +256,7 @@ public class Virologist
 	 */
 	public void LootNucleotideFrom(Virologist v)
 	{
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
+		if (actionCount > 0) {
 			lootStr.LootNucleotide(this, v);
 		}
 	}
@@ -282,10 +269,8 @@ public class Virologist
 	 */
 	public void LootEquipmentFrom(Virologist v)
 	{
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
-			if (Tester.getUserInput("Van hely a virologusnal vedofelszerlesnek? (Y/N) ", "Y")){
-				lootStr.LootEquipment(this, v);
-			}
+		if (actionCount > 0 && equipments.size() < maxNumberOfItems) {
+			lootStr.LootEquipment(this, v);
 		}
 	}
 
@@ -294,11 +279,9 @@ public class Virologist
 	 */
 	public void Collect()
 	{
-
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
+		if (actionCount > 0) {
 			collectStr.Collect(this, field);
 		}
-
 	}
 
 	/**
@@ -307,8 +290,7 @@ public class Virologist
 	 */
 	public void Learn()
 	{
-
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
+		if (actionCount > 0) {
 			learnStr.Learn(this, field);
 		}
 
@@ -319,8 +301,7 @@ public class Virologist
 	 */
 	public void Equip()
 	{
-
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y")) {
+		if (actionCount > 0) {
 			equipStr.Equip(this, field);
 		}
 
@@ -350,7 +331,7 @@ public class Virologist
 	 */
 	public void AddEquipment(Equipment e)
 	{
-		if (equipments.size() < 3)
+		if (equipments.size() < maxNumberOfItems)
 			equipments.add(e);
 	}
 
@@ -358,7 +339,7 @@ public class Virologist
 	 * Az equipment getter fuggvenye.
 	 * @return Vissza ter a birtokolt felszerelesekkel, ha nincs akkor kivetelt dob
 	 */
-	public Equipment GetEquipment()
+	public Equipment GetEquipment() throws IndexOutOfBoundsException
 	{
 		if (equipments.size() == 0)
 			throw new IndexOutOfBoundsException("ures a felszereles tarolo");
@@ -384,7 +365,7 @@ public class Virologist
 	public void Inject(Virologist v, GeneticCode code)
 	{
 
-		if (Tester.getUserInput("Van meg akcioja hatra a virologusnak? (Y/N) ", "Y"))
+		if (actionCount > 0)
 		{
 			injectStr.Inject(this, v, code);
 		}
@@ -406,7 +387,6 @@ public class Virologist
 	 */
 	public void StealAminoAcid(Virologist self)
 	{
-
 		lootedStr.LootedForAminoAcid(this, self);
 	}
 
@@ -463,9 +443,7 @@ public class Virologist
 	 */
 	public void EndTurn()
 	{
-
 		game.NextPlayer(codes.size());
-
 	}
 
 	/**
@@ -475,6 +453,7 @@ public class Virologist
 	public void AddAminoAcid(int delta)
 	{
 		aminoAcid+= delta;
+		if (aminoAcid > limit) aminoAcid = limit;
 	}
 
 	/**
@@ -484,6 +463,7 @@ public class Virologist
 	public void AddNucleotide(int delta)
 	{
 		nucleotide+= delta;
+		if (nucleotide > limit) nucleotide = limit;
 	}
 
 	/**
@@ -493,12 +473,10 @@ public class Virologist
 	 */
 	public void RemoveNucleotide(int delta) throws Exception
 	{
-
 		if(delta > nucleotide){
 			throw new Exception("I don't have such many nucleotide!");
 		}
 		nucleotide -= delta;
-
 	}
 
 	/**
@@ -508,12 +486,10 @@ public class Virologist
 	 */
 	public void RemoveAminoAcid(int delta) throws Exception
 	{
-
 		if(delta > aminoAcid){
 			throw new Exception("I don't have such many amino acid!");
 		}
 		aminoAcid -= delta;
-
 	}
 
 	/**
@@ -564,11 +540,20 @@ public class Virologist
 	}
 
 	/**
-	 * Vissza strategiakat az alapallapotukba. Azt ertjuk alapnak ami a konstruktorban van.
+	 * Vissza strategiakat a default állípotba.
 	 */
 	public void Reset()
 	{
-
+		lootedStr = new DefLooted();
+		injectedStr = new DefInjected();
+		collectStr = new DefCollect();
+		equipStr = new DefEquip();
+		lootStr = new DefLoot();
+		dropStr = new DefDrop();
+		injectStr = new DefInject();
+		learnStr = new DefLearn();
+		moveStr = new DefMove();
+		attackStr = new DefAttack();
 	}
 
 	/**
@@ -651,5 +636,4 @@ public class Virologist
 	{
 		lootedStr =l;
 	}
-
 }

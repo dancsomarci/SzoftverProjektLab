@@ -39,6 +39,7 @@ public class Controller {
         try {
             String input;
             while (!(input = sc.nextLine()).equals("exit")){ //exit parancs itt kezelődik
+                System.out.println("The current input was: [" + input + "]");
                 String[] inputArr = input.split(" ");
                 Method m = inputs.get(inputArr[0]);
                 if (m != null)

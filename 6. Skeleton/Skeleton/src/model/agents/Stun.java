@@ -3,7 +3,6 @@ package model.agents;
 
 import model.Virologist;
 import model.strategy.*;
-import control.Tester;
 
 /**
  * Olyan ágens, ami lebénítja a virológust, megafosztja minden körében a végezhető tevékenységtől,
@@ -16,7 +15,6 @@ public class Stun extends Agent
 	 * @param tL a beállítandó hatásidő
 	 */
 	public Stun(int tL){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 		timeToLive = tL;
 	}
 
@@ -27,7 +25,6 @@ public class Stun extends Agent
 	 */
 	public void ApplyStrategy(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		Looted lt = new Looted();
 		NoCollect nc = new NoCollect();
 		NoDrop nd = new NoDrop();
@@ -47,6 +44,5 @@ public class Stun extends Agent
 		v.SetLootedStr(lt);
 		v.SetLootStr(nl);
 		v.SetMoveStr(nm);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

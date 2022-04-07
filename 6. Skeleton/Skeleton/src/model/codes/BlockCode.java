@@ -4,7 +4,6 @@ package model.codes;
 import model.Virologist;
 import model.agents.Agent;
 import model.agents.Block;
-import control.Tester;
 
 
 /**
@@ -17,7 +16,6 @@ public class BlockCode extends GeneticCode
 	 * hatásánakl időtartamát
 	 */
 	public BlockCode() {
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 		aminoAcidPrice = 4;
 		nucleotidePrice = 3;
 		turnsLeft = 2;
@@ -33,8 +31,6 @@ public class BlockCode extends GeneticCode
 	 */
 	public Agent Create(Virologist v) throws Exception
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		v.RemoveNucleotide(nucleotidePrice);
 		try{
 			v.RemoveAminoAcid(aminoAcidPrice);
@@ -45,7 +41,6 @@ public class BlockCode extends GeneticCode
 		}
 		Block b = new Block(turnsLeft);
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 		return b;
 	}
 

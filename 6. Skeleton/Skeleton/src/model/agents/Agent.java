@@ -2,7 +2,6 @@ package model.agents;
 
 
 import model.Virologist;
-import control.Tester;
 
 /**
  * Egy ágens, amely valamilyen hatással van a virológusra és ez időben elévül.
@@ -18,13 +17,16 @@ public abstract class Agent
 
 	/**
 	 * Öregíti egy egységgel az Agent-et.
+	 * Ha lejárt eltávolítja magát a virológusról, és reseteli azt.
 	 * @param v a tulajdonos virológus
 	 */
 	public void Update(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		timeToLive--;
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+		if (timeToLive == 0){
+			v.RemoveAgent(this);
+			v.Reset();
+		}
 	}
 
 	/**
@@ -34,9 +36,6 @@ public abstract class Agent
 	 */
 	public void Apply(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -47,8 +46,5 @@ public abstract class Agent
 	 */
 	public void ApplyStrategy(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }
