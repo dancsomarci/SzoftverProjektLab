@@ -112,9 +112,9 @@ public class Field
 	public void PickUpEquipment(Virologist v) {
 		if (equipments.size()>0) {
 			Equipment equipment = equipments.remove(equipments.size()-1);
-			equipment.Apply(v);
+			//equipment.Apply(v); berakva AddEquipment-be
 			v.AddEquipment(equipment);
-			equipment.ApplyStrategy(v);
+			//equipment.ApplyStrategy(v); berakva AddEquipment-be
 		}
 	}
 }

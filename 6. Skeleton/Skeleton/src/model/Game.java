@@ -49,7 +49,7 @@ public class Game
 	 * Elindít egy új játékot, inicializálja a pályát.
 	 */
 	public void NewGame() {
-		//töröljük ki ha nem lesz használva!
+
 	}
 
 	/**
@@ -90,6 +90,7 @@ public class Game
 	public void AddVirologist(Virologist v)
 	{
 		virologists.add(v);
+		v.SetGame(this);
 	}
 
 	/**

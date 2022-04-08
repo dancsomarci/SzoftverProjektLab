@@ -2,14 +2,17 @@ package control;
 
 import model.Game;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.*;
 
 import model.Virologist;
+import model.agents.Agent;
 import model.codes.BlockCode;
 import model.codes.ForgetCode;
 import model.codes.GeneticCode;
 import model.equipments.Bag;
+import model.equipments.Equipment;
 import model.map.*;
 
 public class Controller {
@@ -44,7 +47,8 @@ public class Controller {
                     System.out.println("Unknown command!");
             }
         } catch (Exception e){
-            throw new Exception("An unexpected error occured... hint: " + e.getMessage());
+            throw e;
+            //throw new Exception("An unexpected error occured... hint: " + e.getMessage());
         }
         finally{
             if (sc != null)
@@ -65,52 +69,141 @@ public class Controller {
         }
     }
 
-    private Game game;
+    /*
+    public Object createObject(String className, Object[] arguments) throws Exception{
+        Class c= Class.forName(className);
+        return c.getDeclaredConstructor().newInstance(arguments);
+    }
+    */
 
-    private HashMap<String, Class<?>> fieldTypes = new HashMap<>();
-
-    @ProtoInput(name="CreateField")
-    public void CreateField(String[] params){
-
+    public Object createObject(String className) throws Exception{
+        Class c= Class.forName(className);
+        return c.getDeclaredConstructor().newInstance();
     }
 
-    
+
+    private Game game;
+    private HashMap<String, Field> fields = new HashMap<>();
+
+    /*pályaleíró nyelv*/
+
+    @ProtoInput(name="Field")
+    public void Field(String[] params) throws Exception {
+        try{
+            HashMap<String, String> options = new HashMap<>();
+            String line;
+            while (!(line = sc.nextLine()).equals("end")){
+                String[] command = line.split(" ");
+                options.put(command[0], command[1]);
+            }
+
+            Field f = null;
+            String arg = options.get("Param");
+
+            if (arg == null){ //default ctor
+                f = (Field) createObject("model.map." + options.get("Type"));
+            } else{
+                //csúnya, de ez van
+                switch(options.get("Type")){
+                    case "Laboratory":
+                        GeneticCode c = (GeneticCode) createObject("model.codes." + arg);
+                        f = new Laboratory(c);
+                        break;
+                    case "Shelter":
+                        Equipment e = (Equipment) createObject("model.equipments."+arg);
+                        f = new Shelter(e);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (options.get("Name") == null) throw new Exception(); //Name is mandatory!
+            if (fields.get(options.get("Name")) != null) throw new Exception(); //Field with Name already Exists!
+            fields.put(options.get("Name"), f);
+        } catch (Exception e){
+            throw new Exception("Error in Field command format!");
+        }
+    }
+
+    @ProtoInput(name="Neighbours")
+    public void Neighbours(String[] params) throws Exception {
+        try{
+            String line;
+            while (!(line = sc.nextLine()).equals("end")){
+                String[] command = line.split(" ");
+                Field f0 = fields.get(command[0]);
+                Field f1 = fields.get(command[1]);
+                f0.AddNeighbour(f1);
+                f1.AddNeighbour(f0);
+            }
+        }catch(Exception e){
+            throw new Exception("Error in Neighbours command format!");
+        }
+    }
+
+    @ProtoInput(name="Virologist")
+    public void Virologist(String[] params) throws Exception {
+        try{
+            String line;
+            Virologist v = new Virologist();
+            String startingPos = "";
+            while (!(line = sc.nextLine()).equals("end")){
+                String[] command = line.split(" ");
+                switch(command[0]){
+                    case "Name":
+                        v.setName(command[1]);
+                        break;
+                    case "Equipment":
+                        v.AddEquipment((Equipment) createObject("model.equipments." + command[1]));
+                        break;
+                    case "Amino":
+                        v.AddAminoAcid(Integer.parseInt(command[1]));
+                        break;
+                    case "Nucleo":
+                        v.AddNucleotide(Integer.parseInt(command[1]));
+                        break;
+                    case "Agent":
+                        Class c= Class.forName("model.agents." + command[1]);
+                        Agent a = (Agent) c.getConstructor(Integer.TYPE).newInstance(Integer.parseInt(command[2]));
+                        a.Apply(v);
+                        v.AddAgent(a);
+                        a.ApplyStrategy(v);
+                        break;
+                    case "StartingPos":
+                        startingPos = command[1]; //in case there are command after this that throw error we don't want to mess up the existing setup
+                        break;
+                    case "GeneticCode":
+                        v.AddGeneticCode((GeneticCode) createObject("model.codes." + command[1]));
+                        break;
+                    default:
+                        throw new Exception();
+                }
+            }
+            fields.get(startingPos).AddVirologist(v);
+            v.bark();
+        } catch (Exception e){
+            throw new Exception("Error in Virologist command format!");
+        }
+    }
+
+    @ProtoInput(name="test")
+    public void Test(String[] params){
+        for (Map.Entry<String, Field> set :
+                fields.entrySet()) {
+
+            // Printing all elements of a Map
+            System.out.println(set.getKey() + " = "
+                    + set.getValue());
+        }
+    }
+
+    /*vége*/
+
+
 
     @ProtoInput(name="wau")
     public void wau(String[] params){
-        fieldTypes.put("Field", Field.class);
-        fieldTypes.put("Warehouse", Warehouse.class);
-        fieldTypes.put("Laboratory", Laboratory.class);
-        fieldTypes.put("InfectedLaboratory", InfectedLaboratory.class);
-        fieldTypes.put("Shelter", Shelter.class);
-
-        game = new Game(); //bemeneti nyelvet kitalálni!
-        Field f = new Field();
-        Laboratory labor = new Laboratory(new ForgetCode());
-        Warehouse wh = new Warehouse();
-        Shelter sh = new Shelter(new Bag());
-
-        f.AddNeighbour(labor);
-        labor.AddNeighbour(f);
-
-        f.AddNeighbour(wh);
-        wh.AddNeighbour(f);
-
-        f.AddNeighbour(sh);
-        sh.AddNeighbour(f);
-
-        Virologist v1 = new Virologist();
-        Virologist v2 = new Virologist();
-
-        v2.setName("Goldi");
-        v1.setName("TanuloschGang");
-
-        v1.AddGeneticCode(new BlockCode());
-
-        f.AddVirologist(v1);
-        f.AddVirologist(v2);
-        game.AddVirologist(v1);
-        game.AddVirologist(v2);
+        game = new Game();
 
         System.out.println("Initialize...");
     }

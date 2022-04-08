@@ -12,10 +12,10 @@ public class Stun extends Agent
 {
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
-	 * @param tL a beállítandó hatásidő
+	 * @param ttl a beállítandó hatásidő
 	 */
-	public Stun(int tL){
-		timeToLive = tL;
+	public Stun(int ttl){
+		super(ttl);
 	}
 
 	/**

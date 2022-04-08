@@ -22,12 +22,12 @@ public class Virologist
 		System.out.println("\tNumber of actions left: " + actionCount);
 		System.out.println("\tAmino acid: " + aminoAcid);
 		System.out.println("\tNucleotide: " + nucleotide);
-		System.out.println("\tEquipment: " + nucleotide);
+		System.out.println("\tEquipment: " + equipments.size());
 		for (Equipment e: equipments
 			 ) {
 			System.out.println("\t\t" + e.toString()); //id in equipment
 		}
-		System.out.println("\tGenetic codes: " + nucleotide);
+		System.out.println("\tGenetic codes: " + codes.size());
 		for (GeneticCode c: codes
 		) {
 			System.out.println("\t\t" + c.toString()); //id in equipment
@@ -50,7 +50,7 @@ public class Virologist
 		attackStr = a;
 	}
 
-	private int maxNumberOfItems = 3;
+	private int maxNumberOfItems;
 
 	/**
 	 *  Azt a mennyiseget tarolja, hogy mennyi lepest tud vegre hajtani a korben a virologus.
@@ -159,6 +159,13 @@ public class Virologist
 		codes = new ArrayList<>();
 		agents = new ArrayList<>();
 
+		//from docs
+		maxNumberOfItems = 3;
+		limit = 20;
+		aminoAcid = 0;
+		nucleotide = 0;
+		actionCount = 3;
+
 		Reset(); //sets the default strategies
 	}
 
@@ -166,7 +173,7 @@ public class Virologist
 	 * Beallitja a jatek osztaly peldanyanak referenciajat
 	 * @param g a beallitando objektum
 	 */
-	public void AddGame(Game g){
+	public void SetGame(Game g){
 		game = g;
 	}
 
@@ -333,6 +340,8 @@ public class Virologist
 	{
 		if (equipments.size() < maxNumberOfItems)
 			equipments.add(e);
+		e.Apply(this);
+		e.ApplyStrategy(this);
 	}
 
 	/**
@@ -443,6 +452,7 @@ public class Virologist
 	 */
 	public void EndTurn()
 	{
+		actionCount = 3;
 		game.NextPlayer(codes.size());
 	}
 

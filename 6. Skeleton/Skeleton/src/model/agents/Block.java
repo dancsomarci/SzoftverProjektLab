@@ -14,7 +14,7 @@ public class Block extends Agent
 	 * @param tL a beállítandó hatásidő
 	 */
 	public Block(int tL){
-		timeToLive = tL;
+		super(tL);
 	}
 
 	/**

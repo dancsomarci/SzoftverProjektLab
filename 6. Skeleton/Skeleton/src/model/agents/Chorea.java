@@ -14,7 +14,7 @@ public class Chorea extends Agent
 	 * @param tL a beállítandó hatásidő
 	 */
 	public Chorea(int tL){
-		timeToLive = tL;
+		super(tL);
 	}
 
 	/**

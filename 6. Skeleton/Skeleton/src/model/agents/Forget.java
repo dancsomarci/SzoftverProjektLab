@@ -13,7 +13,7 @@ public class Forget extends Agent
 	 * @param tL a beállítandó hatásidő
 	 */
 	public Forget(int tL){
-		timeToLive = tL;
+		super(tL);
 	}
 
 	/**

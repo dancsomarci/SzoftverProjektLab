@@ -15,6 +15,10 @@ public abstract class Agent
 	 */
 	protected int timeToLive;
 
+	public Agent(int ttl){
+		timeToLive = ttl;
+	}
+
 	/**
 	 * Öregíti egy egységgel az Agent-et.
 	 * Ha lejárt eltávolítja magát a virológusról, és reseteli azt.
