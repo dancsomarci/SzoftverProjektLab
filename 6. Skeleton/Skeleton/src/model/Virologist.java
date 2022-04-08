@@ -20,6 +20,7 @@ public class Virologist
 	public void bark(){
 		System.out.println("Virologist: " + name);
 		System.out.println("\tNumber of actions left: " + actionCount);
+		System.out.println("\tCurrently on Field named: " + field.getName());
 		System.out.println("\tAmino acid: " + aminoAcid);
 		System.out.println("\tNucleotide: " + nucleotide);
 		System.out.println("\tEquipment: " + equipments.size());

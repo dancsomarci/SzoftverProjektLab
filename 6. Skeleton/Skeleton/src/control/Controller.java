@@ -39,12 +39,15 @@ public class Controller {
         try {
             String input;
             while (!(input = sc.nextLine()).equals("exit")){ //exit parancs itt kezelődik
+
                 String[] inputArr = input.split(" ");
                 Method m = inputs.get(inputArr[0]);
-                if (m != null)
+                if (m != null){
                     m.invoke(this, new Object[] {Arrays.copyOfRange(inputArr, 1, inputArr.length)});
-                else
+                }
+                else{
                     System.out.println("Unknown command!");
+                }
             }
         } catch (Exception e){
             throw e;
@@ -69,13 +72,6 @@ public class Controller {
         }
     }
 
-    /*
-    public Object createObject(String className, Object[] arguments) throws Exception{
-        Class c= Class.forName(className);
-        return c.getDeclaredConstructor().newInstance(arguments);
-    }
-    */
-
     public Object createObject(String className) throws Exception{
         Class c= Class.forName(className);
         return c.getDeclaredConstructor().newInstance();
@@ -84,12 +80,14 @@ public class Controller {
 
     private Game game;
     private HashMap<String, Field> fields = new HashMap<>();
+    private boolean randOn = false;
 
     /*pályaleíró nyelv*/
 
     @ProtoInput(name="Field")
     public void Field(String[] params) throws Exception {
         try{
+            if (game == null) throw new Exception();
             HashMap<String, String> options = new HashMap<>();
             String line;
             while (!(line = sc.nextLine()).equals("end")){
@@ -119,6 +117,7 @@ public class Controller {
             }
             if (options.get("Name") == null) throw new Exception(); //Name is mandatory!
             if (fields.get(options.get("Name")) != null) throw new Exception(); //Field with Name already Exists!
+            f.setName(options.get("Name"));
             fields.put(options.get("Name"), f);
         } catch (Exception e){
             throw new Exception("Error in Field command format!");
@@ -128,6 +127,7 @@ public class Controller {
     @ProtoInput(name="Neighbours")
     public void Neighbours(String[] params) throws Exception {
         try{
+            if (game == null) throw new Exception();
             String line;
             while (!(line = sc.nextLine()).equals("end")){
                 String[] command = line.split(" ");
@@ -144,6 +144,7 @@ public class Controller {
     @ProtoInput(name="Virologist")
     public void Virologist(String[] params) throws Exception {
         try{
+            if (game == null) throw new Exception();
             String line;
             Virologist v = new Virologist();
             String startingPos = "";
@@ -180,7 +181,7 @@ public class Controller {
                 }
             }
             fields.get(startingPos).AddVirologist(v);
-            v.bark();
+            game.AddVirologist(v);
         } catch (Exception e){
             throw new Exception("Error in Virologist command format!");
         }
@@ -199,8 +200,6 @@ public class Controller {
 
     /*vége*/
 
-
-
     @ProtoInput(name="wau")
     public void wau(String[] params){
         game = new Game();
@@ -213,11 +212,13 @@ public class Controller {
         Virologist currentPlayer = game.GetCurrentPlayer();
         Field currentField = currentPlayer.getField();
         ArrayList<Field> options = currentField.GetNeighbours();
-        for (int i = 0; i < options.size(); i++){
-            System.out.println(i);
+        if (options.size() > 0){
+            for (int i = 0; i < options.size(); i++){
+                System.out.println(i + ": " + options.get(i).getName());
+            }
+            currentPlayer.Move(options.get(sc.nextInt()));
+            System.out.println("Moving...");
         }
-        currentPlayer.Move(options.get(sc.nextInt()));
-        System.out.println("Moving...");
     }
 
     @ProtoInput(name="learn")
@@ -241,18 +242,14 @@ public class Controller {
         if (codes.size() > 0){ //mivan ha nincs neki, akkor mit írunk ki???
             int i = 0;
             for (GeneticCode code: codes) {
-                System.out.println(i+" Code" + i++);
+                System.out.println(i + code.getName());
+                i++;
                 System.out.println("\tCost:");
                 System.out.println("\t\tNucleotide: " + code.getNucleotidePrice());
                 System.out.println("\t\tAmino acid: " + code.getAminoAcidPrice());
             }
             int codeId = sc.nextInt();
-            Field f = player.getField();
-            ArrayList<Virologist> neighbours = f.GetVirologists(); //ebben saját maga is benne van, de persze saját magát is injectelheti!
-            for (int j = 0; j < neighbours.size(); j++){
-                System.out.println(j + " - " + neighbours.get(j).getName());
-            }
-            Virologist target = neighbours.get(sc.nextInt());
+            Virologist target = ChooseNeighbourOf(player);
             player.Inject(target, codes.get(codeId));
             System.out.println("Injecting...");
         }
@@ -268,12 +265,7 @@ public class Controller {
     @ProtoInput(name="lootEquipment")
     public void lootEquipment(String[] params){
         Virologist player = game.GetCurrentPlayer();
-        Field f = player.getField();
-        ArrayList<Virologist> neighbours = f.GetVirologists(); //ebben saját maga is benne van, ami nem túl jó!
-        for (int j = 0; j < neighbours.size(); j++){
-            System.out.println(j + " - " + neighbours.get(j).getName());
-        }
-        Virologist target = neighbours.get(sc.nextInt());
+        Virologist target = ChooseNeighbourOf(player);
         player.LootEquipmentFrom(target);
         System.out.println("Looting equipment...");
     }
@@ -281,12 +273,7 @@ public class Controller {
     @ProtoInput(name="lootAmino")
     public void lootAmino(String[] params){
         Virologist player = game.GetCurrentPlayer();
-        Field f = player.getField();
-        ArrayList<Virologist> neighbours = f.GetVirologists(); //ebben saját maga is benne van, ami nem túl jó!
-        for (int j = 0; j < neighbours.size(); j++){
-            System.out.println(j + " - " + neighbours.get(j).getName());
-        }
-        Virologist target = neighbours.get(sc.nextInt());
+        Virologist target = ChooseNeighbourOf(player);
         player.LootAminoAcidFrom(target);
         System.out.println("Looting amino acid...");
     }
@@ -294,12 +281,7 @@ public class Controller {
     @ProtoInput(name="lootNucleotide")
     public void lootNucleotide(String[] params){
         Virologist player = game.GetCurrentPlayer();
-        Field f = player.getField();
-        ArrayList<Virologist> neighbours = f.GetVirologists(); //ebben saját maga is benne van, ami nem túl jó!
-        for (int j = 0; j < neighbours.size(); j++){
-            System.out.println(j + " - " + neighbours.get(j).getName());
-        }
-        Virologist target = neighbours.get(sc.nextInt());
+        Virologist target = ChooseNeighbourOf(player);
         player.LootNucleotideFrom(target);
         System.out.println("Looting nucleotide...");
     }
@@ -308,9 +290,10 @@ public class Controller {
     public void enemies(String[] params){
         Virologist player = game.GetCurrentPlayer();
         Field f = player.getField();
-        ArrayList<Virologist> neighbours = f.GetVirologists(); //ebben saját maga is benne van, ami nem túl jó!
+        ArrayList<Virologist> neighbours = f.GetVirologists(); //ebben saját maga is benne van, tehát nem lehet üres
         for (int j = 0; j < neighbours.size(); j++){
-            System.out.println(neighbours.get(j).getName());
+            if (!neighbours.get(j).getName().equals(player.getName())) //Ha nem saját maga
+                System.out.println(neighbours.get(j).getName());
         }
     }
 
@@ -331,12 +314,12 @@ public class Controller {
 
     @ProtoInput(name="randOn")
     public void randOn(String[] params){
-
+        randOn = true;
     }
 
     @ProtoInput(name="randOff")
     public void randOff(String[] params){
-
+        randOn = false;
     }
 
     @ProtoInput(name="state")
@@ -344,7 +327,6 @@ public class Controller {
         for (Virologist v :
                 game.getVirologists()) {
             v.bark();
-            System.out.println();
         }
     }
 
@@ -356,6 +338,18 @@ public class Controller {
 
     @ProtoInput(name="attack")
     public void attack(String[] params){
+        Virologist v = game.GetCurrentPlayer();
+        Virologist target = ChooseNeighbourOf(v);
+        v.Attack(target); //magát fejbe tudja csapni?
+        System.out.println("Attacking...");
+    }
 
+    private Virologist ChooseNeighbourOf(Virologist v) { //incldues v
+        Field f = v.getField();
+        ArrayList<Virologist> neighbours = f.GetVirologists(); //sosem lehet 0, mert saját magát választhatja
+        for (int j = 0; j < neighbours.size(); j++){
+            System.out.println(j + " - " + neighbours.get(j).getName());
+        }
+        return neighbours.get(sc.nextInt());
     }
 }

@@ -16,6 +16,15 @@ public class Field
 	protected ArrayList<Virologist> virologists;
 	protected ArrayList<Equipment> equipments;
 
+	private String name;
+
+	public void setName(String name){
+		this.name = name;
+	}
+	public String getName(){
+		return name;
+	}
+
 	/**
 	 * Létrehozza a tárolókat
 	 */
