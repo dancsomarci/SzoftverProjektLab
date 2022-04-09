@@ -16,6 +16,22 @@ public class Field
 	protected ArrayList<Virologist> virologists;
 	protected ArrayList<Equipment> equipments;
 
+	public void bark(){
+		System.out.println(this.getClass().getSimpleName() + ": " + name);
+		System.out.println("\tEquipments: ");
+		for (Equipment e: equipments) {
+			System.out.println("\t\t" + e.getName());
+		}
+		System.out.println("\tVirologists: ");
+		for (Virologist v: virologists) {
+			System.out.println("\t\t" + v.getName());
+		}
+		System.out.println("\tNeighbours: ");
+		for (Field f: neighbours) {
+			System.out.println("\t\t" + f.getName());
+		}
+	}
+
 	private String name;
 
 	public void setName(String name){

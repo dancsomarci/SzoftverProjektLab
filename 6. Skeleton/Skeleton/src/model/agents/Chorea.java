@@ -9,6 +9,8 @@ import model.Virologist;
  */
 public class Chorea extends Agent
 {
+
+
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
 	 * @param tL a beállítandó hatásidő

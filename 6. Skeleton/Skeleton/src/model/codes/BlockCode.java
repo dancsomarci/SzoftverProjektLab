@@ -19,8 +19,6 @@ public class BlockCode extends GeneticCode
 		aminoAcidPrice = 4;
 		nucleotidePrice = 3;
 		turnsLeft = 2;
-
-		name="BlockCode";
 	}
 
 	/**

@@ -8,6 +8,9 @@ import model.Virologist;
  */
 public abstract class Equipment
 {
+	public String getName(){
+		return this.getClass().getSimpleName();
+	}
 	/**
 	 * Megszakítja a hatását a viselőjén
 	 * @param v viselő virológus

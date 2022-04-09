@@ -18,8 +18,6 @@ public class ForgetCode extends GeneticCode
 		turnsLeft = 1;
 		aminoAcidPrice = 6;
 		nucleotidePrice = 6;
-
-		name="ForgetCode";
 	}
 
 	/**

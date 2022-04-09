@@ -23,15 +23,17 @@ public class Virologist
 		System.out.println("\tCurrently on Field named: " + field.getName());
 		System.out.println("\tAmino acid: " + aminoAcid);
 		System.out.println("\tNucleotide: " + nucleotide);
-		System.out.println("\tEquipment: " + equipments.size());
-		for (Equipment e: equipments
-			 ) {
-			System.out.println("\t\t" + e.toString()); //id in equipment
+		System.out.println("\tEquipments: ");
+		for (Equipment e: equipments) {
+			System.out.println("\t\t" + e.getName()); // később dekorátor tervezési minta lesz
 		}
-		System.out.println("\tGenetic codes: " + codes.size());
-		for (GeneticCode c: codes
-		) {
-			System.out.println("\t\t" + c.toString()); //id in equipment
+		System.out.println("\tGenetic codes: ");
+		for (GeneticCode c: codes) {
+			System.out.println("\t\t" + c.getName());
+		}
+		System.out.println("\tAgents: (+ttl)");
+		for (Agent a: agents) {
+			System.out.println("\t\t" + a.getName() + " " + a.getTimeToLive());
 		}
 	}
 
@@ -52,6 +54,8 @@ public class Virologist
 	}
 
 	private int maxNumberOfItems;
+
+	public void SetActionCount(int count){actionCount = count;}
 
 	/**
 	 *  Azt a mennyiseget tarolja, hogy mennyi lepest tud vegre hajtani a korben a virologus.

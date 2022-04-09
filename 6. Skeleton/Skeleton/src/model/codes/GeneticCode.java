@@ -12,9 +12,8 @@ import model.agents.Agent;
  */
 public abstract class GeneticCode
 {
-	protected String name;
 	public String getName(){
-		return name;
+		return this.getClass().getSimpleName();
 	}
 
 	public int getAminoAcidPrice() {

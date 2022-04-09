@@ -10,6 +10,12 @@ import model.Virologist;
  */
 public abstract class Agent
 {
+	public String getName(){
+		return this.getClass().getSimpleName();
+	}
+
+	public int getTimeToLive(){return timeToLive;}
+
 	/**
 	 * Az ágens hátra lévő élettartama
 	 */

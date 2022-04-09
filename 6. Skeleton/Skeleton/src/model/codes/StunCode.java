@@ -18,8 +18,6 @@ public class StunCode extends GeneticCode
 			aminoAcidPrice = 7;
 			nucleotidePrice = 2;
 			turnsLeft = 1;
-
-			name = "StunCode";
 	}
 
 	/**

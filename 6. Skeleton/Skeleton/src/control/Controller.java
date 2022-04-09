@@ -88,6 +88,7 @@ public class Controller {
     public void Field(String[] params) throws Exception {
         try{
             if (game == null) throw new Exception();
+
             HashMap<String, String> options = new HashMap<>();
             String line;
             while (!(line = sc.nextLine()).equals("end")){
@@ -104,6 +105,7 @@ public class Controller {
                 //csúnya, de ez van
                 switch(options.get("Type")){
                     case "Laboratory":
+                    case "InfectedLaboratory":
                         GeneticCode c = (GeneticCode) createObject("model.codes." + arg);
                         f = new Laboratory(c);
                         break;
@@ -115,10 +117,15 @@ public class Controller {
                         break;
                 }
             }
+            String eqType = options.get("Equipment");
+            if (eqType != null){
+                f.Drop((Equipment) createObject("model.equipments." + eqType));
+            }
             if (options.get("Name") == null) throw new Exception(); //Name is mandatory!
             if (fields.get(options.get("Name")) != null) throw new Exception(); //Field with Name already Exists!
             f.setName(options.get("Name"));
             fields.put(options.get("Name"), f);
+            game.AddField(f);
         } catch (Exception e){
             throw new Exception("Error in Field command format!");
         }
@@ -176,6 +183,9 @@ public class Controller {
                     case "GeneticCode":
                         v.AddGeneticCode((GeneticCode) createObject("model.codes." + command[1]));
                         break;
+                    case "ActionCount":
+                        v.SetActionCount(Integer.parseInt(command[1]));
+                        break;
                     default:
                         throw new Exception();
                 }
@@ -214,10 +224,11 @@ public class Controller {
         ArrayList<Field> options = currentField.GetNeighbours();
         if (options.size() > 0){
             for (int i = 0; i < options.size(); i++){
-                System.out.println(i + ": " + options.get(i).getName());
+                System.out.println(i + " - " + options.get(i).getName());
             }
-            currentPlayer.Move(options.get(sc.nextInt()));
-            System.out.println("Moving...");
+            Field target = options.get(sc.nextInt());
+            currentPlayer.Move(target);
+            System.out.println(currentPlayer.getName() + " moving from " + currentField.getName() + " to " + currentPlayer.getField().getName()); //nem jó a target.getName(), mert ha random mozog nem oda fog menni
         }
     }
 
@@ -225,14 +236,14 @@ public class Controller {
     public void learn(String[] params){
         Virologist currentPlayer = game.GetCurrentPlayer();
         currentPlayer.Learn();
-        System.out.println("Learning...");
+        System.out.println(currentPlayer.getName() + " tries to learn on field named " + currentPlayer.getField().getName());
     }
 
     @ProtoInput(name="collect")
     public void collect(String[] params){
         Virologist currentPlayer = game.GetCurrentPlayer();
         currentPlayer.Collect();
-        System.out.println("Collecting..."); //determinisztikus eset még nincs meg!
+        System.out.println(currentPlayer.getName() + " tries to collect material on field named " + currentPlayer.getField().getName()); //determinisztikus eset még nincs meg!
     }
 
     @ProtoInput(name="inject")
@@ -242,7 +253,7 @@ public class Controller {
         if (codes.size() > 0){ //mivan ha nincs neki, akkor mit írunk ki???
             int i = 0;
             for (GeneticCode code: codes) {
-                System.out.println(i + code.getName());
+                System.out.println(i + ": " + code.getName());
                 i++;
                 System.out.println("\tCost:");
                 System.out.println("\t\tNucleotide: " + code.getNucleotidePrice());
@@ -250,8 +261,9 @@ public class Controller {
             }
             int codeId = sc.nextInt();
             Virologist target = ChooseNeighbourOf(player);
-            player.Inject(target, codes.get(codeId));
-            System.out.println("Injecting...");
+            GeneticCode c = codes.get(codeId);
+            player.Inject(target, c);
+            System.out.println(player.getName() + " trying to inject " + target.getName() + " with agent created from " + c.getName());
         }
     }
 
@@ -259,41 +271,59 @@ public class Controller {
     public void equip(String[] params){
         Virologist player = game.GetCurrentPlayer();
         player.Equip();
-        System.out.println("Picking up equipment...");
+        System.out.println(player.getName() + " trying to pick up equipment from field named " + player.getField().getName());
     }
 
     @ProtoInput(name="lootEquipment")
     public void lootEquipment(String[] params){
         Virologist player = game.GetCurrentPlayer();
         Virologist target = ChooseNeighbourOf(player);
-        player.LootEquipmentFrom(target);
-        System.out.println("Looting equipment...");
+        if (target != null){
+            player.LootEquipmentFrom(target);
+            System.out.println(player.getName() + " trying to loot equipment from " + target.getName());
+        } else{
+            System.out.println(player.getName() + " has no one to loot equipment from");
+        }
     }
 
     @ProtoInput(name="lootAmino")
     public void lootAmino(String[] params){
         Virologist player = game.GetCurrentPlayer();
         Virologist target = ChooseNeighbourOf(player);
-        player.LootAminoAcidFrom(target);
-        System.out.println("Looting amino acid...");
+        if (target != null){
+            player.LootAminoAcidFrom(target);
+            System.out.println(player.getName() + " trying to loot amino acid from " + target.getName());
+        } else{
+            System.out.println(player.getName() + " has no one to loot amino acid from");
+        }
     }
 
     @ProtoInput(name="lootNucleotide")
     public void lootNucleotide(String[] params){
         Virologist player = game.GetCurrentPlayer();
         Virologist target = ChooseNeighbourOf(player);
-        player.LootNucleotideFrom(target);
-        System.out.println("Looting nucleotide...");
+        if (target != null){
+            player.LootNucleotideFrom(target);
+            System.out.println(player.getName() + " trying to loot nucleotide from " + target.getName());
+        } else{
+            System.out.println(player.getName() + " has no one to loot nucleotide from");
+        }
     }
 
     @ProtoInput(name="enemies")
     public void enemies(String[] params){
         Virologist player = game.GetCurrentPlayer();
+
         Field f = player.getField();
         ArrayList<Virologist> neighbours = f.GetVirologists(); //ebben saját maga is benne van, tehát nem lehet üres
-        for (int j = 0; j < neighbours.size(); j++){
-            if (!neighbours.get(j).getName().equals(player.getName())) //Ha nem saját maga
-                System.out.println(neighbours.get(j).getName());
+        if (neighbours.size() == 1){ //player is benne van
+            System.out.println(player.getName() + "has no enemies");
+        } else{
+            System.out.println(player.getName() + "'s enemies are:");
+            for (int j = 0; j < neighbours.size(); j++){
+                if (!neighbours.get(j).getName().equals(player.getName())) //Ha nem saját maga
+                    System.out.println(neighbours.get(j).getName());
+            }
         }
     }
 
@@ -309,17 +339,23 @@ public class Controller {
     public void drop(String[] params){
         Virologist player = game.GetCurrentPlayer();
         player.Drop();
-        System.out.println("Dropping equipment...");
+        System.out.println(player.getName() + " trying to drop equipment on field named " + player.getField().getName());
     }
 
     @ProtoInput(name="randOn")
     public void randOn(String[] params){
         randOn = true;
+        System.out.println("Randomized mode on");
     }
 
     @ProtoInput(name="randOff")
     public void randOff(String[] params){
-        randOn = false;
+        if (params.length > 0 && params[0].equals("Hurrikan_a_legcukibb_kutya!")) {
+            randOn = false;
+            System.out.println("Deterministic mode on!");
+        } else{
+            System.out.println("Access denied!");
+        }
     }
 
     @ProtoInput(name="state")
@@ -340,16 +376,35 @@ public class Controller {
     public void attack(String[] params){
         Virologist v = game.GetCurrentPlayer();
         Virologist target = ChooseNeighbourOf(v);
-        v.Attack(target); //magát fejbe tudja csapni?
-        System.out.println("Attacking...");
+        if (target != null){
+            v.Attack(target); //magát nem tudja fejbe csapni
+            System.out.println(v.getName() + " attacking " + target.getName());
+        } else{
+            System.out.println(v.getName() + " has no one to attack");
+        }
+    }
+    @ProtoInput(name="currentField")
+    public void field(String[] params){
+        game.GetCurrentPlayer().getField().bark();
     }
 
-    private Virologist ChooseNeighbourOf(Virologist v) { //incldues v
-        Field f = v.getField();
-        ArrayList<Virologist> neighbours = f.GetVirologists(); //sosem lehet 0, mert saját magát választhatja
-        for (int j = 0; j < neighbours.size(); j++){
-            System.out.println(j + " - " + neighbours.get(j).getName());
+    @ProtoInput(name="map")
+    public void map(String[] params){
+        for (Field f: game.GetFields()) {
+            f.bark();
         }
-        return neighbours.get(sc.nextInt());
+    }
+
+    private Virologist ChooseNeighbourOf(Virologist v) {
+        Field f = v.getField();
+        ArrayList<Virologist> neighbours = f.GetVirologists();
+        if (neighbours.size() > 1){
+            for (int j = 0; j < neighbours.size(); j++){
+                if (!v.getName().equals(neighbours.get(j).getName()))
+                    System.out.println(j + " - " + neighbours.get(j).getName());
+            }
+            return neighbours.get(sc.nextInt());
+        }
+        return null;
     }
 }

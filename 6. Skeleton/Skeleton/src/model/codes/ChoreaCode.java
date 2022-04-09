@@ -19,8 +19,6 @@ public class ChoreaCode extends GeneticCode
 		aminoAcidPrice = 5;
 		nucleotidePrice = 6;
 		turnsLeft = 1;
-
-		name = "ChoreaCode";
 	}
 
 	/**

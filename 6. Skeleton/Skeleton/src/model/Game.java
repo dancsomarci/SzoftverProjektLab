@@ -109,6 +109,8 @@ public class Game
 		fields.add(f);
 	}
 
+	public List<Field> GetFields(){return fields;}
+
 	public void RemoveVirologist(Virologist virologist) {
 		virologists.remove(virologist);
 	}

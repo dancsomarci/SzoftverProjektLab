@@ -9,6 +9,7 @@ import model.strategy.NoInjected;
  */
 public class Block extends Agent
 {
+
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
 	 * @param tL a beállítandó hatásidő

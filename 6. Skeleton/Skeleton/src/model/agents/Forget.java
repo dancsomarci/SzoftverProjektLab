@@ -8,6 +8,8 @@ import model.Virologist;
  */
 public class Forget extends Agent
 {
+
+
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
 	 * @param tL a beállítandó hatásidő

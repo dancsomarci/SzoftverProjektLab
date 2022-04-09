@@ -10,6 +10,7 @@ import model.strategy.*;
  */
 public class Stun extends Agent
 {
+
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
 	 * @param ttl a beállítandó hatásidő
