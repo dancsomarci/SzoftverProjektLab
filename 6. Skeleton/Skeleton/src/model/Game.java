@@ -41,9 +41,9 @@ public class Game
 	/**
 	 * Game osztály konstruktora, inicializálja a tagváltozók listáit
 	 */
-	public Game(){
+	/*public Game(){
 		NewGame();
-	}
+	}*/
 
 	/**
 	 * Elindít egy új játékot, inicializálja a pályát.

@@ -9,6 +9,7 @@ import model.strategy.*;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *  A virologusert felelo osztaly. Ezeket az objektumokat
@@ -36,6 +37,8 @@ public class Virologist
 			System.out.println("\t\t" + a.getName() + " " + a.getTimeToLive());
 		}
 	}
+
+	public Game GetContext(){return game;} //randomitás kikapcsolása stb..
 
 	private String name;
 
@@ -207,9 +210,22 @@ public class Virologist
 	{
 		if (actionCount > 0) {
 			ArrayList<Field> fields = field.GetNeighbours();
-			if (fields.size() == 0) {
-				Random random = new Random();
-				Move(fields.get(random.nextInt(fields.size())));
+			if (game.randOn){
+				if (fields.size() != 0) {
+					Random random = new Random();
+					Move(fields.get(random.nextInt(fields.size())));
+				}
+			}else{
+				if (fields.size() > 0){
+					for (int i = 0; i < fields.size(); i++){
+						System.out.println(i + " - " + fields.get(i).getName());
+					}
+					Scanner sc = new Scanner(System.in); //nem szabad bezárni!
+					Field target = fields.get(sc.nextInt());
+					Move(target);
+					Field f = field;
+					System.out.println(name + " tries moving from " + f.getName() + " to " + field.getName());
+				}
 			}
 		}
 	}

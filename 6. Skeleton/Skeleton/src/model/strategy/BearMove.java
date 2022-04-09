@@ -10,9 +10,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public class BearMove implements IMoveStr{
     @Override
     public void Move(Virologist v, Field from, Field to) {
+
         ArrayList<Field> neighbours = from.GetNeighbours();
         from.RemoveVirologist(v);
-        Field randomNeighbour = neighbours.get(ThreadLocalRandom.current().nextInt(0, neighbours.size()));
+        Field randomNeighbour;
+        if (v.GetContext().randOn) {
+            randomNeighbour = neighbours.get(ThreadLocalRandom.current().nextInt(0, neighbours.size()));
+        } else{
+            randomNeighbour = to;
+        }
         randomNeighbour.AddVirologist(v);
         randomNeighbour.DestroyMaterial();
         for (Virologist vir : randomNeighbour.GetVirologists()) {
