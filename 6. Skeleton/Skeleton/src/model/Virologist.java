@@ -24,11 +24,11 @@ public class Virologist
 		System.out.println("\tCurrently on Field named: " + field.getName());
 		System.out.println("\tAmino acid: " + aminoAcid);
 		System.out.println("\tNucleotide: " + nucleotide);
-		System.out.println("\tEquipments: ");
+		System.out.println("\tEquipments:");
 		for (Equipment e: equipments) {
 			System.out.println("\t\t" + e.getName()); // később dekorátor tervezési minta lesz
 		}
-		System.out.println("\tGenetic codes: ");
+		System.out.println("\tGenetic codes:");
 		for (GeneticCode c: codes) {
 			System.out.println("\t\t" + c.getName());
 		}
@@ -222,9 +222,8 @@ public class Virologist
 					}
 					Scanner sc = new Scanner(System.in); //nem szabad bezárni!
 					Field target = fields.get(sc.nextInt());
+					System.out.println(name + " tries moving from " + field.getName() + " to " + target.getName());
 					Move(target);
-					Field f = field;
-					System.out.println(name + " tries moving from " + f.getName() + " to " + field.getName());
 				}
 			}
 		}

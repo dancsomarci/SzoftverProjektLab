@@ -18,15 +18,15 @@ public class Field
 
 	public void bark(){
 		System.out.println(this.getClass().getSimpleName() + ": " + name);
-		System.out.println("\tEquipments: ");
+		System.out.println("\tEquipments:");
 		for (Equipment e: equipments) {
 			System.out.println("\t\t" + e.getName());
 		}
-		System.out.println("\tVirologists: ");
+		System.out.println("\tVirologists:");
 		for (Virologist v: virologists) {
 			System.out.println("\t\t" + v.getName());
 		}
-		System.out.println("\tNeighbours: ");
+		System.out.println("\tNeighbours:");
 		for (Field f: neighbours) {
 			System.out.println("\t\t" + f.getName());
 		}

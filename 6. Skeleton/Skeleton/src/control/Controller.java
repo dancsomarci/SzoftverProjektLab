@@ -215,7 +215,8 @@ public class Controller {
             }
             Field target = options.get(sc.nextInt());
             currentPlayer.Move(target);
-            System.out.println(currentPlayer.getName() + " tries moving from " + currentField.getName() + " to " + currentPlayer.getField().getName()); //nem jó a target.getName(), mert ha random mozog nem oda fog menni
+            System.out.println(currentPlayer.getName() + " tries moving from " + currentField.getName() + " to " + target.getName());
+            //ha random mozog/nincs action stb.. nem oda fog menni feltétlen!!!
         }
     }
 
