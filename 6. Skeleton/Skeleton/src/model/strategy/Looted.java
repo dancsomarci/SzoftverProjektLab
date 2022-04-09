@@ -3,6 +3,7 @@ package model.strategy;
 
 import model.Virologist;
 import model.equipments.Equipment;
+import test.Tester;
 
 /**
  *  Virológusra irányuló kifosztásért felelős stratégia, egedélyezi a kifosztást
@@ -14,6 +15,7 @@ public class Looted implements ILootedStr
 	 * Sikeres kifosztásért felelős stratégia létrehozása
 	 */
 	public Looted(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 	}
 
 	/**
@@ -25,8 +27,12 @@ public class Looted implements ILootedStr
 	@Override
 	public void LootedForEquipment(Virologist v, Virologist from, Equipment e)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
 		e.Disable(from);
 		v.AddEquipment(e);
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -37,12 +43,16 @@ public class Looted implements ILootedStr
 	@Override
 	public void LootedForAminoAcid(Virologist v, Virologist from)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
 		try {
 			from.RemoveAminoAcid(1);
 			v.AddAminoAcid(1);
 		} catch (Exception e) {
-			//Nem volt mit elvenni
+			e.printStackTrace();
 		}
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -53,11 +63,15 @@ public class Looted implements ILootedStr
 	@Override
 	public void LootedForNukleotide(Virologist v, Virologist from)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+
 		try{
 			from.RemoveNucleotide(1);
 			v.AddNucleotide(1);
 		}catch (Exception e){
-			//Nem volt mit elvenni
+			e.printStackTrace();
 		}
+
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

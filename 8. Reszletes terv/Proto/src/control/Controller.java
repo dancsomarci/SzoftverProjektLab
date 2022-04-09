@@ -107,6 +107,7 @@ public class Controller {
                     case "Laboratory":
                     case "InfectedLaboratory":
                         GeneticCode c = (GeneticCode) createObject("model.codes." + arg);
+                        game.AddGeneticCode(c);
                         f = new Laboratory(c);
                         break;
                     case "Shelter":

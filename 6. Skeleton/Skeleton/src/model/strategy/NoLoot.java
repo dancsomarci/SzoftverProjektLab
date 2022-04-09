@@ -2,12 +2,20 @@ package model.strategy;
 
 
 import model.Virologist;
+import test.Tester;
 
 /**
  * Zsákmányolási stratégia, ami nem engedélyez zsákmányolást.
  */
 public class NoLoot implements ILootStr
 {
+	/**
+	 * Default ctor, csak a kiíratás miatt.
+	 */
+	public NoLoot(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
+	}
+
 	/**
 	 * Nem Engedélyez Aminosav zsákmányolást.
 	 * @param v A zsákmányoló virológus.
@@ -16,6 +24,8 @@ public class NoLoot implements ILootStr
 	@Override
 	public void LootAmino(Virologist v, Virologist target)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -26,6 +36,8 @@ public class NoLoot implements ILootStr
 	@Override
 	public void LootNucleotide(Virologist v, Virologist target)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -36,5 +48,7 @@ public class NoLoot implements ILootStr
 	@Override
 	public void LootEquipment(Virologist v, Virologist target)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

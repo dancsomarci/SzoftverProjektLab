@@ -4,7 +4,6 @@ package model.map;
 
 import model.Virologist;
 import model.equipments.Equipment;
-import test.Tester;
 
 import java.util.ArrayList;
 
@@ -13,17 +12,39 @@ import java.util.ArrayList;
  */
 public class Field
 {
-
 	protected ArrayList<Field> neighbours;
 	protected ArrayList<Virologist> virologists;
 	protected ArrayList<Equipment> equipments;
+
+	public void bark(){
+		System.out.println(this.getClass().getSimpleName() + ": " + name);
+		System.out.println("\tEquipments:");
+		for (Equipment e: equipments) {
+			System.out.println("\t\t" + e.getName());
+		}
+		System.out.println("\tVirologists:");
+		for (Virologist v: virologists) {
+			System.out.println("\t\t" + v.getName());
+		}
+		System.out.println("\tNeighbours:");
+		for (Field f: neighbours) {
+			System.out.println("\t\t" + f.getName());
+		}
+	}
+
+	private String name;
+
+	public void setName(String name){
+		this.name = name;
+	}
+	public String getName(){
+		return name;
+	}
 
 	/**
 	 * Létrehozza a tárolókat
 	 */
 	public Field(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
-
 		neighbours = new ArrayList<>();
 		virologists = new ArrayList<>();
 		equipments = new ArrayList<>();
@@ -34,10 +55,11 @@ public class Field
 	 * @return szomszéd mezők
 	 */
 	public ArrayList<Field> GetNeighbours() {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
-
 		return neighbours;
+	}
+
+	public ArrayList<Virologist> GetVirologists(){
+		return virologists;
 	}
 
 	/**
@@ -45,11 +67,10 @@ public class Field
 	 * @param f új szomszéd
 	 */
 	public void AddNeighbour(Field f) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		neighbours.add(f);
+	}
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	public void DestroyMaterial(){
 	}
 
 	/**
@@ -57,11 +78,8 @@ public class Field
 	 * @param v elehelyezendő virológus
 	 */
 	public void AddVirologist(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		virologists.add(v);
 		v.SetField(this);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -69,11 +87,7 @@ public class Field
 	 * @param v eltávolítandó virológus
 	 */
 	public void RemoveVirologist(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		virologists.remove(v);
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -81,7 +95,7 @@ public class Field
 	 * @param virologist virológus sorszáma
 	 * @throws IndexOutOfBoundsException csak egy virológus tartózkodik a mezőn
 	 * @return adott sorszámú virológus
-	 */
+
 	public Virologist GetVirologist(int virologist) {
 		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 
@@ -92,18 +106,14 @@ public class Field
 		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 
 		return this.virologists.get(virologist%this.virologists.size());
-	}
+	}*/
 
 	/**
 	 * Eldobja az adott felszerelést a mezőre
 	 * @param e eldobandó felszerelés
 	 */
 	public void Drop(Equipment e) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		equipments.add(e);
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -111,8 +121,6 @@ public class Field
 	 * @param v tanuló virológus
 	 */
 	public void LearnGeneticCode(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -120,8 +128,6 @@ public class Field
 	 * @param v gyüjtő virológus
 	 */
 	public void CollectMaterial(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -129,15 +135,11 @@ public class Field
 	 * @param v felszedő virológus
 	 */
 	public void PickUpEquipment(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-
 		if (equipments.size()>0) {
 			Equipment equipment = equipments.remove(equipments.size()-1);
-			equipment.Apply(v);
+			//equipment.Apply(v); berakva AddEquipment-be
 			v.AddEquipment(equipment);
-			equipment.ApplyStrategy(v);
+			//equipment.ApplyStrategy(v); berakva AddEquipment-be
 		}
-
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

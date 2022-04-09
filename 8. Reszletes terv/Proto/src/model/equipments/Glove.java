@@ -2,30 +2,44 @@ package model.equipments;
 
 
 import model.Virologist;
-import model.strategy.NoInjected;
-import test.Tester;
+import model.agents.Agent;
+import model.strategy.IInjectedStr;
 
 /**
  * Védőfelszerelés, amely stratégiát biztosít viselőjén, érinthetetlenné teszi, ágensek felől
  */
-public class Glove extends Equipment
+public class Glove extends Equipment implements IInjectedStr
 {
-	/**
-	 * Létrehozza a kesztyű védőfelszerelést
-	 */
-	public Glove(){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
-	}
+	private int useCount = 3;
 
 	/**
 	 * Alkalmazza az ágensek felől érinthetetlen stratégiát
 	 * @param v viselő virológus
 	 */
 	public void ApplyStrategy(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
+		v.SetInjectedStr(this);
+	}
 
-		v.SetInjectedStr(new NoInjected());
+	@Override
+	public void Injected(Virologist v, Agent a) {
+		if (useCount > 0){
+			useCount--;
+		} else{
+			v.RemoveEquipment(this);
+			v.Reset();
+			v.TargetedWith(a);
+		}
+	}
 
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
+	@Override
+	public void Injected(Virologist by, Virologist injected, Agent a) {
+		if (useCount > 0){
+			useCount--;
+			by.TargetedWith(injected, a);
+		} else{
+			injected.RemoveEquipment(this);
+			injected.Reset();
+			injected.TargetedWith(by, a);
+		}
 	}
 }

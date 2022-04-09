@@ -3,20 +3,19 @@ package model.agents;
 
 import model.Virologist;
 import model.strategy.NoInjected;
-import test.Tester;
 
 /**
  * Olyan ágens, ami hatástalanítja az összes aktuálisan aktív ágenst a felkent virológuson
  */
 public class Block extends Agent
 {
+
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
 	 * @param tL a beállítandó hatásidő
 	 */
 	public Block(int tL){
-		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
-		timeToLive = tL;
+		super(tL);
 	}
 
 	/**
@@ -25,9 +24,7 @@ public class Block extends Agent
 	 */
 	public void Apply(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		v.RemoveAgents();
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -36,9 +33,7 @@ public class Block extends Agent
 	 */
 	public void ApplyStrategy(Virologist v)
 	{
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		NoInjected ni = new NoInjected();
 		v.SetInjectedStr(ni);
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

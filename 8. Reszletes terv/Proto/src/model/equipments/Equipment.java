@@ -2,21 +2,20 @@ package model.equipments;
 
 
 import model.Virologist;
-import test.Tester;
 
 /**
  * Védőfelszerelés, amely hatással van a viselőjére vagy/és stratégiát biztosít számára
  */
 public abstract class Equipment
 {
-
+	public String getName(){
+		return this.getClass().getSimpleName();
+	}
 	/**
 	 * Megszakítja a hatását a viselőjén
 	 * @param v viselő virológus
 	 */
 	public void Disable(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -24,8 +23,6 @@ public abstract class Equipment
 	 * @param v viselő virológus
 	 */
 	public void Apply(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 
 	/**
@@ -33,7 +30,5 @@ public abstract class Equipment
 	 * @param v viselő virológus
 	 */
 	public void ApplyStrategy(Virologist v) {
-		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
-		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

@@ -2,20 +2,20 @@ package model.agents;
 
 
 import model.Virologist;
+import test.Tester;
 
 /**
  * Olyan ágens, ami felkenéskor elfelejteti a virológussal az összes megtanult genetikai kódját.
  */
 public class Forget extends Agent
 {
-
-
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
 	 * @param tL a beállítandó hatásidő
 	 */
 	public Forget(int tL){
-		super(tL);
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
+		timeToLive = tL;
 	}
 
 	/**
@@ -25,6 +25,8 @@ public class Forget extends Agent
 	 */
 	public void Apply(Virologist v)
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		v.RemoveGeneticCodes();
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 	}
 }

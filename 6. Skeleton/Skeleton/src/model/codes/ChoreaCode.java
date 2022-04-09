@@ -5,6 +5,7 @@ import model.Virologist;
 
 import model.agents.Agent;
 import model.agents.Chorea;
+import test.Tester;
 
 /**
  * Olyan genetikai kód, ami egy vitustánc (Chorea) típusú ágenst tud előállítani.
@@ -16,6 +17,7 @@ public class ChoreaCode extends GeneticCode
 	 * a jövendőbeli ágens élettartamát a vitustánc ágens legyártásához.
 	 */
 	public ChoreaCode(){
+		Tester.ctrMethodStart(new Object(){}.getClass().getEnclosingConstructor());
 		aminoAcidPrice = 5;
 		nucleotidePrice = 6;
 		turnsLeft = 1;
@@ -29,6 +31,7 @@ public class ChoreaCode extends GeneticCode
 	 */
 	public Agent Create(Virologist v) throws Exception
 	{
+		Tester.methodStart(new Object(){}.getClass().getEnclosingMethod());
 		v.RemoveNucleotide(nucleotidePrice);
 		try{
 			v.RemoveAminoAcid(aminoAcidPrice);
@@ -38,6 +41,7 @@ public class ChoreaCode extends GeneticCode
 			throw e;
 		}
 		Chorea c = new Chorea(turnsLeft);
+		Tester.methodEnd(new Object(){}.getClass().getEnclosingMethod());
 		return c;
 	}
 
