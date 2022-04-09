@@ -46,7 +46,8 @@ public class Controller {
                     m.invoke(this, new Object[] {Arrays.copyOfRange(inputArr, 1, inputArr.length)});
                 }
                 else{
-                    System.out.println("Unknown command!");
+                    if (!input.equals("")) //ilyenkor csak lineskip
+                        System.out.println("Unknown command!");
                 }
             }
         } catch (Exception e){
@@ -78,9 +79,8 @@ public class Controller {
     }
 
 
-    private Game game;
+    private Game game = new Game();
     private HashMap<String, Field> fields = new HashMap<>();
-    private boolean randOn = false;
 
     /*pályaleíró nyelv*/
 
@@ -197,24 +197,11 @@ public class Controller {
         }
     }
 
-    @ProtoInput(name="test")
-    public void Test(String[] params){
-        for (Map.Entry<String, Field> set :
-                fields.entrySet()) {
-
-            // Printing all elements of a Map
-            System.out.println(set.getKey() + " = "
-                    + set.getValue());
-        }
-    }
-
     /*vége*/
 
     @ProtoInput(name="wau")
     public void wau(String[] params){
-        game = new Game();
-
-        System.out.println("Initialize...");
+        game.NewGame();
     }
 
     @ProtoInput(name="move")
@@ -228,7 +215,7 @@ public class Controller {
             }
             Field target = options.get(sc.nextInt());
             currentPlayer.Move(target);
-            System.out.println(currentPlayer.getName() + " moving from " + currentField.getName() + " to " + currentPlayer.getField().getName()); //nem jó a target.getName(), mert ha random mozog nem oda fog menni
+            System.out.println(currentPlayer.getName() + " tries moving from " + currentField.getName() + " to " + currentPlayer.getField().getName()); //nem jó a target.getName(), mert ha random mozog nem oda fog menni
         }
     }
 
@@ -344,14 +331,14 @@ public class Controller {
 
     @ProtoInput(name="randOn")
     public void randOn(String[] params){
-        randOn = true;
+        game.randOn = true;
         System.out.println("Randomized mode on");
     }
 
     @ProtoInput(name="randOff")
     public void randOff(String[] params){
         if (params.length > 0 && params[0].equals("Hurrikan_a_legcukibb_kutya!")) {
-            randOn = false;
+            game.randOn = false;
             System.out.println("Deterministic mode on!");
         } else{
             System.out.println("Access denied!");

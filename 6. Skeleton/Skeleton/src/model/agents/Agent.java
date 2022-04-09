@@ -14,7 +14,7 @@ public abstract class Agent
 		return this.getClass().getSimpleName();
 	}
 
-	public int getTimeToLive(){return timeToLive;}
+	public String getTimeToLive(){return String.valueOf(timeToLive);}
 
 	/**
 	 * Az ágens hátra lévő élettartama

@@ -29,6 +29,8 @@ public class Game
 		return virologists;
 	}
 
+	public boolean randOn = true; //by default, parancs kell a kikapcsoláshoz (+jelszó)
+
 	/**
 	 * A játékban szereplő virpológusok
 	 */
@@ -40,16 +42,16 @@ public class Game
 	 * Game osztály konstruktora, inicializálja a tagváltozók listáit
 	 */
 	public Game(){
-		fields = new ArrayList<>();
-		codes = new ArrayList<>();
-		virologists = new ArrayList<>();
+		NewGame();
 	}
 
 	/**
 	 * Elindít egy új játékot, inicializálja a pályát.
 	 */
 	public void NewGame() {
-
+		fields = new ArrayList<>();
+		codes = new ArrayList<>();
+		virologists = new ArrayList<>();
 	}
 
 	/**

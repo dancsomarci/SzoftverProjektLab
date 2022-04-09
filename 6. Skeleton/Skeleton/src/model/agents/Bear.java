@@ -15,6 +15,9 @@ public class Bear extends Agent {
     }
 
     @Override
+    public String getTimeToLive(){return "infinity";}
+
+    @Override
     public void ApplyStrategy(Virologist v){
         v.SetMoveStr(new BearMove());
     }
