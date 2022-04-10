@@ -105,10 +105,14 @@ public class Controller {
                 //csúnya, de ez van
                 switch(options.get("Type")){
                     case "Laboratory":
+                        GeneticCode c1 = (GeneticCode) createObject("model.codes." + arg);
+                        game.AddGeneticCode(c1);
+                        f = new Laboratory(c1);
+                        break;
                     case "InfectedLaboratory":
-                        GeneticCode c = (GeneticCode) createObject("model.codes." + arg);
-                        game.AddGeneticCode(c);
-                        f = new Laboratory(c);
+                        GeneticCode c2 = (GeneticCode) createObject("model.codes." + arg);
+                        game.AddGeneticCode(c2);
+                        f = new InfectedLaboratory(c2);
                         break;
                     case "Shelter":
                         Equipment e = (Equipment) createObject("model.equipments."+arg);
