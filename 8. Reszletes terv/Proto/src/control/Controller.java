@@ -243,7 +243,7 @@ public class Controller {
     public void inject(String[] params){
         Virologist player = game.GetCurrentPlayer();
         ArrayList<GeneticCode> codes = player.getGeneticCodes();
-        if (codes.size() > 0){ //mivan ha nincs neki, akkor mit írunk ki???
+        if (codes.size() > 0){ //mivan ha nincs neki, akkor mit írunk ki??? Hat hogy nincs mit kenjen, de a szandek a fontos, ugyhogy levontunk egy akciot
             int i = 0;
             for (GeneticCode code: codes) {
                 System.out.println(i + ": " + code.getName());
