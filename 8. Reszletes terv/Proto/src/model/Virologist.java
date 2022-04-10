@@ -22,8 +22,8 @@ public class Virologist
 		System.out.println("Virologist: " + name);
 		System.out.println("\tNumber of actions left: " + actionCount);
 		System.out.println("\tCurrently on Field named: " + field.getName());
-		System.out.println("\tAmino acid: " + aminoAcid);
-		System.out.println("\tNucleotide: " + nucleotide);
+		System.out.println("\tAmino acid: " + aminoAcid + " / maximum: "+ limit);
+		System.out.println("\tNucleotide: " + nucleotide+ " / maximum: "+ limit);
 		System.out.println("\tEquipments:");
 		for (Equipment e: equipments) {
 			System.out.println("\t\t" + e.getName()); // később dekorátor tervezési minta lesz
@@ -416,7 +416,7 @@ public class Virologist
 	 */
 	public void StealAminoAcid(Virologist self)
 	{
-		lootedStr.LootedForAminoAcid(this, self);
+		lootedStr.LootedForAminoAcid(self, this);
 	}
 
 	/**
@@ -435,10 +435,15 @@ public class Virologist
 	public void StealEquipment(Virologist self)
 	{
 		if (equipments.size() > 0) {
-			Random random = new Random();
-			int r = random.nextInt(equipments.size());
-			Equipment e = equipments.get(r);
-			lootedStr.LootedForEquipment(this, self, e);
+			if(game.randOn) {
+				Random random = new Random();
+				int r = random.nextInt(equipments.size());
+				Equipment e = equipments.get(r);
+				lootedStr.LootedForEquipment(self, this, e);
+			}
+			else{
+				lootedStr.LootedForEquipment(self,this, equipments.get(0));
+			}
 		}
 	}
 

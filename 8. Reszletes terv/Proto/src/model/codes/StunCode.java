@@ -14,7 +14,7 @@ public class StunCode extends GeneticCode
 	 * Konstruktor, ami beállítja a kódhoz a megfelelő költségeket és
 	 * a jövendőbeli ágens élettartamát a bénító ágens legyártásához.
 	 */
-	public void StunCode(){
+	public StunCode(){
 			aminoAcidPrice = 7;
 			nucleotidePrice = 2;
 			turnsLeft = 1;
