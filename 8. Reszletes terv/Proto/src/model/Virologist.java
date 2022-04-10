@@ -589,6 +589,15 @@ public class Virologist
 		learnStr = new DefLearn();
 		moveStr = new DefMove();
 		attackStr = new DefAttack();
+
+		for (Agent a:agents
+		) {
+			a.ApplyStrategy(this);
+		}
+		for (Equipment e :
+				equipments) {
+			e.ApplyStrategy(this);
+		}
 	}
 
 	/**

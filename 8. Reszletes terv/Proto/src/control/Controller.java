@@ -311,9 +311,9 @@ public class Controller {
         Field f = player.getField();
         ArrayList<Virologist> neighbours = f.GetVirologists(); //ebben saját maga is benne van, tehát nem lehet üres
         if (neighbours.size() == 1){ //player is benne van
-            System.out.println(player.getName() + "has no enemies");
+            System.out.println(player.getName() + " has no enemies");
         } else{
-            System.out.println(player.getName() + "'s enemies are:");
+            System.out.println(player.getName() + " 's enemies are:");
             for (int j = 0; j < neighbours.size(); j++){
                 if (!neighbours.get(j).getName().equals(player.getName())) //Ha nem saját maga
                     System.out.println(neighbours.get(j).getName());

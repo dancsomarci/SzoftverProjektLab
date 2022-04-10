@@ -19,9 +19,9 @@ public class DefInject implements IInjectStr
 	public void Inject(Virologist v, Virologist target, GeneticCode gc) {
 		try {
 			target.TargetedWith(gc.Create(v));
-			v.DecreaseActions();
 		} catch (Exception e) {
 			//Nincs elég anyag a készítéshez, /vencel: sztem itt is kene csokkenteni az actions-t
+		} finally{
 			v.DecreaseActions();
 		}
 	}
