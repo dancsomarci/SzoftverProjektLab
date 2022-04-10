@@ -320,7 +320,6 @@ public class Virologist
 		if (actionCount > 0) {
 			learnStr.Learn(this, field);
 		}
-
 	}
 
 	/**

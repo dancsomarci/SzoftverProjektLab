@@ -79,8 +79,8 @@ public class Controller {
     }
 
 
-    private Game game = new Game();
-    private HashMap<String, Field> fields = new HashMap<>();
+    private Game game = Game.Create(); //Csak egyszer kell hívni, mert ugyanazt az egy objektumot adja vissza mindig!
+    private HashMap<String, Field> fields; //wau inicializálja
 
     /*pályaleíró nyelv*/
 
@@ -206,6 +206,7 @@ public class Controller {
 
     @ProtoInput(name="wau")
     public void wau(String[] params){
+        fields = new HashMap<>();
         game.NewGame();
     }
 
@@ -236,7 +237,7 @@ public class Controller {
     public void collect(String[] params){
         Virologist currentPlayer = game.GetCurrentPlayer();
         currentPlayer.Collect();
-        System.out.println(currentPlayer.getName() + " tries to collect material on field named " + currentPlayer.getField().getName()); //determinisztikus eset még nincs meg!
+        System.out.println(currentPlayer.getName() + " tries to collect material on field named " + currentPlayer.getField().getName());
     }
 
     @ProtoInput(name="inject")

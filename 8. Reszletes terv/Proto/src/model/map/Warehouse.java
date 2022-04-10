@@ -42,7 +42,6 @@ public class Warehouse extends Field
 				v.AddNucleotide(delta);
 			}
 		}
-		v.DecreaseActions();
 	}
 
 	@Override

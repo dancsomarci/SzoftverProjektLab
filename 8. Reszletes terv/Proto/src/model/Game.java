@@ -38,15 +38,18 @@ public class Game
 
 	private int currentPlayer = 0;
 
-	/**
-	 * Game osztály konstruktora, inicializálja a tagváltozók listáit
-	 */
-	/*public Game(){
-		NewGame();
-	}*/
+	private Game(){}; //singleton miatt
+
+	private static Game instance = null;
+	public static Game Create(){
+		if (instance == null){
+			instance = new Game();
+		}
+		return instance;
+	}
 
 	/**
-	 * Elindít egy új játékot, inicializálja a pályát.
+	 * Elindít egy új játékot, inicializálja a tagváltozók listáit.
 	 */
 	public void NewGame() {
 		fields = new ArrayList<>();
@@ -81,7 +84,7 @@ public class Game
 	 */
 	public void EndGame()
 	{
-		System.out.println("YoureWinner");
+		System.out.println(virologists.get(currentPlayer).getName() + " won the game!");
 		System.exit(0);
 	}
 
