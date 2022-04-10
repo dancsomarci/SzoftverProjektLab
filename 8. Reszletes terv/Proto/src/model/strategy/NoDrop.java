@@ -19,5 +19,6 @@ public class NoDrop implements IDropStr
 	@Override
 	public void Drop(Virologist v, Field f, Equipment e)
 	{
+		v.DecreaseActions();
 	}
 }

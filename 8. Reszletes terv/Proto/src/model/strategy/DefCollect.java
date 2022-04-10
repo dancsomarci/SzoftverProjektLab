@@ -19,6 +19,7 @@ public class DefCollect implements ICollectStr
 	@Override
 	public void Collect(Virologist v, Field f) {
 		f.CollectMaterial(v);
+		v.DecreaseActions();
 	}
 
 }

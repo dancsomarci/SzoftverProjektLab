@@ -17,5 +17,6 @@ public class NoInject implements IInjectStr
 	 */
 	@Override
 	public void Inject(Virologist v, Virologist target, GeneticCode gc) {
+		v.DecreaseActions();
 	}
 }

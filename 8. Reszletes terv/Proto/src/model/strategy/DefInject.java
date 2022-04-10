@@ -21,7 +21,8 @@ public class DefInject implements IInjectStr
 			target.TargetedWith(gc.Create(v));
 			v.DecreaseActions();
 		} catch (Exception e) {
-			//Nincs elég anyag a készítéshez
+			//Nincs elég anyag a készítéshez, /vencel: sztem itt is kene csokkenteni az actions-t
+			v.DecreaseActions();
 		}
 	}
 }

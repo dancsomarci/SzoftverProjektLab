@@ -15,5 +15,7 @@ public class NoCollect implements ICollectStr
 	 */
 	@Override
 	public void Collect(Virologist v, Field f) {
+		// /vencel: sztem itt is csokkentsuk az actions-t, megprobalta csinalni, csak nem hagytak, ez van
+		v.DecreaseActions();
 	}
 }

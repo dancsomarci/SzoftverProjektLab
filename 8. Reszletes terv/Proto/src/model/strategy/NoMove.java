@@ -19,5 +19,6 @@ public class NoMove implements IMoveStr
 	@Override
 	public void Move(Virologist v, Field from, Field to)
 	{
+		v.DecreaseActions();
 	}
 }

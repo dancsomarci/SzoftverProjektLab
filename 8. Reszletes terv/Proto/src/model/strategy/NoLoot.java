@@ -16,6 +16,7 @@ public class NoLoot implements ILootStr
 	@Override
 	public void LootAmino(Virologist v, Virologist target)
 	{
+		v.DecreaseActions();
 	}
 
 	/**
@@ -26,6 +27,7 @@ public class NoLoot implements ILootStr
 	@Override
 	public void LootNucleotide(Virologist v, Virologist target)
 	{
+		v.DecreaseActions();
 	}
 
 	/**
@@ -36,5 +38,6 @@ public class NoLoot implements ILootStr
 	@Override
 	public void LootEquipment(Virologist v, Virologist target)
 	{
+		v.DecreaseActions();
 	}
 }

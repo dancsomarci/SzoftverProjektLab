@@ -17,5 +17,6 @@ public class NoLearn implements ILearnStr
 	@Override
 	public void Learn(Virologist v, Field f)
 	{
+		v.DecreaseActions();
 	}
 }
