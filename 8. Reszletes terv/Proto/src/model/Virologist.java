@@ -186,6 +186,7 @@ public class Virologist
 	}
 
 	public void Kill(){
+		field.RemoveVirologist(this);
 		game.RemoveVirologist(this);
 	}
 
