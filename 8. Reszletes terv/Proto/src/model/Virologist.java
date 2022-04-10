@@ -569,8 +569,8 @@ public class Virologist
 	 */
 	public void Update()
 	{
-		for(Agent a: agents){
-			a.Update(this);
+		for(int i = 0; i < agents.size();i++){
+			agents.get(i).Update(this);
 		}
 	}
 

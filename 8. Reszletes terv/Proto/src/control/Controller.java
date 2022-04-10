@@ -394,8 +394,8 @@ public class Controller {
         ArrayList<Virologist> neighbours = f.GetVirologists();
         if (neighbours.size() > 1){
             for (int j = 0; j < neighbours.size(); j++){
-                if (!v.getName().equals(neighbours.get(j).getName()))
-                    System.out.println(j + " - " + neighbours.get(j).getName());
+                //if (!v.getName().equals(neighbours.get(j).getName()))
+                System.out.println(j + " - " + neighbours.get(j).getName());
             }
             return neighbours.get(sc.nextInt());
         }
