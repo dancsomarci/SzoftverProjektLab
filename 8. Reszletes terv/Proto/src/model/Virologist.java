@@ -218,13 +218,14 @@ public class Virologist
 				}
 			}else{
 				if (fields.size() > 0){
-					for (int i = 0; i < fields.size(); i++){
-						System.out.println(i + " - " + fields.get(i).getName());
-					}
-					Scanner sc = new Scanner(System.in); //nem szabad bezárni!
-					Field target = fields.get(sc.nextInt());
-					System.out.println(name + " tries moving from " + field.getName() + " to " + target.getName());
-					Move(target);
+//					for (int i = 0; i < fields.size(); i++){
+//						System.out.println(i + " - " + fields.get(i).getName());
+//					}
+//					Scanner sc = new Scanner(System.in); //nem szabad bezárni!
+//					Field target = fields.get(sc.nextInt());
+//					System.out.println(name + " tries moving from " + field.getName() + " to " + target.getName());
+				Field target = fields.get(0);
+				Move(target);
 				}
 			}
 		}
