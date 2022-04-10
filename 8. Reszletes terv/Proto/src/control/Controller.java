@@ -353,6 +353,9 @@ public class Controller {
                 game.getVirologists()) {
             v.bark();
         }
+        for (Field f: game.GetFields()) {
+            f.bark();
+        }
     }
 
     @ProtoInput(name="bark")
