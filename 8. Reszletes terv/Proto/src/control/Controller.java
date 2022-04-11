@@ -1,5 +1,12 @@
 package control;
 
+                        //TODO bug fixes
+                        //TODO 1) collect mindenhogy jo lehetne
+                        //TODO 2) inject foglalkozzon azzal is hha nmincs senki az adott mezon
+                        //TODO 3) medve virus ne szaporodjon mint egy virus tenyleg
+                        //TODO 4) hogy kulonboztetjuk meg a genetikai kodokat?
+                        //TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+
 import model.Game;
 
 import java.lang.reflect.Constructor;
