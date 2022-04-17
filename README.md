@@ -34,6 +34,10 @@ Részletes terv
 
 7)     https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EcjOISaChoRLgLs2lXLqqQEBe9SBmqXlx9koeFZNpN13aQ?e=mwrBqF
 
+Prototípus implementáció
+
+8)     https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/Eb2rjnYmSRdIopp2Y2lQWscB22wpaaw9BzGIAsUczGvJbQ?e=NQGxWt
+
 
 
 [Pontok]  Feladat | Max | Kapott
@@ -44,4 +48,5 @@ Részletes terv
 4)      | 20  | 17,5
 5)      | 20  | 20
 6)      | 20  | 14 :(
-7)      | 45  | 45 hopefully:P
+7)      | 45  | 40
+8)      | 35  | 
