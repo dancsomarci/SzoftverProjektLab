@@ -3,8 +3,9 @@ package control;
                         //TODO bug fixes
                         //TODO 1) collect mindenhogy jo lehetne
                         //TODO 2) inject foglalkozzon azzal is hha nmincs senki az adott mezon
-                        //TODO 3) medve virus ne szaporodjon mint egy virus tenyleg
+                        //TODO 3) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzaadodot a virologushoz
                         //TODO 4) hogy kulonboztetjuk meg a genetikai kodokat?
+                        //TODO 5) Agent parancs mukodese a palyabeolvasasnal
                         //TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
 import model.Game;
