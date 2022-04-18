@@ -39,7 +39,6 @@ public class Game
 	private int currentPlayer = 0;
 
 	private Game(){}; //singleton miatt
-
 	private static Game instance = null;
 	public static Game Create(){
 		if (instance == null){

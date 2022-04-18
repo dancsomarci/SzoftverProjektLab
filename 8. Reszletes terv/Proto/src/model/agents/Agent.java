@@ -10,11 +10,24 @@ import model.Virologist;
  */
 public abstract class Agent
 {
+	@Override
+	public boolean equals(Object o){
+		return this.getClass().getSimpleName().equals(o.getClass().getSimpleName());
+	}
+
 	public String getName(){
 		return this.getClass().getSimpleName();
 	}
 
 	public String getTimeToLive(){return String.valueOf(timeToLive);}
+
+	public int getTtl(){
+		return timeToLive;
+	}
+
+	public void setTtl(int ttl){
+		timeToLive = ttl;
+	}
 
 	/**
 	 * Az ágens hátra lévő élettartama

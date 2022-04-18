@@ -1,6 +1,7 @@
 package model.codes;
 
 
+import model.Game;
 import model.Virologist;
 import model.agents.Agent;
 
@@ -12,6 +13,11 @@ import model.agents.Agent;
  */
 public abstract class GeneticCode
 {
+	@Override
+	public boolean equals(Object o){
+		return this.getClass().getSimpleName().equals(o.getClass().getSimpleName());
+	}
+
 	public String getName(){
 		return this.getClass().getSimpleName();
 	}

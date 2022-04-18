@@ -8,6 +8,7 @@ import model.map.*;
 import model.strategy.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -98,7 +99,7 @@ public class Virologist
 	/**
 	 *  Megtanult agensek listaja
 	 */
-	private ArrayList<Agent> agents;
+	private LinkedList<Agent> agents;
 
 	/**
 	 * Az eddigi megtanult genetikai kodok listaja
@@ -165,7 +166,7 @@ public class Virologist
 	public Virologist(){
 		equipments = new ArrayList<>(maxNumberOfItems);
 		codes = new ArrayList<>();
-		agents = new ArrayList<>();
+		agents = new LinkedList<>();
 
 		//from docs
 		maxNumberOfItems = 3;
@@ -341,6 +342,14 @@ public class Virologist
 	 */
 	public void AddAgent(Agent a)
 	{
+		if (agents.contains(a)){
+			int i = agents.indexOf(a);
+			Agent old = agents.get(i);
+			agents.remove(i);
+			if (old.getTtl() > a.getTtl()){
+				a.setTtl(old.getTtl());
+			}
+		}
 		agents.add(a);
 	}
 

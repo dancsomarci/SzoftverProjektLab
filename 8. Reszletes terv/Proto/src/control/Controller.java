@@ -1,31 +1,50 @@
 package control;
 
 //TODO bug fixes (ne töröld ki őket!)
-//TODO 1) collect mindenhogy jo lehetne
-//TODO 2) inject foglalkozzon azzal is hha nmincs senki az adott mezon
-//TODO 3) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzaadodot a virologushoz
-//TODO 4) hogy kulonboztetjuk meg a genetikai kodokat?
-//TODO 5) Agent parancs mukodese a palyabeolvasasnal
-//TODO 6) Agent honnan kapja meg a ttl-t? (maybe geneticCode singleton kell legyen, és ő tárolja ezt az infót, de a pályakészítőnél is működnie kell.)
-//TODO 7) randomMove most működik, ha nincs elég action?
-//TODO 8) medve magát fejbe tudja csapni? vagy akkor most mit lehet magán és mit nem? opcióknál mikor mit jelenítünk meg?
-//TODO 9) Kommentezés!!!
-//TODO 10) BUG tesztelés
-//TODO 11) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem)
+//TODO-------------------------------
+//TODO 1) collect nem működik ha copy-zvan van a bemenet [coming soon]
+//TODO 2) Ha nincs nálunk genetikai kód, és inject parancs jön [done]
+            //Nem ír ki semmit!, erről elfelejtettem írni a kimeneti nyelvnél
+            //Nem hiszem hogy ezt szükséges lenne dokumentálni, de elfogadok ellenérveket is!
+//TODO 3) inject foglalkozzon azzal is hha nmincs senki az adott mezon [done]
+            //Az inject, attack -nál lehet saját magadra is kenni/csapni
+            //A többi interakciós parancsnál csak másokra
+            //Miért így?, mert így nem kell módosítani sehol!, szóval persze lehetne szebb is de hidd el így a legegyszerűbb!
+//TODO 4) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzáadódott a virologushoz [done]
+            //-> Ha egy olyat, adunk hozzá, ami már fent van a virológuson, akkor újra fel kell kerüljön, és a ttl, a nagyobbik ttl kell legyen.
+            //Ehhez kellett változás itt: newFuncs: Agent::equals, Agent::setTtl, Agent::getTtl + oldFuncs: Virologist::AddAgent
+//TODO 5) hogy kulonboztetjuk meg a genetikai kodokat? [not implemented]
+            //lásd alább
+//TODO 6) Agent honnan kapja meg a ttl-t? [not implemented]
+            //singleton-hoz hasonló mintát fognak követni a genetikai kódok
+            //Minden kódból 1 darab objektum lesz, amit a game fog számon tartani
+            //game::getGc(GeneticCode gc); ez visszaadja az általa számon tartott genetikai kód típust! (Ezzel kell inicializálni a labort)
+            //A genetikai kód felülírj az object::equals()-t className-re komparál.
+            //Ha egy virológus megtanul egy kódot, a labor csak a saját referenciáját fogja átadni a virológusnak.
+            //Tehát minden virológusnál egy olyan referencia lesz genetikai kódokból, amik a game-ben lévőkre mutatnak.
+            //Ha újabb virológus lép a játékba, akkor a game updateli a genetikai kódok ttl-jét, így azok a generált ágenseknek már a megváltozott köridőket tudják átadni.
+
+//TODO 7) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik]
+
+//TODO 8) randomMove most működik, ha nincs elég action?
+
+//TODO 9) Újrakezdés nem reseteli a virológus köröket
+
+//Mellékes TODO-k
+//TODO FONTOS) default neighbour??!!
+//TODO 10) Kommentezés!!!
+//TODO 11) BUG tesztelés
+//TODO 12) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem)
 //TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
 import model.Game;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.*;
 
 import model.Virologist;
 import model.agents.Agent;
-import model.codes.BlockCode;
-import model.codes.ForgetCode;
 import model.codes.GeneticCode;
-import model.equipments.Bag;
 import model.equipments.Equipment;
 import model.map.*;
 
@@ -258,7 +277,7 @@ public class Controller {
     public void inject(String[] params){
         Virologist player = game.GetCurrentPlayer();
         ArrayList<GeneticCode> codes = player.getGeneticCodes();
-        if (codes.size() > 0){ //mivan ha nincs neki, akkor mit írunk ki??? Hat hogy nincs mit kenjen, de a szandek a fontos, ugyhogy levontunk egy akciot
+        if (codes.size() > 0){
             int i = 0;
             for (GeneticCode code: codes) {
                 System.out.println(i + ": " + code.getName());
@@ -268,7 +287,7 @@ public class Controller {
                 System.out.println("\t\tAmino acid: " + code.getAminoAcidPrice());
             }
             int codeId = sc.nextInt();
-            Virologist target = ChooseNeighbourOf(player);
+            Virologist target = ChooseNeighbour(player);
             GeneticCode c = codes.get(codeId);
             player.Inject(target, c);
             System.out.println(player.getName() + " trying to inject " + target.getName() + " with agent created from " + c.getName());
@@ -285,7 +304,7 @@ public class Controller {
     @ProtoInput(name="lootEquipment")
     public void lootEquipment(String[] params){
         Virologist player = game.GetCurrentPlayer();
-        Virologist target = ChooseNeighbourOf(player);
+        Virologist target = ChooseTarget(player);
         if (target != null){
             player.LootEquipmentFrom(target);
             System.out.println(player.getName() + " trying to loot equipment from " + target.getName());
@@ -297,7 +316,7 @@ public class Controller {
     @ProtoInput(name="lootAmino")
     public void lootAmino(String[] params){
         Virologist player = game.GetCurrentPlayer();
-        Virologist target = ChooseNeighbourOf(player);
+        Virologist target = ChooseTarget(player);
         if (target != null){
             player.LootAminoAcidFrom(target);
             System.out.println(player.getName() + " trying to loot amino acid from " + target.getName());
@@ -309,7 +328,7 @@ public class Controller {
     @ProtoInput(name="lootNucleotide")
     public void lootNucleotide(String[] params){
         Virologist player = game.GetCurrentPlayer();
-        Virologist target = ChooseNeighbourOf(player);
+        Virologist target = ChooseTarget(player);
         if (target != null){
             player.LootNucleotideFrom(target);
             System.out.println(player.getName() + " trying to loot nucleotide from " + target.getName());
@@ -380,16 +399,12 @@ public class Controller {
         player.bark();
     }
 
-    @ProtoInput(name="attack")
+    @ProtoInput(name="attack") //magát is megcsaphatja
     public void attack(String[] params){
         Virologist v = game.GetCurrentPlayer();
-        Virologist target = ChooseNeighbourOf(v);
-        if (target != null){
-            v.Attack(target); //magát nem tudja fejbe csapni
-            System.out.println(v.getName() + " attacking " + target.getName());
-        } else{
-            System.out.println(v.getName() + " has no one to attack");
-        }
+        Virologist target = ChooseNeighbour(v);
+        v.Attack(target);
+        System.out.println(v.getName() + " attacking " + target.getName());
     }
     @ProtoInput(name="currentField")
     public void field(String[] params){
@@ -403,16 +418,28 @@ public class Controller {
         }
     }
 
-    private Virologist ChooseNeighbourOf(Virologist v) {
+    private Virologist ChooseTarget(Virologist v) { //Ebben v nincs benne! (null is jöhet belőle)
         Field f = v.getField();
         ArrayList<Virologist> neighbours = f.GetVirologists();
         if (neighbours.size() > 1){
-            for (int j = 0; j < neighbours.size(); j++){
-                //if (!v.getName().equals(neighbours.get(j).getName()))
-                System.out.println(j + " - " + neighbours.get(j).getName());
+            int i = 0;
+            for (int j = 0; j < neighbours.size(); j++) {
+                if (!v.getName().equals(neighbours.get(j).getName())){
+                    System.out.println(i + " - " + neighbours.get(j).getName());
+                    i++;
+                }
             }
             return neighbours.get(sc.nextInt());
         }
         return null;
+    }
+
+    private Virologist ChooseNeighbour(Virologist v) { //Ebben v is benne van! szóval mindig értelmeset ad vissza
+        Field f = v.getField();
+        ArrayList<Virologist> neighbours = f.GetVirologists();
+        for (int j = 0; j < neighbours.size(); j++){
+            System.out.println(j + " - " + neighbours.get(j).getName());
+        }
+        return neighbours.get(sc.nextInt());
     }
 }
