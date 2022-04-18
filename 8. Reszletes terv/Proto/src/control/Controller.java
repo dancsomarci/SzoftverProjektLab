@@ -1,12 +1,18 @@
 package control;
 
-                        //TODO bug fixes
-                        //TODO 1) collect mindenhogy jo lehetne
-                        //TODO 2) inject foglalkozzon azzal is hha nmincs senki az adott mezon
-                        //TODO 3) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzaadodot a virologushoz
-                        //TODO 4) hogy kulonboztetjuk meg a genetikai kodokat?
-                        //TODO 5) Agent parancs mukodese a palyabeolvasasnal
-                        //TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+//TODO bug fixes (ne töröld ki őket!)
+//TODO 1) collect mindenhogy jo lehetne
+//TODO 2) inject foglalkozzon azzal is hha nmincs senki az adott mezon
+//TODO 3) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzaadodot a virologushoz
+//TODO 4) hogy kulonboztetjuk meg a genetikai kodokat?
+//TODO 5) Agent parancs mukodese a palyabeolvasasnal
+//TODO 6) Agent honnan kapja meg a ttl-t? (maybe geneticCode singleton kell legyen, és ő tárolja ezt az infót, de a pályakészítőnél is működnie kell.)
+//TODO 7) randomMove most működik, ha nincs elég action?
+//TODO 8) medve magát fejbe tudja csapni? vagy akkor most mit lehet magán és mit nem? opcióknál mikor mit jelenítünk meg?
+//TODO 9) Kommentezés!!!
+//TODO 10) BUG tesztelés
+//TODO 11) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem)
+//TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
 import model.Game;
 
