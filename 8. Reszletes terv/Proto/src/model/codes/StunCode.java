@@ -37,7 +37,7 @@ public class StunCode extends GeneticCode
 			throw e;
 		}
 
-		Stun s = new Stun(turnsLeft);
+		Stun s = new Stun(turnsLeft*playerCount);
 		return s;
 	}
 

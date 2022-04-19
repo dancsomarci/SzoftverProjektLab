@@ -95,15 +95,23 @@ public class Game
 	{
 		virologists.add(v);
 		v.SetGame(this);
+
+		for (GeneticCode gc : codes) {
+			gc.incrementPlayerCount();
+		}
 	}
 
 	/**
 	 * Hozzáad egy új genetikai kódot a játékhoz
 	 * @param gc hozzáadandó genetikai kód
 	 */
-	public void AddGeneticCode(GeneticCode gc){
-		if (!codes.contains(gc))
+	public GeneticCode AddGeneticCode(GeneticCode gc){
+		if (!codes.contains(gc)){
 			codes.add(gc);
+			return gc;
+		} else{
+			return codes.get(codes.indexOf(gc));
+		}
 	}
 
 	/**
@@ -118,5 +126,8 @@ public class Game
 
 	public void RemoveVirologist(Virologist virologist) {
 		virologists.remove(virologist);
+		for (GeneticCode gc : codes) {
+			gc.decrementPlayerCount();
+		}
 	}
 }

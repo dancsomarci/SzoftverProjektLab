@@ -18,6 +18,17 @@ public abstract class GeneticCode
 		return this.getClass().getSimpleName().equals(o.getClass().getSimpleName());
 	}
 
+	protected int playerCount = 0;
+
+	public void incrementPlayerCount(){
+		playerCount++;
+	}
+
+	public void decrementPlayerCount(){
+		playerCount--;
+		if (playerCount < 0) playerCount = 0;
+	}
+
 	public String getName(){
 		return this.getClass().getSimpleName();
 	}

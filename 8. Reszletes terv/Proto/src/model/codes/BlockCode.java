@@ -39,7 +39,7 @@ public class BlockCode extends GeneticCode
 			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
-		Block b = new Block(turnsLeft);
+		Block b = new Block(turnsLeft*playerCount);
 
 		return b;
 	}

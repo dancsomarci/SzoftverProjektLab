@@ -36,7 +36,7 @@ public class ForgetCode extends GeneticCode
 			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
-		Forget f = new Forget(turnsLeft);
+		Forget f = new Forget(turnsLeft*playerCount);
 		return f;
 	}
 

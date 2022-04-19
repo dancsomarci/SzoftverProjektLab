@@ -18,7 +18,7 @@ package control;
 //TODO 6) Agent honnan kapja meg a ttl-t? [not implemented]
             //singleton-hoz hasonló mintát fognak követni a genetikai kódok
             //Minden kódból 1 darab objektum lesz, amit a game fog számon tartani
-            //game::getGc(GeneticCode gc); ez visszaadja az általa számon tartott genetikai kód típust! (Ezzel kell inicializálni a labort)
+            //game::AddGeneticCode(GeneticCode gc); ez visszaadja az általa számon tartott genetikai kód típust! (Ezzel kell inicializálni a labort)
             //A genetikai kód felülírj az object::equals()-t className-re komparál.
             //Ha egy virológus megtanul egy kódot, a labor csak a saját referenciáját fogja átadni a virológusnak.
             //Tehát minden virológusnál egy olyan referencia lesz genetikai kódokból, amik a game-ben lévőkre mutatnak.
@@ -26,9 +26,13 @@ package control;
 
 //TODO 7) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik]
 
+//TODO 8) GeneticCode::Create implementáció nem jó
+
 //TODO 8) randomMove most működik, ha nincs elég action?
 
 //TODO 9) Újrakezdés nem reseteli a virológus köröket
+
+//TODO 10) Virologist::Move()
 
 //Mellékes TODO-k
 //TODO FONTOS) default neighbour??!!
@@ -139,13 +143,11 @@ public class Controller {
                 switch(options.get("Type")){
                     case "Laboratory":
                         GeneticCode c1 = (GeneticCode) createObject("model.codes." + arg);
-                        game.AddGeneticCode(c1);
-                        f = new Laboratory(c1);
+                        f = new Laboratory(game.AddGeneticCode(c1));
                         break;
                     case "InfectedLaboratory":
                         GeneticCode c2 = (GeneticCode) createObject("model.codes." + arg);
-                        game.AddGeneticCode(c2);
-                        f = new InfectedLaboratory(c2);
+                        f = new InfectedLaboratory(game.AddGeneticCode(c2));
                         break;
                     case "Shelter":
                         Equipment e = (Equipment) createObject("model.equipments."+arg);

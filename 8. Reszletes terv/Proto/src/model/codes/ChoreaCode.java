@@ -37,7 +37,7 @@ public class ChoreaCode extends GeneticCode
 			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
-		Chorea c = new Chorea(turnsLeft);
+		Chorea c = new Chorea(turnsLeft*playerCount);
 		return c;
 	}
 
