@@ -1,21 +1,29 @@
 package control;
 
-//TODO bug fixes (ne töröld ki őket!)
+//TODO TODO-k (Ne töröld ki őket!)
 //TODO-------------------------------
 //TODO 1) collect nem működik ha copy-zvan van a bemenet [coming soon]
-//TODO 2) Ha nincs nálunk genetikai kód, és inject parancs jön [done]
+//TODO 2) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik]
+//TODO 3) Virologist::Move() -nál most a mező default neighbourjára lép, aki a currentField parancsnál
+//        a Neighbour: listában az első helyen áll!, ez nincs dokumentálva sehol, ha jól emlékszem!
+//TODO 4) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem)
+
+//TODO DONE + változtatások lényege
+//TODO ----------------------------
+//TODO 1) Ha nincs nálunk genetikai kód, és inject parancs jön [done]
             //Nem ír ki semmit!, erről elfelejtettem írni a kimeneti nyelvnél
             //Nem hiszem hogy ezt szükséges lenne dokumentálni, de elfogadok ellenérveket is!
-//TODO 3) inject foglalkozzon azzal is hha nmincs senki az adott mezon [done]
+//TODO 2) inject foglalkozzon azzal is hha nmincs senki az adott mezon [done]
             //Az inject, attack -nál lehet saját magadra is kenni/csapni
             //A többi interakciós parancsnál csak másokra
             //Miért így?, mert így nem kell módosítani sehol!, szóval persze lehetne szebb is de hidd el így a legegyszerűbb!
-//TODO 4) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzáadódott a virologushoz [done]
+            //Új fv-ek jöttek be: Controller::ChooseTarget - v nincs benne; Controller::ChooseNeighbour - v is benne van
+//TODO 3) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzáadódott a virologushoz [done]
             //-> Ha egy olyat, adunk hozzá, ami már fent van a virológuson, akkor újra fel kell kerüljön, és a ttl, a nagyobbik ttl kell legyen.
             //Ehhez kellett változás itt: newFuncs: Agent::equals, Agent::setTtl, Agent::getTtl + oldFuncs: Virologist::AddAgent
-//TODO 5) hogy kulonboztetjuk meg a genetikai kodokat? [not implemented]
+//TODO 4) hogy kulonboztetjuk meg a genetikai kodokat? [done, but not fully tested]
             //lásd alább
-//TODO 6) Agent honnan kapja meg a ttl-t? [not implemented]
+//TODO 4.5) Agent honnan kapja meg a ttl-t? [done, but not fully tested]
             //singleton-hoz hasonló mintát fognak követni a genetikai kódok
             //Minden kódból 1 darab objektum lesz, amit a game fog számon tartani
             //game::AddGeneticCode(GeneticCode gc); ez visszaadja az általa számon tartott genetikai kód típust! (Ezzel kell inicializálni a labort)
@@ -23,22 +31,27 @@ package control;
             //Ha egy virológus megtanul egy kódot, a labor csak a saját referenciáját fogja átadni a virológusnak.
             //Tehát minden virológusnál egy olyan referencia lesz genetikai kódokból, amik a game-ben lévőkre mutatnak.
             //Ha újabb virológus lép a játékba, akkor a game updateli a genetikai kódok ttl-jét, így azok a generált ágenseknek már a megváltozott köridőket tudják átadni.
+            //Változtatások/újdonságok kód szintjén:
+            //-GeneticCode::equals, Game::AddAgent, GeneticCode::increment-, ::decrementPlayerCount
+            //-GeneticCode::Create már olyan ágenst ad vissza, aminek a ttl-je = ttl*playerCount
+//TODO 6) GeneticCode::Create implementáció nem jó [done]
+            //A RemoveAnyag() fv hívásoknak a try-on belül kell lenniük
+            //a catch-ben nem kell hozzáadni a price-ot, mert a remove úgy van megírva hogy nem von le, ha exception van!
+//TODO 7) randomMove most működik, ha nincs elég action? [done]
+            //Működik, mert a virológus köre végén resetelődik az actionCount
+            //Viszont ha rákenik, és lelépi a 3-mat, akkor a kövi körben nem fog tudni semmit csinálni, de azt hiszem ez így is volt tervezve!
+//TODO 8) Újrakezdés nem reseteli a virológus köröket [done]
+            //Game::NewGame fv-e reseteli a playerPointer-t is
 
-//TODO 7) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik]
+//TODO OPTIONAL nice to have changes (csak ha van idő és kedv a végén)
+//TODO -----------------------------------------------------------------
+//TODO Game osztályban kezelni az olyan eseteket pl.: amikor nincs player hozzáadva, de mégis endTurn (valahogy szép üzenetbe burkolni a felhazsnáló felé)
+//TODO A Pálya parser exception nyelvezetét meg lehetne szépre írni, hogy egyszerűbb legyen felderíteni a hibákat.
 
-//TODO 8) GeneticCode::Create implementáció nem jó
-
-//TODO 8) randomMove most működik, ha nincs elég action?
-
-//TODO 9) Újrakezdés nem reseteli a virológus köröket
-
-//TODO 10) Virologist::Move()
-
-//Mellékes TODO-k
-//TODO FONTOS) default neighbour??!!
-//TODO 10) Kommentezés!!!
+//TODO Mellékes
+//TODO --------
+//TODO 10) Kommentezés
 //TODO 11) BUG tesztelés
-//TODO 12) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem)
 //TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
 import model.Game;
@@ -117,7 +130,7 @@ public class Controller {
 
 
     private Game game = Game.Create(); //Csak egyszer kell hívni, mert ugyanazt az egy objektumot adja vissza mindig!
-    private HashMap<String, Field> fields; //wau inicializálja
+    private HashMap<String, Field> fields;
 
     /*pályaleíró nyelv*/
 

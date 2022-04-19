@@ -20,9 +20,9 @@ public class DefInject implements IInjectStr
 		try {
 			target.TargetedWith(v, gc.Create(v));
 		} catch (Exception e) {
-			//Nincs elég anyag a készítéshez, /vencel: sztem itt is kene csokkenteni az actions-t
+			//Nincs elég anyag a készítéshez
 		} finally{
-			v.DecreaseActions();
+			v.DecreaseActions(); //mindenképpen csökken az action-ök száma!
 		}
 	}
 }

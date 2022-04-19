@@ -28,16 +28,14 @@ public class ForgetCode extends GeneticCode
 	 */
 	public Agent Create(Virologist v) throws Exception
 	{
-		v.RemoveNucleotide(nucleotidePrice);
 		try{
 			v.RemoveAminoAcid(aminoAcidPrice);
+			v.RemoveNucleotide(nucleotidePrice);
 		}
 		catch(Exception e){
-			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
-		Forget f = new Forget(turnsLeft*playerCount);
-		return f;
+		return new Forget(turnsLeft*playerCount);
 	}
 
 }

@@ -10,7 +10,6 @@ import model.strategy.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *  A virologusert felelo osztaly. Ezeket az objektumokat
@@ -41,7 +40,7 @@ public class Virologist
 
 	public Game GetContext(){return game;} //randomitás kikapcsolása stb..
 
-	private String name;
+	private String name; //kiíratáshoz (grafikusnál majd decorator minta)
 
 	public void setName(String name) {
 		this.name = name;
@@ -65,6 +64,8 @@ public class Virologist
 	 *  Azt a mennyiseget tarolja, hogy mennyi lepest tud vegre hajtani a korben a virologus.
 	 * */
 	private int actionCount;
+
+	private final int MaxActionCount = 3;
 
 	/**
 	 *  A virologus altal birtokolt aminosav mennyiseget tarolja.
@@ -173,7 +174,7 @@ public class Virologist
 		limit = 20;
 		aminoAcid = 0;
 		nucleotide = 0;
-		actionCount = 3;
+		actionCount = MaxActionCount;
 
 		Reset(); //sets the default strategies
 	}
@@ -219,12 +220,6 @@ public class Virologist
 				}
 			}else{
 				if (fields.size() > 0){
-//					for (int i = 0; i < fields.size(); i++){
-//						System.out.println(i + " - " + fields.get(i).getName());
-//					}
-//					Scanner sc = new Scanner(System.in); //nem szabad bezárni!
-//					Field target = fields.get(sc.nextInt());
-//					System.out.println(name + " tries moving from " + field.getName() + " to " + target.getName());
 				Field target = fields.get(0);
 				Move(target);
 				}
@@ -487,7 +482,7 @@ public class Virologist
 	 */
 	public void EndTurn()
 	{
-		actionCount = 3;
+		actionCount = MaxActionCount;
 		game.NextPlayer(codes.size());
 	}
 

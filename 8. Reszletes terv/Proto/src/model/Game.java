@@ -54,6 +54,7 @@ public class Game
 		fields = new ArrayList<>();
 		codes = new ArrayList<>();
 		virologists = new ArrayList<>();
+		currentPlayer = 0;
 	}
 
 	/**

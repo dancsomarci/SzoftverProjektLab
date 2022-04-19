@@ -28,17 +28,14 @@ public class StunCode extends GeneticCode
 	 */
 	public Agent Create(Virologist v) throws Exception
 	{
-		v.RemoveNucleotide(nucleotidePrice);
 		try{
 			v.RemoveAminoAcid(aminoAcidPrice);
+			v.RemoveNucleotide(nucleotidePrice);
 		}
 		catch(Exception e){
-			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
-
-		Stun s = new Stun(turnsLeft*playerCount);
-		return s;
+		return new Stun(turnsLeft*playerCount);
 	}
 
 }
