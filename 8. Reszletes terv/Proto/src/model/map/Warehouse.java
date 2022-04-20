@@ -1,6 +1,7 @@
 package model.map;
 
 
+import control.SingleTonScanner;
 import model.Virologist;
 import model.equipments.Equipment;
 
@@ -33,7 +34,8 @@ public class Warehouse extends Field
 		}else{
 			//game-be kellene egy ask for input, mert ő kommunikál a külvilággal
 			//de most jó ez így csak kérdés hogyan kell dokumentálni?, meg pszeudót írni, de szerintem most az eredeti algot írjuk le
-			Scanner sc = new Scanner(System.in); //Nem szabad bezárni
+			//Scanner sc = new Scanner(System.in); //Nem szabad bezárni
+			Scanner sc = SingleTonScanner.Create();
 			System.out.println("0 - Amino acid");
 			System.out.println("1 - Nucleotide");
 			if (sc.nextLine().equals("0")){

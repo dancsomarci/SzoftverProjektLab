@@ -2,11 +2,9 @@ package control;
 
 //TODO TODO-k (Ne töröld ki őket!)
 //TODO-------------------------------
-//TODO 1) collect nem működik ha copy-zvan van a bemenet [coming soon]
-//TODO 2) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik]
-//TODO 3) Virologist::Move() -nál most a mező default neighbourjára lép, aki a currentField parancsnál
+//TODO 1) Virologist::Move() -nál most a mező default neighbourjára lép, aki a currentField parancsnál
 //        a Neighbour: listában az első helyen áll!, ez nincs dokumentálva sehol, ha jól emlékszem!
-//TODO 4) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem)
+//TODO 2) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem)
 
 //TODO DONE + változtatások lényege
 //TODO ----------------------------
@@ -42,6 +40,9 @@ package control;
             //Viszont ha rákenik, és lelépi a 3-mat, akkor a kövi körben nem fog tudni semmit csinálni, de azt hiszem ez így is volt tervezve!
 //TODO 8) Újrakezdés nem reseteli a virológus köröket [done]
             //Game::NewGame fv-e reseteli a playerPointer-t is
+//TODO 9) collect nem működik ha copy-zvan van a bemenet [done]
+            //megoldás: Ugyanazt a Scanner referenciát kell használni a Warehouse-nak, mint a Controller-nek
+            //Új osztály: SingletonScanner -> lehet később még a Controller része lesz, de egyenlőre marad így
 
 //TODO OPTIONAL nice to have changes (csak ha van idő és kedv a végén)
 //TODO -----------------------------------------------------------------
@@ -71,7 +72,8 @@ public class Controller {
     /**
      * Beolvasásért felelős objektum
      */
-    private static Scanner sc = new Scanner(System.in);
+    //private static Scanner sc = new Scanner(System.in);
+    private static Scanner sc = SingleTonScanner.Create();
 
     public Controller() throws Exception {
         try{
