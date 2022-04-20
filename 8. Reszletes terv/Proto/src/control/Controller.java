@@ -4,21 +4,28 @@ package control;
 //TODO-------------------------------
 //TODO 1) Virologist::Move() -nál most a mező default neighbourjára lép, aki a currentField parancsnál
 //        a Neighbour: listában az első helyen áll!, ez nincs dokumentálva sehol, ha jól emlékszem!
-//TODO 2) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem)
+//          - Vencel: szeintem beleírtam a bementi nyelv leírásánál, hogy a 0.szomszédra megy, de ez det. eset csak
+//TODO 2) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem) Vencel:
+//          Vencel: nem 3, amin 3 jatekos van es 3at lepnek legalabb? Vagy hogy volt ez?
+//          Marci: Én 9-re emlékszem, de igazából mind1 kap 9 olyat, ami után megnyalja mind a 10 ujját!
+
 
 //TODO DONE + változtatások lényege
 //TODO ----------------------------
 //TODO 1) Ha nincs nálunk genetikai kód, és inject parancs jön [done]
             //Nem ír ki semmit!, erről elfelejtettem írni a kimeneti nyelvnél
             //Nem hiszem hogy ezt szükséges lenne dokumentálni, de elfogadok ellenérveket is!
-//TODO 2) inject foglalkozzon azzal is hha nmincs senki az adott mezon [done]
+            //Vencel: ok
+//TODO 2) inject foglalkozzon azzal is hha nincs senki az adott mezon [done]
             //Az inject, attack -nál lehet saját magadra is kenni/csapni
             //A többi interakciós parancsnál csak másokra
             //Miért így?, mert így nem kell módosítani sehol!, szóval persze lehetne szebb is de hidd el így a legegyszerűbb!
+            //Vencel: fullosch
             //Új fv-ek jöttek be: Controller::ChooseTarget - v nincs benne; Controller::ChooseNeighbour - v is benne van
 //TODO 3) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzáadódott a virologushoz [done]
             //-> Ha egy olyat, adunk hozzá, ami már fent van a virológuson, akkor újra fel kell kerüljön, és a ttl, a nagyobbik ttl kell legyen.
             //Ehhez kellett változás itt: newFuncs: Agent::equals, Agent::setTtl, Agent::getTtl + oldFuncs: Virologist::AddAgent
+            //Vencel: király
 //TODO 4) hogy kulonboztetjuk meg a genetikai kodokat? [done, but not fully tested]
             //lásd alább
 //TODO 4.5) Agent honnan kapja meg a ttl-t? [done, but not fully tested]
@@ -26,6 +33,9 @@ package control;
             //Minden kódból 1 darab objektum lesz, amit a game fog számon tartani
             //game::AddGeneticCode(GeneticCode gc); ez visszaadja az általa számon tartott genetikai kód típust! (Ezzel kell inicializálni a labort)
             //A genetikai kód felülírj az object::equals()-t className-re komparál.
+            //
+            //Vencel: hello tipusellenorzes, de no para, felolem ok
+            //
             //Ha egy virológus megtanul egy kódot, a labor csak a saját referenciáját fogja átadni a virológusnak.
             //Tehát minden virológusnál egy olyan referencia lesz genetikai kódokból, amik a game-ben lévőkre mutatnak.
             //Ha újabb virológus lép a játékba, akkor a game updateli a genetikai kódok ttl-jét, így azok a generált ágenseknek már a megváltozott köridőket tudják átadni.
@@ -37,14 +47,16 @@ package control;
             //a catch-ben nem kell hozzáadni a price-ot, mert a remove úgy van megírva hogy nem von le, ha exception van!
 //TODO 7) randomMove most működik, ha nincs elég action? [done]
             //Működik, mert a virológus köre végén resetelődik az actionCount
-            //Viszont ha rákenik, és lelépi a 3-mat, akkor a kövi körben nem fog tudni semmit csinálni, de azt hiszem ez így is volt tervezve!
+            //Viszont ha rákenik, és lelépi a 3-mat, akkor a kövi körben nem fog tudni semmit csinálni, de azt hiszem ez így is volt tervezve! Vencel: pontosan
 //TODO 8) Újrakezdés nem reseteli a virológus köröket [done]
             //Game::NewGame fv-e reseteli a playerPointer-t is
 //TODO 9) collect nem működik ha copy-zvan van a bemenet [done]
             //megoldás: Ugyanazt a Scanner referenciát kell használni a Warehouse-nak, mint a Controller-nek
             //Új osztály: SingletonScanner -> lehet később még a Controller része lesz, de egyenlőre marad így
+//TODO 10) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik] - Vencel: oke, megtryolom
+            //Agent parancsba kell a ttl-t is megadni! (lásd doku)
 
-//TODO OPTIONAL nice to have changes (csak ha van idő és kedv a végén)
+//TODO OPTIONAL nice to have changes (csak ha van idő és kedv a végén) - Vencel: LOL
 //TODO -----------------------------------------------------------------
 //TODO Game osztályban kezelni az olyan eseteket pl.: amikor nincs player hozzáadva, de mégis endTurn (valahogy szép üzenetbe burkolni a felhazsnáló felé)
 //TODO A Pálya parser exception nyelvezetét meg lehetne szépre írni, hogy egyszerűbb legyen felderíteni a hibákat.
