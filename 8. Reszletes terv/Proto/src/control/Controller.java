@@ -3,10 +3,11 @@ package control;
 //TODO TODO-k (Ne töröld ki őket!)
 //TODO-------------------------------
 //TODO 1) collect nem működik ha copy-zvan van a bemenet [coming soon]
-//TODO 2) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik]
+//TODO 2) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik] - Vencel: oke, megtryolom
 //TODO 3) Virologist::Move() -nál most a mező default neighbourjára lép, aki a currentField parancsnál
-//        a Neighbour: listában az első helyen áll!, ez nincs dokumentálva sehol, ha jól emlékszem! - Vencel: szeintem beleírtam a bementi nyelv leírásánál, hogy a 0.szomszédra megy, de ez det. eset csak
-//TODO 4) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem) - Vencel: ezt be kell pótolni?
+//        a Neighbour: listában az első helyen áll!, ez nincs dokumentálva sehol, ha jól emlékszem!
+// - Vencel: szeintem beleírtam a bementi nyelv leírásánál, hogy a 0.szomszédra megy, de ez det. eset csak
+//TODO 4) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem) Vencel: nem 3, amin 3 jatekos van es 3at lepnek legalabb? Vagy hogy volt ez?
 
 //TODO DONE + változtatások lényege
 //TODO ----------------------------
@@ -45,7 +46,7 @@ package control;
             //a catch-ben nem kell hozzáadni a price-ot, mert a remove úgy van megírva hogy nem von le, ha exception van!
 //TODO 7) randomMove most működik, ha nincs elég action? [done]
             //Működik, mert a virológus köre végén resetelődik az actionCount
-            //Viszont ha rákenik, és lelépi a 3-mat, akkor a kövi körben nem fog tudni semmit csinálni, de azt hiszem ez így is volt tervezve!
+            //Viszont ha rákenik, és lelépi a 3-mat, akkor a kövi körben nem fog tudni semmit csinálni, de azt hiszem ez így is volt tervezve! Vencel: pontosan
 //TODO 8) Újrakezdés nem reseteli a virológus köröket [done]
             //Game::NewGame fv-e reseteli a playerPointer-t is
 
