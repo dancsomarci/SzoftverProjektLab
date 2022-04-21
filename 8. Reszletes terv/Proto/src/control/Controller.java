@@ -6,9 +6,11 @@ package control;
 //        a Neighbour: listában az első helyen áll!, ez nincs dokumentálva sehol, ha jól emlékszem!
 //          -Vencel: szeintem beleírtam a bementi nyelv leírásánál, hogy a 0.szomszédra megy, de ez det. eset csak
 //          -Marci: Én nem találom, de lehet csak vak vagyok.
+//          -Vencel: elküldtem a screent messen
 //TODO 2) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem) Vencel:
 //          -Vencel: nem 3, amin 3 jatekos van es 3at lepnek legalabb? Vagy hogy volt ez?
 //          -Marci: Én 9-re emlékszem, de igazából mind1 kap 9 olyat, ami után megnyalja mind a 10 ujját!
+//          -Vencel: XDDDD, mondjuk eddig is van 5 komplexebbünk, nem nagyon komplex, h 3 x 3 x 3, de komplex, úgyhogy lehet elég ha mindenki egyet ír majd pluszba
 
 
 //TODO DONE + változtatások lényege
