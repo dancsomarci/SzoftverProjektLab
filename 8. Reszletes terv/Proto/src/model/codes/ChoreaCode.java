@@ -38,7 +38,6 @@ public class ChoreaCode extends GeneticCode
 		catch(Exception e){
 			throw e;
 		}
-		System.out.println("Code: " + turnsLeft*playerCount);
 		return new Chorea(turnsLeft*playerCount);
 	}
 

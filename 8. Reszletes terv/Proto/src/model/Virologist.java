@@ -388,7 +388,8 @@ public class Virologist
 	 */
 	public void AddGeneticCode(GeneticCode code)
 	{
-		codes.add(code);
+		if (!codes.contains(code))
+			codes.add(code);
 	}
 
 	/**
