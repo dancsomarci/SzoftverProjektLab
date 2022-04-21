@@ -123,6 +123,9 @@ public class Game
 	public List<Field> GetFields(){return fields;}
 
 	public void RemoveVirologist(Virologist virologist) {
+		int i = virologists.indexOf(virologist);
+		if (i < currentPlayer)
+			currentPlayer--;
 		virologists.remove(virologist);
 		playerCount--;
 	}
