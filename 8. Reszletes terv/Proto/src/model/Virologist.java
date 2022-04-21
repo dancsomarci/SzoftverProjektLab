@@ -26,7 +26,7 @@ public class Virologist
 		System.out.println("\tNucleotide: " + nucleotide+ " / maximum: "+ limit);
 		System.out.println("\tEquipments:");
 		for (Equipment e: equipments) {
-			System.out.println("\t\t" + e.getName()); // később dekorátor tervezési minta lesz
+			System.out.println("\t\t" + e.getName()); // később dekorátor tervezési minta lesz -Vencel: Az milyen?
 		}
 		System.out.println("\tGenetic codes:");
 		for (GeneticCode c: codes) {
