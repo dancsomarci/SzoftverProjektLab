@@ -33,11 +33,13 @@ public class BlockCode extends GeneticCode
 	 */
 	public Agent Create(Virologist v) throws Exception
 	{
+
+		v.RemoveNucleotide(nucleotidePrice);
 		try{
-			v.RemoveNucleotide(nucleotidePrice);
 			v.RemoveAminoAcid(aminoAcidPrice);
 		}
 		catch(Exception e){
+			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
 		return new Block(turnsLeft*playerCount);
