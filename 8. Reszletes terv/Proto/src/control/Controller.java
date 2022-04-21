@@ -133,7 +133,7 @@ public class Controller {
                     m.invoke(this, new Object[] {Arrays.copyOfRange(inputArr, 1, inputArr.length)});
                 }
                 else{
-                    if (!input.equals("")) //ilyenkor csak lineskip
+                    if (!"".equals(input)) //ilyenkor csak lineskip
                         System.out.println("Unknown command!");
                 }
             }

@@ -36,7 +36,6 @@ public abstract class Agent
 
 	public Agent(int ttl){
 		timeToLive = ttl;
-		System.out.println("Kezdeti TTL:" + ttl);
 	}
 
 	/**
@@ -47,9 +46,7 @@ public abstract class Agent
 	public void Update(Virologist v)
 	{
 		timeToLive--;
-		System.out.println("Update: " + timeToLive);
 		if (timeToLive == 0){
-			System.out.println("0 a ttl");
 			v.RemoveAgent(this);
 			v.Reset();
 		}

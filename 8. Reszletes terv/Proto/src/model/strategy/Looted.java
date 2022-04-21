@@ -26,6 +26,7 @@ public class Looted implements ILootedStr
 	public void LootedForEquipment(Virologist v, Virologist from, Equipment e)
 	{
 		e.Disable(from);
+		from.RemoveEquipment(e);
 		v.AddEquipment(e);
 	}
 
