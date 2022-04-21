@@ -19,27 +19,51 @@ public class Game
 	 * A pálya mezői
 	 */
 	private List<Field> fields;
+	/**
+	 * A játékosok száma
+	 */
 	public static int playerCount = 0;
 	/**
 	 * A játékban szereplő genetikai kódok
 	 */
 	private List<GeneticCode> codes;
 
+	/**
+	 * @return a tárolt virológusok listája
+	 */
 	public ArrayList<Virologist> getVirologists() {
 		return virologists;
 	}
 
-	public boolean randOn = true; //by default, parancs kell a kikapcsoláshoz (+jelszó)
+	/**
+	 * Determinisztikusságot/randomitást jelölő bit, alapból random működést jelez.
+	 * Paranccsal lehet kikapcsolni egy jelszó segítségével.
+	 */
+	public boolean randOn = true;
 
 	/**
 	 * A játékban szereplő virpológusok
 	 */
 	private ArrayList<Virologist> virologists;
 
+	/**
+	 * Az aktuális játékos indexe a játékosok tömbjében.
+	 */
 	private int currentPlayer = 0;
 
-	private Game(){}; //singleton miatt
+	/**
+	 * A Game osztály singleton -sága miatt private konstruktor.
+	 */
+	private Game(){}
+	/**
+	 * A játékállapotot megvalósító példány.
+	 */
 	private static Game instance = null;
+
+	/**
+	 * Új játék létrehozása.
+	 * @return az új játékot megvalósító Game példány.
+	 */
 	public static Game Create(){
 		if (instance == null){
 			instance = new Game();
@@ -75,6 +99,9 @@ public class Game
 		}
 	}
 
+	/**
+	 * @return az aktív játékos objektuma.
+	 */
 	public Virologist GetCurrentPlayer(){
 		return virologists.get(currentPlayer);
 	}
@@ -120,8 +147,15 @@ public class Game
 		fields.add(f);
 	}
 
+	/**
+	 * @return a mezők listája.
+	 */
 	public List<Field> GetFields(){return fields;}
 
+	/**
+	 * Egy virológus eltávolítása a játékból.
+	 * @param virologist az eltávolítandó virológus.
+	 */
 	public void RemoveVirologist(Virologist virologist) {
 		int i = virologists.indexOf(virologist);
 		if (i < currentPlayer)
