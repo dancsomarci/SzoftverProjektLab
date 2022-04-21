@@ -18,11 +18,10 @@ public class DefInject implements IInjectStr
 	@Override
 	public void Inject(Virologist v, Virologist target, GeneticCode gc) {
 		try {
+			v.DecreaseActions(); //mindenképpen csökken az action-ök száma!
 			target.TargetedWith(v, gc.Create(v));
 		} catch (Exception e) {
 			//Nincs elég anyag a készítéshez
-		} finally{
-			v.DecreaseActions(); //mindenképpen csökken az action-ök száma!
 		}
 	}
 }
