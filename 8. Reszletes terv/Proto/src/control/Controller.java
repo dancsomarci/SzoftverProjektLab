@@ -8,6 +8,7 @@ package control;
 //          -Marci: Én nem találom, de lehet csak vak vagyok.
 //          -Vencel: elküldtem a screent messen
 //          -Marci: most már látom:D, de amúgy az még hiányzik nekem, hogy a currentField meg ebben a sorrendben írja ki
+//          -Vencel: Ezt dokumentáltuk korábban, hogy a CurrentField mit s hogy ír ki?
 //TODO 2) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem) Vencel:
 //          -Vencel: nem 3, amin 3 jatekos van es 3at lepnek legalabb? Vagy hogy volt ez?
 //          -Marci: Én 9-re emlékszem, de igazából mind1 kap 9 olyat, ami után megnyalja mind a 10 ujját!
@@ -46,9 +47,9 @@ package control;
             //Változtatások/újdonságok kód szintjén:
             //-GeneticCode::equals, Game::AddAgent, GeneticCode::increment-, ::decrementPlayerCount
             //-GeneticCode::Create már olyan ágenst ad vissza, aminek a ttl-je = ttl*playerCount
-//TODO 6) GeneticCode::Create implementáció nem jó [done]
-            //A RemoveAnyag() fv hívásoknak a try-on belül kell lenniük
-            //a catch-ben nem kell hozzáadni a price-ot, mert a remove úgy van megírva hogy nem von le, ha exception van!
+//TODO 6) GeneticCode::Create implementáció mégis jó [done]
+            //A RemoveAnyag() fv hívásoknak a try-on belül kell lenniük -nem mindnek-
+            //a catch-ben nem kell hozzáadni a price-ot, mert a remove úgy van megírva hogy nem von le, ha exception van!, kivéve ha volt elég az egyik anyagból, s a másikból nem
 //TODO 7) randomMove most működik, ha nincs elég action? [done]
             //Működik, mert a virológus köre végén resetelődik az actionCount
             //Viszont ha rákenik, és lelépi a 3-mat, akkor a kövi körben nem fog tudni semmit csinálni, de azt hiszem ez így is volt tervezve! Vencel: pontosan
