@@ -6,6 +6,8 @@ import model.Virologist;
 import model.agents.Agent;
 import model.agents.Forget;
 
+import static model.Game.playerCount;
+
 /**
  * Olyan genetikai kód, ami egy felejtő (Forget) típusú ágenst tud előállítani.
  */

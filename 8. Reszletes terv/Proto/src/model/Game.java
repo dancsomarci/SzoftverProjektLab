@@ -19,7 +19,7 @@ public class Game
 	 * A pálya mezői
 	 */
 	private List<Field> fields;
-
+	public static int playerCount = 0;
 	/**
 	 * A játékban szereplő genetikai kódok
 	 */
@@ -96,10 +96,7 @@ public class Game
 	{
 		virologists.add(v);
 		v.SetGame(this);
-
-		for (GeneticCode gc : codes) {
-			gc.incrementPlayerCount();
-		}
+		playerCount++;
 	}
 
 	/**
@@ -127,8 +124,6 @@ public class Game
 
 	public void RemoveVirologist(Virologist virologist) {
 		virologists.remove(virologist);
-		for (GeneticCode gc : codes) {
-			gc.decrementPlayerCount();
-		}
+		playerCount--;
 	}
 }

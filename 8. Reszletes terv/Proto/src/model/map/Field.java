@@ -12,10 +12,22 @@ import java.util.ArrayList;
  */
 public class Field
 {
+	/**
+	 * Szomszédos mezők
+	 */
 	protected ArrayList<Field> neighbours;
+	/**
+	 * Mezőn tartózkodó virológusok
+	 */
 	protected ArrayList<Virologist> virologists;
+	/**
+	 * Mezőn található felszerelések
+	 */
 	protected ArrayList<Equipment> equipments;
 
+	/**
+	 * Listázza a mezőt, felszereléseket, virológusokat és a szomszédos mezőket
+	 */
 	public void bark(){
 		System.out.println(this.getClass().getSimpleName() + ": " + name);
 		System.out.println("\tEquipments:");
@@ -32,11 +44,23 @@ public class Field
 		}
 	}
 
+	/**
+	 * Mező neve
+	 */
 	protected String name;
 
+	/**
+	 * Beállítja a mező nevét
+	 * @param name név
+	 */
 	public void setName(String name){
 		this.name = name;
 	}
+
+	/**
+	 * Megadja a mező nevét
+	 * @return név
+	 */
 	public String getName(){
 		return name;
 	}
@@ -58,6 +82,10 @@ public class Field
 		return neighbours;
 	}
 
+	/**
+	 * Megadja a mezőn tartózkodó virológusokat
+	 * @return virológusok
+	 */
 	public ArrayList<Virologist> GetVirologists(){
 		return virologists;
 	}
@@ -70,6 +98,10 @@ public class Field
 		neighbours.add(f);
 	}
 
+	/**
+	 * A mezőn az anyagok tönkre tételét szimbolizálja,
+	 * de nem csinál semmit alapból, hiszen csak a Warehouse-on található anyag
+	 */
 	public void DestroyMaterial(){
 	}
 

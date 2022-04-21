@@ -23,6 +23,12 @@ public class DefInjected implements IInjectedStr
 		a.ApplyStrategy(v);
 	}
 
+	/**
+	 * //TODO
+	 * @param by
+	 * @param injected
+	 * @param a
+	 */
 	@Override
 	public void Injected(Virologist by, Virologist injected, Agent a) {
 		Injected(injected, a);
