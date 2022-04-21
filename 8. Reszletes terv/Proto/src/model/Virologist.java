@@ -18,6 +18,9 @@ import java.util.Random;
  */
 public class Virologist
 {
+	/**
+	 * A virológus adatainak kiíratásáért felelő metódus. (részletekért lásd: dokumentáció)
+	 */
 	public void bark(){
 		System.out.println("Virologist: " + name);
 		System.out.println("\tNumber of actions left: " + actionCount);
@@ -38,24 +41,50 @@ public class Virologist
 		}
 	}
 
+	/**
+	 * A virológus aktuális kontextusát adja vissza, azaz, hogy éppen milyen játékban vesz részt.
+	 * @return
+	 */
 	public Game GetContext(){return game;} //randomitás kikapcsolása stb..
 
+	/**
+	 * Prototípusban a nevük alapján jelennek meg a virológusok, ezt szimbolizálja a tagváltozó.
+	 * A végleges verzióban majd komolyabb grafikus megjelenítést fog kapni, pl.: decorator minta elvei szerint
+	 */
 	private String name; //kiíratáshoz (grafikusnál majd decorator minta)
 
+	/**
+	 * Beállítja a virológus nevét.
+	 * @param name A beállítandó név.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Kívülről elérhetővé teszi a virológus nevét.
+	 * @return A virológus neve.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * A virológus támadási stratégiája.
+	 */
 	private IAttackStr attackStr;
 
+	/**
+	 * A támadási stratégia beállításáért felelős fv.
+	 * @param a A beállítandó stratégia
+	 */
 	public void SetAttackStr(IAttackStr a){
 		attackStr = a;
 	}
 
+	/**
+	 * A maximálisan birtokolható tárgyak száma.
+	 */
 	private int maxNumberOfItems;
 
 	public void SetActionCount(int count){actionCount = count;}
@@ -88,6 +117,10 @@ public class Virologist
 	 * */
 	private Field field;
 
+	/**
+	 * Az aktuális tartózkodási helyét adja vissza a virológusnak.
+	 * @return Az említett mező
+	 */
 	public Field getField(){
 		return field;
 	}
@@ -107,6 +140,10 @@ public class Virologist
 	 */
 	private ArrayList<GeneticCode> codes;
 
+	/**
+	 * Az aktuálisan birtokolt genetikai kódokat adja vissza.
+	 * @return A birtokolt kódok.
+	 */
 	public ArrayList<GeneticCode> getGeneticCodes(){
 		return codes;
 	}
@@ -187,21 +224,37 @@ public class Virologist
 		game = g;
 	}
 
+	/**
+	 * Eltávolítja a virológust a játékból.
+	 */
 	public void Kill(){
 		field.RemoveVirologist(this);
 		game.RemoveVirologist(this);
 	}
 
+	/**
+	 * Megtámad egy másik virológust, ha van elég akciópontja.
+	 * @param v A virológus, akit megtámad.
+	 */
 	public void Attack(Virologist v){
 		if (actionCount > 0){
 			attackStr.Attack(this, v);
 		}
 	}
 
+	/**
+	 * Olyan ágensfeleknési próbálkozást szimbolizál, amikor a virológust, egy ismert játékos próbálja meg felkenni.
+	 * @param who A felkenő
+	 * @param a A felkenni próbált ágens.
+	 */
 	public void TargetedWith(Virologist who, Agent a){
 		injectedStr.Injected(who, this, a);
 	}
 
+	/**
+	 * Egy kívánt felszerelést dob ki a virológus.
+	 * @param e A választott felszerelés
+	 */
 	public void RemoveEquipment(Equipment e){
 		equipments.remove(e);
 	}
@@ -388,7 +441,8 @@ public class Virologist
 	 */
 	public void AddGeneticCode(GeneticCode code)
 	{
-		codes.add(code);
+		if (!codes.contains(code))
+			codes.add(code);
 	}
 
 	/**
@@ -580,7 +634,7 @@ public class Virologist
 	}
 
 	/**
-	 * Vissza strategiakat a default állípotba.
+	 * Vissza strategiakat a default állapotba.
 	 */
 	public void Reset()
 	{

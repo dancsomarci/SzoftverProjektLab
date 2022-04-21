@@ -20,6 +20,12 @@ public class NoInjected implements IInjectedStr
 	{
 	}
 
+	/**
+	 * A felkenődést nem engedélyezi v-re a stratégia, így nem történik semmi.
+	 * @param by A felkenő virológus.
+	 * @param injected A felkent virológus.
+	 * @param a A felkent ágens.
+	 */
 	@Override
 	public void Injected(Virologist by, Virologist injected, Agent a) {
 	}

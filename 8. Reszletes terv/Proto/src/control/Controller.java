@@ -7,6 +7,7 @@ package control;
 //          -Vencel: szeintem beleírtam a bementi nyelv leírásánál, hogy a 0.szomszédra megy, de ez det. eset csak
 //          -Marci: Én nem találom, de lehet csak vak vagyok.
 //          -Vencel: elküldtem a screent messen
+//          -Marci: most már látom:D, de amúgy az még hiányzik nekem, hogy a currentField meg ebben a sorrendben írja ki
 //TODO 2) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem) Vencel:
 //          -Vencel: nem 3, amin 3 jatekos van es 3at lepnek legalabb? Vagy hogy volt ez?
 //          -Marci: Én 9-re emlékszem, de igazából mind1 kap 9 olyat, ami után megnyalja mind a 10 ujját!
@@ -81,15 +82,27 @@ import model.codes.GeneticCode;
 import model.equipments.Equipment;
 import model.map.*;
 
+/**
+ * Prototípus külvilággal való kommunikációjáért felelős osztály.
+ * Megvalósítja a dokumentációban leírt bemeneti nyelv funkcióit, valamint közvetít a modell és a felhasználó(k) között.
+ */
 public class Controller {
+    /**
+     * A bemeneti parancsokat, és a megvalósító metódusok kapcsolatát tároló objektum.
+     */
     private static LinkedHashMap<String, Method> inputs = new LinkedHashMap<>();
 
     /**
      * Beolvasásért felelős objektum
      */
-    //private static Scanner sc = new Scanner(System.in);
     private static Scanner sc = SingleTonScanner.Create();
 
+    /**
+     * Az osztály inicializáláskor kigíűjti a megírt parancsokhoz tartozó metódusokat,
+     * valamint hibát ad, ha valami eltérés van az elvárt formátumukban, ez azonban nem jelenti, azt hogy később nem
+     * várható hiba a hívásuk pillanatában.
+     * @throws Exception Hiba ha nem megfelelő a formátum.
+     */
     public Controller() throws Exception {
         try{
             for (Method method : Controller.class.getMethods()){
@@ -102,6 +115,13 @@ public class Controller {
         }
     }
 
+    /**
+     * Futtatja a prototípus fő eseményhurkát, ahol a parancsok beolvasásra kerülnek.
+     * Az exit paranccsal lehet kilépni!
+     * Ha nem értelmezhető a parancs a bemeneten, akkor az "Unknown command!" hibaüzenet íródik ki, valamint
+     * Támogatja a jobb olvasás élmény érdekében, hogy üres sorokat adjunk be bemenetként, ekkor nem reagál semmit.
+     * @throws Exception Ha a parancsok futtatása során hiba keletkezik kivétel dobódik.
+     */
     public void run() throws Exception {
         try {
             String input;
@@ -140,17 +160,33 @@ public class Controller {
         }
     }
 
+    /**
+     * Név alapján példányosít egy osztályt, a default ctor-jával, ellenkező esetben kivétel dobódik.
+     * @param className Az példányosítandó osztály "hosszú" - teljes neve
+     * @return A példányosított osztály
+     * @throws Exception Hiba a példányosítás során
+     */
     public Object createObject(String className) throws Exception{
         Class c= Class.forName(className);
         return c.getDeclaredConstructor().newInstance();
     }
 
+    /**
+     * Az aktuálisan játszott játék.
+     */
+    private Game game = Game.Create();
 
-    private Game game = Game.Create(); //Csak egyszer kell hívni, mert ugyanazt az egy objektumot adja vissza mindig!
+    /**
+     * A pálya felépítéséhez szükséges átmeneti tároló, ami a név-mező összerendeléseket tartalmazza.
+     */
     private HashMap<String, Field> fields;
 
-    /*pályaleíró nyelv*/
 
+    /**
+     * A pályaleíró nyelv része. A Mezők leírásáért felel. (részletekért lásd dokumentáció)
+     * @param params argumentumokat nem dolgoz fel jelenleg.
+     * @throws Exception Jelzi, ha hiba volt a beolvasás során a szintaxisban, amit nem lehet megoldani felhasználói bevatkozás nélkül.
+     */
     @ProtoInput(name="Field")
     public void Field(String[] params) throws Exception {
         try{
@@ -201,6 +237,11 @@ public class Controller {
         }
     }
 
+    /**
+     * A pályaleíró nyelv része. A Mezők szomszédsági viszonyainak leírásáért felel. (részletekért lásd dokumentáció)
+     * @param params argumentumokat nem dolgoz fel jelenleg.
+     * @throws Exception Jelzi, ha hiba volt a beolvasás során a szintaxisban, amit nem lehet megoldani felhasználói bevatkozás nélkül.
+     */
     @ProtoInput(name="Neighbours")
     public void Neighbours(String[] params) throws Exception {
         try{
@@ -218,6 +259,11 @@ public class Controller {
         }
     }
 
+    /**
+     * A pályaleíró nyelv része. A Virológusok leírásáért felel. (részletekért lásd dokumentáció)
+     * @param params argumentumokat nem dolgoz fel jelenleg.
+     * @throws Exception Jelzi, ha hiba volt a beolvasás során a szintaxisban, amit nem lehet megoldani felhasználói bevatkozás nélkül.
+     */
     @ProtoInput(name="Virologist")
     public void Virologist(String[] params) throws Exception {
         try{
@@ -267,14 +313,23 @@ public class Controller {
         }
     }
 
-    /*vége*/
-
+    /**
+     * A kutyaugatás felébreszti a világot. Ezzel a függvénnyel lehet inicializálni a játékot, vagy újrakezdeni.
+     * A hívás után lehet elkezdeni inicializálni a pályát. (Nem mellesleg, minden wau hívás után inicializálni kell,
+     * és minden játék előtt is szigorúan végre kell hajtani a parancsot, különben hiba fog csúszni a gépezetbe.)
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="wau")
     public void wau(String[] params){
         fields = new HashMap<>();
         game.NewGame();
     }
 
+    /**
+     * Ezzel a paranccsal léphet át játékos egy másik mezőre. Első körben kiíródnak a szomszédos mezők azonosító számai,
+     * és a pályakészítésnél megadott szöveges azonosítói, amik közül választani lehet, a sorszám begépelésével.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="move")
     public void move(String[] params){
         Virologist currentPlayer = game.GetCurrentPlayer();
@@ -291,6 +346,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Ezzel a paranccsal a játékos megpróbálhat megtanulni egy genetikai kódot az aktuális mezőjének a
+     * típusától függetlenül.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="learn")
     public void learn(String[] params){
         Virologist currentPlayer = game.GetCurrentPlayer();
@@ -298,6 +358,11 @@ public class Controller {
         System.out.println(currentPlayer.getName() + " tries to learn on field named " + currentPlayer.getField().getName());
     }
 
+    /**
+     * Ezzel a paranccsal a játékos anyagot gyűjthet.
+     * Determinisztikus esetben (randOff) a program megkérdezi, hogy aminosav vagy nukleotid.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="collect")
     public void collect(String[] params){
         Virologist currentPlayer = game.GetCurrentPlayer();
@@ -305,6 +370,13 @@ public class Controller {
         System.out.println(currentPlayer.getName() + " tries to collect material on field named " + currentPlayer.getField().getName());
     }
 
+    /**
+     * Ezzel a paranccsal egy ágenst hozhat létre a virológus, a már megtanult genetikai kódok egyikének a segítségével
+     * és alkalmazhatja egy virológuson. A parancs beírás után megjelenik, a megtanult kódok listája és költségeik.
+     * A kiválasztást követően kiíródnak azoknak a játékosoknak az azonosítói, akiken ezt alkalmazni lehet, a játékosok
+     * közül az azonosítójával lehet kiválasztani a célszemélyt.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="inject")
     public void inject(String[] params){
         Virologist player = game.GetCurrentPlayer();
@@ -326,6 +398,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Ezzel a paranccsal egy felszerelés szedhető fel a mezőről.
+     * Mindig a legutoljára ledobott felszerelés szedhető fel a mezőről.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="equip")
     public void equip(String[] params){
         Virologist player = game.GetCurrentPlayer();
@@ -333,6 +410,11 @@ public class Controller {
         System.out.println(player.getName() + " trying to pick up equipment from field named " + player.getField().getName());
     }
 
+    /**
+     * Ezzel a paranccsal egy virológustól lehet felszerelést ellopni.
+     * A virológust a parancs kiadása után kell kiválasztani a felsoroltak közül.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="lootEquipment")
     public void lootEquipment(String[] params){
         Virologist player = game.GetCurrentPlayer();
@@ -345,6 +427,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Ezzel a paranccsal lehet egy virológustól aminosavat ellopni. Kiíródnak azoknak a játékosoknak az azonosítói,
+     * akiken ezt alkalmazni lehet, a játékosok közül az azonosítójával lehet kiválasztani a célszemélyt.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="lootAmino")
     public void lootAmino(String[] params){
         Virologist player = game.GetCurrentPlayer();
@@ -357,6 +444,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Ezzel a paranccsal lehet egy virológustól nukleotidot ellopni. Kiíródnak azoknak a játékosoknak az azonosítói,
+     * akiken ezt alkalmazni lehet, a játékosok közül az azonosítójával lehet kiválasztani a célszemélyt.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="lootNucleotide")
     public void lootNucleotide(String[] params){
         Virologist player = game.GetCurrentPlayer();
@@ -369,6 +461,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Ezzel a paranccsal kilistázhatók a mezőn tartózkodó virológusok (a parancsot beírót leszámítva).
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="enemies")
     public void enemies(String[] params){
         Virologist player = game.GetCurrentPlayer();
@@ -386,6 +482,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Ezzel a paranccsal befejezhető a kör és ezáltal átadható a következő játékosnak.
+     * Ha a játékos megnyeri a játékot, akkor kilép a program.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="endTurn")
     public void endTurn(String[] params){
         Virologist player = game.GetCurrentPlayer();
@@ -394,6 +495,11 @@ public class Controller {
         System.out.println("The next player is: " + player.getName());
     }
 
+    /**
+     * Ezzel a paranccsal ki lehet dobni a meglévő felszerelések közül 1-et véletlenszerűen.
+     * Determinisztikus mód esetén mindig az utoljára szerzettet dobjuk el.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="drop")
     public void drop(String[] params){
         Virologist player = game.GetCurrentPlayer();
@@ -401,12 +507,23 @@ public class Controller {
         System.out.println(player.getName() + " trying to drop equipment on field named " + player.getField().getName());
     }
 
+    /**
+     * Ezzel a paranccsal bekapcsolhatóak a random értékékek, a játék alap működését tükrözik, alapértelmezett indulás.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="randOn")
     public void randOn(String[] params){
         game.randOn = true;
         System.out.println("Randomized mode on");
     }
 
+    /**
+     * Ezzel a paranccsal determinisztikussá tehető a játék, ez tesztelési célt szolgál kizárólag.
+     * A beadott paraméterrel ellenőrizzük a jogosultságot, ugyanis csak rendszergazdák vagy a
+     * dokumentációkhoz hozzá férők számára érhető el ez a funkció.
+     * A bemenet paraméter helyére ezt kell írni: “Hurrikan_a_legcukibb_kutya!”.
+     * @param params A titkos jelszó, ami azonosítja a felhasználót.
+     */
     @ProtoInput(name="randOff")
     public void randOff(String[] params){
         if (params.length > 0 && params[0].equals("Hurrikan_a_legcukibb_kutya!")) {
@@ -417,6 +534,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Ezzel a paranccsal lesz megjeleníthető a játék aktuális állapota, ami gyakorlatban azt jelenti, hogy az
+     * összes játékban lévő virológus információit jeleníti meg, hasonló formátumban, mint a bark parancs.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="state")
     public void state(String[] params){
         for (Virologist v :
@@ -425,12 +547,23 @@ public class Controller {
         }
     }
 
+    /**
+     * Ugatás hatására kilistázza a rendelkezésre álló aminosav és nukleotid mennyiséget, továbbá a birtokolt tárgyakat,
+     * megtanult genetikai kódokat és a körben még végrehajtható interakciók számát. Valamint annak a mezőnek az
+     * azonosítóját, ahol tartózkodik.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="bark")
     public void bark(String[] params){
         Virologist player = game.GetCurrentPlayer();
         player.bark();
     }
 
+    /**
+     * A virológus virológusba vágja a fejszéjét. A lebaltázandó virológust a parancs kiadása után kell kiválasztani a
+     * felsorolt játékosazonosítók közül.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="attack") //magát is megcsaphatja
     public void attack(String[] params){
         Virologist v = game.GetCurrentPlayer();
@@ -438,11 +571,21 @@ public class Controller {
         v.Attack(target);
         System.out.println(v.getName() + " attacking " + target.getName());
     }
+
+    /**
+     * A soron lévő játékos tartózkodási mezőjének adatait írja ki. (Mező fajátáját, nevét, az ott található ledobott
+     * tárgyakat, az ott tartózkodó játékosokat, és a mezőről navigálható szomszédok neveit.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="currentField")
     public void field(String[] params){
         game.GetCurrentPlayer().getField().bark();
     }
 
+    /**
+     * Gyakorlatilag a játékban lévő összes mezőre hasonló formátumban ír ki információkat, mint a currentField.
+     * @param params Jelenleg nem használ bemeneti paramétert.
+     */
     @ProtoInput(name="map")
     public void map(String[] params){
         for (Field f: game.GetFields()) {
@@ -450,7 +593,13 @@ public class Controller {
         }
     }
 
-    private Virologist ChooseTarget(Virologist v) { //Ebben v nincs benne! (null is jöhet belőle)
+    /**
+     * Az aktuálisan soron lévő játékos szomszédai közül tesz lehetővé választást a felhasználó számára.
+     * A választásban nem lesz felsorolva az aktuális játékos.
+     * @param v aktuális játékos
+     * @return A választott virológus referenciája
+     */
+    private Virologist ChooseTarget(Virologist v) {
         Field f = v.getField();
         ArrayList<Virologist> neighbours = f.GetVirologists();
         if (neighbours.size() > 1){
@@ -466,7 +615,13 @@ public class Controller {
         return null;
     }
 
-    private Virologist ChooseNeighbour(Virologist v) { //Ebben v is benne van! szóval mindig értelmeset ad vissza
+    /**
+     * Az aktuálisan soron lévő játékos szomszédai közül tesz lehetővé választást a felhasználó számára.
+     * A választásban fel lesz sorolva az aktuális játékos is.
+     * @param v aktuális játékos
+     * @return A választott virológus referenciája
+     */
+    private Virologist ChooseNeighbour(Virologist v) {
         Field f = v.getField();
         ArrayList<Virologist> neighbours = f.GetVirologists();
         for (int j = 0; j < neighbours.size(); j++){

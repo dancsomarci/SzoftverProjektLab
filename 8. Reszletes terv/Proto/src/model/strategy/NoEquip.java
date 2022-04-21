@@ -11,7 +11,7 @@ import model.map.Field;
 public class NoEquip implements IEquipStr
 {
 	/**
-	 * A metódus üres, hiszen nem engedélyezi a felvételt.
+	 * A metódus üres, hiszen nem engedélyezi a felvételt, de természetesen levonódik egy akciópont.
 	 * @param v A felvételt végző virológus.
 	 * @param f Erről a mezőről próbálkozik védőfelszerelés felvételével v.
 	 */
