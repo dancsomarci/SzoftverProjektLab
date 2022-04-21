@@ -5,6 +5,8 @@ import model.Virologist;
 import model.agents.Agent;
 import model.agents.Block;
 
+import static model.Game.playerCount;
+
 
 /**
  * Blokkoló hatású ágenshez tartozó genetikai kód

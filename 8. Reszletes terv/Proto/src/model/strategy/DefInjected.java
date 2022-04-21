@@ -24,10 +24,10 @@ public class DefInjected implements IInjectedStr
 	}
 
 	/**
-	 * Nem számít. hogy ismert-e a felkenő virológus a hatás ugyanaz, tehát delegálja a hívást a kevesebb paraméterű Injected fv-nek.
-	 * @param by A felkenő virológus.
-	 * @param injected A felkent virológus.
-	 * @param a A felkent ágens.
+	 * //TODO
+	 * @param by
+	 * @param injected
+	 * @param a
 	 */
 	@Override
 	public void Injected(Virologist by, Virologist injected, Agent a) {

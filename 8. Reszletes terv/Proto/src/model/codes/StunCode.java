@@ -5,6 +5,8 @@ import model.Virologist;
 import model.agents.Agent;
 import model.agents.Stun;
 
+import static model.Game.playerCount;
+
 /**
  * Olyan genetikai kód, ami egy bénító (Stun) típusú ágenst tud előállítani.
  */

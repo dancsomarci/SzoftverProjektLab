@@ -4,16 +4,18 @@ import model.Virologist;
 import model.strategy.IAttackStr;
 
 /**
- * Egy baltát szimbolizáló Felszerelés, amivel lehetséges megtámadni egy másik virológust.
+ * Olyan védőfelszerelés, amely egyben támadási stratégia is
+ * Egyszeri támadást biztosít, ezzel megölhető vele egy virológus
  */
 public class Axe extends Equipment implements IAttackStr {
     /**
-     * A baltát csak egyszer lehet hasznáni, utána kicsorbul, ekkor igaz lesz ennek a tagváltozónak az értéke.
+     * Használtság, default nem használt
      */
     private boolean used = false;
 
     /**
-     * Saját maga által implementált stratégiát helyez el a virológuson, de csak akkor ha nem használták még a fegyvert.
+     * Ha nem használt, alkalmazza támadási stratégiaként önmagát
+     * a paraméterül kapott virológuson
      * @param v viselő virológus
      */
     @Override
@@ -24,15 +26,15 @@ public class Axe extends Equipment implements IAttackStr {
     }
 
     /**
-     * A stratégiáját megvalósító függvény, amely kicsorbítj a baltát, és megtámadja a másik virológust.
-     * @param attacker A támadó
-     * @param target A célpont
+     * Megtámadja a paraméterül kapott virológust
+     * @param attacker támadó virológus
+     * @param target megtámadott virológus
      */
     @Override
     public void Attack(Virologist attacker, Virologist target) {
         attacker.DecreaseActions();
         target.Kill();
-        used = true;
+        used = false;
         attacker.Reset();
     }
 }

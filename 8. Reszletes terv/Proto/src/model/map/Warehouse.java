@@ -13,11 +13,15 @@ import java.util.Scanner;
  */
 public class Warehouse extends Field
 {
-
+	/**
+	 * Ennyivel növeli a virológusok anyagát
+	 */
 	private int delta = 5;
 
 	/**
 	 * Anyag gyüjtése
+	 * Nem determinisztikus esetben a paraméterül kapott virológus anyagkészletét deltával növeli meg, random választva a 2 fajta anyag közül
+	 * Determinisztikus esetben a paraméterül kapott virológus anyagkészletét deltával növeli meg, a kiválasztott anyag közül
 	 * @param v gyüjtő virológus
 	 */
 	public void CollectMaterial(Virologist v) {
@@ -46,11 +50,17 @@ public class Warehouse extends Field
 		}
 	}
 
+	/**
+	 * A mezőn az anyagok tönkretételét szimbolizálja, nem vehető fel anyag ezután a mezőről
+	 */
 	@Override
 	public void DestroyMaterial(){
 		delta = 0;
 	}
 
+	/**
+	 * Listázza a mezőt, felszereléseket, a mező anyag kibocsátásának mennyiségét, virológusokat és a szomszédos mezőket
+	 */
 	@Override
 	public void bark(){
 		System.out.println(this.getClass().getSimpleName() + ": " + name);
