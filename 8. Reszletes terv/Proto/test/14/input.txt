@@ -7,84 +7,32 @@ Name l1
 end
 Field
 Type Laboratory
-Param ForgetCode
+Param BlockCode
 Name l2
 end
 Field
 Type Field
 Name f1
 end
-Field
-Type Field
-Name f2
-end
-Field
-Type Field
-Name f3
-end
-Field
-Type Field
-Name f4
-end
-Field
-Type Field
-Name f5
-end
-Field
-Type Field
-Name f6
-end
-Field
-Type Field
-Name f7
-end
 Neighbours
-f1 f2
-f1 f3
-f2 f4
-f2 f5
-f4 f6
-f4 f7
-f7 l1
-l1 l2
-end
-Virologist
-Name v1
-Amino 5
-Nucleo 5
-GeneticCode BlockCode
-StartingPos f1
+f1 l2
+l2 l1
 end
 Virologist
 Name v2
-GeneticCode ChoreaCode
-Amino 15
-Nucleo 15
-StartingPos f1
-end
-Virologist
-Name v3
-GeneticCode ForgetCode
+Equipment Axe
+GeneticCode StunCode
 Amino 10
 Nucleo 10
 StartingPos f1
 end
-inject
-0
-0
-endTurn
-inject
-0
-0
-inject
-0
-2
-endTurn
-endTurn
-endTurn
+Virologist
+Name v1
+Agent Block 4
+StartingPos l2
+end
 move
 0
-endTurn
 inject
 0
 1
