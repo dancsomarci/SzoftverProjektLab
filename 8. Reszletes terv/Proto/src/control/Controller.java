@@ -75,7 +75,8 @@ package control;
 //TODO --------
 //TODO 10) Kommentezés
 //TODO 11) BUG tesztelés
-//TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+//TODO 12) majd a doksiba a leírásba bele kell írni, hogy minden teszteset bemenetének végére egy exitet írtunk, hogy bezárjuk az alkalmazást
+//TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
 import model.Game;
 
