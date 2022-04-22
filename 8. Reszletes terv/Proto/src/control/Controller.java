@@ -609,11 +609,11 @@ public class Controller {
         Field f = v.getField();
         ArrayList<Virologist> neighbours = f.GetVirologists();
         if (neighbours.size() > 1){
-            int i = 0;
+
             for (int j = 0; j < neighbours.size(); j++) {
                 if (!v.getName().equals(neighbours.get(j).getName())){
-                    System.out.println(i + " - " + neighbours.get(j).getName());
-                    i++;
+                    System.out.println(j + " - " + neighbours.get(j).getName());
+
                 }
             }
             return neighbours.get(sc.nextInt());
