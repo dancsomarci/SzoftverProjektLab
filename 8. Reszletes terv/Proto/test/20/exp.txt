@@ -1,0 +1,380 @@
+Deterministic mode on!
+0 - L1
+1 - L3
+Bob tries moving from L2 to L1
+0 - F5
+1 - L2
+Bob tries moving from L1 to F5
+0 - F4
+1 - L1
+Bob tries moving from F5 to F4
+The next player is: Alice
+Virologist: Alice
+Number of actions left: 3
+Currently on Field named: W2
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Genetic codes:
+ForgetCode
+Agents: (+ttl)
+0 - Amino acid
+1 - Nucleotide
+Alice tries to collect material on field named W2
+0 - W1
+1 - W3
+Alice tries moving from W2 to W3
+0 - W2
+1 - IL1
+Alice tries moving from W3 to IL1
+0 - W3
+1 - IL2
+Alice tries moving from IL1 to W3
+0 - W3
+1 - IL2
+Alice tries moving from IL1 to W3
+The next player is: Joe
+Virologist: Joe
+Number of actions left: 3
+Currently on Field named: S2
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Axe
+Genetic codes:
+StunCode
+Agents: (+ttl)
+Joe trying to pick up equipment from field named S2
+Virologist: Joe
+Number of actions left: 2
+Currently on Field named: S2
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Axe
+Glove
+Genetic codes:
+StunCode
+Agents: (+ttl)
+0 - S1
+1 - S3
+Joe tries moving from S2 to S1
+0 - IL4
+1 - S2
+Joe tries moving from S1 to S2
+The next player is: Bob
+0 - F3
+1 - F5
+Bob tries moving from F4 to F3
+0 - F2
+1 - F4
+Bob tries moving from F3 to F2
+0 - F1
+1 - F3
+Bob tries moving from F2 to F1
+The next player is: Alice
+Virologist: Alice
+Number of actions left: 3
+Currently on Field named: IL1
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Genetic codes:
+ForgetCode
+Agents: (+ttl)
+Bear infinity
+0 - W3
+1 - IL2
+Alice tries moving from IL1 to W3
+0: ForgetCode
+Cost:
+Nucleotide: 6
+Amino acid: 6
+0 - Alice
+Alice trying to inject Alice with agent created from ForgetCode
+0 - W2
+1 - IL1
+Alice tries moving from W3 to W2
+Virologist: Alice
+Number of actions left: 0
+Currently on Field named: W2
+Amino acid: 14 / maximum: 20
+Nucleotide: 14 / maximum: 20
+Equipments:
+Genetic codes:
+Agents: (+ttl)
+Forget 3
+Bear infinity
+0 - W1
+1 - W3
+Alice tries moving from W2 to W3
+Virologist: Alice
+Number of actions left: 0
+Currently on Field named: W2
+Amino acid: 14 / maximum: 20
+Nucleotide: 14 / maximum: 20
+Equipments:
+Genetic codes:
+Agents: (+ttl)
+Forget 3
+Bear infinity
+The next player is: Joe
+Virologist: Joe
+Number of actions left: 3
+Currently on Field named: S2
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Axe
+Glove
+Genetic codes:
+StunCode
+Agents: (+ttl)
+0 - S1
+1 - S3
+Joe tries moving from S2 to S3
+0 - S2
+1 - S4
+Joe tries moving from S3 to S4
+0 - S3
+1 - F1
+Joe tries moving from S4 to F1
+Virologist: Joe
+Number of actions left: 0
+Currently on Field named: F1
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Axe
+Glove
+Genetic codes:
+StunCode
+Agents: (+ttl)
+The next player is: Bob
+Virologist: Bob
+Number of actions left: 3
+Currently on Field named: F1
+Amino acid: 20 / maximum: 25
+Nucleotide: 20 / maximum: 25
+Equipments:
+Bag
+Genetic codes:
+ChoreaCode
+Agents: (+ttl)
+The next player is: Alice
+Virologist: Alice
+Number of actions left: 3
+Currently on Field named: W2
+Amino acid: 14 / maximum: 20
+Nucleotide: 14 / maximum: 20
+Equipments:
+Genetic codes:
+Agents: (+ttl)
+Bear infinity
+0 - Amino acid
+1 - Nucleotide
+Alice tries to collect material on field named W2
+0 - W1
+1 - W3
+Alice tries moving from W2 to W3
+Virologist: Alice
+Number of actions left: 1
+Currently on Field named: W1
+Amino acid: 14 / maximum: 20
+Nucleotide: 14 / maximum: 20
+Equipments:
+Genetic codes:
+Agents: (+ttl)
+Bear infinity
+0 - L4
+1 - W2
+Alice tries moving from W1 to L4
+Alice tries to learn on field named L4
+Virologist: Alice
+Number of actions left: 0
+Currently on Field named: L4
+Amino acid: 14 / maximum: 20
+Nucleotide: 14 / maximum: 20
+Equipments:
+Genetic codes:
+Agents: (+ttl)
+Bear infinity
+The next player is: Joe
+0: StunCode
+Cost:
+Nucleotide: 2
+Amino acid: 7
+0 - Bob
+1 - Joe
+Joe trying to inject Bob with agent created from StunCode
+0 - Bob
+Joe trying to loot equipment from Bob
+Virologist: Joe
+Number of actions left: 1
+Currently on Field named: F1
+Amino acid: 13 / maximum: 25
+Nucleotide: 18 / maximum: 25
+Equipments:
+Axe
+Glove
+Bag
+Genetic codes:
+StunCode
+Agents: (+ttl)
+0 - Bob
+1 - Joe
+Joe attacking Joe
+Virologist: Bob
+Number of actions left: 3
+Currently on Field named: F1
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Genetic codes:
+ChoreaCode
+Agents: (+ttl)
+Stun 2
+Virologist: Alice
+Number of actions left: 3
+Currently on Field named: L4
+Amino acid: 14 / maximum: 20
+Nucleotide: 14 / maximum: 20
+Equipments:
+Genetic codes:
+Agents: (+ttl)
+Bear infinity
+Field: F1
+Equipments:
+Axe
+Virologists:
+Bob
+Neighbours:
+F2
+S4
+Field: F2
+Equipments:
+Glove
+Virologists:
+Neighbours:
+F1
+F3
+Field: F3
+Equipments:
+Cloak
+Virologists:
+Neighbours:
+F2
+F4
+Field: F4
+Equipments:
+Bag
+Virologists:
+Neighbours:
+F3
+F5
+Field: F5
+Equipments:
+Virologists:
+Neighbours:
+F4
+L1
+Warehouse: W1
+Equipments:
+Material output:
+Amount: 0
+Virologists:
+Neighbours:
+L4
+W2
+Warehouse: W2
+Equipments:
+Material output:
+Amount: 0
+Virologists:
+Neighbours:
+W1
+W3
+Warehouse: W3
+Equipments:
+Material output:
+Amount: 0
+Virologists:
+Neighbours:
+W2
+IL1
+InfectedLaboratory: IL1
+Equipments:
+Virologists:
+Neighbours:
+W3
+IL2
+InfectedLaboratory: IL2
+Equipments:
+Virologists:
+Neighbours:
+IL1
+IL3
+InfectedLaboratory: IL3
+Equipments:
+Virologists:
+Neighbours:
+IL2
+IL4
+InfectedLaboratory: IL4
+Equipments:
+Virologists:
+Neighbours:
+IL3
+S1
+Laboratory: L1
+Equipments:
+Virologists:
+Neighbours:
+F5
+L2
+Laboratory: L2
+Equipments:
+Virologists:
+Neighbours:
+L1
+L3
+Laboratory: L3
+Equipments:
+Virologists:
+Neighbours:
+L2
+L4
+Laboratory: L4
+Equipments:
+Virologists:
+Alice
+Neighbours:
+L3
+W1
+Shelter: S1
+Equipments:
+Cloak
+Virologists:
+Neighbours:
+IL4
+S2
+Shelter: S2
+Equipments:
+Virologists:
+Neighbours:
+S1
+S3
+Shelter: S3
+Equipments:
+Bag
+Virologists:
+Neighbours:
+S2
+S4
+Shelter: S4
+Equipments:
+Axe
+Virologists:
+Neighbours:
+S3
+F1
