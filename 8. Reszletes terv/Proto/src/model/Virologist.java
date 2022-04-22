@@ -231,7 +231,6 @@ public class Virologist
 	public void Kill(){
 		if(game.GetCurrentPlayer().equals(this)) {
 			this.EndTurn();
-			System.out.println("The next player is: " + game.GetCurrentPlayer().getName());
 		}
 
 		field.RemoveVirologist(this);
