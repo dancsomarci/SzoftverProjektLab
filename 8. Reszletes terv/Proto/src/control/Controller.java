@@ -13,7 +13,7 @@ package control;
 //          -Vencel: nem 3, amin 3 jatekos van es 3at lepnek legalabb? Vagy hogy volt ez?
 //          -Marci: Én 9-re emlékszem, de igazából mind1 kap 9 olyat, ami után megnyalja mind a 10 ujját!
 //          -Vencel: XDDDD, mondjuk eddig is van 5 komplexebbünk, nem nagyon komplex, h 3 x 3 x 3, de komplex, úgyhogy lehet elég ha mindenki egyet ír majd pluszba
-//TODO 3) Öngyilkosságnál tároló indexeléssel - aktuális játékos kezeléssel problémák
+
 
 
 //TODO DONE + változtatások lényege
@@ -61,6 +61,10 @@ package control;
             //Új osztály: SingletonScanner -> lehet később még a Controller része lesz, de egyenlőre marad így
 //TODO 10) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik] - Vencel: oke, megtryolom
             //Agent parancsba kell a ttl-t is megadni! (lásd doku)
+//TODO 11) Öngyilkosságnál tároló indexeléssel - aktuális játékos kezeléssel problémák [done]
+            //A Virologistban kezeli hha magat tamadta, akk elobb meghivja az endTurnt es kiirja, h ki a kovetkezo jatekos
+            //Kicsit bena h a modellben irjuk ki h a kovi jatekos ki, de a controller fuggvenyet nem tudtzam meghivni,
+            // kulonben v mindennek staticnak kene lennie, v a Virologusnak tarolnia a Controllert, mindketto bena, sztem jo lesz igy
 
 //TODO OPTIONAL nice to have changes (csak ha van idő és kedv a végén) - Vencel: LOL
 //TODO -----------------------------------------------------------------
@@ -570,8 +574,8 @@ public class Controller {
     public void attack(String[] params){
         Virologist v = game.GetCurrentPlayer();
         Virologist target = ChooseNeighbour(v);
-        v.Attack(target);
         System.out.println(v.getName() + " attacking " + target.getName());
+        v.Attack(target);
     }
 
     /**

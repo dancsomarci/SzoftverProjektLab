@@ -1,6 +1,7 @@
 package model;
 
 
+import control.Controller;
 import model.agents.*;
 import model.codes.*;
 import model.equipments.*;
@@ -228,6 +229,11 @@ public class Virologist
 	 * Eltávolítja a virológust a játékból.
 	 */
 	public void Kill(){
+		if(game.GetCurrentPlayer().equals(this)) {
+			this.EndTurn();
+			System.out.println("The next player is: " + game.GetCurrentPlayer().getName());
+		}
+
 		field.RemoveVirologist(this);
 		game.RemoveVirologist(this);
 	}
