@@ -1,21 +1,16 @@
 randOff Hurrikan_a_legcukibb_kutya!
 wau
 Field
-Type Laboratory
-Param StunCode
+Type Field
 Name f1
 end
 Field
-Type Field
-Name f2
-end
-Field
-Type Field
-Name f3
+Type Shelter
+Name sh
+Param Bag
 end
 Neighbours
-f1 f2
-f2 f3
+f1 sh
 end
 Virologist
 Name v1
@@ -23,11 +18,6 @@ StartingPos f1
 end
 move
 0
-learn
-collect
-move
-1
-endTurn
 equip
 state
 map
