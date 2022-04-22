@@ -13,6 +13,7 @@ package control;
 //          -Vencel: nem 3, amin 3 jatekos van es 3at lepnek legalabb? Vagy hogy volt ez?
 //          -Marci: Én 9-re emlékszem, de igazából mind1 kap 9 olyat, ami után megnyalja mind a 10 ujját!
 //          -Vencel: XDDDD, mondjuk eddig is van 5 komplexebbünk, nem nagyon komplex, h 3 x 3 x 3, de komplex, úgyhogy lehet elég ha mindenki egyet ír majd pluszba
+//TODO 3) Öngyilkosságnál tároló indexeléssel - aktuális játékos kezeléssel problémák
 
 
 //TODO DONE + változtatások lényege
