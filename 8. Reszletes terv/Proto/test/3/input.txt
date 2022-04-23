@@ -1,0 +1,51 @@
+randOff Hurrikan_a_legcukibb_kutya!
+wau
+Field
+Type InfectedLaboratory
+Param BlockCode
+Name il
+end
+Field
+Type Laboratory
+Param ForgetCode
+Name l4
+end
+Field
+Type Warehouse
+Name w2
+end
+Field
+Type Shelter
+Param Cloak
+Name s3
+end
+Field
+Type Field
+Name f1
+end
+Neighbours
+il w2
+w2 s3
+w2 f1
+il f1
+s3 f1
+end
+Virologist
+Name v1
+StartingPos f1
+end
+Virologist
+Name v2
+StartingPos w2
+end
+Virologist
+Name v3
+StartingPos s3
+end
+Virologist
+Name v4
+StartingPos l4
+end
+state
+map
+exit

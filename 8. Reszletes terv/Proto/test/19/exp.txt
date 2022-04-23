@@ -1,0 +1,43 @@
+Deterministic mode on!
+0 - l2
+v2 tries moving from f1 to l2
+0: StunCode
+	Cost:
+		Nucleotide: 2
+		Amino acid: 7
+0 – v2
+1 – v1
+v2 trying to inject v1 with agent created from StunCode
+Virologist: v2
+	Number of actions left: 1
+	Currently on Field named: l2
+	Amino acid: 3
+	Nucleotide: 8
+	Equipments:
+		Axe
+	Genetic codes:
+		StunCode
+	Agents: (+ttl)
+Virologist: v1
+	Number of actions left: 3
+	Currently on Field named: l2
+	Amino acid: 0
+	Nucleotide: 0
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+		Bear infinity
+		Stun 1
+Laboratory: l1
+	Equipments:
+	Virologists:
+	Neighbours:
+		l2
+Laboratory: l2
+	Equipments:
+	Virologists:
+		v1
+		v2
+	Neighbours:
+		f1
+		l1
