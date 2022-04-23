@@ -1,0 +1,33 @@
+Deterministic mode on!
+v1 trying to drop equipment on field named f1
+The next player is: v2
+v2 trying to pick up equipment from field named f1
+Virologist: v1
+	Number of actions left: 3
+	Currently on Field named: f1
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+Virologist: v2
+	Number of actions left: 2
+	Currently on Field named: f1
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+		Glove
+	Genetic codes:
+	Agents: (+ttl)
+Laboratory: l
+	Equipments:
+	Virologists:
+	Neighbours:
+		f1
+Field: f1
+	Equipments:
+	Virologists:
+		v1
+		v2
+	Neighbours:
+		l
