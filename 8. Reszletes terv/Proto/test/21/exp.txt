@@ -1,0 +1,179 @@
+Deterministic mode on!
+Virologist: Bob
+Number of actions left: 3
+Currently on Field named: F1
+Amino acid: 20 / maximum: 25
+Nucleotide: 20 / maximum: 25
+Equipments:
+Bag
+Genetic codes:
+ChoreaCode
+Agents: (+ttl)
+0 - F2
+1 - S4
+Bob tries moving from F1 to F2
+The next player is: Alice
+Virologist: Alice
+Number of actions left: 3
+Currently on Field named: F2
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Genetic codes:
+ForgetCode
+Agents: (+ttl)
+0 - F1
+1 - F3
+Alice tries moving from F2 to F1
+0 - F2
+1 - S4
+Alice tries moving from F1 to S4
+0 - S3
+1 - F1
+Alice tries moving from S4 to F1
+The next player is: Joe
+0 - F2
+1 - F4
+Joe tries moving from F3 to F2
+Field: F2
+Equipments:
+Glove
+Virologists:
+Bob
+Joe
+Neighbours:
+F1
+F3
+0 - Bob
+1 - Joe
+Joe attacking Bob
+0 - F1
+1 - F3
+Joe tries moving from F2 to F3
+The next player is: Alice
+Virologist: Alice
+Number of actions left: 3
+Currently on Field named: F1
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Genetic codes:
+ForgetCode
+Agents: (+ttl)
+0 - F2
+1 - S4
+Alice tries moving from F1 to F2
+Field: F2
+Equipments:
+Glove
+Virologists:
+Alice
+Neighbours:
+F1
+F3
+0 - F1
+1 - F3
+Alice tries moving from F2 to F3
+Field: F3
+Equipments:
+Cloak
+Virologists:
+Joe
+Alice
+Neighbours:
+F2
+F4
+0: ForgetCode
+Cost:
+Nucleotide: 6
+Amino acid: 6
+0 - Joe
+1 - Alice
+Alice trying to inject Joe with agent created from ForgetCode
+The next player is: Joe
+Virologist: Joe
+Number of actions left: 3
+Currently on Field named: F3
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Axe
+Genetic codes:
+Agents: (+ttl)
+Forget 1
+0 - F2
+1 - F4
+Joe tries moving from F3 to F4
+0 - F3
+1 - F5
+Joe tries moving from F4 to F3
+0 - Alice
+1 - Joe
+Joe attacking Alice
+The next player is: Joe
+0 - F2
+1 - F4
+Joe tries moving from F3 to F4
+0 - F3
+1 - F5
+Joe tries moving from F4 to F5
+0 - F4
+1 - L1
+Joe tries moving from F5 to L1
+Joe tries to learn on field named L1
+0 - F5
+1 - L2
+Joe tries moving from L1 to L2
+The next player is: Joe
+Joe tries to learn on field named L1
+0 - F5
+1 - L2
+Joe tries moving from L1 to L2
+Joe tries to learn on field named L2
+Virologist: Joe
+Number of actions left: 0
+Currently on Field named: L2
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Axe
+Genetic codes:
+ForgetCode
+ChoreaCode
+Agents: (+ttl)
+The next player is: Joe
+0 - L1
+1 - L3
+Joe tries moving from L2 to L3
+Joe tries to learn on field named L3
+0 - L2
+1 - L4
+Joe tries moving from L3 to L4
+Virologist: Joe
+Number of actions left: 0
+Currently on Field named: L4
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Axe
+Genetic codes:
+ForgetCode
+ChoreaCode
+StunCode
+Agents: (+ttl)
+The next player is: Joe
+Joe tries to learn on field named L4
+Virologist: Joe
+Number of actions left: 2
+Currently on Field named: L4
+Amino acid: 20 / maximum: 20
+Nucleotide: 20 / maximum: 20
+Equipments:
+Axe
+Genetic codes:
+ForgetCode
+ChoreaCode
+StunCode
+BlockCode
+Agents: (+ttl)
+Joe won the game!

@@ -1,16 +1,15 @@
 package model.strategy;
 
-
 import model.Virologist;
 import model.map.Field;
 
 /**
- * Genetikai kód tanulásért felelős stratégia
+ * Genetikai kód tanulásért felelős stratégiát reprezentáló interfész.
  */
-public interface ILearnStr
-{
+public interface ILearnStr {
+
 	/**
-	 * Genetikai kód tanulás
+	 * Egy genetikai kód megtanulásakor meghívott, az interakciót reprezentáló függvény.
 	 * @param v Tanuló virológus
 	 * @param f Virológus mezője
 	 */

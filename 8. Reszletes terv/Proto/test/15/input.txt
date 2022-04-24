@@ -1,43 +1,59 @@
 randOff Hurrikan_a_legcukibb_kutya!
 wau
 Field
-Type InfectedLaboratory
+Type Laboratory
+Param StunCode
+Name l1
+end
+Field
+Type Laboratory
 Param BlockCode
-Name il1
+Name l2
 end
 Field
 Type Field
 Name f1
 end
-Field
-Type Warehouse
-Name w1
-end
-Field
-Type Field
-Name f3
-end
-Field
-Type Field
-Name f4
-end
 Neighbours
-il1 w1
-f1 il1
-il1 f3
-il1 f4
+f1 l1
+l1 l2
 end
 Virologist
-Name v1
+Name v3
+GeneticCode ForgetCode
+Amino 15
+Nucleo 15
 StartingPos f1
 end
 Virologist
 Name v2
-StartingPos w1
+Equipment Cloak
+Amino 20
+Nucleo 20
+GeneticCode ForgetCode
+StartingPos f1
 end
-move
+Virologist
+Name v1
+Equipment Glove
+GeneticCode ForgetCode
+StartingPos f1
+end
+inject
 0
-move
+1
+inject
+0
+2
+endTurn
+inject
+0
+2
+inject
+0
+2
+inject
+0
 2
 state
 map

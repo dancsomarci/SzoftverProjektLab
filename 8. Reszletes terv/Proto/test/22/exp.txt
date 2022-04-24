@@ -1,0 +1,206 @@
+Deterministic mode on!
+0 - F2
+1 - S4
+Bob tries moving from F1 to F2
+0: ChoreaCode
+	Cost:
+		Nucleotide: 6
+		Amino acid: 5
+0 - Alice
+1 - Bob
+Bob trying to inject Alice with agent created from ChoreaCode
+0 - F1
+1 - F3
+Bob tries moving from F2 to F3
+The next player is: Alice
+Virologist: Alice
+	Number of actions left: 0
+	Currently on Field named: F1
+	Amino acid: 20 / maximum: 20
+	Nucleotide: 20 / maximum: 20
+	Equipments:
+	Genetic codes:
+		ForgetCode
+	Agents: (+ttl)
+		Chorea 2
+The next player is: Joe
+Field: F3
+	Equipments:
+		Cloak
+	Virologists:
+		Joe
+		Bob
+	Neighbours:
+		F2
+		F4
+Joe trying to pick up equipment from field named F3
+0: StunCode
+	Cost:
+		Nucleotide: 2
+		Amino acid: 7
+0 - Joe
+1 - Bob
+Joe trying to inject Bob with agent created from StunCode
+0 - F2
+1 - F4
+Joe tries moving from F3 to F4
+The next player is: Bob
+Virologist: Bob
+	Number of actions left: 3
+	Currently on Field named: F3
+	Amino acid: 15 / maximum: 25
+	Nucleotide: 14 / maximum: 25
+	Equipments:
+		Bag
+	Genetic codes:
+		ChoreaCode
+	Agents: (+ttl)
+		Stun 2
+The next player is: Alice
+Virologist: Alice
+	Number of actions left: 3
+	Currently on Field named: F1
+	Amino acid: 20 / maximum: 20
+	Nucleotide: 20 / maximum: 20
+	Equipments:
+	Genetic codes:
+		ForgetCode
+	Agents: (+ttl)
+0 - F2
+1 - S4
+Alice tries moving from F1 to F2
+0 - F1
+1 - F3
+Alice tries moving from F2 to F3
+Alice 's enemies are:
+Bob
+0 - Bob
+Alice trying to loot equipment from Bob
+The next player is: Joe
+Field: F4
+	Equipments:
+		Bag
+	Virologists:
+		Joe
+	Neighbours:
+		F3
+		F5
+Joe trying to pick up equipment from field named F4
+Virologist: Joe
+	Number of actions left: 2
+	Currently on Field named: F4
+	Amino acid: 13 / maximum: 25
+	Nucleotide: 18 / maximum: 25
+	Equipments:
+		Axe
+		Cloak
+		Bag
+	Genetic codes:
+		StunCode
+	Agents: (+ttl)
+0 - F3
+1 - F5
+Joe tries moving from F4 to F5
+0 - F4
+1 - L1
+Joe tries moving from F5 to L1
+The next player is: Bob
+Bob trying to pick up equipment from field named F3
+0 - F2
+1 - F4
+Bob tries moving from F3 to F4
+0 - F3
+1 - F5
+Bob tries moving from F4 to F3
+The next player is: Alice
+Alice 's enemies are:
+Bob
+0: ForgetCode
+	Cost:
+		Nucleotide: 6
+		Amino acid: 6
+0 - Alice
+1 - Bob
+Alice trying to inject Bob with agent created from ForgetCode
+0 - F2
+1 - F4
+Alice tries moving from F3 to F4
+0 - F3
+1 - F5
+Alice tries moving from F4 to F5
+The next player is: Joe
+Virologist: Joe
+	Number of actions left: 3
+	Currently on Field named: L1
+	Amino acid: 13 / maximum: 25
+	Nucleotide: 18 / maximum: 25
+	Equipments:
+		Axe
+		Cloak
+		Bag
+	Genetic codes:
+		StunCode
+	Agents: (+ttl)
+Joe tries to learn on field named L1
+Virologist: Joe
+	Number of actions left: 2
+	Currently on Field named: L1
+	Amino acid: 13 / maximum: 25
+	Nucleotide: 18 / maximum: 25
+	Equipments:
+		Axe
+		Cloak
+		Bag
+	Genetic codes:
+		StunCode
+		ForgetCode
+	Agents: (+ttl)
+0 - F5
+1 - L2
+Joe tries moving from L1 to F5
+Joe 's enemies are:
+Alice
+0: StunCode
+	Cost:
+		Nucleotide: 2
+		Amino acid: 7
+1: ForgetCode
+	Cost:
+		Nucleotide: 6
+		Amino acid: 6
+0 - Alice
+1 - Joe
+Joe trying to inject Alice with agent created from ForgetCode
+The next player is: Bob
+Virologist: Bob
+	Number of actions left: 3
+	Currently on Field named: F3
+	Amino acid: 15 / maximum: 20
+	Nucleotide: 14 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+		Forget 1
+Virologist: Alice
+	Number of actions left: 3
+	Currently on Field named: F5
+	Amino acid: 14 / maximum: 25
+	Nucleotide: 14 / maximum: 25
+	Equipments:
+		Bag
+	Genetic codes:
+	Agents: (+ttl)
+		Forget 2
+Virologist: Joe
+	Number of actions left: 3
+	Currently on Field named: F5
+	Amino acid: 7 / maximum: 25
+	Nucleotide: 12 / maximum: 25
+	Equipments:
+		Axe
+		Cloak
+		Bag
+	Genetic codes:
+		StunCode
+		ForgetCode
+	Agents: (+ttl)

@@ -1,6 +1,5 @@
 package model.strategy;
 
-
 import model.Virologist;
 
 /**

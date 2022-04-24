@@ -1,9 +1,0 @@
-﻿
-Line Txt       Out   Exp
----- ---       ---   ---
-   6 0 - v1   True False
-  13 0 - v1   True False
-  33 block 4  True False
-  31 block 2 False  True
-
-

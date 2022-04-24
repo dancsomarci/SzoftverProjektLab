@@ -1,58 +1,39 @@
 Deterministic mode on!
-0 - il1
-v1 tries moving from f1 to il1
-0 - w1a
-1 - f1
-2 - f3
-3 - f4a
-v1 tries moving from il1 to f3
+0: ForgetCode
+Cost:
+Nucleotide: 6
+Amino acid: 6
+0 - v1
+1 - v2
+v1 trying to inject v2 with agent created from ForgetCode
 Virologist: v1
-	Number of actions left: 1
-	Currently on Field named: w1
-	Amino acid: 0 / maximum: 20
-	Nucleotide: 0 / maximum: 20
-	Equipments:
-	Genetic codes:
-	Agents: (+ttl)
-		Bear infinity
+Number of actions left: 2
+Currently on Field named: f1
+Amino acid: 12 / maximum: 20
+Nucleotide: 12 / maximum: 20
+Equipments:
+Glove
+Genetic codes:
+ForgetCode
+Agents: (+ttl)
 Virologist: v2
-	Number of actions left: 3
-	Currently on Field named: w1
-	Amino acid: 0 / maximum: 20
-	Nucleotide: 0 / maximum: 20
-	Equipments:
-	Genetic codes:
-	Agents: (+ttl)
-		Bear infinity
-InfectedLaboratory: il1
-	Equipments:
-	Virologists:
-	Neighbours:
-		w1
-		f1
-		f3
-		f4
+Number of actions left: 3
+Currently on Field named: f1
+Amino acid: 18 / maximum: 20
+Nucleotide: 18 / maximum: 20
+Equipments:
+Genetic codes:
+Agents: (+ttl)
+Forget 2
+Laboratory: l
+Equipments:
+Virologists:
+Neighbours:
+f1
 Field: f1
-	Equipments:
-	Virologists:
-	Neighbours:
-		il1
-Warehouse: w1
-	Equipments:
-	Material output:
-		Amount: 0
-	Virologists:
-		v2
-		v1
-	Neighbours:
-		il1
-Field: f3
-	Equipments:
-	Virologists:
-	Neighbours:
-		il1
-Field: f4
-	Equipments:
-	Virologists:
-	Neighbours:
-		il1
+Equipments:
+Virologists:
+v1
+v2
+Neighbours:
+l
