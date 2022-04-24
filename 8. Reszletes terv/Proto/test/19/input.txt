@@ -28,7 +28,7 @@ StartingPos f1
 end
 Virologist
 Name v1
-Agent Block
+Agent Block 1
 StartingPos l2
 end
 move

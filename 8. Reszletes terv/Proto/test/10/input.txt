@@ -36,3 +36,4 @@ lootEquipment
 1
 state
 map
+exit

@@ -5,29 +5,29 @@ v2 tries moving from f1 to l2
 	Cost:
 		Nucleotide: 2
 		Amino acid: 7
-0 – v2
-1 – v1
-v2 trying to inject v1 with agent created from StunCode
+0 - v1
+1 - v2
+v2 trying to inject v2 with agent created from StunCode
 Virologist: v2
 	Number of actions left: 1
 	Currently on Field named: l2
-	Amino acid: 3
-	Nucleotide: 8
+	Amino acid: 3 / maximum: 20
+	Nucleotide: 8 / maximum: 20
 	Equipments:
 		Axe
 	Genetic codes:
 		StunCode
 	Agents: (+ttl)
+		Stun 2
 Virologist: v1
 	Number of actions left: 3
 	Currently on Field named: l2
-	Amino acid: 0
-	Nucleotide: 0
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
 	Equipments:
 	Genetic codes:
 	Agents: (+ttl)
-		Bear infinity
-		Stun 1
+		Block 1
 Laboratory: l1
 	Equipments:
 	Virologists:
@@ -41,3 +41,8 @@ Laboratory: l2
 	Neighbours:
 		f1
 		l1
+Field: f1
+	Equipments:
+	Virologists:
+	Neighbours:
+		l2

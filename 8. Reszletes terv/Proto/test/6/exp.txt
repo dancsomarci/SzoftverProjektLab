@@ -1,7 +1,6 @@
 Deterministic mode on!
 0 - w1
 v1 tries moving from f1 to w1
-collect
 0 - Amino acid
 1 - Nucleotide
 v1 tries to collect material on field named w1
