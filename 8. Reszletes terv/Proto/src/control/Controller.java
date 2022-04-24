@@ -1,83 +1,5 @@
 package control;
 
-//TODO TODO-k (Ne töröld ki őket!)
-//TODO-------------------------------
-//TODO 1) Virologist::Move() -nál most a mező default neighbourjára lép, aki a currentField parancsnál
-//        a Neighbour: listában az első helyen áll!, ez nincs dokumentálva sehol, ha jól emlékszem!
-//          -Vencel: szeintem beleírtam a bementi nyelv leírásánál, hogy a 0.szomszédra megy, de ez det. eset csak
-//          -Marci: Én nem találom, de lehet csak vak vagyok.
-//          -Vencel: elküldtem a screent messen
-//          -Marci: most már látom:D, de amúgy az még hiányzik nekem, hogy a currentField meg ebben a sorrendben írja ki
-//          -Vencel: Ezt dokumentáltuk korábban, hogy a CurrentField mit s hogy ír ki?
-//TODO 2) +komplex tesztesetek amit kért Goldi (vagy 9 azt hiszem) Vencel:
-//          -Vencel: nem 3, amin 3 jatekos van es 3at lepnek legalabb? Vagy hogy volt ez?
-//          -Marci: Én 9-re emlékszem, de igazából mind1 kap 9 olyat, ami után megnyalja mind a 10 ujját!
-//          -Vencel: XDDDD, mondjuk eddig is van 5 komplexebbünk, nem nagyon komplex, h 3 x 3 x 3, de komplex, úgyhogy lehet elég ha mindenki egyet ír majd pluszba
-
-
-
-//TODO DONE + változtatások lényege
-//TODO ----------------------------
-//TODO 1) Ha nincs nálunk genetikai kód, és inject parancs jön [done]
-            //Nem ír ki semmit!, erről elfelejtettem írni a kimeneti nyelvnél
-            //Nem hiszem hogy ezt szükséges lenne dokumentálni, de elfogadok ellenérveket is!
-            //Vencel: ok
-//TODO 2) inject foglalkozzon azzal is hha nincs senki az adott mezon [done]
-            //Az inject, attack -nál lehet saját magadra is kenni/csapni
-            //A többi interakciós parancsnál csak másokra
-            //Miért így?, mert így nem kell módosítani sehol!, szóval persze lehetne szebb is de hidd el így a legegyszerűbb!
-            //Vencel: fullosch
-            //Új fv-ek jöttek be: Controller::ChooseTarget - v nincs benne; Controller::ChooseNeighbour - v is benne van
-//TODO 3) medve virus ne szaporodjon mint egy virus tenyleg, mmint 6szor hozzáadódott a virologushoz [done]
-            //-> Ha egy olyat, adunk hozzá, ami már fent van a virológuson, akkor újra fel kell kerüljön, és a ttl, a nagyobbik ttl kell legyen.
-            //Ehhez kellett változás itt: newFuncs: Agent::equals, Agent::setTtl, Agent::getTtl + oldFuncs: Virologist::AddAgent
-            //Vencel: király
-//TODO 4) hogy kulonboztetjuk meg a genetikai kodokat? [done, but not fully tested]
-            //lásd alább
-//TODO 4.5) Agent honnan kapja meg a ttl-t? [done, but not fully tested]
-            //singleton-hoz hasonló mintát fognak követni a genetikai kódok
-            //Minden kódból 1 darab objektum lesz, amit a game fog számon tartani
-            //game::AddGeneticCode(GeneticCode gc); ez visszaadja az általa számon tartott genetikai kód típust! (Ezzel kell inicializálni a labort)
-            //A genetikai kód felülírj az object::equals()-t className-re komparál.
-            //
-            //Vencel: hello tipusellenorzes, de no para, felolem ok
-            //
-            //Ha egy virológus megtanul egy kódot, a labor csak a saját referenciáját fogja átadni a virológusnak.
-            //Tehát minden virológusnál egy olyan referencia lesz genetikai kódokból, amik a game-ben lévőkre mutatnak.
-            //Ha újabb virológus lép a játékba, akkor a game updateli a genetikai kódok ttl-jét, így azok a generált ágenseknek már a megváltozott köridőket tudják átadni.
-            //Változtatások/újdonságok kód szintjén:
-            //-GeneticCode::equals, Game::AddAgent, GeneticCode::increment-, ::decrementPlayerCount
-            //-GeneticCode::Create már olyan ágenst ad vissza, aminek a ttl-je = ttl*playerCount
-//TODO 6) GeneticCode::Create implementáció mégis jó [done]
-            //A RemoveAnyag() fv hívásoknak a try-on belül kell lenniük -nem mindnek-
-            //a catch-ben nem kell hozzáadni a price-ot, mert a remove úgy van megírva hogy nem von le, ha exception van!, kivéve ha volt elég az egyik anyagból, s a másikból nem
-//TODO 7) randomMove most működik, ha nincs elég action? [done]
-            //Működik, mert a virológus köre végén resetelődik az actionCount
-            //Viszont ha rákenik, és lelépi a 3-mat, akkor a kövi körben nem fog tudni semmit csinálni, de azt hiszem ez így is volt tervezve! Vencel: pontosan
-//TODO 8) Újrakezdés nem reseteli a virológus köröket [done]
-            //Game::NewGame fv-e reseteli a playerPointer-t is
-//TODO 9) collect nem működik ha copy-zvan van a bemenet [done]
-            //megoldás: Ugyanazt a Scanner referenciát kell használni a Warehouse-nak, mint a Controller-nek
-            //Új osztály: SingletonScanner -> lehet később még a Controller része lesz, de egyenlőre marad így
-//TODO 10) Agent parancs mukodese a palyabeolvasasnal [szerintem ez működik] - Vencel: oke, megtryolom
-            //Agent parancsba kell a ttl-t is megadni! (lásd doku)
-//TODO 11) Öngyilkosságnál tároló indexeléssel - aktuális játékos kezeléssel problémák [done]
-            //A Virologistban kezeli hha magat tamadta, akk elobb meghivja az endTurnt es kiirja, h ki a kovetkezo jatekos
-            //Kicsit bena h a modellben irjuk ki h a kovi jatekos ki, de a controller fuggvenyet nem tudtzam meghivni,
-            // kulonben v mindennek staticnak kene lennie, v a Virologusnak tarolnia a Controllert, mindketto bena, sztem jo lesz igy
-
-//TODO OPTIONAL nice to have changes (csak ha van idő és kedv a végén) - Vencel: LOL
-//TODO -----------------------------------------------------------------
-//TODO Game osztályban kezelni az olyan eseteket pl.: amikor nincs player hozzáadva, de mégis endTurn (valahogy szép üzenetbe burkolni a felhazsnáló felé)
-//TODO A Pálya parser exception nyelvezetét meg lehetne szépre írni, hogy egyszerűbb legyen felderíteni a hibákat.
-
-//TODO Mellékes
-//TODO --------
-//TODO 10) Kommentezés
-//TODO 11) BUG tesztelés
-//TODO 12) majd a doksiba a leírásba bele kell írni, hogy minden teszteset bemenetének végére egy exitet írtunk, hogy bezárjuk az alkalmazást
-//TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-
 import model.Game;
 
 import java.lang.reflect.Method;
@@ -174,7 +96,7 @@ public class Controller {
      * @throws Exception Hiba a példányosítás során
      */
     public Object createObject(String className) throws Exception{
-        Class c= Class.forName(className);
+        Class<?> c= Class.forName(className);
         return c.getDeclaredConstructor().newInstance();
     }
 
@@ -294,7 +216,7 @@ public class Controller {
                         v.AddNucleotide(Integer.parseInt(command[1]));
                         break;
                     case "Agent":
-                        Class c= Class.forName("model.agents." + command[1]);
+                        Class<?> c= Class.forName("model.agents." + command[1]);
                         Agent a = (Agent) c.getConstructor(Integer.TYPE).newInstance(Integer.parseInt(command[2]));
                         a.Apply(v);
                         v.AddAgent(a);
