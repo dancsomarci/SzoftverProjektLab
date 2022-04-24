@@ -1,0 +1,86 @@
+Deterministic mode on!
+0 - warehouse1
+Shifumester tries moving from lab1 to warehouse1
+0 - Amino acid
+1 - Nucleotide
+Shifumester tries to collect material on field named warehouse1
+0 - Amino acid
+1 - Nucleotide
+Shifumester tries to collect material on field named warehouse1
+The next player is: Po
+Virologist: Po
+	Number of actions left: 3
+	Currently on Field named: warehouse1
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+0 - Amino acid
+1 - Nucleotide
+Po tries to collect material on field named warehouse1
+0 - Amino acid
+1 - Nucleotide
+Po tries to collect material on field named warehouse1
+0 - lab1
+1 - Field1
+2 - Field2
+Po tries moving from warehouse1 to lab1
+The next player is: Tigris
+Virologist: Tigris
+	Number of actions left: 3
+	Currently on Field named: Field2
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+0 - warehouse2
+1 - warehouse1
+2 - Field1
+Tigris tries moving from Field2 to warehouse2
+0 - Amino acid
+1 - Nucleotide
+Tigris tries to collect material on field named warehouse2
+0 - Amino acid
+1 - Nucleotide
+Tigris tries to collect material on field named warehouse2
+The next player is: Shifumester
+Virologist: Shifumester
+	Number of actions left: 3
+	Currently on Field named: warehouse1
+	Amino acid: 5 / maximum: 20
+	Nucleotide: 5 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+0 - Amino acid
+1 - Nucleotide
+Shifumester tries to collect material on field named warehouse1
+0 - Amino acid
+1 - Nucleotide
+Shifumester tries to collect material on field named warehouse1
+0 - lab1
+1 - Field1
+2 - Field2
+Shifumester tries moving from warehouse1 to lab1
+The next player is: Po
+Po tries to learn on field named lab1
+Virologist: Po
+	Number of actions left: 2
+	Currently on Field named: lab1
+	Amino acid: 5 / maximum: 20
+	Nucleotide: 5 / maximum: 20
+	Equipments:
+	Genetic codes:
+		StunCode
+	Agents: (+ttl)
+Po 's enemies are:
+Shifumester
+0: StunCode
+	Cost:
+		Nucleotide: 2
+		Amino acid: 7
+0 - Po
+1 - Shifumester
+po trying to inject shifumester with agent created from stuncode
