@@ -1,24 +1,23 @@
 package model.strategy;
 
-
 import model.Virologist;
 import model.equipments.Equipment;
 import model.map.Field;
 
 /**
- * Eldobási stratégia, amely megakadályozza, hogy a virológus eldobjon egy felszerelést.
+ * Felszerelés sikertelen eldobásáért felelős stratégia.
  */
-public class NoDrop implements IDropStr
-{
+public class NoDrop implements IDropStr {
+
 	/**
-	 * Védőfelszerelés eldobása
+	 * Felszerelés sikertelen eldobását implementáló függvény.
 	 * @param v Dobó virológus
 	 * @param f Virológus mezője
 	 * @param e Eldobandó felszerelés
 	 */
 	@Override
-	public void Drop(Virologist v, Field f, Equipment e)
-	{
+	public void Drop(Virologist v, Field f, Equipment e) {
 		v.DecreaseActions();
 	}
+
 }

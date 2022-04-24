@@ -1,0 +1,33 @@
+randOff Hurrikan_a_legcukibb_kutya!
+wau
+Field
+Type Laboratory
+Param StunCode
+Name l
+end
+Field
+Type Field
+Name f1
+end
+Neighbours
+f1 l
+end
+Virologist
+Name v1
+StartingPos f1
+end
+Virologist
+Name v2
+Equipment Cloak
+Amino 5
+Nucleo 5
+StartingPos f1
+end
+lootEquipment
+1
+lootAmino
+1
+lootNucleotide
+1
+state
+map

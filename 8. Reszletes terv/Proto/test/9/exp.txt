@@ -1,0 +1,36 @@
+Deterministic mode on!
+1 - v2
+v1 trying to loot equipment from v2
+1 - v2
+v1 trying to loot amino acid from v2
+1 - v2
+v1 trying to loot nucleotide from v2
+Virologist: v1
+	Number of actions left: 0
+	Currently on Field named: f1
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+Virologist: v2
+	Number of actions left: 3
+	Currently on Field named: f1
+	Amino acid: 5 / maximum: 20
+	Nucleotide: 5 / maximum: 20
+	Equipments:
+		Cloak
+	Genetic codes:
+	Agents: (+ttl)
+Laboratory: l
+	Equipments:
+	Virologists:
+	Neighbours:
+		f1
+Field: f1
+	Equipments:
+	Virologists:
+		v1
+		v2
+	Neighbours:
+		l

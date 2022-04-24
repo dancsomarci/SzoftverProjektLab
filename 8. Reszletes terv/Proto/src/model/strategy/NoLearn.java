@@ -1,22 +1,21 @@
 package model.strategy;
 
-
 import model.Virologist;
 import model.map.Field;
 
 /**
- * Sikertelen genetikai kód tanulásért felelős stratégia
+ * Genetikai kód sikertelen megtanulásáért felelős stratégia.
  */
-public class NoLearn implements ILearnStr
-{
+public class NoLearn implements ILearnStr {
+
 	/**
-	 * Genetikai kód tanulás
+	 * Genetikai kód sikertelen megtanulását implementáló függvény.
 	 * @param v Tanuló virológus
 	 * @param f Virológus mezője
 	 */
 	@Override
-	public void Learn(Virologist v, Field f)
-	{
+	public void Learn(Virologist v, Field f) {
 		v.DecreaseActions();
 	}
+
 }
