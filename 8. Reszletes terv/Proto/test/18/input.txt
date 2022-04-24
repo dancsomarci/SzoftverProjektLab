@@ -22,3 +22,4 @@ Name v2
 StartingPos f2
 end
 endTurn
+exit
