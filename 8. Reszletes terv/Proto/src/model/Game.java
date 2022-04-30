@@ -5,6 +5,7 @@ import model.map.Field;
 
 import java.util.ArrayList;
 import java.util.List;
+import control.Subject;
 
 /**
  * Egy singleton osztály, ami a játék kezeléséért felelős.
@@ -13,8 +14,12 @@ import java.util.List;
  * Mivel a játkosok köreit kezeli, tehát gyakorlatilag az időegységeket,
  * így az ő feladata az ágensek hátralévő idejét csökkenti is.
  */
-public class Game
+public class Game extends Subject
 {
+	public void test(){
+		notifyAllObservers();
+	}
+
 	/**
 	 * A pálya mezői
 	 */
