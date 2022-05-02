@@ -230,7 +230,7 @@ public class Virologist
 	 */
 	public void Kill(){
 		if(game.GetCurrentPlayer().equals(this)) {
-			this.EndTurn();
+			this.EndTurn(); //Ezt a logikát a game-nek kéne megvalósítani, ha elfogynak a játékosok/ léptetni kell öngyilkosság után.
 		}
 
 		field.RemoveVirologist(this);
