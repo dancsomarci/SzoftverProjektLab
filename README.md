@@ -38,6 +38,16 @@ Prototípus implementáció
 
 8)     https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/Eb2rjnYmSRdIopp2Y2lQWscB22wpaaw9BzGIAsUczGvJbQ?e=NQGxWt
 
+Grafikus terv
+
+9)      link
+
+Grafikus implementáció
+
+10)    https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EU6Cj5IQGUVArVixpZdigm0BBzMjQF7jrRSGCjaB6j2_aw?e=N8Q6zC
+
+
+
 
 
 [Pontok]  Feladat | Max | Kapott
@@ -49,4 +59,6 @@ Prototípus implementáció
 5)      | 20  | 20
 6)      | 20  | 14 :(
 7)      | 45  | 40
-8)      | 35  | 
+8)      | 35  | 33
+9)      | 30  | 22
+10)     | 
