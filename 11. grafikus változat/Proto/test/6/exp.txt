@@ -1,0 +1,30 @@
+Deterministic mode on!
+0 - w1
+v1 tries moving from f1 to w1
+0 - Amino acid
+1 - Nucleotide
+v1 tries to collect material on field named w1
+0 - Amino acid
+1 - Nucleotide
+v1 tries to collect material on field named w1
+Virologist: v1
+Number of actions left: 0
+Currently on Field named: w1
+Amino acid: 5 / maximum: 20
+Nucleotide: 5 / maximum: 20
+Equipments:
+Genetic codes:
+Agents: (+ttl)
+Warehouse: w1
+Equipments:
+Material output:
+Amount: 5
+Virologists:
+v1
+Neighbours:
+f1
+Field: f1
+Equipments:
+Virologists:
+Neighbours:
+w1

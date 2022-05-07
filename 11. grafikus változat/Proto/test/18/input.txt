@@ -1,0 +1,25 @@
+randOff Hurrikan_a_legcukibb_kutya!
+wau
+Field
+Type Laboratory
+Param StunCode
+Name f1
+end
+Field
+Type Field
+Name f2
+end
+Neighbours
+f1 f2
+end
+Virologist
+Name v1
+GeneticCode StunCode
+StartingPos f2
+end
+Virologist
+Name v2
+StartingPos f2
+end
+endTurn
+exit

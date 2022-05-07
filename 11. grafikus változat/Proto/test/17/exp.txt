@@ -1,0 +1,86 @@
+Deterministic mode on! 
+0 - il 
+1 - w 
+v1 tries moving from f1 to il 
+The next player is: v2 
+0 - il 
+1 - w 
+v2 tries moving from f1 to w 
+0 - Amino acid 
+1 - Nucleotide 
+v2 tries to collect material on field named w 
+0 - Amino acid 
+1 - Nucleotide 
+v2 tries to collect material on field named w 
+The next player is: v1 
+0 - f1 
+1 - w 
+v1 tries moving from il to w 
+The next player is: v2 
+0 - f1 
+1 - il 
+2 - l 
+v2 tries moving from w to f1 
+The next player is: v1 
+0 - il 
+1 - w 
+v1 tries moving from f1 to w 
+0 - f1 
+1 - w 
+v1 tries moving from il to f1 
+0: ChoreaCode 
+Cost: 
+Nucleotide: 6 
+Amino acid: 5 
+0 - v2 
+1 - v1 
+v1 trying to inject v1 with agent created from ChoreaCode
+The next player is: v2 
+The next player is: v1 
+Virologist: v1 
+Number of actions left: 3 
+Currently on Field named: f1 
+Amino acid: 5 / maximum: 20 
+Nucleotide: 4 / maximum: 20 
+Equipments: 
+Genetic codes: 
+ChoreaCode 
+Agents: (+ttl) 
+Bear infinity 
+Virologist: v2 
+Number of actions left: 3 
+Currently on Field named: f1 
+Amino acid: 20 / maximum: 20 
+Nucleotide: 20 / maximum: 20 
+Equipments: 
+Genetic codes: 
+Agents: (+ttl) 
+Bear infinity 
+InfectedLaboratory: il 
+Equipments: 
+Virologists: 
+v2 
+Neighbours: 
+f1 
+w 
+Laboratory: l 
+Equipments: 
+Virologists: 
+Neighbours: 
+w 
+Field: f1 
+Equipments: 
+Virologists: 
+v1 
+Neighbours: 
+il 
+w 
+Warehouse: w 
+Equipments: 
+Material output: 
+Amount: 5 
+Virologists: 
+Neighbours: 
+f1 
+il 
+l 

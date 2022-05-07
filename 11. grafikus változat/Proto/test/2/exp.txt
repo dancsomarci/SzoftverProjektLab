@@ -1,0 +1,59 @@
+Deterministic mode on!
+0 - il1
+v1 tries moving from f1 to il1
+0 - w1
+1 - f1
+2 - f3
+3 - f4
+v1 tries moving from il1 to f3
+Virologist: v1
+	Number of actions left: 1
+	Currently on Field named: w1
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+		Bear infinity
+		Bear infinity
+Virologist: v2
+	Number of actions left: 3
+	Currently on Field named: w1
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+		Bear infinity
+InfectedLaboratory: il1
+	Equipments:
+	Virologists:
+	Neighbours:
+		w1
+		f1
+		f3
+		f4
+Field: f1
+	Equipments:
+	Virologists:
+	Neighbours:
+		il1
+Warehouse: w1
+	Equipments:
+	Material output:
+		Amount: 0
+	Virologists:
+		v2
+		v1
+	Neighbours:
+		il1
+Field: f3
+	Equipments:
+	Virologists:
+	Neighbours:
+		il1
+Field: f4
+	Equipments:
+	Virologists:
+	Neighbours:
+			il1

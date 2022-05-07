@@ -1,0 +1,48 @@
+Deterministic mode on!
+0: StunCode
+	Cost:
+		Nucleotide: 2
+		Amino acid: 7
+0 - v1
+1 - v2
+v1 trying to inject v2 with agent created from StunCode
+1 - v2
+v1 trying to loot amino acid from v2
+1 - v2
+v1 trying to loot nucleotide from v2
+Virologist: v1
+	Number of actions left: 0
+	Currently on Field named: f1
+	Amino acid: 4 / maximum: 20
+	Nucleotide: 4 / maximum: 20
+	Equipments:
+	Genetic codes:
+		StunCode
+	Agents: (+ttl)
+Virologist: v2
+	Number of actions left: 3
+	Currently on Field named: f1
+	Amino acid: 4 / maximum: 20
+	Nucleotide: 4 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+		Stun 2
+Laboratory: l1
+	Equipments:
+	Virologists:
+	Neighbours:
+		f2
+Field: f1
+	Equipments:
+	Virologists:
+		v1
+		v2
+	Neighbours:
+		f2
+Field: f2
+	Equipments:
+	Virologists:
+	Neighbours:
+		f1
+		l1
