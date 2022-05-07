@@ -1,5 +1,7 @@
 package control;
 
+import view.Observer;
+
 import java.util.ArrayList;
 
 public class Subject {
