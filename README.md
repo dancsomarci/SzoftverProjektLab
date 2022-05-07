@@ -44,7 +44,7 @@ Grafikus terv
 
 Grafikus implementáció
 
-10)    https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EU6Cj5IQGUVArVixpZdigm0BBzMjQF7jrRSGCjaB6j2_aw?e=N8Q6zC
+10)     https://bmeedu-my.sharepoint.com/:w:/g/personal/bajnokvencel_edu_bme_hu/EU6Cj5IQGUVArVixpZdigm0BBzMjQF7jrRSGCjaB6j2_aw?e=N8Q6zC
 
 
 
