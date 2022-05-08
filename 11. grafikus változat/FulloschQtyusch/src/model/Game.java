@@ -5,7 +5,6 @@ import model.map.Field;
 
 import java.util.ArrayList;
 import java.util.List;
-import control.Subject;
 
 /**
  * Egy singleton osztály, ami a játék kezeléséért felelős.
