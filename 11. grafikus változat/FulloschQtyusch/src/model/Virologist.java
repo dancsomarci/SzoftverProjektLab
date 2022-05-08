@@ -17,7 +17,7 @@ import java.util.Random;
  *  fogjak tudni iranyitani a jatekosok a jatek soran es
  *  kulonbozo interakciokat vegrehajtani veluk.
  */
-public class Virologist
+public class Virologist extends Subject
 {
 	/**
 	 * A virológus adatainak kiíratásáért felelő metódus. (részletekért lásd: dokumentáció)

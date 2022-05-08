@@ -10,12 +10,90 @@ import model.agents.Agent;
 import model.codes.GeneticCode;
 import model.equipments.Equipment;
 import model.map.*;
+import model.Subject;
+import view.Window;
 
 /**
  * Prototípus külvilággal való kommunikációjáért felelős osztály.
  * Megvalósítja a dokumentációban leírt bemeneti nyelv funkcióit, valamint közvetít a modell és a felhasználó(k) között.
  */
-public class Controller {
+public class Controller extends Subject {
+
+    /**
+     * Az aktuálisan játszott játék.
+     */
+    private Game game = Game.Create();
+    private Window window = new Window(this, game);;
+    private String actionMessage;
+
+    public void attack(Virologist v){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+
+    }
+
+    public void move(Field f){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.Move(f);
+        actionMessage = currentPlayer.getName() + " trying to move to " + f.getName() + "...";
+    }
+
+    public void drop(){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.EndTurn();
+        actionMessage = currentPlayer.getName() + " trying to drop an equipmnet...";
+    }
+
+    public void lootAminoFrom(Virologist v){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.LootAminoAcidFrom(v);
+        actionMessage = currentPlayer.getName() + " trying to loot amino acid form " + v.getName() + "...";
+    }
+
+    public void lootNucleoFrom(Virologist v){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.LootNucleotideFrom(v);
+        actionMessage = currentPlayer.getName() + " trying to nucleotide acid form " + v.getName() + "...";
+    }
+
+    public void lootEquipmentFrom(Virologist v){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.LootEquipmentFrom(v);
+        actionMessage = currentPlayer.getName() + " trying to equipment acid form " + v.getName() + "...";
+    }
+
+    public void collect(){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.Collect();
+        actionMessage = currentPlayer.getName() + " trying to collect material...";
+    }
+
+    public void learn(){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.Learn();
+        actionMessage = currentPlayer.getName() + " trying to learn a genetic code...";
+    }
+
+    public void equip(){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.Equip();
+        actionMessage = currentPlayer.getName() + " trying to equip an equipment...";
+    }
+
+    public void inject(Virologist v, GeneticCode code){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.Inject(v, code);
+        actionMessage = currentPlayer.getName() + " trying to inject " + v.getName() + " with " + code.getName() + "...";
+    }
+
+    public void endTurn(){
+        Virologist currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.EndTurn();
+    }
+
+    public String getActionMessage(){
+        return actionMessage;
+    }
+
     /**
      * A bemeneti parancsokat, és a megvalósító metódusok kapcsolatát tároló objektum.
      */
@@ -77,19 +155,6 @@ public class Controller {
     }
 
     /**
-     * Alkalmazás belépési pontja.
-     * @param args parancsori argumentumok.
-     */
-    public static void main(String[] args){
-        try {
-            Controller controller = new Controller();
-            controller.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * Név alapján példányosít egy osztályt, a default ctor-jával, ellenkező esetben kivétel dobódik.
      * @param className Az példányosítandó osztály "hosszú" - teljes neve
      * @return A példányosított osztály
@@ -99,11 +164,6 @@ public class Controller {
         Class<?> c= Class.forName(className);
         return c.getDeclaredConstructor().newInstance();
     }
-
-    /**
-     * Az aktuálisan játszott játék.
-     */
-    private Game game = Game.Create();
 
     /**
      * A pálya felépítéséhez szükséges átmeneti tároló, ami a név-mező összerendeléseket tartalmazza.
