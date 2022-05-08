@@ -2,22 +2,12 @@ package view;
 
 import control.Controller;
 import model.Game;
-import model.Virologist;
-import model.codes.GeneticCode;
-import model.map.Field;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.*;
-import java.awt.geom.Path2D;
-import java.awt.geom.RoundRectangle2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.swing.border.Border;
 
 public class Window extends Observer{
 
