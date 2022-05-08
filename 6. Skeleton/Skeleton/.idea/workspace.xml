@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bd85c96a-55a0-436b-85cf-c22949c703f6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skeleton.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/ProtoInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Virologist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Virologist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/agents/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/agents/Bear.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/agents/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/agents/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/agents/Chorea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/agents/Chorea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/agents/Forget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/agents/Forget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/agents/Stun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/agents/Stun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/codes/BlockCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/codes/BlockCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/codes/ChoreaCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/codes/ChoreaCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/codes/ForgetCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/codes/ForgetCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/codes/GeneticCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/codes/GeneticCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/codes/StunCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/codes/StunCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/equipments/Axe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/equipments/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/equipments/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/equipments/Cloak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/equipments/Cloak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/equipments/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/equipments/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/equipments/Glove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/equipments/Glove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/map/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/map/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/map/InfectedLaboratory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/map/Laboratory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/map/Laboratory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/map/Shelter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/map/Shelter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/map/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/map/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/BearMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefAttack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefCollect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefCollect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefDrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefEquip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefEquip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefInject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefInject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefInjected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefInjected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefLearn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefLearn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefLoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefLoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefLooted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefLooted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/DefMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/DefMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/IAttackStr.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/IInjectedStr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/IInjectedStr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/Looted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/Looted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/NoCollect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/NoCollect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/NoDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/NoDrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/NoEquip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/NoEquip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/NoInject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/NoInject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/NoInjected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/NoInjected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/NoLearn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/NoLearn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/NoLoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/NoLoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/strategy/NoMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/strategy/NoMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/Proto.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/Virologist.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/Virologist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Chorea.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Chorea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Forget.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Forget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Stun.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/agents/Stun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/BlockCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/BlockCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/ChoreaCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/ChoreaCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/ForgetCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/ForgetCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/GeneticCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/GeneticCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/StunCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/codes/StunCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/equipments/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/equipments/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/equipments/Cloak.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/equipments/Cloak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/equipments/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/equipments/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/equipments/Glove.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/equipments/Glove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/map/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/map/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/map/Laboratory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/map/Laboratory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/map/Shelter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/map/Shelter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/map/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/map/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefCollect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefCollect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefDrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefEquip.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefEquip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefInject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefInject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefInjected.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefInjected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefLearn.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefLearn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefLoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefLoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefLooted.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefLooted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/DefMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/IInjectedStr.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/IInjectedStr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/Looted.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/Looted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoCollect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoCollect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoDrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoEquip.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoEquip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoInject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoInject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoInjected.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoInjected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoLearn.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoLearn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoLoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoLoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/model/strategy/NoMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/test/MethodComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/test/SkeletonTestCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../8. Reszletes terv/Proto/src/test/Tester.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="27ZyJ2DFVucGxddL4HOhjmvpFh1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../8. Reszletes terv/Proto" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd85c96a-55a0-436b-85cf-c22949c703f6" name="Changes" comment="" />
+      <created>1649541832488</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649541832488</updated>
+      <workItem from="1649541836767" duration="63000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
