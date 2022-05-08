@@ -1,0 +1,6 @@
+<map id="model.strategy.DefLoot.LootNucleotide" name="model.strategy.DefLoot.LootNucleotide">
+<area shape="rect" id="node1" title=" " alt="" coords="5,35,191,76"/>
+<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a631d5664b8655669b8b0c1ae7137bb33" title=" " alt="" coords="253,5,427,47"/>
+<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#a076b8df55756674b6308d3afa4e77fdf" title=" " alt="" coords="239,71,441,98"/>
+<area shape="rect" id="node4" href="$interfacemodel_1_1strategy_1_1_i_looted_str.html#adb36a2d00d4c32bdf012048723d74c6f" title=" " alt="" coords="489,64,664,105"/>
+</map>

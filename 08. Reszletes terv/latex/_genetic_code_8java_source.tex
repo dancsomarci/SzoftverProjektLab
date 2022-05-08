@@ -1,0 +1,40 @@
+\hypertarget{_genetic_code_8java_source}{}\doxysection{Genetic\+Code.\+java}
+\label{_genetic_code_8java_source}\index{Proto/src/model/codes/GeneticCode.java@{Proto/src/model/codes/GeneticCode.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00001}00001 \textcolor{keyword}{package }model.codes;}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00004}00004 \textcolor{keyword}{import} model.Game;}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00005}00005 \textcolor{keyword}{import} model.Virologist;}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00006}00006 \textcolor{keyword}{import} model.agents.Agent;}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00014}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{00014}} \textcolor{keyword}{public} \textcolor{keyword}{abstract} \textcolor{keyword}{class }\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}}}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00015}00015 \{}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00021}00021     @Override}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00022}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_abe92ba9b0182a32aacbf972a7d9ec89f}{00022}}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_abe92ba9b0182a32aacbf972a7d9ec89f}{equals}}(Object o)\{}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00023}00023         \textcolor{keywordflow}{return} this.getClass().getSimpleName().equals(o.getClass().getSimpleName());}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00024}00024     \}}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00029}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_abc7ef27ce08c4b061d2208a7789476d0}{00029}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_abc7ef27ce08c4b061d2208a7789476d0}{getName}}()\{}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00030}00030         \textcolor{keywordflow}{return} this.getClass().getSimpleName();}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00031}00031     \}}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00036}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_a82699c32f5478a8c26a7201f16f51ca5}{00036}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_a82699c32f5478a8c26a7201f16f51ca5}{getAminoAcidPrice}}() \{}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00037}00037         \textcolor{keywordflow}{return} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_aa9ea4949adc4d0831f0fdcda3df9e5fc}{aminoAcidPrice}};}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00043}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_ae84bcd3a273b21a9cc6cb2360896dbc7}{00043}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_ae84bcd3a273b21a9cc6cb2360896dbc7}{getNucleotidePrice}}() \{}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00044}00044         \textcolor{keywordflow}{return} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_a095ff0a2de333b3f8f15b0c06a2531cf}{nucleotidePrice}};}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00045}00045     \}}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00050}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_aa9ea4949adc4d0831f0fdcda3df9e5fc}{00050}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_aa9ea4949adc4d0831f0fdcda3df9e5fc}{aminoAcidPrice}};}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00055}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_a095ff0a2de333b3f8f15b0c06a2531cf}{00055}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_a095ff0a2de333b3f8f15b0c06a2531cf}{nucleotidePrice}};}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00060}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_afa51f6a4cc465f89be8a5a99b0a7e2b5}{00060}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_afa51f6a4cc465f89be8a5a99b0a7e2b5}{turnsLeft}};}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00068}\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_ad598b461d1ab759a48abb86a4f7c3100}{00068}}     \textcolor{keyword}{public} \textcolor{keyword}{abstract} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_ad598b461d1ab759a48abb86a4f7c3100}{Create}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v) \textcolor{keywordflow}{throws} Exception;}
+\DoxyCodeLine{\Hypertarget{_genetic_code_8java_source_l00069}00069 \}}
+
+\end{DoxyCode}

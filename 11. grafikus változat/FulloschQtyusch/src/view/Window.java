@@ -20,7 +20,8 @@ public class Window extends Observer {
     Game game;
 
     public Window(Controller controller, Game game){
-
+        this.controller = controller;
+        this.game = game;
     }
 
     public void update(){

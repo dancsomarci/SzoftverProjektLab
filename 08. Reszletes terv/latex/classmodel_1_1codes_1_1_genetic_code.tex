@@ -1,0 +1,178 @@
+\hypertarget{classmodel_1_1codes_1_1_genetic_code}{}\doxysection{model.\+codes.\+Genetic\+Code Class Reference}
+\label{classmodel_1_1codes_1_1_genetic_code}\index{model.codes.GeneticCode@{model.codes.GeneticCode}}
+
+
+Inheritance diagram for model.\+codes.\+Genetic\+Code\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1codes_1_1_genetic_code__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_abe92ba9b0182a32aacbf972a7d9ec89f}{equals}} (Object o)
+\item 
+String \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_abc7ef27ce08c4b061d2208a7789476d0}{get\+Name}} ()
+\item 
+int \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_a82699c32f5478a8c26a7201f16f51ca5}{get\+Amino\+Acid\+Price}} ()
+\item 
+int \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_ae84bcd3a273b21a9cc6cb2360896dbc7}{get\+Nucleotide\+Price}} ()
+\item 
+abstract \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_ad598b461d1ab759a48abb86a4f7c3100}{Create}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)  throws Exception
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_aa9ea4949adc4d0831f0fdcda3df9e5fc}{amino\+Acid\+Price}}
+\item 
+int \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_a095ff0a2de333b3f8f15b0c06a2531cf}{nucleotide\+Price}}
+\item 
+int \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_afa51f6a4cc465f89be8a5a99b0a7e2b5}{turns\+Left}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Absztrakt ősként szolgál a különböző genetikai kódoknak. Ezek felelősségei, hogy factory-\/ként szolgáljanak az ágenseknek, hiszen ezek segítségével kell létrehozni őket, ezen kívül tartalmazza az elkészítéshez tartozó aminosav, nukleotid tarifákat. 
+
+Definition at line \mbox{\hyperlink{_genetic_code_8java_source_l00014}{14}} of file \mbox{\hyperlink{_genetic_code_8java_source}{Genetic\+Code.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1codes_1_1_genetic_code_ad598b461d1ab759a48abb86a4f7c3100}\label{classmodel_1_1codes_1_1_genetic_code_ad598b461d1ab759a48abb86a4f7c3100}} 
+\index{model.codes.GeneticCode@{model.codes.GeneticCode}!Create@{Create}}
+\index{Create@{Create}!model.codes.GeneticCode@{model.codes.GeneticCode}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily abstract \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} model.\+codes.\+Genetic\+Code.\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{v }\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Létrehoz egy, a kódhoz tartozó ágenst a megfelelő költség behajtásával a virológustól. 
+\begin{DoxyParams}{Parameters}
+{\em v} & a virológus, aki szeretne ágenst készíteni \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+az elkészített ágens 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & ha a virológusnak nem volt elég anyaga az ágenskészítéshez \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classmodel_1_1codes_1_1_block_code_a5e3f1608eac516c9fc979bdadd311d55}{model.\+codes.\+Block\+Code}}, \mbox{\hyperlink{classmodel_1_1codes_1_1_chorea_code_ab1e3deacc0c6bf224551c5243d7f96fc}{model.\+codes.\+Chorea\+Code}}, \mbox{\hyperlink{classmodel_1_1codes_1_1_forget_code_ad44a36c2db4f3480d2f27c541b079f58}{model.\+codes.\+Forget\+Code}}, and \mbox{\hyperlink{classmodel_1_1codes_1_1_stun_code_a946f565461f36a0fcf61418c565bc027}{model.\+codes.\+Stun\+Code}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1codes_1_1_genetic_code_ad598b461d1ab759a48abb86a4f7c3100_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1codes_1_1_genetic_code_abe92ba9b0182a32aacbf972a7d9ec89f}\label{classmodel_1_1codes_1_1_genetic_code_abe92ba9b0182a32aacbf972a7d9ec89f}} 
+\index{model.codes.GeneticCode@{model.codes.GeneticCode}!equals@{equals}}
+\index{equals@{equals}!model.codes.GeneticCode@{model.codes.GeneticCode}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily boolean model.\+codes.\+Genetic\+Code.\+equals (\begin{DoxyParamCaption}\item[{Object}]{o }\end{DoxyParamCaption})}
+
+Object equals függvényének felülírása 2 genetikai kód összehasonlítására. 
+\begin{DoxyParams}{Parameters}
+{\em o} & az összehasonlítandó objektum. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+megegyezik-\/e a két objektum. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_genetic_code_8java_source_l00022}{22}} of file \mbox{\hyperlink{_genetic_code_8java_source}{Genetic\+Code.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1codes_1_1_genetic_code_a82699c32f5478a8c26a7201f16f51ca5}\label{classmodel_1_1codes_1_1_genetic_code_a82699c32f5478a8c26a7201f16f51ca5}} 
+\index{model.codes.GeneticCode@{model.codes.GeneticCode}!getAminoAcidPrice@{getAminoAcidPrice}}
+\index{getAminoAcidPrice@{getAminoAcidPrice}!model.codes.GeneticCode@{model.codes.GeneticCode}}
+\doxysubsubsection{\texorpdfstring{getAminoAcidPrice()}{getAminoAcidPrice()}}
+{\footnotesize\ttfamily int model.\+codes.\+Genetic\+Code.\+get\+Amino\+Acid\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+a genetikai kód által készíthető ágens aminosav költsége. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_genetic_code_8java_source_l00036}{36}} of file \mbox{\hyperlink{_genetic_code_8java_source}{Genetic\+Code.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1codes_1_1_genetic_code_abc7ef27ce08c4b061d2208a7789476d0}\label{classmodel_1_1codes_1_1_genetic_code_abc7ef27ce08c4b061d2208a7789476d0}} 
+\index{model.codes.GeneticCode@{model.codes.GeneticCode}!getName@{getName}}
+\index{getName@{getName}!model.codes.GeneticCode@{model.codes.GeneticCode}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily String model.\+codes.\+Genetic\+Code.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+a genetikai kód típusa. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_genetic_code_8java_source_l00029}{29}} of file \mbox{\hyperlink{_genetic_code_8java_source}{Genetic\+Code.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1codes_1_1_genetic_code_abc7ef27ce08c4b061d2208a7789476d0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1codes_1_1_genetic_code_ae84bcd3a273b21a9cc6cb2360896dbc7}\label{classmodel_1_1codes_1_1_genetic_code_ae84bcd3a273b21a9cc6cb2360896dbc7}} 
+\index{model.codes.GeneticCode@{model.codes.GeneticCode}!getNucleotidePrice@{getNucleotidePrice}}
+\index{getNucleotidePrice@{getNucleotidePrice}!model.codes.GeneticCode@{model.codes.GeneticCode}}
+\doxysubsubsection{\texorpdfstring{getNucleotidePrice()}{getNucleotidePrice()}}
+{\footnotesize\ttfamily int model.\+codes.\+Genetic\+Code.\+get\+Nucleotide\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+a genetikai kód által készíthető ágens nukleotid költsége. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_genetic_code_8java_source_l00043}{43}} of file \mbox{\hyperlink{_genetic_code_8java_source}{Genetic\+Code.\+java}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmodel_1_1codes_1_1_genetic_code_aa9ea4949adc4d0831f0fdcda3df9e5fc}\label{classmodel_1_1codes_1_1_genetic_code_aa9ea4949adc4d0831f0fdcda3df9e5fc}} 
+\index{model.codes.GeneticCode@{model.codes.GeneticCode}!aminoAcidPrice@{aminoAcidPrice}}
+\index{aminoAcidPrice@{aminoAcidPrice}!model.codes.GeneticCode@{model.codes.GeneticCode}}
+\doxysubsubsection{\texorpdfstring{aminoAcidPrice}{aminoAcidPrice}}
+{\footnotesize\ttfamily int model.\+codes.\+Genetic\+Code.\+amino\+Acid\+Price\hspace{0.3cm}{\ttfamily [protected]}}
+
+A kódhoz tartozó ágens előállításához szükséges aminosav mennyiség. 
+
+Definition at line \mbox{\hyperlink{_genetic_code_8java_source_l00050}{50}} of file \mbox{\hyperlink{_genetic_code_8java_source}{Genetic\+Code.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1codes_1_1_genetic_code_a095ff0a2de333b3f8f15b0c06a2531cf}\label{classmodel_1_1codes_1_1_genetic_code_a095ff0a2de333b3f8f15b0c06a2531cf}} 
+\index{model.codes.GeneticCode@{model.codes.GeneticCode}!nucleotidePrice@{nucleotidePrice}}
+\index{nucleotidePrice@{nucleotidePrice}!model.codes.GeneticCode@{model.codes.GeneticCode}}
+\doxysubsubsection{\texorpdfstring{nucleotidePrice}{nucleotidePrice}}
+{\footnotesize\ttfamily int model.\+codes.\+Genetic\+Code.\+nucleotide\+Price\hspace{0.3cm}{\ttfamily [protected]}}
+
+A kódhoz tartozó ágens előállításához szükséges nukleotid mennyiség. 
+
+Definition at line \mbox{\hyperlink{_genetic_code_8java_source_l00055}{55}} of file \mbox{\hyperlink{_genetic_code_8java_source}{Genetic\+Code.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1codes_1_1_genetic_code_afa51f6a4cc465f89be8a5a99b0a7e2b5}\label{classmodel_1_1codes_1_1_genetic_code_afa51f6a4cc465f89be8a5a99b0a7e2b5}} 
+\index{model.codes.GeneticCode@{model.codes.GeneticCode}!turnsLeft@{turnsLeft}}
+\index{turnsLeft@{turnsLeft}!model.codes.GeneticCode@{model.codes.GeneticCode}}
+\doxysubsubsection{\texorpdfstring{turnsLeft}{turnsLeft}}
+{\footnotesize\ttfamily int model.\+codes.\+Genetic\+Code.\+turns\+Left\hspace{0.3cm}{\ttfamily [protected]}}
+
+A kódhoz tartozó ágens hatásának ideje körökben mérve. 
+
+Definition at line \mbox{\hyperlink{_genetic_code_8java_source_l00060}{60}} of file \mbox{\hyperlink{_genetic_code_8java_source}{Genetic\+Code.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Proto/src/model/codes/Genetic\+Code.\+java\end{DoxyCompactItemize}

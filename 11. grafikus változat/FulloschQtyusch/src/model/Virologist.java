@@ -1,7 +1,6 @@
 package model;
 
 
-import control.Controller;
 import model.agents.*;
 import model.codes.*;
 import model.equipments.*;

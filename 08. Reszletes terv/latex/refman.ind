@@ -1,0 +1,754 @@
+\begin{theindex}
+
+  \item {AddAgent}
+    \subitem {model.Virologist}, \hyperpage{152}
+  \item {AddAminoAcid}
+    \subitem {model.Virologist}, \hyperpage{152}
+  \item {AddEquipment}
+    \subitem {model.Virologist}, \hyperpage{153}
+  \item {AddField}
+    \subitem {model.Game}, \hyperpage{88}
+  \item {AddGeneticCode}
+    \subitem {model.Game}, \hyperpage{89}
+    \subitem {model.Virologist}, \hyperpage{154}
+  \item {AddNeighbour}
+    \subitem {model.map.Field}, \hyperpage{74}
+  \item {AddNucleotide}
+    \subitem {model.Virologist}, \hyperpage{154}
+  \item {AddVirologist}
+    \subitem {model.Game}, \hyperpage{89}
+    \subitem {model.map.Field}, \hyperpage{75}
+    \subitem {model.map.InfectedLaboratory}, \hyperpage{119}
+  \item {Agent}
+    \subitem {model.agents.Agent}, \hyperpage{8}
+  \item {aminoAcidPrice}
+    \subitem {model.codes.GeneticCode}, \hyperpage{98}
+  \item {Apply}
+    \subitem {model.agents.Agent}, \hyperpage{8}
+    \subitem {model.agents.Block}, \hyperpage{23}
+    \subitem {model.agents.Chorea}, \hyperpage{27}
+    \subitem {model.agents.Forget}, \hyperpage{84}
+    \subitem {model.equipments.Bag}, \hyperpage{15}
+    \subitem {model.equipments.Equipment}, \hyperpage{71}
+  \item {ApplyStrategy}
+    \subitem {model.agents.Agent}, \hyperpage{9}
+    \subitem {model.agents.Bear}, \hyperpage{18}
+    \subitem {model.agents.Block}, \hyperpage{23}
+    \subitem {model.agents.Stun}, \hyperpage{146}
+    \subitem {model.equipments.Axe}, \hyperpage{13}
+    \subitem {model.equipments.Cloak}, \hyperpage{31}
+    \subitem {model.equipments.Equipment}, \hyperpage{72}
+    \subitem {model.equipments.Glove}, \hyperpage{100}
+  \item {attach}
+    \subitem {control.Subject}, \hyperpage{149}
+  \item {Attack}
+    \subitem {model.equipments.Axe}, \hyperpage{13}
+    \subitem {model.strategy.DefAttack}, \hyperpage{50}
+    \subitem {model.strategy.IAttackStr}, \hyperpage{103}
+    \subitem {model.Virologist}, \hyperpage{155}
+  \item {attack}
+    \subitem {control.Controller}, \hyperpage{33}
+
+  \indexspace
+
+  \item {Bag}
+    \subitem {model.equipments.Bag}, \hyperpage{15}
+  \item {bark}
+    \subitem {control.Controller}, \hyperpage{33}
+    \subitem {model.map.Field}, \hyperpage{76}
+    \subitem {model.map.Warehouse}, \hyperpage{187}
+    \subitem {model.Virologist}, \hyperpage{156}
+  \item {Bear}
+    \subitem {model.agents.Bear}, \hyperpage{18}
+  \item {Block}
+    \subitem {model.agents.Block}, \hyperpage{22}
+  \item {BlockCode}
+    \subitem {model.codes.BlockCode}, \hyperpage{25}
+
+  \indexspace
+
+  \item {Chorea}
+    \subitem {model.agents.Chorea}, \hyperpage{27}
+  \item {ChoreaCode}
+    \subitem {model.codes.ChoreaCode}, \hyperpage{29}
+  \item {Collect}
+    \subitem {model.strategy.DefCollect}, \hyperpage{52}
+    \subitem {model.strategy.ICollectStr}, \hyperpage{104}
+    \subitem {model.strategy.NoCollect}, \hyperpage{126}
+    \subitem {model.Virologist}, \hyperpage{156}
+  \item {collect}
+    \subitem {control.Controller}, \hyperpage{34}
+  \item {CollectMaterial}
+    \subitem {model.map.Field}, \hyperpage{76}
+    \subitem {model.map.Warehouse}, \hyperpage{187}
+  \item {control.Controller}, \hyperpage{31}
+    \subitem {attack}, \hyperpage{33}
+    \subitem {bark}, \hyperpage{33}
+    \subitem {collect}, \hyperpage{34}
+    \subitem {Controller}, \hyperpage{32}
+    \subitem {createObject}, \hyperpage{34}
+    \subitem {drop}, \hyperpage{35}
+    \subitem {endTurn}, \hyperpage{36}
+    \subitem {enemies}, \hyperpage{36}
+    \subitem {equip}, \hyperpage{37}
+    \subitem {Field}, \hyperpage{38}
+    \subitem {field}, \hyperpage{39}
+    \subitem {inject}, \hyperpage{40}
+    \subitem {learn}, \hyperpage{40}
+    \subitem {lootAmino}, \hyperpage{41}
+    \subitem {lootEquipment}, \hyperpage{42}
+    \subitem {lootNucleotide}, \hyperpage{42}
+    \subitem {main}, \hyperpage{43}
+    \subitem {map}, \hyperpage{43}
+    \subitem {move}, \hyperpage{44}
+    \subitem {Neighbours}, \hyperpage{45}
+    \subitem {randOff}, \hyperpage{45}
+    \subitem {randOn}, \hyperpage{46}
+    \subitem {run}, \hyperpage{46}
+    \subitem {state}, \hyperpage{47}
+    \subitem {Virologist}, \hyperpage{47}
+    \subitem {wau}, \hyperpage{48}
+  \item {control.Observer}, \hyperpage{141}
+  \item {control.ProtoInput}, \hyperpage{141}
+    \subitem {name}, \hyperpage{141}
+  \item {control.SingleTonScanner}, \hyperpage{143}
+    \subitem {Create}, \hyperpage{144}
+  \item {control.Subject}, \hyperpage{149}
+    \subitem {attach}, \hyperpage{149}
+    \subitem {detach}, \hyperpage{149}
+    \subitem {notifyAllObservers}, \hyperpage{149}
+  \item {Controller}
+    \subitem {control.Controller}, \hyperpage{32}
+  \item {Create}
+    \subitem {control.SingleTonScanner}, \hyperpage{144}
+    \subitem {model.codes.BlockCode}, \hyperpage{25}
+    \subitem {model.codes.ChoreaCode}, \hyperpage{29}
+    \subitem {model.codes.ForgetCode}, \hyperpage{86}
+    \subitem {model.codes.GeneticCode}, \hyperpage{96}
+    \subitem {model.codes.StunCode}, \hyperpage{148}
+    \subitem {model.Game}, \hyperpage{90}
+  \item {createObject}
+    \subitem {control.Controller}, \hyperpage{34}
+
+  \indexspace
+
+  \item {DecreaseActions}
+    \subitem {model.Virologist}, \hyperpage{157}
+  \item {DecreaseLimit}
+    \subitem {model.Virologist}, \hyperpage{158}
+  \item {DestroyMaterial}
+    \subitem {model.map.Field}, \hyperpage{77}
+    \subitem {model.map.Warehouse}, \hyperpage{188}
+  \item {detach}
+    \subitem {control.Subject}, \hyperpage{149}
+  \item {Disable}
+    \subitem {model.equipments.Bag}, \hyperpage{16}
+    \subitem {model.equipments.Equipment}, \hyperpage{72}
+  \item {Drop}
+    \subitem {model.map.Field}, \hyperpage{77}
+    \subitem {model.strategy.DefDrop}, \hyperpage{53}
+    \subitem {model.strategy.IDropStr}, \hyperpage{105}
+    \subitem {model.strategy.NoDrop}, \hyperpage{127}
+    \subitem {model.Virologist}, \hyperpage{159}
+  \item {drop}
+    \subitem {control.Controller}, \hyperpage{35}
+
+  \indexspace
+
+  \item {EndGame}
+    \subitem {model.Game}, \hyperpage{90}
+  \item {EndTurn}
+    \subitem {model.Virologist}, \hyperpage{159}
+  \item {endTurn}
+    \subitem {control.Controller}, \hyperpage{36}
+  \item {enemies}
+    \subitem {control.Controller}, \hyperpage{36}
+  \item {equals}
+    \subitem {model.agents.Agent}, \hyperpage{9}
+    \subitem {model.codes.GeneticCode}, \hyperpage{97}
+  \item {Equip}
+    \subitem {model.strategy.DefEquip}, \hyperpage{55}
+    \subitem {model.strategy.IEquipStr}, \hyperpage{107}
+    \subitem {model.strategy.NoEquip}, \hyperpage{129}
+    \subitem {model.Virologist}, \hyperpage{160}
+  \item {equip}
+    \subitem {control.Controller}, \hyperpage{37}
+  \item {equipments}
+    \subitem {model.map.Field}, \hyperpage{82}
+
+  \indexspace
+
+  \item {Field}
+    \subitem {control.Controller}, \hyperpage{38}
+    \subitem {model.map.Field}, \hyperpage{74}
+  \item {field}
+    \subitem {control.Controller}, \hyperpage{39}
+  \item {Forget}
+    \subitem {model.agents.Forget}, \hyperpage{84}
+  \item {ForgetCode}
+    \subitem {model.codes.ForgetCode}, \hyperpage{86}
+
+  \indexspace
+
+  \item {GetAminoAcid}
+    \subitem {model.Virologist}, \hyperpage{161}
+  \item {getAminoAcidPrice}
+    \subitem {model.codes.GeneticCode}, \hyperpage{97}
+  \item {GetContext}
+    \subitem {model.Virologist}, \hyperpage{161}
+  \item {GetCurrentPlayer}
+    \subitem {model.Game}, \hyperpage{91}
+  \item {GetEquipment}
+    \subitem {model.Virologist}, \hyperpage{161}
+  \item {getField}
+    \subitem {model.Virologist}, \hyperpage{162}
+  \item {GetFields}
+    \subitem {model.Game}, \hyperpage{92}
+  \item {getGeneticCodes}
+    \subitem {model.Virologist}, \hyperpage{162}
+  \item {getName}
+    \subitem {model.agents.Agent}, \hyperpage{10}
+    \subitem {model.codes.GeneticCode}, \hyperpage{98}
+    \subitem {model.equipments.Equipment}, \hyperpage{73}
+    \subitem {model.map.Field}, \hyperpage{78}
+    \subitem {model.Virologist}, \hyperpage{163}
+  \item {GetNeighbours}
+    \subitem {model.map.Field}, \hyperpage{78}
+  \item {GetNucleotide}
+    \subitem {model.Virologist}, \hyperpage{164}
+  \item {getNucleotidePrice}
+    \subitem {model.codes.GeneticCode}, \hyperpage{98}
+  \item {getTimeToLive}
+    \subitem {model.agents.Agent}, \hyperpage{10}
+    \subitem {model.agents.Bear}, \hyperpage{19}
+  \item {getTtl}
+    \subitem {model.agents.Agent}, \hyperpage{10}
+  \item {GetVirologists}
+    \subitem {model.map.Field}, \hyperpage{79}
+  \item {getVirologists}
+    \subitem {model.Game}, \hyperpage{93}
+
+  \indexspace
+
+  \item {IncreaseLimit}
+    \subitem {model.Virologist}, \hyperpage{164}
+  \item {InfectedLaboratory}
+    \subitem {model.map.InfectedLaboratory}, \hyperpage{119}
+  \item {Inject}
+    \subitem {model.strategy.DefInject}, \hyperpage{58}
+    \subitem {model.strategy.IInjectStr}, \hyperpage{110}
+    \subitem {model.strategy.NoInject}, \hyperpage{131}
+    \subitem {model.Virologist}, \hyperpage{165}
+  \item {inject}
+    \subitem {control.Controller}, \hyperpage{40}
+  \item {Injected}
+    \subitem {model.equipments.Glove}, \hyperpage{101}
+    \subitem {model.strategy.DefInjected}, \hyperpage{60}
+    \subitem {model.strategy.IInjectedStr}, \hyperpage{108}
+    \subitem {model.strategy.NoInjected}, \hyperpage{132, 133}
+
+  \indexspace
+
+  \item {Kill}
+    \subitem {model.Virologist}, \hyperpage{166}
+
+  \indexspace
+
+  \item {Laboratory}
+    \subitem {model.map.Laboratory}, \hyperpage{121}
+  \item {Learn}
+    \subitem {model.strategy.DefLearn}, \hyperpage{62}
+    \subitem {model.strategy.ILearnStr}, \hyperpage{111}
+    \subitem {model.strategy.NoLearn}, \hyperpage{134}
+    \subitem {model.Virologist}, \hyperpage{167}
+  \item {learn}
+    \subitem {control.Controller}, \hyperpage{40}
+  \item {LearnGeneticCode}
+    \subitem {model.map.Field}, \hyperpage{79}
+    \subitem {model.map.Laboratory}, \hyperpage{121}
+  \item {LootAmino}
+    \subitem {model.strategy.DefLoot}, \hyperpage{64}
+    \subitem {model.strategy.ILootStr}, \hyperpage{115}
+    \subitem {model.strategy.NoLoot}, \hyperpage{137}
+  \item {lootAmino}
+    \subitem {control.Controller}, \hyperpage{41}
+  \item {LootAminoAcidFrom}
+    \subitem {model.Virologist}, \hyperpage{167}
+  \item {Looted}
+    \subitem {model.strategy.Looted}, \hyperpage{122}
+  \item {LootedForAminoAcid}
+    \subitem {model.strategy.DefLooted}, \hyperpage{67}
+    \subitem {model.strategy.ILootedStr}, \hyperpage{112}
+    \subitem {model.strategy.Looted}, \hyperpage{123}
+  \item {LootedForEquipment}
+    \subitem {model.strategy.DefLooted}, \hyperpage{67}
+    \subitem {model.strategy.ILootedStr}, \hyperpage{113}
+    \subitem {model.strategy.Looted}, \hyperpage{123}
+  \item {LootedForNukleotide}
+    \subitem {model.strategy.DefLooted}, \hyperpage{68}
+    \subitem {model.strategy.ILootedStr}, \hyperpage{113}
+    \subitem {model.strategy.Looted}, \hyperpage{124}
+  \item {LootEquipment}
+    \subitem {model.strategy.DefLoot}, \hyperpage{65}
+    \subitem {model.strategy.ILootStr}, \hyperpage{115}
+    \subitem {model.strategy.NoLoot}, \hyperpage{138}
+  \item {lootEquipment}
+    \subitem {control.Controller}, \hyperpage{42}
+  \item {LootEquipmentFrom}
+    \subitem {model.Virologist}, \hyperpage{168}
+  \item {LootNucleotide}
+    \subitem {model.strategy.DefLoot}, \hyperpage{65}
+    \subitem {model.strategy.ILootStr}, \hyperpage{116}
+    \subitem {model.strategy.NoLoot}, \hyperpage{138}
+  \item {lootNucleotide}
+    \subitem {control.Controller}, \hyperpage{42}
+  \item {LootNucleotideFrom}
+    \subitem {model.Virologist}, \hyperpage{169}
+
+  \indexspace
+
+  \item {main}
+    \subitem {control.Controller}, \hyperpage{43}
+  \item {map}
+    \subitem {control.Controller}, \hyperpage{43}
+  \item {model.agents.Agent}, \hyperpage{7}
+    \subitem {Agent}, \hyperpage{8}
+    \subitem {Apply}, \hyperpage{8}
+    \subitem {ApplyStrategy}, \hyperpage{9}
+    \subitem {equals}, \hyperpage{9}
+    \subitem {getName}, \hyperpage{10}
+    \subitem {getTimeToLive}, \hyperpage{10}
+    \subitem {getTtl}, \hyperpage{10}
+    \subitem {setTtl}, \hyperpage{10}
+    \subitem {timeToLive}, \hyperpage{12}
+    \subitem {Update}, \hyperpage{11}
+  \item {model.agents.Bear}, \hyperpage{17}
+    \subitem {ApplyStrategy}, \hyperpage{18}
+    \subitem {Bear}, \hyperpage{18}
+    \subitem {getTimeToLive}, \hyperpage{19}
+    \subitem {Update}, \hyperpage{19}
+  \item {model.agents.Block}, \hyperpage{21}
+    \subitem {Apply}, \hyperpage{23}
+    \subitem {ApplyStrategy}, \hyperpage{23}
+    \subitem {Block}, \hyperpage{22}
+  \item {model.agents.Chorea}, \hyperpage{26}
+    \subitem {Apply}, \hyperpage{27}
+    \subitem {Chorea}, \hyperpage{27}
+  \item {model.agents.Forget}, \hyperpage{83}
+    \subitem {Apply}, \hyperpage{84}
+    \subitem {Forget}, \hyperpage{84}
+  \item {model.agents.Stun}, \hyperpage{144}
+    \subitem {ApplyStrategy}, \hyperpage{146}
+    \subitem {Stun}, \hyperpage{145}
+  \item {model.codes.BlockCode}, \hyperpage{24}
+    \subitem {BlockCode}, \hyperpage{25}
+    \subitem {Create}, \hyperpage{25}
+  \item {model.codes.ChoreaCode}, \hyperpage{28}
+    \subitem {ChoreaCode}, \hyperpage{29}
+    \subitem {Create}, \hyperpage{29}
+  \item {model.codes.ForgetCode}, \hyperpage{85}
+    \subitem {Create}, \hyperpage{86}
+    \subitem {ForgetCode}, \hyperpage{86}
+  \item {model.codes.GeneticCode}, \hyperpage{96}
+    \subitem {aminoAcidPrice}, \hyperpage{98}
+    \subitem {Create}, \hyperpage{96}
+    \subitem {equals}, \hyperpage{97}
+    \subitem {getAminoAcidPrice}, \hyperpage{97}
+    \subitem {getName}, \hyperpage{98}
+    \subitem {getNucleotidePrice}, \hyperpage{98}
+    \subitem {nucleotidePrice}, \hyperpage{99}
+    \subitem {turnsLeft}, \hyperpage{99}
+  \item {model.codes.StunCode}, \hyperpage{147}
+    \subitem {Create}, \hyperpage{148}
+    \subitem {StunCode}, \hyperpage{147}
+  \item {model.equipments.Axe}, \hyperpage{12}
+    \subitem {ApplyStrategy}, \hyperpage{13}
+    \subitem {Attack}, \hyperpage{13}
+  \item {model.equipments.Bag}, \hyperpage{14}
+    \subitem {Apply}, \hyperpage{15}
+    \subitem {Bag}, \hyperpage{15}
+    \subitem {Disable}, \hyperpage{16}
+  \item {model.equipments.Cloak}, \hyperpage{30}
+    \subitem {ApplyStrategy}, \hyperpage{31}
+  \item {model.equipments.Equipment}, \hyperpage{71}
+    \subitem {Apply}, \hyperpage{71}
+    \subitem {ApplyStrategy}, \hyperpage{72}
+    \subitem {Disable}, \hyperpage{72}
+    \subitem {getName}, \hyperpage{73}
+  \item {model.equipments.Glove}, \hyperpage{99}
+    \subitem {ApplyStrategy}, \hyperpage{100}
+    \subitem {Injected}, \hyperpage{101}
+  \item {model.Game}, \hyperpage{87}
+    \subitem {AddField}, \hyperpage{88}
+    \subitem {AddGeneticCode}, \hyperpage{89}
+    \subitem {AddVirologist}, \hyperpage{89}
+    \subitem {Create}, \hyperpage{90}
+    \subitem {EndGame}, \hyperpage{90}
+    \subitem {GetCurrentPlayer}, \hyperpage{91}
+    \subitem {GetFields}, \hyperpage{92}
+    \subitem {getVirologists}, \hyperpage{93}
+    \subitem {NewGame}, \hyperpage{93}
+    \subitem {NextPlayer}, \hyperpage{93}
+    \subitem {playerCount}, \hyperpage{95}
+    \subitem {randOn}, \hyperpage{95}
+    \subitem {RemoveVirologist}, \hyperpage{94}
+    \subitem {test}, \hyperpage{95}
+  \item {model.map.Field}, \hyperpage{73}
+    \subitem {AddNeighbour}, \hyperpage{74}
+    \subitem {AddVirologist}, \hyperpage{75}
+    \subitem {bark}, \hyperpage{76}
+    \subitem {CollectMaterial}, \hyperpage{76}
+    \subitem {DestroyMaterial}, \hyperpage{77}
+    \subitem {Drop}, \hyperpage{77}
+    \subitem {equipments}, \hyperpage{82}
+    \subitem {Field}, \hyperpage{74}
+    \subitem {getName}, \hyperpage{78}
+    \subitem {GetNeighbours}, \hyperpage{78}
+    \subitem {GetVirologists}, \hyperpage{79}
+    \subitem {LearnGeneticCode}, \hyperpage{79}
+    \subitem {name}, \hyperpage{82}
+    \subitem {neighbours}, \hyperpage{82}
+    \subitem {PickUpEquipment}, \hyperpage{80}
+    \subitem {RemoveVirologist}, \hyperpage{81}
+    \subitem {setName}, \hyperpage{81}
+    \subitem {virologists}, \hyperpage{82}
+  \item {model.map.InfectedLaboratory}, \hyperpage{118}
+    \subitem {AddVirologist}, \hyperpage{119}
+    \subitem {InfectedLaboratory}, \hyperpage{119}
+  \item {model.map.Laboratory}, \hyperpage{120}
+    \subitem {Laboratory}, \hyperpage{121}
+    \subitem {LearnGeneticCode}, \hyperpage{121}
+  \item {model.map.Shelter}, \hyperpage{142}
+    \subitem {Shelter}, \hyperpage{143}
+  \item {model.map.Warehouse}, \hyperpage{186}
+    \subitem {bark}, \hyperpage{187}
+    \subitem {CollectMaterial}, \hyperpage{187}
+    \subitem {DestroyMaterial}, \hyperpage{188}
+  \item {model.strategy.BearMove}, \hyperpage{20}
+    \subitem {Move}, \hyperpage{20}
+  \item {model.strategy.DefAttack}, \hyperpage{49}
+    \subitem {Attack}, \hyperpage{50}
+  \item {model.strategy.DefCollect}, \hyperpage{51}
+    \subitem {Collect}, \hyperpage{52}
+  \item {model.strategy.DefDrop}, \hyperpage{53}
+    \subitem {Drop}, \hyperpage{53}
+  \item {model.strategy.DefEquip}, \hyperpage{55}
+    \subitem {Equip}, \hyperpage{55}
+  \item {model.strategy.DefInject}, \hyperpage{57}
+    \subitem {Inject}, \hyperpage{58}
+  \item {model.strategy.DefInjected}, \hyperpage{59}
+    \subitem {Injected}, \hyperpage{60}
+  \item {model.strategy.DefLearn}, \hyperpage{62}
+    \subitem {Learn}, \hyperpage{62}
+  \item {model.strategy.DefLoot}, \hyperpage{63}
+    \subitem {LootAmino}, \hyperpage{64}
+    \subitem {LootEquipment}, \hyperpage{65}
+    \subitem {LootNucleotide}, \hyperpage{65}
+  \item {model.strategy.DefLooted}, \hyperpage{66}
+    \subitem {LootedForAminoAcid}, \hyperpage{67}
+    \subitem {LootedForEquipment}, \hyperpage{67}
+    \subitem {LootedForNukleotide}, \hyperpage{68}
+  \item {model.strategy.DefMove}, \hyperpage{69}
+    \subitem {Move}, \hyperpage{69}
+  \item {model.strategy.IAttackStr}, \hyperpage{102}
+    \subitem {Attack}, \hyperpage{103}
+  \item {model.strategy.ICollectStr}, \hyperpage{104}
+    \subitem {Collect}, \hyperpage{104}
+  \item {model.strategy.IDropStr}, \hyperpage{105}
+    \subitem {Drop}, \hyperpage{105}
+  \item {model.strategy.IEquipStr}, \hyperpage{106}
+    \subitem {Equip}, \hyperpage{107}
+  \item {model.strategy.IInjectedStr}, \hyperpage{107}
+    \subitem {Injected}, \hyperpage{108}
+  \item {model.strategy.IInjectStr}, \hyperpage{109}
+    \subitem {Inject}, \hyperpage{110}
+  \item {model.strategy.ILearnStr}, \hyperpage{110}
+    \subitem {Learn}, \hyperpage{111}
+  \item {model.strategy.ILootedStr}, \hyperpage{112}
+    \subitem {LootedForAminoAcid}, \hyperpage{112}
+    \subitem {LootedForEquipment}, \hyperpage{113}
+    \subitem {LootedForNukleotide}, \hyperpage{113}
+  \item {model.strategy.ILootStr}, \hyperpage{114}
+    \subitem {LootAmino}, \hyperpage{115}
+    \subitem {LootEquipment}, \hyperpage{115}
+    \subitem {LootNucleotide}, \hyperpage{116}
+  \item {model.strategy.IMoveStr}, \hyperpage{116}
+    \subitem {Move}, \hyperpage{117}
+  \item {model.strategy.Looted}, \hyperpage{122}
+    \subitem {Looted}, \hyperpage{122}
+    \subitem {LootedForAminoAcid}, \hyperpage{123}
+    \subitem {LootedForEquipment}, \hyperpage{123}
+    \subitem {LootedForNukleotide}, \hyperpage{124}
+  \item {model.strategy.NoCollect}, \hyperpage{125}
+    \subitem {Collect}, \hyperpage{126}
+  \item {model.strategy.NoDrop}, \hyperpage{127}
+    \subitem {Drop}, \hyperpage{127}
+  \item {model.strategy.NoEquip}, \hyperpage{128}
+    \subitem {Equip}, \hyperpage{129}
+  \item {model.strategy.NoInject}, \hyperpage{130}
+    \subitem {Inject}, \hyperpage{131}
+  \item {model.strategy.NoInjected}, \hyperpage{132}
+    \subitem {Injected}, \hyperpage{132, 133}
+  \item {model.strategy.NoLearn}, \hyperpage{134}
+    \subitem {Learn}, \hyperpage{134}
+  \item {model.strategy.NoLoot}, \hyperpage{136}
+    \subitem {LootAmino}, \hyperpage{137}
+    \subitem {LootEquipment}, \hyperpage{138}
+    \subitem {LootNucleotide}, \hyperpage{138}
+  \item {model.strategy.NoMove}, \hyperpage{139}
+    \subitem {Move}, \hyperpage{140}
+  \item {model.Virologist}, \hyperpage{150}
+    \subitem {AddAgent}, \hyperpage{152}
+    \subitem {AddAminoAcid}, \hyperpage{152}
+    \subitem {AddEquipment}, \hyperpage{153}
+    \subitem {AddGeneticCode}, \hyperpage{154}
+    \subitem {AddNucleotide}, \hyperpage{154}
+    \subitem {Attack}, \hyperpage{155}
+    \subitem {bark}, \hyperpage{156}
+    \subitem {Collect}, \hyperpage{156}
+    \subitem {DecreaseActions}, \hyperpage{157}
+    \subitem {DecreaseLimit}, \hyperpage{158}
+    \subitem {Drop}, \hyperpage{159}
+    \subitem {EndTurn}, \hyperpage{159}
+    \subitem {Equip}, \hyperpage{160}
+    \subitem {GetAminoAcid}, \hyperpage{161}
+    \subitem {GetContext}, \hyperpage{161}
+    \subitem {GetEquipment}, \hyperpage{161}
+    \subitem {getField}, \hyperpage{162}
+    \subitem {getGeneticCodes}, \hyperpage{162}
+    \subitem {getName}, \hyperpage{163}
+    \subitem {GetNucleotide}, \hyperpage{164}
+    \subitem {IncreaseLimit}, \hyperpage{164}
+    \subitem {Inject}, \hyperpage{165}
+    \subitem {Kill}, \hyperpage{166}
+    \subitem {Learn}, \hyperpage{167}
+    \subitem {LootAminoAcidFrom}, \hyperpage{167}
+    \subitem {LootEquipmentFrom}, \hyperpage{168}
+    \subitem {LootNucleotideFrom}, \hyperpage{169}
+    \subitem {Move}, \hyperpage{169, 170}
+    \subitem {RemoveAgent}, \hyperpage{171}
+    \subitem {RemoveAgents}, \hyperpage{171}
+    \subitem {RemoveAminoAcid}, \hyperpage{172}
+    \subitem {RemoveEquipment}, \hyperpage{172}
+    \subitem {RemoveGeneticCodes}, \hyperpage{173}
+    \subitem {RemoveNucleotide}, \hyperpage{173}
+    \subitem {Reset}, \hyperpage{174}
+    \subitem {SetActionCount}, \hyperpage{174}
+    \subitem {SetAttackStr}, \hyperpage{175}
+    \subitem {SetCollectStr}, \hyperpage{175}
+    \subitem {SetDropStr}, \hyperpage{176}
+    \subitem {SetEquipStr}, \hyperpage{176}
+    \subitem {SetField}, \hyperpage{177}
+    \subitem {SetGame}, \hyperpage{177}
+    \subitem {SetInjectedStr}, \hyperpage{178}
+    \subitem {SetInjectStr}, \hyperpage{178}
+    \subitem {SetLearnStr}, \hyperpage{179}
+    \subitem {SetLootedStr}, \hyperpage{179}
+    \subitem {SetLootStr}, \hyperpage{180}
+    \subitem {SetMoveStr}, \hyperpage{180}
+    \subitem {setName}, \hyperpage{181}
+    \subitem {StealAminoAcid}, \hyperpage{182}
+    \subitem {StealEquipment}, \hyperpage{182}
+    \subitem {StealNukleotid}, \hyperpage{183}
+    \subitem {TargetedWith}, \hyperpage{184}
+    \subitem {Update}, \hyperpage{185}
+    \subitem {Virologist}, \hyperpage{151}
+  \item {Move}
+    \subitem {model.strategy.BearMove}, \hyperpage{20}
+    \subitem {model.strategy.DefMove}, \hyperpage{69}
+    \subitem {model.strategy.IMoveStr}, \hyperpage{117}
+    \subitem {model.strategy.NoMove}, \hyperpage{140}
+    \subitem {model.Virologist}, \hyperpage{169, 170}
+  \item {move}
+    \subitem {control.Controller}, \hyperpage{44}
+
+  \indexspace
+
+  \item {name}
+    \subitem {control.ProtoInput}, \hyperpage{141}
+    \subitem {model.map.Field}, \hyperpage{82}
+  \item {Neighbours}
+    \subitem {control.Controller}, \hyperpage{45}
+  \item {neighbours}
+    \subitem {model.map.Field}, \hyperpage{82}
+  \item {NewGame}
+    \subitem {model.Game}, \hyperpage{93}
+  \item {NextPlayer}
+    \subitem {model.Game}, \hyperpage{93}
+  \item {notifyAllObservers}
+    \subitem {control.Subject}, \hyperpage{149}
+  \item {nucleotidePrice}
+    \subitem {model.codes.GeneticCode}, \hyperpage{99}
+
+  \indexspace
+
+  \item {PickUpEquipment}
+    \subitem {model.map.Field}, \hyperpage{80}
+  \item {playerCount}
+    \subitem {model.Game}, \hyperpage{95}
+  \item {Proto/src/control/Controller.java}, \hyperpage{189}
+  \item {Proto/src/control/Observer.java}, \hyperpage{194}
+  \item {Proto/src/control/ProtoInput.java}, \hyperpage{194}
+  \item {Proto/src/control/SingleTonScanner.java}, \hyperpage{194}
+  \item {Proto/src/control/Subject.java}, \hyperpage{194}
+  \item {Proto/src/model/agents/Agent.java}, \hyperpage{195}
+  \item {Proto/src/model/agents/Bear.java}, \hyperpage{195}
+  \item {Proto/src/model/agents/Block.java}, \hyperpage{196}
+  \item {Proto/src/model/agents/Chorea.java}, \hyperpage{196}
+  \item {Proto/src/model/agents/Forget.java}, \hyperpage{196}
+  \item {Proto/src/model/agents/Stun.java}, \hyperpage{196}
+  \item {Proto/src/model/codes/BlockCode.java}, \hyperpage{197}
+  \item {Proto/src/model/codes/ChoreaCode.java}, \hyperpage{197}
+  \item {Proto/src/model/codes/ForgetCode.java}, \hyperpage{198}
+  \item {Proto/src/model/codes/GeneticCode.java}, \hyperpage{198}
+  \item {Proto/src/model/codes/StunCode.java}, \hyperpage{199}
+  \item {Proto/src/model/equipments/Axe.java}, \hyperpage{199}
+  \item {Proto/src/model/equipments/Bag.java}, \hyperpage{200}
+  \item {Proto/src/model/equipments/Cloak.java}, \hyperpage{200}
+  \item {Proto/src/model/equipments/Equipment.java}, \hyperpage{200}
+  \item {Proto/src/model/equipments/Glove.java}, \hyperpage{201}
+  \item {Proto/src/model/Game.java}, \hyperpage{201}
+  \item {Proto/src/model/map/Field.java}, \hyperpage{202}
+  \item {Proto/src/model/map/InfectedLaboratory.java}, \hyperpage{203}
+  \item {Proto/src/model/map/Laboratory.java}, \hyperpage{204}
+  \item {Proto/src/model/map/Shelter.java}, \hyperpage{204}
+  \item {Proto/src/model/map/Warehouse.java}, \hyperpage{204}
+  \item {Proto/src/model/strategy/BearMove.java}, \hyperpage{205}
+  \item {Proto/src/model/strategy/DefAttack.java}, \hyperpage{205}
+  \item {Proto/src/model/strategy/DefCollect.java}, \hyperpage{206}
+  \item {Proto/src/model/strategy/DefDrop.java}, \hyperpage{206}
+  \item {Proto/src/model/strategy/DefEquip.java}, \hyperpage{206}
+  \item {Proto/src/model/strategy/DefInject.java}, \hyperpage{206}
+  \item {Proto/src/model/strategy/DefInjected.java}, \hyperpage{207}
+  \item {Proto/src/model/strategy/DefLearn.java}, \hyperpage{207}
+  \item {Proto/src/model/strategy/DefLoot.java}, \hyperpage{207}
+  \item {Proto/src/model/strategy/DefLooted.java}, \hyperpage{208}
+  \item {Proto/src/model/strategy/DefMove.java}, \hyperpage{208}
+  \item {Proto/src/model/strategy/IAttackStr.java}, \hyperpage{208}
+  \item {Proto/src/model/strategy/ICollectStr.java}, \hyperpage{208}
+  \item {Proto/src/model/strategy/IDropStr.java}, \hyperpage{209}
+  \item {Proto/src/model/strategy/IEquipStr.java}, \hyperpage{209}
+  \item {Proto/src/model/strategy/IInjectedStr.java}, \hyperpage{209}
+  \item {Proto/src/model/strategy/IInjectStr.java}, \hyperpage{209}
+  \item {Proto/src/model/strategy/ILearnStr.java}, \hyperpage{209}
+  \item {Proto/src/model/strategy/ILootedStr.java}, \hyperpage{210}
+  \item {Proto/src/model/strategy/ILootStr.java}, \hyperpage{210}
+  \item {Proto/src/model/strategy/IMoveStr.java}, \hyperpage{210}
+  \item {Proto/src/model/strategy/Looted.java}, \hyperpage{210}
+  \item {Proto/src/model/strategy/NoCollect.java}, \hyperpage{211}
+  \item {Proto/src/model/strategy/NoDrop.java}, \hyperpage{211}
+  \item {Proto/src/model/strategy/NoEquip.java}, \hyperpage{211}
+  \item {Proto/src/model/strategy/NoInject.java}, \hyperpage{211}
+  \item {Proto/src/model/strategy/NoInjected.java}, \hyperpage{212}
+  \item {Proto/src/model/strategy/NoLearn.java}, \hyperpage{212}
+  \item {Proto/src/model/strategy/NoLoot.java}, \hyperpage{212}
+  \item {Proto/src/model/strategy/NoMove.java}, \hyperpage{213}
+  \item {Proto/src/model/Virologist.java}, \hyperpage{213}
+
+  \indexspace
+
+  \item {randOff}
+    \subitem {control.Controller}, \hyperpage{45}
+  \item {randOn}
+    \subitem {control.Controller}, \hyperpage{46}
+    \subitem {model.Game}, \hyperpage{95}
+  \item {RemoveAgent}
+    \subitem {model.Virologist}, \hyperpage{171}
+  \item {RemoveAgents}
+    \subitem {model.Virologist}, \hyperpage{171}
+  \item {RemoveAminoAcid}
+    \subitem {model.Virologist}, \hyperpage{172}
+  \item {RemoveEquipment}
+    \subitem {model.Virologist}, \hyperpage{172}
+  \item {RemoveGeneticCodes}
+    \subitem {model.Virologist}, \hyperpage{173}
+  \item {RemoveNucleotide}
+    \subitem {model.Virologist}, \hyperpage{173}
+  \item {RemoveVirologist}
+    \subitem {model.Game}, \hyperpage{94}
+    \subitem {model.map.Field}, \hyperpage{81}
+  \item {Reset}
+    \subitem {model.Virologist}, \hyperpage{174}
+  \item {run}
+    \subitem {control.Controller}, \hyperpage{46}
+
+  \indexspace
+
+  \item {SetActionCount}
+    \subitem {model.Virologist}, \hyperpage{174}
+  \item {SetAttackStr}
+    \subitem {model.Virologist}, \hyperpage{175}
+  \item {SetCollectStr}
+    \subitem {model.Virologist}, \hyperpage{175}
+  \item {SetDropStr}
+    \subitem {model.Virologist}, \hyperpage{176}
+  \item {SetEquipStr}
+    \subitem {model.Virologist}, \hyperpage{176}
+  \item {SetField}
+    \subitem {model.Virologist}, \hyperpage{177}
+  \item {SetGame}
+    \subitem {model.Virologist}, \hyperpage{177}
+  \item {SetInjectedStr}
+    \subitem {model.Virologist}, \hyperpage{178}
+  \item {SetInjectStr}
+    \subitem {model.Virologist}, \hyperpage{178}
+  \item {SetLearnStr}
+    \subitem {model.Virologist}, \hyperpage{179}
+  \item {SetLootedStr}
+    \subitem {model.Virologist}, \hyperpage{179}
+  \item {SetLootStr}
+    \subitem {model.Virologist}, \hyperpage{180}
+  \item {SetMoveStr}
+    \subitem {model.Virologist}, \hyperpage{180}
+  \item {setName}
+    \subitem {model.map.Field}, \hyperpage{81}
+    \subitem {model.Virologist}, \hyperpage{181}
+  \item {setTtl}
+    \subitem {model.agents.Agent}, \hyperpage{10}
+  \item {Shelter}
+    \subitem {model.map.Shelter}, \hyperpage{143}
+  \item {state}
+    \subitem {control.Controller}, \hyperpage{47}
+  \item {StealAminoAcid}
+    \subitem {model.Virologist}, \hyperpage{182}
+  \item {StealEquipment}
+    \subitem {model.Virologist}, \hyperpage{182}
+  \item {StealNukleotid}
+    \subitem {model.Virologist}, \hyperpage{183}
+  \item {Stun}
+    \subitem {model.agents.Stun}, \hyperpage{145}
+  \item {StunCode}
+    \subitem {model.codes.StunCode}, \hyperpage{147}
+
+  \indexspace
+
+  \item {TargetedWith}
+    \subitem {model.Virologist}, \hyperpage{184}
+  \item {test}
+    \subitem {model.Game}, \hyperpage{95}
+  \item {timeToLive}
+    \subitem {model.agents.Agent}, \hyperpage{12}
+  \item {turnsLeft}
+    \subitem {model.codes.GeneticCode}, \hyperpage{99}
+
+  \indexspace
+
+  \item {Update}
+    \subitem {model.agents.Agent}, \hyperpage{11}
+    \subitem {model.agents.Bear}, \hyperpage{19}
+    \subitem {model.Virologist}, \hyperpage{185}
+
+  \indexspace
+
+  \item {Virologist}
+    \subitem {control.Controller}, \hyperpage{47}
+    \subitem {model.Virologist}, \hyperpage{151}
+  \item {virologists}
+    \subitem {model.map.Field}, \hyperpage{82}
+
+  \indexspace
+
+  \item {wau}
+    \subitem {control.Controller}, \hyperpage{48}
+
+\end{theindex}

@@ -1,0 +1,8 @@
+<map id="model.agents.Agent" name="model.agents.Agent">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,144,133"/>
+<area shape="rect" id="node2" href="$classmodel_1_1agents_1_1_bear.html" title=" " alt="" coords="199,5,330,32"/>
+<area shape="rect" id="node3" href="$classmodel_1_1agents_1_1_block.html" title=" " alt="" coords="196,56,333,83"/>
+<area shape="rect" id="node4" href="$classmodel_1_1agents_1_1_chorea.html" title=" " alt="" coords="192,107,337,133"/>
+<area shape="rect" id="node5" href="$classmodel_1_1agents_1_1_forget.html" title=" " alt="" coords="194,157,335,184"/>
+<area shape="rect" id="node6" href="$classmodel_1_1agents_1_1_stun.html" title=" " alt="" coords="199,208,330,235"/>
+</map>

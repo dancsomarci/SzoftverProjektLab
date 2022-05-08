@@ -1,0 +1,6 @@
+<map id="model.strategy.DefLoot.LootEquipment" name="model.strategy.DefLoot.LootEquipment">
+<area shape="rect" id="node1" title=" " alt="" coords="5,35,191,76"/>
+<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a631d5664b8655669b8b0c1ae7137bb33" title=" " alt="" coords="257,5,431,47"/>
+<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#af0a35cbafe895807c5bb473966be61fe" title=" " alt="" coords="239,71,449,98"/>
+<area shape="rect" id="node4" href="$interfacemodel_1_1strategy_1_1_i_looted_str.html#ab21f99095e4daffa99f1fbaa8e93c483" title=" " alt="" coords="497,64,672,105"/>
+</map>
