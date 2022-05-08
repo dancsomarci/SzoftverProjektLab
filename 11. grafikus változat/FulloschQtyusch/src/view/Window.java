@@ -19,11 +19,38 @@ public class Window extends Observer {
     Controller controller;
     Game game;
 
+    public Window(){
+        JFrame f= new JFrame("Vak virológusok földje");
+        JMenuBar mainMenu = new JMenuBar();
+        JMenu actions = new JMenu("Actions");
+        mainMenu.add(actions);
+        f.setJMenuBar(mainMenu);
+
+
+
+//        JMenu subMenu= new JMenu("items");
+//        JMenuItem i1=new JMenuItem("Item 1");
+//        JMenuItem i2=new JMenuItem("Item 2");
+//        JMenuItem i3=new JMenuItem("Item 3");
+//        JMenuItem i4=new JMenuItem("Item 4");
+//        JMenuItem i5=new JMenuItem("Item 5");
+
+
+        f.setSize(600,600);
+        f.setLayout(null);
+        f.setVisible(true);
+    }
+
+    public static void main(String[] args){
+        new Window();
+    }
+
     public Window(Controller controller, Game game){
         this.controller = controller;
         this.game = game;
     }
 
+    @Override
     public void update(){
 
     }
