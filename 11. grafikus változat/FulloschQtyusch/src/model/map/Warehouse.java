@@ -1,7 +1,6 @@
 package model.map;
 
 
-import control.SingleTonScanner;
 import model.Virologist;
 import model.equipments.Equipment;
 

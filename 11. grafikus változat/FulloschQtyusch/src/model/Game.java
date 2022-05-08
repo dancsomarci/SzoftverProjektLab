@@ -15,10 +15,6 @@ import java.util.List;
  */
 public class Game extends Subject
 {
-	public void test(){
-		notifyAllObservers();
-	}
-
 	/**
 	 * A pálya mezői
 	 */
