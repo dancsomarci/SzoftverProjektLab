@@ -20,7 +20,7 @@ public class Window extends Observer {
     Game game;
 
     public Window(){
-        JFrame f= new JFrame("Vak virológusok földje");
+        JFrame f= new JFrame("Világtalan virológusok világa");
         JMenuBar mainMenu = new JMenuBar();
         JMenu actions = new JMenu("Actions");
         mainMenu.add(actions);
@@ -52,6 +52,8 @@ public class Window extends Observer {
 
     @Override
     public void update(){
+        game.GetCurrentPlayer();
+
 
     }
 
