@@ -29,12 +29,15 @@ public class Controller extends Subject {
     public Controller(Game game) {
         game = game;
         window = new Window(this, game);
+        attach(window);
+        Virologist first = game.GetCurrentPlayer();
+        first.attach(window);
         actionMessage = "";
     }
 
     public void attack(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
-
+        actionMessage = currentPlayer.getName() + " trying to attack" + v.getName() + "...";
     }
 
     public void move(Field f){
@@ -94,6 +97,10 @@ public class Controller extends Subject {
     public void endTurn(){
         Virologist currentPlayer = game.GetCurrentPlayer();
         currentPlayer.EndTurn();
+        currentPlayer.detach(window);
+        currentPlayer = game.GetCurrentPlayer();
+        currentPlayer.attach(window);
+
     }
 
     public String getActionMessage(){

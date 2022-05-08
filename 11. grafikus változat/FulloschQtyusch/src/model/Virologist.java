@@ -234,6 +234,7 @@ public class Virologist extends Subject
 
 		field.RemoveVirologist(this);
 		game.RemoveVirologist(this);
+		notifyAllObservers();
 	}
 
 	/**
@@ -244,6 +245,7 @@ public class Virologist extends Subject
 		if (actionCount > 0){
 			attackStr.Attack(this, v);
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -253,6 +255,7 @@ public class Virologist extends Subject
 	 */
 	public void TargetedWith(Virologist who, Agent a){
 		injectedStr.Injected(who, this, a);
+		notifyAllObservers();
 	}
 
 	/**
@@ -261,6 +264,7 @@ public class Virologist extends Subject
 	 */
 	public void RemoveEquipment(Equipment e){
 		equipments.remove(e);
+		notifyAllObservers();
 	}
 
 	/**
@@ -282,6 +286,7 @@ public class Virologist extends Subject
 				}
 			}
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -295,6 +300,7 @@ public class Virologist extends Subject
 		if (actionCount > 0) {
 			moveStr.Move(this, this.field, field);
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -315,6 +321,7 @@ public class Virologist extends Subject
 		if (actionCount > 0 && equipments.size() > 0) {
 			dropStr.Drop(this, field, equipments.remove(equipments.size()-1));
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -328,6 +335,7 @@ public class Virologist extends Subject
 		if (actionCount > 0) {
 			lootStr.LootAmino(this, v);
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -341,6 +349,7 @@ public class Virologist extends Subject
 		if (actionCount > 0) {
 			lootStr.LootNucleotide(this, v);
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -354,6 +363,7 @@ public class Virologist extends Subject
 		if (actionCount > 0 && equipments.size() < maxNumberOfItems) {
 			lootStr.LootEquipment(this, v);
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -364,6 +374,7 @@ public class Virologist extends Subject
 		if (actionCount > 0) {
 			collectStr.Collect(this, field);
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -375,6 +386,7 @@ public class Virologist extends Subject
 		if (actionCount > 0) {
 			learnStr.Learn(this, field);
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -385,7 +397,7 @@ public class Virologist extends Subject
 		if (actionCount > 0) {
 			equipStr.Equip(this, field);
 		}
-
+		notifyAllObservers();
 	}
 
 	/**
@@ -424,6 +436,7 @@ public class Virologist extends Subject
 			equipments.add(e);
 		e.Apply(this);
 		e.ApplyStrategy(this);
+		notifyAllObservers();
 	}
 
 	/**
@@ -447,6 +460,7 @@ public class Virologist extends Subject
 	{
 		if (!codes.contains(code))
 			codes.add(code);
+		notifyAllObservers();
 	}
 
 	/**
@@ -461,7 +475,7 @@ public class Virologist extends Subject
 		{
 			injectStr.Inject(this, v, code);
 		}
-
+		notifyAllObservers();
 	}
 
 	/**
@@ -471,6 +485,7 @@ public class Virologist extends Subject
 	public void TargetedWith(Agent a)
 	{
 		injectedStr.Injected(this, a);
+		notifyAllObservers();
 	}
 
 	/**
@@ -480,6 +495,7 @@ public class Virologist extends Subject
 	public void StealAminoAcid(Virologist self)
 	{
 		lootedStr.LootedForAminoAcid(self, this);
+		notifyAllObservers();
 	}
 
 	/**
@@ -489,6 +505,7 @@ public class Virologist extends Subject
 	public void StealNukleotid(Virologist self)
 	{
 		lootedStr.LootedForNukleotide(self, this);
+		notifyAllObservers();
 	}
 
 	/**
@@ -508,6 +525,7 @@ public class Virologist extends Subject
 				lootedStr.LootedForEquipment(self,this, equipments.get(0));
 			}
 		}
+		notifyAllObservers();
 	}
 
 	/**
@@ -516,6 +534,8 @@ public class Virologist extends Subject
 	public void RemoveGeneticCodes()
 	{
 		codes.clear();
+		notifyAllObservers();
+		notifyAllObservers();
 	}
 
 	/**
@@ -524,6 +544,8 @@ public class Virologist extends Subject
 	public void RemoveAgents()
 	{
 		agents.clear();
+		notifyAllObservers();
+		notifyAllObservers();
 	}
 
 	/**
