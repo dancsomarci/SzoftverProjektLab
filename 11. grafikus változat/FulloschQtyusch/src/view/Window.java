@@ -8,9 +8,12 @@ import model.map.Field;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import java.awt.*;
+import java.awt.geom.Path2D;
+import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,12 +31,16 @@ public class Window extends Observer{
     private JLabel nucleoLabel;
     private JLabel turnCounter;
     private JLabel actionBubble;
+    private JButton equipment1;
+    private JButton equipment2;
+    private JButton equipment3;
+    private JLabel backGround;
 
     Controller controller;
     Game game;
 
     public Window(){
-        JFrame f= new JFrame("Világtalan virológusok világa");
+        JFrame f= new JFrame("Vilagtalan virologusok vilaga");
         JMenuBar mainMenu = new JMenuBar();
         JMenu actions = new JMenu("Actions");
         mainMenu.add(actions);
@@ -156,17 +163,65 @@ public class Window extends Observer{
             e.printStackTrace();
         }
         endButton = new JButton(new ImageIcon(endButtonIcon));
-        endButton.setContentAreaFilled(true);
         endButton.setBorder(null);
-        endButton.setOpaque(false);
+        endButton.setContentAreaFilled(false);
         endButton.setBorderPainted(false);
-        endButton.setBackground(Color.GREEN);
-        endButton.setBounds(450, 450, 70, 70);
-        endButton.setBorder(new RoundedBorder(35));
+        endButton.setBackground(Color.BLACK);
+        endButton.setOpaque(false);
+        endButton.setBounds(480, 450, 70, 70);
 
+
+        nucleoBar = new JProgressBar();
+        nucleoBar.setBounds(215, 460, 170, 25);
         aminoBar = new JProgressBar();
+        aminoBar.setBounds(215, 495, 170, 25);
 
-        layeredPane.add(endButton, Integer.valueOf(0));
+        Image equipmentSlotIcon = null;
+        try {
+            equipmentSlotIcon = ImageIO.read(new File("textures/itemSlot.png"));
+            equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        equipment1 = new JButton(new ImageIcon(equipmentSlotIcon));
+        equipment1.setBounds(15, 340, 50, 50);
+        equipment1.setFocusPainted(false);
+        equipment1.setBorderPainted(false);
+        equipment2 = new JButton(new ImageIcon(equipmentSlotIcon));
+        equipment2.setBounds(15, 400, 50, 50);
+        equipment2.setFocusPainted(false);
+        equipment2.setBorderPainted(false);
+        equipment3 = new JButton(new ImageIcon(equipmentSlotIcon));
+        equipment3.setBounds(15, 460, 50, 50);
+        equipment3.setFocusPainted(false);
+        equipment3.setBorderPainted(false);
+
+        turnCounter = new JLabel("3 / 3");
+        turnCounter.setFont(new Font("Serif", Font.BOLD, 48));
+        turnCounter.setForeground(Color.white);
+        turnCounter.setBounds(490, 25, 160, 50);
+
+
+        Image backGroundIMG;
+        ImageIcon backGroundIcon;
+        backGround = new JLabel();
+        try {
+            backGroundIMG = ImageIO.read(new File("textures/Warehouse.png"));
+            backGroundIMG = backGroundIMG.getScaledInstance(600, 600, Image.SCALE_SMOOTH);
+            backGroundIcon = new ImageIcon(backGroundIMG);
+            backGround = new JLabel(backGroundIcon);
+            backGround.setBounds(0, 0, 600, 600);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        layeredPane.add(backGround, Integer.valueOf(0));
+        layeredPane.add(endButton, Integer.valueOf(1));
+        layeredPane.add(aminoBar, Integer.valueOf(1));
+        layeredPane.add(nucleoBar, Integer.valueOf(1));
+        layeredPane.add(equipment1, Integer.valueOf(1));
+        layeredPane.add(equipment2, Integer.valueOf(1));
+        layeredPane.add(equipment3, Integer.valueOf(1));
+        layeredPane.add(turnCounter, Integer.valueOf(1));
         f.add(layeredPane);
         f.setSize(600,600);
         f.setResizable(false);
@@ -189,30 +244,4 @@ public class Window extends Observer{
 
 
     }
-
-    private static class RoundedBorder implements Border {
-
-        private int radius;
-
-
-        RoundedBorder(int radius) {
-            this.radius = radius;
-        }
-
-
-        public Insets getBorderInsets(Component c) {
-            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-        }
-
-
-        public boolean isBorderOpaque() {
-            return true;
-        }
-
-
-        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-        }
-    }
-
 }
