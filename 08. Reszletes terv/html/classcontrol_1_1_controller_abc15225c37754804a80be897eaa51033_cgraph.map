@@ -1,0 +1,7 @@
+<map id="control.Controller.lootNucleotide" name="control.Controller.lootNucleotide">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,212,83"/>
+<area shape="rect" id="node2" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="277,5,477,32"/>
+<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="292,56,463,83"/>
+<area shape="rect" id="node4" href="$classmodel_1_1_virologist.html#aa72002e32d4923cf9a818c38cfae0436" title=" " alt="" coords="260,107,495,133"/>
+<area shape="rect" id="node5" href="$interfacemodel_1_1strategy_1_1_i_loot_str.html#a3f038bef6da11f5bbb0e97c6df718d1f" title=" " alt="" coords="543,99,704,141"/>
+</map>

@@ -1,0 +1,460 @@
+\hypertarget{_virologist_8java_source}{}\doxysection{Virologist.\+java}
+\label{_virologist_8java_source}\index{Proto/src/model/Virologist.java@{Proto/src/model/Virologist.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00001}00001 \textcolor{keyword}{package }model;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00004}00004 \textcolor{keyword}{import} control.Controller;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00005}00005 \textcolor{keyword}{import} model.agents.*;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00006}00006 \textcolor{keyword}{import} model.codes.*;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00007}00007 \textcolor{keyword}{import} model.equipments.*;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00008}00008 \textcolor{keyword}{import} model.map.*;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00009}00009 \textcolor{keyword}{import} model.strategy.*;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00011}00011 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00012}00012 \textcolor{keyword}{import} java.util.LinkedList;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00013}00013 \textcolor{keyword}{import} java.util.Random;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00020}\mbox{\hyperlink{classmodel_1_1_virologist}{00020}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00025}\mbox{\hyperlink{classmodel_1_1_virologist_a5d311ad90b702782a0811ca47a1b1971}{00025}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a5d311ad90b702782a0811ca47a1b1971}{bark}}()\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00026}00026         System.out.println(\textcolor{stringliteral}{"{}Virologist: "{}} + name);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00027}00027         System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)tNumber of actions left: "{}} + actionCount);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00028}00028         System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)tCurrently on Field named: "{}} + field.\mbox{\hyperlink{classmodel_1_1map_1_1_field_ab12f08b6dd9768e3946bab1bd110d496}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00029}00029         System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)tAmino acid: "{}} + aminoAcid + \textcolor{stringliteral}{"{} / maximum: "{}}+ limit);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00030}00030         System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)tNucleotide: "{}} + nucleotide+ \textcolor{stringliteral}{"{} / maximum: "{}}+ limit);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00031}00031         System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)tEquipments:"{}});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00032}00032         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}} e: equipments) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00033}00033             System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t"{}} + e.getName()); \textcolor{comment}{// később dekorátor tervezési minta lesz -\/Vencel: Az milyen?}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00034}00034         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00035}00035         System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)tGenetic codes:"{}});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00036}00036         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} c: codes) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00037}00037             System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t"{}} + c.getName());}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00038}00038         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00039}00039         System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)tAgents: (+ttl)"{}});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00040}00040         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a: agents) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00041}00041             System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t"{}} + a.getName() + \textcolor{stringliteral}{"{} "{}} + a.getTimeToLive());}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00042}00042         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00043}00043     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00049}\mbox{\hyperlink{classmodel_1_1_virologist_a4afb1f3dc63d85ea548dcf9712cff08d}{00049}}     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1_game}{Game}} \mbox{\hyperlink{classmodel_1_1_virologist_a4afb1f3dc63d85ea548dcf9712cff08d}{GetContext}}()\{\textcolor{keywordflow}{return} game;\} \textcolor{comment}{//randomitás kikapcsolása stb..}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00055}00055     \textcolor{keyword}{private} String name; \textcolor{comment}{//kiíratáshoz (grafikusnál majd decorator minta)}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00061}\mbox{\hyperlink{classmodel_1_1_virologist_a710a9e0e4daf6b0f46183eaa0056b8ad}{00061}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a710a9e0e4daf6b0f46183eaa0056b8ad}{setName}}(String name) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00062}00062         this.name = name;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00063}00063     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00069}\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{00069}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00070}00070         \textcolor{keywordflow}{return} name;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00076}00076     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_attack_str}{IAttackStr}} attackStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00082}\mbox{\hyperlink{classmodel_1_1_virologist_a65113818cbd6696ad9d94ba08fccbad7}{00082}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a65113818cbd6696ad9d94ba08fccbad7}{SetAttackStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_attack_str}{IAttackStr}} a)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00083}00083         attackStr = a;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00084}00084     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00089}00089     \textcolor{keyword}{private} \textcolor{keywordtype}{int} maxNumberOfItems;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00091}00091     \textcolor{keyword}{public} \textcolor{keywordtype}{void} SetActionCount(\textcolor{keywordtype}{int} count)\{actionCount = count;\}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00096}00096     \textcolor{keyword}{private} \textcolor{keywordtype}{int} actionCount;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00098}00098     \textcolor{keyword}{private} \textcolor{keyword}{final} \textcolor{keywordtype}{int} MaxActionCount = 3;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00103}00103     \textcolor{keyword}{private} \textcolor{keywordtype}{int} aminoAcid;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00108}00108     \textcolor{keyword}{private} \textcolor{keywordtype}{int} nucleotide;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00113}00113     \textcolor{keyword}{private} \textcolor{keywordtype}{int} limit;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00119}00119     \textcolor{keyword}{private} \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} field;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00125}\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{00125}}     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} \mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}()\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00126}00126         \textcolor{keywordflow}{return} field;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00127}00127     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00132}00132     \textcolor{keyword}{private} \mbox{\hyperlink{classmodel_1_1_game}{Game}} game;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00137}00137     \textcolor{keyword}{private} LinkedList<Agent> agents;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00142}00142     \textcolor{keyword}{private} ArrayList<GeneticCode> codes;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00148}\mbox{\hyperlink{classmodel_1_1_virologist_a173f8d07675de6be0b872bd3bcd1af3d}{00148}}     \textcolor{keyword}{public} ArrayList<GeneticCode> \mbox{\hyperlink{classmodel_1_1_virologist_a173f8d07675de6be0b872bd3bcd1af3d}{getGeneticCodes}}()\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00149}00149         \textcolor{keywordflow}{return} codes;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00150}00150     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00155}00155     \textcolor{keyword}{private} ArrayList<Equipment> equipments;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00160}00160     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_move_str}{IMoveStr}} moveStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00161}00161 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00165}00165     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_learn_str}{ILearnStr}} learnStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00170}00170     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_injected_str}{IInjectedStr}} injectedStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00175}00175     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_drop_str}{IDropStr}} dropStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00176}00176 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00180}00180     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_loot_str}{ILootStr}} lootStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00181}00181 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00185}00185     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_equip_str}{IEquipStr}} equipStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00186}00186 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00190}00190     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_collect_str}{ICollectStr}} collectStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00191}00191 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00195}00195     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_inject_str}{IInjectStr}} injectStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00196}00196 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00200}00200     \textcolor{keyword}{private} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_looted_str}{ILootedStr}} lootedStr;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00201}00201 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00205}\mbox{\hyperlink{classmodel_1_1_virologist_a4dcf2b2033a6d8a8cd3c6b3012ec0bbb}{00205}}     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1_virologist_a4dcf2b2033a6d8a8cd3c6b3012ec0bbb}{Virologist}}()\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00206}00206         equipments = \textcolor{keyword}{new} ArrayList<>(maxNumberOfItems);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00207}00207         codes = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00208}00208         agents = \textcolor{keyword}{new} LinkedList<>();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00209}00209 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00210}00210         \textcolor{comment}{//from docs}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00211}00211         maxNumberOfItems = 3;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00212}00212         limit = 20;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00213}00213         aminoAcid = 0;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00214}00214         nucleotide = 0;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00215}00215         actionCount = MaxActionCount;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00216}00216 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00217}00217         \mbox{\hyperlink{classmodel_1_1_virologist_a72b161c7d34a61b12028a7b647cb0231}{Reset}}(); \textcolor{comment}{//sets the default strategies}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00218}00218     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00219}00219 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00224}\mbox{\hyperlink{classmodel_1_1_virologist_ab9e9d0ac43d4ef0aa273d73934371ac1}{00224}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ab9e9d0ac43d4ef0aa273d73934371ac1}{SetGame}}(\mbox{\hyperlink{classmodel_1_1_game}{Game}} g)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00225}00225         game = g;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00226}00226     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00227}00227 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00231}\mbox{\hyperlink{classmodel_1_1_virologist_ae9e6fc89c43fdffaf0044692cf403021}{00231}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ae9e6fc89c43fdffaf0044692cf403021}{Kill}}()\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00232}00232         \textcolor{keywordflow}{if}(game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}().equals(\textcolor{keyword}{this})) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00233}00233             this.\mbox{\hyperlink{classmodel_1_1_virologist_a0eb75a8851d6d9701304c2e9377adf26}{EndTurn}}(); \textcolor{comment}{//Ezt a logikát a game-\/nek kéne megvalósítani, ha elfogynak a játékosok/ léptetni kell öngyilkosság után.}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00234}00234         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00235}00235 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00236}00236         field.\mbox{\hyperlink{classmodel_1_1map_1_1_field_af33e183a4fae2dc33642fd62c607b14e}{RemoveVirologist}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00237}00237         game.\mbox{\hyperlink{classmodel_1_1_game_a55296024bedbe423b6dbe6d27a5486e8}{RemoveVirologist}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00238}00238     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00239}00239 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00244}\mbox{\hyperlink{classmodel_1_1_virologist_a376e043feabdb1a8890a3a42de4969ae}{00244}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a376e043feabdb1a8890a3a42de4969ae}{Attack}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00245}00245         \textcolor{keywordflow}{if} (actionCount > 0)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00246}00246             attackStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_attack_str_a5ffd925afda558dff0a1de81a6010afe}{Attack}}(\textcolor{keyword}{this}, v);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00247}00247         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00248}00248     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00249}00249 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00255}\mbox{\hyperlink{classmodel_1_1_virologist_a22ca51e54fef5fba6dd9aa1e8d639e05}{00255}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a22ca51e54fef5fba6dd9aa1e8d639e05}{TargetedWith}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} who, \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00256}00256         injectedStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_injected_str_a286c2815ec68c4ada3ea30d48a2d02ea}{Injected}}(who, \textcolor{keyword}{this}, a);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00257}00257     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00258}00258 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00263}\mbox{\hyperlink{classmodel_1_1_virologist_a372b69edb94a0f51f92d199f9586b5ff}{00263}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a372b69edb94a0f51f92d199f9586b5ff}{RemoveEquipment}}(\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}} e)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00264}00264         equipments.remove(e);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00265}00265     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00266}00266 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00270}\mbox{\hyperlink{classmodel_1_1_virologist_acb7df29e14ec16013cdc94b122fc82e4}{00270}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_acb7df29e14ec16013cdc94b122fc82e4}{Move}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00271}00271     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00272}00272         \textcolor{keywordflow}{if} (actionCount > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00273}00273             ArrayList<Field> fields = field.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a524476cf5bbb297a764994345be03e9e}{GetNeighbours}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00274}00274             \textcolor{keywordflow}{if} (game.\mbox{\hyperlink{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}{randOn}})\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00275}00275                 \textcolor{keywordflow}{if} (fields.size() != 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00276}00276                     Random random = \textcolor{keyword}{new} Random();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00277}00277                     \mbox{\hyperlink{classmodel_1_1_virologist_acb7df29e14ec16013cdc94b122fc82e4}{Move}}(fields.get(random.nextInt(fields.size())));}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00278}00278                 \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00279}00279             \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00280}00280                 \textcolor{keywordflow}{if} (fields.size() > 0)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00281}00281                 \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} target = fields.get(0);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00282}00282                 \mbox{\hyperlink{classmodel_1_1_virologist_acb7df29e14ec16013cdc94b122fc82e4}{Move}}(target);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00283}00283                 \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00284}00284             \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00285}00285         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00286}00286     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00287}00287 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00294}\mbox{\hyperlink{classmodel_1_1_virologist_ac6b619f819cb82f72856226500d05bb7}{00294}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ac6b619f819cb82f72856226500d05bb7}{Move}}(\mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} field)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00295}00295     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00296}00296         \textcolor{keywordflow}{if} (actionCount > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00297}00297             moveStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_move_str_a3d4e5f4cc80d6aadfcd4d5ebc11b3fb0}{Move}}(\textcolor{keyword}{this}, this.field, field);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00298}00298         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00299}00299     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00300}00300 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00306}\mbox{\hyperlink{classmodel_1_1_virologist_ad183c7f8a0be8603eddf7c8d11c9dc67}{00306}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ad183c7f8a0be8603eddf7c8d11c9dc67}{SetField}}(\mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00307}00307     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00308}00308         field = f;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00309}00309     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00310}00310 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00314}\mbox{\hyperlink{classmodel_1_1_virologist_a7b2b2b0a78d978a656f7b2d70b62a397}{00314}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a7b2b2b0a78d978a656f7b2d70b62a397}{Drop}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00315}00315     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00316}00316         \textcolor{keywordflow}{if} (actionCount > 0 \&\& equipments.size() > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00317}00317             dropStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_drop_str_aed7d5400d7f0b0daaed77252d4234024}{Drop}}(\textcolor{keyword}{this}, field, equipments.remove(equipments.size()-\/1));}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00318}00318         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00319}00319     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00320}00320 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00327}\mbox{\hyperlink{classmodel_1_1_virologist_a98a833937d25fb00a4972f0854278843}{00327}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a98a833937d25fb00a4972f0854278843}{LootAminoAcidFrom}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00328}00328     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00329}00329         \textcolor{keywordflow}{if} (actionCount > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00330}00330             lootStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_loot_str_ac10895bb8458780a4a089ec1006f2310}{LootAmino}}(\textcolor{keyword}{this}, v);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00331}00331         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00332}00332     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00333}00333 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00340}\mbox{\hyperlink{classmodel_1_1_virologist_aa72002e32d4923cf9a818c38cfae0436}{00340}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_aa72002e32d4923cf9a818c38cfae0436}{LootNucleotideFrom}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00341}00341     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00342}00342         \textcolor{keywordflow}{if} (actionCount > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00343}00343             lootStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_loot_str_a3f038bef6da11f5bbb0e97c6df718d1f}{LootNucleotide}}(\textcolor{keyword}{this}, v);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00344}00344         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00345}00345     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00346}00346 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00353}\mbox{\hyperlink{classmodel_1_1_virologist_a223b81dbbf607d6f67beadd6c155c3a4}{00353}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a223b81dbbf607d6f67beadd6c155c3a4}{LootEquipmentFrom}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00354}00354     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00355}00355         \textcolor{keywordflow}{if} (actionCount > 0 \&\& equipments.size() < maxNumberOfItems) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00356}00356             lootStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_loot_str_aa88c4989620592a21454d23eb3834afb}{LootEquipment}}(\textcolor{keyword}{this}, v);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00357}00357         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00358}00358     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00359}00359 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00363}\mbox{\hyperlink{classmodel_1_1_virologist_a6a20e22b8554cb22bac1a1e629d15742}{00363}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a6a20e22b8554cb22bac1a1e629d15742}{Collect}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00364}00364     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00365}00365         \textcolor{keywordflow}{if} (actionCount > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00366}00366             collectStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_collect_str_a95a5b2507ba66895edd3aba07bc440a7}{Collect}}(\textcolor{keyword}{this}, field);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00367}00367         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00368}00368     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00369}00369 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00374}\mbox{\hyperlink{classmodel_1_1_virologist_aae83bcaf15687b2b7ffbe03ec63dcbe7}{00374}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_aae83bcaf15687b2b7ffbe03ec63dcbe7}{Learn}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00375}00375     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00376}00376         \textcolor{keywordflow}{if} (actionCount > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00377}00377             learnStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_learn_str_addf8d28c8b8a02c052ab26d88ee58680}{Learn}}(\textcolor{keyword}{this}, field);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00378}00378         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00379}00379     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00380}00380 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00384}\mbox{\hyperlink{classmodel_1_1_virologist_a358fb793bfc90fd038b77ffb43e3b7ff}{00384}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a358fb793bfc90fd038b77ffb43e3b7ff}{Equip}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00385}00385     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00386}00386         \textcolor{keywordflow}{if} (actionCount > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00387}00387             equipStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_equip_str_aeba9f55d1982359bed5356cec6456473}{Equip}}(\textcolor{keyword}{this}, field);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00388}00388         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00389}00389 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00390}00390     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00391}00391 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00396}\mbox{\hyperlink{classmodel_1_1_virologist_ab8a9bd66e2486382f8666e8725a61f94}{00396}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ab8a9bd66e2486382f8666e8725a61f94}{AddAgent}}(\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00397}00397     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00398}00398         \textcolor{keywordflow}{if} (agents.contains(a))\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00399}00399             \textcolor{keywordtype}{int} i = agents.indexOf(a);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00400}00400             \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} old = agents.get(i);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00401}00401             agents.remove(i);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00402}00402             \textcolor{keywordflow}{if} (old.\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea}{getTtl}}() > a.\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea}{getTtl}}())\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00403}00403                 a.\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a179d96349f215c53d9c7c9ec113e1c78}{setTtl}}(old.\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea}{getTtl}}());}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00404}00404             \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00405}00405         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00406}00406         agents.add(a);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00407}00407     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00408}00408 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00413}\mbox{\hyperlink{classmodel_1_1_virologist_a83bb75511eba0b5d933080c1c890701f}{00413}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a83bb75511eba0b5d933080c1c890701f}{RemoveAgent}}(\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00414}00414     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00415}00415         agents.remove(a);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00416}00416     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00417}00417 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00422}\mbox{\hyperlink{classmodel_1_1_virologist_acdc0a195d4003d55b873ee4bf99cc9a3}{00422}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_acdc0a195d4003d55b873ee4bf99cc9a3}{AddEquipment}}(\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}} e)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00423}00423     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00424}00424         \textcolor{keywordflow}{if} (equipments.size() < maxNumberOfItems)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00425}00425             equipments.add(e);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00426}00426         e.\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment_af98dc0d7ee5b3ca89275492fa3ea05e7}{Apply}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00427}00427         e.\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment_a33e5a31453223f87536cc383d333e503}{ApplyStrategy}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00428}00428     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00429}00429 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00434}\mbox{\hyperlink{classmodel_1_1_virologist_a76141544cd53347b870701ba452ee040}{00434}}     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}} \mbox{\hyperlink{classmodel_1_1_virologist_a76141544cd53347b870701ba452ee040}{GetEquipment}}() throws IndexOutOfBoundsException}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00435}00435     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00436}00436         \textcolor{keywordflow}{if} (equipments.size() == 0)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00437}00437             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} IndexOutOfBoundsException(\textcolor{stringliteral}{"{}ures a felszereles tarolo"{}});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00438}00438         \mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}} e = equipments.remove(equipments.size()-\/1);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00439}00439 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00440}00440         \textcolor{keywordflow}{return} e;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00441}00441     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00442}00442 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00447}\mbox{\hyperlink{classmodel_1_1_virologist_a37a54ef95658e9dec18d308961448794}{00447}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a37a54ef95658e9dec18d308961448794}{AddGeneticCode}}(\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} code)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00448}00448     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00449}00449         \textcolor{keywordflow}{if} (!codes.contains(code))}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00450}00450             codes.add(code);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00451}00451     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00452}00452 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00458}\mbox{\hyperlink{classmodel_1_1_virologist_a13f0698d5bcc495b6a7f89c78f5fb263}{00458}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a13f0698d5bcc495b6a7f89c78f5fb263}{Inject}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v, \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} code)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00459}00459     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00460}00460 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00461}00461         \textcolor{keywordflow}{if} (actionCount > 0)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00462}00462         \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00463}00463             injectStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_inject_str_a7658f742c075b070ae94c4197b05bd92}{Inject}}(\textcolor{keyword}{this}, v, code);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00464}00464         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00465}00465 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00466}00466     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00467}00467 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00472}\mbox{\hyperlink{classmodel_1_1_virologist_a10cffdda3186b3b6b8e6db90e2ff1cc3}{00472}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a10cffdda3186b3b6b8e6db90e2ff1cc3}{TargetedWith}}(\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00473}00473     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00474}00474         injectedStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_injected_str_a286c2815ec68c4ada3ea30d48a2d02ea}{Injected}}(\textcolor{keyword}{this}, a);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00475}00475     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00476}00476 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00481}\mbox{\hyperlink{classmodel_1_1_virologist_a674ae6856eae5bb6e30a09619377df6b}{00481}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a674ae6856eae5bb6e30a09619377df6b}{StealAminoAcid}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} \textcolor{keyword}{self})}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00482}00482     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00483}00483         lootedStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_looted_str_ac7e05de5a0107052b3cfc78396a4d0fc}{LootedForAminoAcid}}(\textcolor{keyword}{self}, \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00484}00484     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00485}00485 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00490}\mbox{\hyperlink{classmodel_1_1_virologist_a076b8df55756674b6308d3afa4e77fdf}{00490}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a076b8df55756674b6308d3afa4e77fdf}{StealNukleotid}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} \textcolor{keyword}{self})}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00491}00491     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00492}00492         lootedStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_looted_str_adb36a2d00d4c32bdf012048723d74c6f}{LootedForNukleotide}}(\textcolor{keyword}{self}, \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00493}00493     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00494}00494 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00499}\mbox{\hyperlink{classmodel_1_1_virologist_af0a35cbafe895807c5bb473966be61fe}{00499}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_af0a35cbafe895807c5bb473966be61fe}{StealEquipment}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} \textcolor{keyword}{self})}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00500}00500     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00501}00501         \textcolor{keywordflow}{if} (equipments.size() > 0) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00502}00502             \textcolor{keywordflow}{if}(game.\mbox{\hyperlink{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}{randOn}}) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00503}00503                 Random random = \textcolor{keyword}{new} Random();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00504}00504                 \textcolor{keywordtype}{int} r = random.nextInt(equipments.size());}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00505}00505                 \mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}} e = equipments.get(r);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00506}00506                 lootedStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_looted_str_ab21f99095e4daffa99f1fbaa8e93c483}{LootedForEquipment}}(\textcolor{keyword}{self}, \textcolor{keyword}{this}, e);}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00507}00507             \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00508}00508             \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00509}00509                 lootedStr.\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_looted_str_ab21f99095e4daffa99f1fbaa8e93c483}{LootedForEquipment}}(\textcolor{keyword}{self},\textcolor{keyword}{this}, equipments.get(0));}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00510}00510             \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00511}00511         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00512}00512     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00513}00513 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00517}\mbox{\hyperlink{classmodel_1_1_virologist_a265f9cc5284ce068b0d30e1f2556e4a9}{00517}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a265f9cc5284ce068b0d30e1f2556e4a9}{RemoveGeneticCodes}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00518}00518     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00519}00519         codes.clear();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00520}00520     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00521}00521 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00525}\mbox{\hyperlink{classmodel_1_1_virologist_ac2624140112c99c33119892903557fe5}{00525}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ac2624140112c99c33119892903557fe5}{RemoveAgents}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00526}00526     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00527}00527         agents.clear();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00528}00528     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00529}00529 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00533}\mbox{\hyperlink{classmodel_1_1_virologist_a631d5664b8655669b8b0c1ae7137bb33}{00533}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a631d5664b8655669b8b0c1ae7137bb33}{DecreaseActions}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00534}00534     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00535}00535         \textcolor{keywordflow}{if} (actionCount > 0)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00536}00536         actionCount-\/-\/;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00537}00537     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00538}00538 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00542}\mbox{\hyperlink{classmodel_1_1_virologist_a0eb75a8851d6d9701304c2e9377adf26}{00542}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a0eb75a8851d6d9701304c2e9377adf26}{EndTurn}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00543}00543     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00544}00544         actionCount = MaxActionCount;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00545}00545         game.\mbox{\hyperlink{classmodel_1_1_game_add9cd4a2652fca83de4574fdc7dcb412}{NextPlayer}}(codes.size());}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00546}00546     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00547}00547 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00552}\mbox{\hyperlink{classmodel_1_1_virologist_ac21f2c24d8c1fbc4e3fce465c2bbcb1d}{00552}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ac21f2c24d8c1fbc4e3fce465c2bbcb1d}{AddAminoAcid}}(\textcolor{keywordtype}{int} delta)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00553}00553     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00554}00554         aminoAcid+= delta;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00555}00555         \textcolor{keywordflow}{if} (aminoAcid > limit) aminoAcid = limit;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00556}00556     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00557}00557 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00562}\mbox{\hyperlink{classmodel_1_1_virologist_a5466b7410761c8d91ea1ee9428631211}{00562}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a5466b7410761c8d91ea1ee9428631211}{AddNucleotide}}(\textcolor{keywordtype}{int} delta)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00563}00563     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00564}00564         nucleotide+= delta;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00565}00565         \textcolor{keywordflow}{if} (nucleotide > limit) nucleotide = limit;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00566}00566     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00567}00567 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00573}\mbox{\hyperlink{classmodel_1_1_virologist_a025a1857b956886b227eb355c124cde3}{00573}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a025a1857b956886b227eb355c124cde3}{RemoveNucleotide}}(\textcolor{keywordtype}{int} delta) \textcolor{keywordflow}{throws} Exception}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00574}00574     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00575}00575         \textcolor{keywordflow}{if}(delta > nucleotide)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00576}00576             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"{}I don't have such many nucleotide!"{}});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00577}00577         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00578}00578         nucleotide -\/= delta;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00579}00579     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00580}00580 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00586}\mbox{\hyperlink{classmodel_1_1_virologist_a27e68c8154e20e15706e160c8424be01}{00586}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a27e68c8154e20e15706e160c8424be01}{RemoveAminoAcid}}(\textcolor{keywordtype}{int} delta) \textcolor{keywordflow}{throws} Exception}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00587}00587     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00588}00588         \textcolor{keywordflow}{if}(delta > aminoAcid)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00589}00589             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"{}I don't have such many amino acid!"{}});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00590}00590         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00591}00591         aminoAcid -\/= delta;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00592}00592     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00593}00593 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00598}\mbox{\hyperlink{classmodel_1_1_virologist_aaad675ca2f45f788d6463f234508cd22}{00598}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_aaad675ca2f45f788d6463f234508cd22}{IncreaseLimit}}(\textcolor{keywordtype}{int} delta)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00599}00599     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00600}00600         limit += delta;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00601}00601     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00602}00602 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00607}\mbox{\hyperlink{classmodel_1_1_virologist_af8ea8ce20ff7ef9b6fcfc8c5d8f834ab}{00607}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_af8ea8ce20ff7ef9b6fcfc8c5d8f834ab}{DecreaseLimit}}(\textcolor{keywordtype}{int} delta)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00608}00608     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00609}00609         limit -\/= delta;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00610}00610         \textcolor{keywordflow}{if} (limit < 0) limit = 0;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00611}00611     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00612}00612 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00617}\mbox{\hyperlink{classmodel_1_1_virologist_aaa134ab72e14ee0bd5bd19b18a0c7610}{00617}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1_virologist_aaa134ab72e14ee0bd5bd19b18a0c7610}{GetAminoAcid}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00618}00618     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00619}00619         \textcolor{keywordflow}{return} aminoAcid;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00620}00620     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00621}00621 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00626}\mbox{\hyperlink{classmodel_1_1_virologist_a6e44dfb5115d1cfd5d0931f1aed94a2b}{00626}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1_virologist_a6e44dfb5115d1cfd5d0931f1aed94a2b}{GetNucleotide}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00627}00627     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00628}00628         \textcolor{keywordflow}{return} nucleotide;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00629}00629     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00630}00630 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00634}\mbox{\hyperlink{classmodel_1_1_virologist_a3480f307014aa544b4c40fd35c4d3687}{00634}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a3480f307014aa544b4c40fd35c4d3687}{Update}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00635}00635     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00636}00636         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < agents.size();i++)\{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00637}00637             agents.get(i).Update(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00638}00638         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00639}00639     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00640}00640 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00644}\mbox{\hyperlink{classmodel_1_1_virologist_a72b161c7d34a61b12028a7b647cb0231}{00644}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a72b161c7d34a61b12028a7b647cb0231}{Reset}}()}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00645}00645     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00646}00646         lootedStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_looted}{DefLooted}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00647}00647         injectedStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_injected}{DefInjected}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00648}00648         collectStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_collect}{DefCollect}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00649}00649         equipStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_equip}{DefEquip}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00650}00650         lootStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_loot}{DefLoot}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00651}00651         dropStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_drop}{DefDrop}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00652}00652         injectStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_inject}{DefInject}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00653}00653         learnStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_learn}{DefLearn}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00654}00654         moveStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_move}{DefMove}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00655}00655         attackStr = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_attack}{DefAttack}}();}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00656}00656 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00657}00657         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a:agents}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00658}00658         ) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00659}00659             a.ApplyStrategy(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00660}00660         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00661}00661         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}} e :}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00662}00662                 equipments) \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00663}00663             e.ApplyStrategy(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00664}00664         \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00665}00665     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00666}00666 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00671}\mbox{\hyperlink{classmodel_1_1_virologist_a312a9ea5c8dcb699b039fff739bb6c04}{00671}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a312a9ea5c8dcb699b039fff739bb6c04}{SetDropStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_drop_str}{IDropStr}} d)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00672}00672     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00673}00673         dropStr = d;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00674}00674     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00675}00675 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00680}\mbox{\hyperlink{classmodel_1_1_virologist_a778a8175170056e3a8cf2dcf0376b2f6}{00680}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a778a8175170056e3a8cf2dcf0376b2f6}{SetMoveStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_move_str}{IMoveStr}} m)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00681}00681     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00682}00682         moveStr = m;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00683}00683     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00684}00684 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00689}\mbox{\hyperlink{classmodel_1_1_virologist_ac07ccb3c764c27f48d7ca88349b60dc3}{00689}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ac07ccb3c764c27f48d7ca88349b60dc3}{SetLearnStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_learn_str}{ILearnStr}} l)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00690}00690     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00691}00691         learnStr = l;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00692}00692     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00693}00693 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00698}\mbox{\hyperlink{classmodel_1_1_virologist_a70f6b3338d4896c4dde4439f63734b5d}{00698}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_a70f6b3338d4896c4dde4439f63734b5d}{SetLootStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_loot_str}{ILootStr}} l)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00699}00699     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00700}00700         lootStr = l;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00701}00701     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00702}00702 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00707}\mbox{\hyperlink{classmodel_1_1_virologist_ac592f4f002b47160459e2f29585fd0a9}{00707}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ac592f4f002b47160459e2f29585fd0a9}{SetInjectStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_inject_str}{IInjectStr}} i)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00708}00708     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00709}00709         injectStr = i;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00710}00710     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00711}00711 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00716}\mbox{\hyperlink{classmodel_1_1_virologist_ad1c7c9200adf3b6b4ab8996cc5d6e065}{00716}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ad1c7c9200adf3b6b4ab8996cc5d6e065}{SetInjectedStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_injected_str}{IInjectedStr}} i)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00717}00717     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00718}00718         injectedStr = i;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00719}00719     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00720}00720 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00725}\mbox{\hyperlink{classmodel_1_1_virologist_aed43d9c806ad537996c8f3c2e7bf168c}{00725}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_aed43d9c806ad537996c8f3c2e7bf168c}{SetEquipStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_equip_str}{IEquipStr}} e)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00726}00726     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00727}00727         equipStr = e;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00728}00728     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00729}00729 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00734}\mbox{\hyperlink{classmodel_1_1_virologist_ae28aab10ec44a1ad0aa97920427a38d4}{00734}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ae28aab10ec44a1ad0aa97920427a38d4}{SetCollectStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_collect_str}{ICollectStr}} c)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00735}00735     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00736}00736         collectStr= c;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00737}00737     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00738}00738 }
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00743}\mbox{\hyperlink{classmodel_1_1_virologist_ad192dfce08e5378cc054af73e4e06d86}{00743}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist_ad192dfce08e5378cc054af73e4e06d86}{SetLootedStr}}(\mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_looted_str}{ILootedStr}} l)}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00744}00744     \{}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00745}00745         lootedStr =l;}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00746}00746     \}}
+\DoxyCodeLine{\Hypertarget{_virologist_8java_source_l00747}00747 \}}
+
+\end{DoxyCode}

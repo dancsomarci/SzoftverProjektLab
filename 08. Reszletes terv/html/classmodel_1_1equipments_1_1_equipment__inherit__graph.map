@@ -1,0 +1,7 @@
+<map id="model.equipments.Equipment" name="model.equipments.Equipment">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,200,108"/>
+<area shape="rect" id="node2" href="$classmodel_1_1equipments_1_1_axe.html" title=" " alt="" coords="253,5,408,32"/>
+<area shape="rect" id="node3" href="$classmodel_1_1equipments_1_1_bag.html" title=" " alt="" coords="253,56,408,83"/>
+<area shape="rect" id="node4" href="$classmodel_1_1equipments_1_1_cloak.html" title=" " alt="" coords="248,107,413,133"/>
+<area shape="rect" id="node5" href="$classmodel_1_1equipments_1_1_glove.html" title=" " alt="" coords="249,157,413,184"/>
+</map>

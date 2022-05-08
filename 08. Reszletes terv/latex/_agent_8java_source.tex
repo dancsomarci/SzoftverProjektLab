@@ -1,0 +1,55 @@
+\hypertarget{_agent_8java_source}{}\doxysection{Agent.\+java}
+\label{_agent_8java_source}\index{Proto/src/model/agents/Agent.java@{Proto/src/model/agents/Agent.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00001}00001 \textcolor{keyword}{package }model.agents;}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00004}00004 \textcolor{keyword}{import} model.Virologist;}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00011}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{00011}} \textcolor{keyword}{public} \textcolor{keyword}{abstract} \textcolor{keyword}{class }\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00012}00012 \{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00018}00018     @Override}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00019}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a0cd4df2f42b5e2de2ea65fe2f23c2bfe}{00019}}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a0cd4df2f42b5e2de2ea65fe2f23c2bfe}{equals}}(Object o)\{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00020}00020         \textcolor{keywordflow}{return} this.getClass().getSimpleName().equals(o.getClass().getSimpleName());}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00021}00021     \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00026}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2dedd178cd48474c6acc804289ec6f60}{00026}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2dedd178cd48474c6acc804289ec6f60}{getName}}()\{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00027}00027         \textcolor{keywordflow}{return} this.getClass().getSimpleName();}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00028}00028     \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00033}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a3433c48619ba89bf70e2bd9f3bd04734}{00033}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a3433c48619ba89bf70e2bd9f3bd04734}{getTimeToLive}}()\{\textcolor{keywordflow}{return} String.valueOf(\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{timeToLive}});\}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00038}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea}{00038}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea}{getTtl}}()\{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00039}00039         \textcolor{keywordflow}{return} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{timeToLive}};}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00040}00040     \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00046}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a179d96349f215c53d9c7c9ec113e1c78}{00046}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a179d96349f215c53d9c7c9ec113e1c78}{setTtl}}(\textcolor{keywordtype}{int} ttl)\{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00047}00047         \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{timeToLive}} = ttl;}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00053}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{00053}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{timeToLive}};}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00055}00055     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}}(\textcolor{keywordtype}{int} ttl)\{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00056}00056         \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{timeToLive}} = ttl;}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00057}00057     \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00064}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_ab2a1dcf9ab63e308e091d4f7b06984ea}{00064}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_ab2a1dcf9ab63e308e091d4f7b06984ea}{Update}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00065}00065     \{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00066}00066         \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{timeToLive}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00067}00067         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{timeToLive}} == 0)\{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00068}00068             v.\mbox{\hyperlink{classmodel_1_1_virologist_a83bb75511eba0b5d933080c1c890701f}{RemoveAgent}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00069}00069             v.\mbox{\hyperlink{classmodel_1_1_virologist_a72b161c7d34a61b12028a7b647cb0231}{Reset}}();}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00070}00070         \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00078}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a381129273ccfaab86ae7111250c8dc12}{00078}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a381129273ccfaab86ae7111250c8dc12}{Apply}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00079}00079     \{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00080}00080     \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00088}\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_aab032ad3ebf0ef9a5121d666966e3386}{00088}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_aab032ad3ebf0ef9a5121d666966e3386}{ApplyStrategy}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00089}00089     \{}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00090}00090     \}}
+\DoxyCodeLine{\Hypertarget{_agent_8java_source_l00091}00091 \}}
+
+\end{DoxyCode}

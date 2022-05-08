@@ -1,0 +1,21 @@
+\hypertarget{_def_move_8java_source}{}\doxysection{Def\+Move.\+java}
+\label{_def_move_8java_source}\index{Proto/src/model/strategy/DefMove.java@{Proto/src/model/strategy/DefMove.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00001}00001 \textcolor{keyword}{package }model.strategy;}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00003}00003 \textcolor{keyword}{import} model.Virologist;}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00004}00004 \textcolor{keyword}{import} model.map.Field;}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00009}\mbox{\hyperlink{classmodel_1_1strategy_1_1_def_move}{00009}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classmodel_1_1strategy_1_1_def_move}{DefMove}} \textcolor{keyword}{implements} \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_move_str}{IMoveStr}} \{}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00018}00018     @Override}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00019}\mbox{\hyperlink{classmodel_1_1strategy_1_1_def_move_ab6a0fb789b73128f5e00e95ccbae806d}{00019}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_move_ab6a0fb789b73128f5e00e95ccbae806d}{Move}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v, \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} from, \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} to) \{}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00020}00020         from.\mbox{\hyperlink{classmodel_1_1map_1_1_field_af33e183a4fae2dc33642fd62c607b14e}{RemoveVirologist}}(v);}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00021}00021         to.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a4a838432243f5a96e79b38852affc48f}{AddVirologist}}(v);}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00022}00022         v.\mbox{\hyperlink{classmodel_1_1_virologist_a631d5664b8655669b8b0c1ae7137bb33}{DecreaseActions}}();}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00023}00023     \}}
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_def_move_8java_source_l00025}00025 \}}
+
+\end{DoxyCode}

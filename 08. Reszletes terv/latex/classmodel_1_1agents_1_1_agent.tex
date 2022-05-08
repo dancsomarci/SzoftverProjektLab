@@ -1,0 +1,252 @@
+\hypertarget{classmodel_1_1agents_1_1_agent}{}\doxysection{model.\+agents.\+Agent Class Reference}
+\label{classmodel_1_1agents_1_1_agent}\index{model.agents.Agent@{model.agents.Agent}}
+
+
+Inheritance diagram for model.\+agents.\+Agent\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{classmodel_1_1agents_1_1_agent__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a0cd4df2f42b5e2de2ea65fe2f23c2bfe}{equals}} (Object o)
+\item 
+String \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2dedd178cd48474c6acc804289ec6f60}{get\+Name}} ()
+\item 
+String \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a3433c48619ba89bf70e2bd9f3bd04734}{get\+Time\+To\+Live}} ()
+\item 
+int \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea}{get\+Ttl}} ()
+\item 
+void \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a179d96349f215c53d9c7c9ec113e1c78}{set\+Ttl}} (int ttl)
+\item 
+\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_af987176297537c9b8647adcf53ca7378}{Agent}} (int ttl)
+\item 
+void \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_ab2a1dcf9ab63e308e091d4f7b06984ea}{Update}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)
+\item 
+void \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a381129273ccfaab86ae7111250c8dc12}{Apply}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)
+\item 
+void \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_aab032ad3ebf0ef9a5121d666966e3386}{Apply\+Strategy}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}{time\+To\+Live}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy ágens, amely valamilyen hatással van a virológusra és ez időben elévül. Élettartamát periodikusan frissíteni kell, ilyenkor mindig eggyel csökken. Ha egyszer lejárt már többé nem lesz hatása. 
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00011}{11}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_af987176297537c9b8647adcf53ca7378}\label{classmodel_1_1agents_1_1_agent_af987176297537c9b8647adcf53ca7378}} 
+\index{model.agents.Agent@{model.agents.Agent}!Agent@{Agent}}
+\index{Agent@{Agent}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{Agent()}{Agent()}}
+{\footnotesize\ttfamily model.\+agents.\+Agent.\+Agent (\begin{DoxyParamCaption}\item[{int}]{ttl }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00055}{55}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_a381129273ccfaab86ae7111250c8dc12}\label{classmodel_1_1agents_1_1_agent_a381129273ccfaab86ae7111250c8dc12}} 
+\index{model.agents.Agent@{model.agents.Agent}!Apply@{Apply}}
+\index{Apply@{Apply}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{Apply()}{Apply()}}
+{\footnotesize\ttfamily void model.\+agents.\+Agent.\+Apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{v }\end{DoxyParamCaption})}
+
+Default implementációban üres függvény, de azt reprezentálja, hogy az ágenst elhelyezik a paraméterül kapott virológuson és esetlegesen ennek vannak direkt/azonnali hatásai rá. 
+\begin{DoxyParams}{Parameters}
+{\em v} & a célzott virológus. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classmodel_1_1agents_1_1_block_ac3406eadec264e9a793f86f9b30f82f5}{model.\+agents.\+Block}}, \mbox{\hyperlink{classmodel_1_1agents_1_1_chorea_a28c310924d0f9b90b99388295ecc344b}{model.\+agents.\+Chorea}}, and \mbox{\hyperlink{classmodel_1_1agents_1_1_forget_ac12c981386d34a448a0b42e49483f326}{model.\+agents.\+Forget}}.
+
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00078}{78}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1agents_1_1_agent_a381129273ccfaab86ae7111250c8dc12_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_aab032ad3ebf0ef9a5121d666966e3386}\label{classmodel_1_1agents_1_1_agent_aab032ad3ebf0ef9a5121d666966e3386}} 
+\index{model.agents.Agent@{model.agents.Agent}!ApplyStrategy@{ApplyStrategy}}
+\index{ApplyStrategy@{ApplyStrategy}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{ApplyStrategy()}{ApplyStrategy()}}
+{\footnotesize\ttfamily void model.\+agents.\+Agent.\+Apply\+Strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{v }\end{DoxyParamCaption})}
+
+Az ágens hatásait hajtja végre a virológuson, átállítja bizonyos cselekvéseinek a működését, alapértelmezetten üres, amikor nincs az ágensnek hosszútávú hatása, csak azonnali. 
+\begin{DoxyParams}{Parameters}
+{\em v} & a célzott virológus. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_aaed9b61a793be27936721d9d12b70b66}{model.\+agents.\+Bear}}, \mbox{\hyperlink{classmodel_1_1agents_1_1_block_aa3a3adeea2344fd78a6241c7b11da21d}{model.\+agents.\+Block}}, and \mbox{\hyperlink{classmodel_1_1agents_1_1_stun_a8e4a8116d0321d41c867f7091d647171}{model.\+agents.\+Stun}}.
+
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00088}{88}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1agents_1_1_agent_aab032ad3ebf0ef9a5121d666966e3386_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_a0cd4df2f42b5e2de2ea65fe2f23c2bfe}\label{classmodel_1_1agents_1_1_agent_a0cd4df2f42b5e2de2ea65fe2f23c2bfe}} 
+\index{model.agents.Agent@{model.agents.Agent}!equals@{equals}}
+\index{equals@{equals}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily boolean model.\+agents.\+Agent.\+equals (\begin{DoxyParamCaption}\item[{Object}]{o }\end{DoxyParamCaption})}
+
+Az Object equals függvényének felülírása, összehasonlítja ezt az objektumot a paraméterül kapottal (mely jellemzően egy ágens). 
+\begin{DoxyParams}{Parameters}
+{\em o} & az összehasonlítandó objektum. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+megegyezik-\/e a 2 objektum típusa. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00019}{19}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_a2dedd178cd48474c6acc804289ec6f60}\label{classmodel_1_1agents_1_1_agent_a2dedd178cd48474c6acc804289ec6f60}} 
+\index{model.agents.Agent@{model.agents.Agent}!getName@{getName}}
+\index{getName@{getName}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily String model.\+agents.\+Agent.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+az ágens típusa. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00026}{26}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_a3433c48619ba89bf70e2bd9f3bd04734}\label{classmodel_1_1agents_1_1_agent_a3433c48619ba89bf70e2bd9f3bd04734}} 
+\index{model.agents.Agent@{model.agents.Agent}!getTimeToLive@{getTimeToLive}}
+\index{getTimeToLive@{getTimeToLive}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{getTimeToLive()}{getTimeToLive()}}
+{\footnotesize\ttfamily String model.\+agents.\+Agent.\+get\+Time\+To\+Live (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+az ágens hátralévő hatásideje szöveg típusként. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a93317362a6ad889b6f383e1d6d84de88}{model.\+agents.\+Bear}}.
+
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00033}{33}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea}\label{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea}} 
+\index{model.agents.Agent@{model.agents.Agent}!getTtl@{getTtl}}
+\index{getTtl@{getTtl}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{getTtl()}{getTtl()}}
+{\footnotesize\ttfamily int model.\+agents.\+Agent.\+get\+Ttl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+az ágens hátralévő hatásideje. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00038}{38}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1agents_1_1_agent_a2aa309b5a0b59fbf5b2bd788436e9bea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_a179d96349f215c53d9c7c9ec113e1c78}\label{classmodel_1_1agents_1_1_agent_a179d96349f215c53d9c7c9ec113e1c78}} 
+\index{model.agents.Agent@{model.agents.Agent}!setTtl@{setTtl}}
+\index{setTtl@{setTtl}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{setTtl()}{setTtl()}}
+{\footnotesize\ttfamily void model.\+agents.\+Agent.\+set\+Ttl (\begin{DoxyParamCaption}\item[{int}]{ttl }\end{DoxyParamCaption})}
+
+Beállítja az ágens hatásidejét. 
+\begin{DoxyParams}{Parameters}
+{\em ttl} & a beállítandó élettartam. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00046}{46}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1agents_1_1_agent_a179d96349f215c53d9c7c9ec113e1c78_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_ab2a1dcf9ab63e308e091d4f7b06984ea}\label{classmodel_1_1agents_1_1_agent_ab2a1dcf9ab63e308e091d4f7b06984ea}} 
+\index{model.agents.Agent@{model.agents.Agent}!Update@{Update}}
+\index{Update@{Update}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void model.\+agents.\+Agent.\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{v }\end{DoxyParamCaption})}
+
+Öregíti egy egységgel az Agent-\/et. Ha lejárt eltávolítja magát a virológusról, és reseteli azt. 
+\begin{DoxyParams}{Parameters}
+{\em v} & a tulajdonos virológus. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_ad4dd8d976754cb8175e5ef126c9841d7}{model.\+agents.\+Bear}}.
+
+
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00064}{64}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1agents_1_1_agent_ab2a1dcf9ab63e308e091d4f7b06984ea_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}\label{classmodel_1_1agents_1_1_agent_a00cc951637c5d8aeec567a8407b79810}} 
+\index{model.agents.Agent@{model.agents.Agent}!timeToLive@{timeToLive}}
+\index{timeToLive@{timeToLive}!model.agents.Agent@{model.agents.Agent}}
+\doxysubsubsection{\texorpdfstring{timeToLive}{timeToLive}}
+{\footnotesize\ttfamily int model.\+agents.\+Agent.\+time\+To\+Live\hspace{0.3cm}{\ttfamily [protected]}}
+
+Az ágens hátra lévő élettartama. 
+
+Definition at line \mbox{\hyperlink{_agent_8java_source_l00053}{53}} of file \mbox{\hyperlink{_agent_8java_source}{Agent.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Proto/src/model/agents/Agent.\+java\end{DoxyCompactItemize}

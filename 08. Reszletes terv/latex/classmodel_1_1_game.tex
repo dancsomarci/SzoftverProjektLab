@@ -1,0 +1,353 @@
+\hypertarget{classmodel_1_1_game}{}\doxysection{model.\+Game Class Reference}
+\label{classmodel_1_1_game}\index{model.Game@{model.Game}}
+
+
+Inheritance diagram for model.\+Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classmodel_1_1_game__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for model.\+Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classmodel_1_1_game__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmodel_1_1_game_a932c9a3b651084f16a3a145c5fdb13d4}{test}} ()
+\item 
+Array\+List$<$ \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} $>$ \mbox{\hyperlink{classmodel_1_1_game_a1b637e2da889f1de5947a0118c5f8bee}{get\+Virologists}} ()
+\item 
+void \mbox{\hyperlink{classmodel_1_1_game_ac35f95a8c68dfe369a416237affd00c0}{New\+Game}} ()
+\item 
+void \mbox{\hyperlink{classmodel_1_1_game_add9cd4a2652fca83de4574fdc7dcb412}{Next\+Player}} (int codes)
+\item 
+\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} \mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{Get\+Current\+Player}} ()
+\item 
+void \mbox{\hyperlink{classmodel_1_1_game_a51945d5e9c78c687604723825bc5534e}{End\+Game}} ()
+\item 
+void \mbox{\hyperlink{classmodel_1_1_game_a9127645ec3aa9ac2d69ba195dbe55f74}{Add\+Virologist}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)
+\item 
+\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{Genetic\+Code}} \mbox{\hyperlink{classmodel_1_1_game_aaf58a8c40cc2ee478c30718ef7c33adb}{Add\+Genetic\+Code}} (\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{Genetic\+Code}} gc)
+\item 
+void \mbox{\hyperlink{classmodel_1_1_game_a0ebeba5da79dcf4666ead63df0502dee}{Add\+Field}} (\mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f)
+\item 
+List$<$ \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} $>$ \mbox{\hyperlink{classmodel_1_1_game_a2148c54ee2d136c0774ab595f87dd4b7}{Get\+Fields}} ()
+\item 
+void \mbox{\hyperlink{classmodel_1_1_game_a55296024bedbe423b6dbe6d27a5486e8}{Remove\+Virologist}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} virologist)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classmodel_1_1_game}{Game}} \mbox{\hyperlink{classmodel_1_1_game_ad539420fd03ae5b4fe6c8b26a95543fc}{Create}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}{rand\+On}} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classmodel_1_1_game_ad6ff40a7dddfe2c7737f57b687379e39}{player\+Count}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy singleton osztály, ami a játék kezeléséért felelős. A játékot indítja, és lezárja. Számontartja a játékosokat, és köreiket.(átadja egyiktől a másiknak az irányítást) Mivel a játkosok köreit kezeli, tehát gyakorlatilag az időegységeket, így az ő feladata az ágensek hátralévő idejét csökkenti is. 
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00017}{17}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1_game_a0ebeba5da79dcf4666ead63df0502dee}\label{classmodel_1_1_game_a0ebeba5da79dcf4666ead63df0502dee}} 
+\index{model.Game@{model.Game}!AddField@{AddField}}
+\index{AddField@{AddField}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{AddField()}{AddField()}}
+{\footnotesize\ttfamily void model.\+Game.\+Add\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}}}]{f }\end{DoxyParamCaption})}
+
+Hozzáad egy mezőt a játékhoz 
+\begin{DoxyParams}{Parameters}
+{\em f} & hozzáadandó mező \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00151}{151}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{classmodel_1_1_game_a0ebeba5da79dcf4666ead63df0502dee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_aaf58a8c40cc2ee478c30718ef7c33adb}\label{classmodel_1_1_game_aaf58a8c40cc2ee478c30718ef7c33adb}} 
+\index{model.Game@{model.Game}!AddGeneticCode@{AddGeneticCode}}
+\index{AddGeneticCode@{AddGeneticCode}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{AddGeneticCode()}{AddGeneticCode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{Genetic\+Code}} model.\+Game.\+Add\+Genetic\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{Genetic\+Code}}}]{gc }\end{DoxyParamCaption})}
+
+Hozzáad egy új genetikai kódot a játékhoz 
+\begin{DoxyParams}{Parameters}
+{\em gc} & hozzáadandó genetikai kód \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00138}{138}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_aaf58a8c40cc2ee478c30718ef7c33adb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_a9127645ec3aa9ac2d69ba195dbe55f74}\label{classmodel_1_1_game_a9127645ec3aa9ac2d69ba195dbe55f74}} 
+\index{model.Game@{model.Game}!AddVirologist@{AddVirologist}}
+\index{AddVirologist@{AddVirologist}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{AddVirologist()}{AddVirologist()}}
+{\footnotesize\ttfamily void model.\+Game.\+Add\+Virologist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{v }\end{DoxyParamCaption})}
+
+Hozzáad egy virológust a játékhoz 
+\begin{DoxyParams}{Parameters}
+{\em v} & a hozzáadandó virológus \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00127}{127}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_a9127645ec3aa9ac2d69ba195dbe55f74_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_a9127645ec3aa9ac2d69ba195dbe55f74_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_ad539420fd03ae5b4fe6c8b26a95543fc}\label{classmodel_1_1_game_ad539420fd03ae5b4fe6c8b26a95543fc}} 
+\index{model.Game@{model.Game}!Create@{Create}}
+\index{Create@{Create}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classmodel_1_1_game}{Game}} model.\+Game.\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Új játék létrehozása. \begin{DoxyReturn}{Returns}
+az új játékot megvalósító \mbox{\hyperlink{classmodel_1_1_game}{Game}} példány. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00072}{72}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1_game_a51945d5e9c78c687604723825bc5534e}\label{classmodel_1_1_game_a51945d5e9c78c687604723825bc5534e}} 
+\index{model.Game@{model.Game}!EndGame@{EndGame}}
+\index{EndGame@{EndGame}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{EndGame()}{EndGame()}}
+{\footnotesize\ttfamily void model.\+Game.\+End\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Befejezi a játékot és kihírdeti a nyertest 
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00117}{117}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_a51945d5e9c78c687604723825bc5534e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}\label{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}} 
+\index{model.Game@{model.Game}!GetCurrentPlayer@{GetCurrentPlayer}}
+\index{GetCurrentPlayer@{GetCurrentPlayer}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{GetCurrentPlayer()}{GetCurrentPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} model.\+Game.\+Get\+Current\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+az aktív játékos objektuma. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00110}{110}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_a2148c54ee2d136c0774ab595f87dd4b7}\label{classmodel_1_1_game_a2148c54ee2d136c0774ab595f87dd4b7}} 
+\index{model.Game@{model.Game}!GetFields@{GetFields}}
+\index{GetFields@{GetFields}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{GetFields()}{GetFields()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} $>$ model.\+Game.\+Get\+Fields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+a mezők listája. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00158}{158}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classmodel_1_1_game_a2148c54ee2d136c0774ab595f87dd4b7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_a1b637e2da889f1de5947a0118c5f8bee}\label{classmodel_1_1_game_a1b637e2da889f1de5947a0118c5f8bee}} 
+\index{model.Game@{model.Game}!getVirologists@{getVirologists}}
+\index{getVirologists@{getVirologists}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{getVirologists()}{getVirologists()}}
+{\footnotesize\ttfamily Array\+List$<$ \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} $>$ model.\+Game.\+get\+Virologists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+a tárolt virológusok listája 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00039}{39}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_a1b637e2da889f1de5947a0118c5f8bee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_ac35f95a8c68dfe369a416237affd00c0}\label{classmodel_1_1_game_ac35f95a8c68dfe369a416237affd00c0}} 
+\index{model.Game@{model.Game}!NewGame@{NewGame}}
+\index{NewGame@{NewGame}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{NewGame()}{NewGame()}}
+{\footnotesize\ttfamily void model.\+Game.\+New\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Elindít egy új játékot, inicializálja a tagváltozók listáit. 
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00082}{82}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{classmodel_1_1_game_ac35f95a8c68dfe369a416237affd00c0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_add9cd4a2652fca83de4574fdc7dcb412}\label{classmodel_1_1_game_add9cd4a2652fca83de4574fdc7dcb412}} 
+\index{model.Game@{model.Game}!NextPlayer@{NextPlayer}}
+\index{NextPlayer@{NextPlayer}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{NextPlayer()}{NextPlayer()}}
+{\footnotesize\ttfamily void model.\+Game.\+Next\+Player (\begin{DoxyParamCaption}\item[{int}]{codes }\end{DoxyParamCaption})}
+
+Átadja az irányítást a sorrendben a következő játékosnak, az aktuálisnak lezárja a körét. 
+\begin{DoxyParams}{Parameters}
+{\em codes} & a megismert genetikai kódok száma \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00093}{93}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_add9cd4a2652fca83de4574fdc7dcb412_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_add9cd4a2652fca83de4574fdc7dcb412_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_a55296024bedbe423b6dbe6d27a5486e8}\label{classmodel_1_1_game_a55296024bedbe423b6dbe6d27a5486e8}} 
+\index{model.Game@{model.Game}!RemoveVirologist@{RemoveVirologist}}
+\index{RemoveVirologist@{RemoveVirologist}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{RemoveVirologist()}{RemoveVirologist()}}
+{\footnotesize\ttfamily void model.\+Game.\+Remove\+Virologist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{virologist }\end{DoxyParamCaption})}
+
+Egy virológus eltávolítása a játékból. 
+\begin{DoxyParams}{Parameters}
+{\em virologist} & az eltávolítandó virológus. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00164}{164}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1_game_a55296024bedbe423b6dbe6d27a5486e8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1_game_a932c9a3b651084f16a3a145c5fdb13d4}\label{classmodel_1_1_game_a932c9a3b651084f16a3a145c5fdb13d4}} 
+\index{model.Game@{model.Game}!test@{test}}
+\index{test@{test}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily void model.\+Game.\+test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00019}{19}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmodel_1_1_game_ad6ff40a7dddfe2c7737f57b687379e39}\label{classmodel_1_1_game_ad6ff40a7dddfe2c7737f57b687379e39}} 
+\index{model.Game@{model.Game}!playerCount@{playerCount}}
+\index{playerCount@{playerCount}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{playerCount}{playerCount}}
+{\footnotesize\ttfamily int model.\+Game.\+player\+Count = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+A játékosok száma 
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00030}{30}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}\label{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}} 
+\index{model.Game@{model.Game}!randOn@{randOn}}
+\index{randOn@{randOn}!model.Game@{model.Game}}
+\doxysubsubsection{\texorpdfstring{randOn}{randOn}}
+{\footnotesize\ttfamily boolean model.\+Game.\+rand\+On = true}
+
+Determinisztikusságot/randomitást jelölő bit, alapból random működést jelez. Paranccsal lehet kikapcsolni egy jelszó segítségével. 
+
+Definition at line \mbox{\hyperlink{_game_8java_source_l00047}{47}} of file \mbox{\hyperlink{_game_8java_source}{Game.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Proto/src/model/Game.\+java\end{DoxyCompactItemize}

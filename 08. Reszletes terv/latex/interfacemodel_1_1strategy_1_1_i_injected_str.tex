@@ -1,0 +1,78 @@
+\hypertarget{interfacemodel_1_1strategy_1_1_i_injected_str}{}\doxysection{model.\+strategy.\+IInjected\+Str Interface Reference}
+\label{interfacemodel_1_1strategy_1_1_i_injected_str}\index{model.strategy.IInjectedStr@{model.strategy.IInjectedStr}}
+
+
+Inheritance diagram for model.\+strategy.\+IInjected\+Str\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfacemodel_1_1strategy_1_1_i_injected_str__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_injected_str_a286c2815ec68c4ada3ea30d48a2d02ea}{Injected}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v, \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a)
+\item 
+void \mbox{\hyperlink{interfacemodel_1_1strategy_1_1_i_injected_str_af55726193cb1a9031e3a1d09bb4d05c4}{Injected}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} by, \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} injected, \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A virológus azon stratégiáját reprezentálja, mikor felkennek rá valamilyen ágenst. 
+
+Definition at line \mbox{\hyperlink{_i_injected_str_8java_source_l00010}{10}} of file \mbox{\hyperlink{_i_injected_str_8java_source}{IInjected\+Str.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interfacemodel_1_1strategy_1_1_i_injected_str_af55726193cb1a9031e3a1d09bb4d05c4}\label{interfacemodel_1_1strategy_1_1_i_injected_str_af55726193cb1a9031e3a1d09bb4d05c4}} 
+\index{model.strategy.IInjectedStr@{model.strategy.IInjectedStr}!Injected@{Injected}}
+\index{Injected@{Injected}!model.strategy.IInjectedStr@{model.strategy.IInjectedStr}}
+\doxysubsubsection{\texorpdfstring{Injected()}{Injected()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void model.\+strategy.\+IInjected\+Str.\+Injected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{by,  }\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{injected,  }\item[{\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}}}]{a }\end{DoxyParamCaption})}
+
+A stratégia alakalmazásakor hívott metódus, olyan esetben, ha a felkenő ismert virológus. 
+\begin{DoxyParams}{Parameters}
+{\em by} & A felkenő virológus. \\
+\hline
+{\em injected} & A felkent virológus. \\
+\hline
+{\em a} & A felkent ágens. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classmodel_1_1equipments_1_1_glove_a8162cd375dd838907e7c82e1c3b840c5}{model.\+equipments.\+Glove}}, \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_injected_a66c9075e7afa8a2fb553f04a71ff6647}{model.\+strategy.\+Def\+Injected}}, and \mbox{\hyperlink{classmodel_1_1strategy_1_1_no_injected_aca2b1730979261e4f09fac55fb5f2fa9}{model.\+strategy.\+No\+Injected}}.
+
+\mbox{\Hypertarget{interfacemodel_1_1strategy_1_1_i_injected_str_a286c2815ec68c4ada3ea30d48a2d02ea}\label{interfacemodel_1_1strategy_1_1_i_injected_str_a286c2815ec68c4ada3ea30d48a2d02ea}} 
+\index{model.strategy.IInjectedStr@{model.strategy.IInjectedStr}!Injected@{Injected}}
+\index{Injected@{Injected}!model.strategy.IInjectedStr@{model.strategy.IInjectedStr}}
+\doxysubsubsection{\texorpdfstring{Injected()}{Injected()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void model.\+strategy.\+IInjected\+Str.\+Injected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{v,  }\item[{\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}}}]{a }\end{DoxyParamCaption})}
+
+A stratégia alakalmazásakor hívott metódus, olyan esetben, ha a felkenő nem egy virológus. 
+\begin{DoxyParams}{Parameters}
+{\em v} & A virológus, akire felkenték az ágenst. \\
+\hline
+{\em a} & A felkent ágens. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classmodel_1_1equipments_1_1_glove_a0e460e6f9ef29065617dad6e59c581ad}{model.\+equipments.\+Glove}}, \mbox{\hyperlink{classmodel_1_1strategy_1_1_def_injected_a3eb5d0254fad23a57831820c1e487784}{model.\+strategy.\+Def\+Injected}}, and \mbox{\hyperlink{classmodel_1_1strategy_1_1_no_injected_a9e9d6705fa21f833bc9c1c161e11af20}{model.\+strategy.\+No\+Injected}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfacemodel_1_1strategy_1_1_i_injected_str_a286c2815ec68c4ada3ea30d48a2d02ea_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Proto/src/model/strategy/IInjected\+Str.\+java\end{DoxyCompactItemize}

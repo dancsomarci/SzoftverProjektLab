@@ -1,0 +1,403 @@
+\hypertarget{_controller_8java_source}{}\doxysection{Controller.\+java}
+\label{_controller_8java_source}\index{Proto/src/control/Controller.java@{Proto/src/control/Controller.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00001}00001 \textcolor{keyword}{package }control;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00003}00003 \textcolor{keyword}{import} model.Game;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00005}00005 \textcolor{keyword}{import} java.lang.reflect.Method;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00006}00006 \textcolor{keyword}{import} java.util.*;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00008}00008 \textcolor{keyword}{import} model.Virologist;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00009}00009 \textcolor{keyword}{import} model.agents.Agent;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00010}00010 \textcolor{keyword}{import} model.codes.GeneticCode;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00011}00011 \textcolor{keyword}{import} model.equipments.Equipment;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00012}00012 \textcolor{keyword}{import} model.map.*;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00018}\mbox{\hyperlink{classcontrol_1_1_controller}{00018}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classcontrol_1_1_controller}{Controller}} \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00022}00022     \textcolor{keyword}{private} \textcolor{keyword}{static} LinkedHashMap<String, Method> inputs = \textcolor{keyword}{new} LinkedHashMap<>();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00027}00027     \textcolor{keyword}{private} \textcolor{keyword}{static} Scanner sc = \mbox{\hyperlink{classcontrol_1_1_single_ton_scanner}{SingleTonScanner}}.\mbox{\hyperlink{classcontrol_1_1_single_ton_scanner_a252ef2d7a44bcaad4cae422f8cb8ac75}{Create}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00035}\mbox{\hyperlink{classcontrol_1_1_controller_a433bdc85b3ae7292edebb6a5331939bd}{00035}}     \textcolor{keyword}{public} \mbox{\hyperlink{classcontrol_1_1_controller_a433bdc85b3ae7292edebb6a5331939bd}{Controller}}() throws Exception \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00036}00036         \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00037}00037             \textcolor{keywordflow}{for} (Method method : \mbox{\hyperlink{classcontrol_1_1_controller}{Controller}}.class.getMethods())\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00038}00038                 \textcolor{keywordflow}{if} (method.isAnnotationPresent(\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}.class))\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00039}00039                     inputs.put(method.getAnnotation(\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}.class).name(), method);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00040}00040                 \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00041}00041             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00042}00042         \} \textcolor{keywordflow}{catch} (Exception e)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00043}00043             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"{}Error parsing TestCases... hint: "{}} + e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00044}00044         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00045}00045     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00054}\mbox{\hyperlink{classcontrol_1_1_controller_a516d5564fa412eb94ddab48f28b01003}{00054}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a516d5564fa412eb94ddab48f28b01003}{run}}() throws Exception \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00055}00055         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00056}00056             String input;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00057}00057             \textcolor{keywordflow}{while} (!(input = sc.nextLine()).equals(\textcolor{stringliteral}{"{}exit"{}}))\{ \textcolor{comment}{//exit parancs itt kezelődik}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00059}00059                 String[] inputArr = input.split(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00060}00060                 Method m = inputs.get(inputArr[0]);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00061}00061                 \textcolor{keywordflow}{if} (m != \textcolor{keyword}{null})\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00062}00062                     m.invoke(\textcolor{keyword}{this}, \textcolor{keyword}{new} Object[] \{Arrays.copyOfRange(inputArr, 1, inputArr.length)\});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00063}00063                 \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00064}00064                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00065}00065                     \textcolor{keywordflow}{if} (!\textcolor{stringliteral}{"{}"{}}.equals(input)) \textcolor{comment}{//ilyenkor csak lineskip}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00066}00066                         System.out.println(\textcolor{stringliteral}{"{}Unknown command!"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00067}00067                 \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00068}00068             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00069}00069         \} \textcolor{keywordflow}{catch} (Exception e)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00070}00070             \textcolor{keywordflow}{throw} e;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00071}00071             \textcolor{comment}{//throw new Exception("{}An unexpected error occured... hint: "{} + e.getMessage());}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00072}00072         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00073}00073         \textcolor{keywordflow}{finally}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00074}00074             \textcolor{keywordflow}{if} (sc != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00075}00075                 sc.close();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00076}00076         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00077}00077     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00083}\mbox{\hyperlink{classcontrol_1_1_controller_a41d4d9d8b1e6fe37897fc9fbe52e6a82}{00083}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a41d4d9d8b1e6fe37897fc9fbe52e6a82}{main}}(String[] args)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00084}00084         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00085}00085             \mbox{\hyperlink{classcontrol_1_1_controller}{Controller}} controller = \textcolor{keyword}{new} \mbox{\hyperlink{classcontrol_1_1_controller_a433bdc85b3ae7292edebb6a5331939bd}{Controller}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00086}00086             controller.\mbox{\hyperlink{classcontrol_1_1_controller_a516d5564fa412eb94ddab48f28b01003}{run}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00087}00087         \} \textcolor{keywordflow}{catch} (Exception e) \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00088}00088             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00089}00089         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00090}00090     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00098}\mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{00098}}     \textcolor{keyword}{public} Object \mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{createObject}}(String className) \textcolor{keywordflow}{throws} Exception\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00099}00099         Class<?> c= Class.forName(className);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00100}00100         \textcolor{keywordflow}{return} c.getDeclaredConstructor().newInstance();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00101}00101     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00106}00106     \textcolor{keyword}{private} \mbox{\hyperlink{classmodel_1_1_game}{Game}} game = \mbox{\hyperlink{classmodel_1_1_game}{Game}}.\mbox{\hyperlink{classmodel_1_1_game_ad539420fd03ae5b4fe6c8b26a95543fc}{Create}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00107}00107 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00111}00111     \textcolor{keyword}{private} HashMap<String, Field> fields;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00119}00119     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}Field"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00120}\mbox{\hyperlink{classcontrol_1_1_controller_a3be6d18ba8f82c37a6b8ebf76fcf3402}{00120}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}}(String[] params) throws Exception \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00121}00121         \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00122}00122             \textcolor{keywordflow}{if} (game == \textcolor{keyword}{null}) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00124}00124             HashMap<String, String> options = \textcolor{keyword}{new} HashMap<>();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00125}00125             String line;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00126}00126             \textcolor{keywordflow}{while} (!(line = sc.nextLine()).equals(\textcolor{stringliteral}{"{}end"{}}))\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00127}00127                 String[] command = line.split(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00128}00128                 options.put(command[0], command[1]);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00129}00129             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00131}00131             \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00132}00132             String arg = options.get(\textcolor{stringliteral}{"{}Param"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00134}00134             \textcolor{keywordflow}{if} (arg == \textcolor{keyword}{null})\{ \textcolor{comment}{//default ctor}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00135}00135                 f = (\mbox{\hyperlink{classcontrol_1_1_controller_a3be6d18ba8f82c37a6b8ebf76fcf3402}{Field}}) \mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{createObject}}(\textcolor{stringliteral}{"{}model.map."{}} + options.get(\textcolor{stringliteral}{"{}Type"{}}));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00136}00136             \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00137}00137                 \textcolor{comment}{//csúnya, de ez van}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00138}00138                 \textcolor{keywordflow}{switch}(options.get(\textcolor{stringliteral}{"{}Type"{}}))\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00139}00139                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Laboratory"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00140}00140                         \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} c1 = (\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}}) \mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{createObject}}(\textcolor{stringliteral}{"{}model.codes."{}} + arg);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00141}00141                         f = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1map_1_1_laboratory}{Laboratory}}(game.\mbox{\hyperlink{classmodel_1_1_game_aaf58a8c40cc2ee478c30718ef7c33adb}{AddGeneticCode}}(c1));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00142}00142                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00143}00143                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}InfectedLaboratory"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00144}00144                         \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} c2 = (\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}}) \mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{createObject}}(\textcolor{stringliteral}{"{}model.codes."{}} + arg);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00145}00145                         f = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1map_1_1_infected_laboratory}{InfectedLaboratory}}(game.\mbox{\hyperlink{classmodel_1_1_game_aaf58a8c40cc2ee478c30718ef7c33adb}{AddGeneticCode}}(c2));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00146}00146                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00147}00147                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Shelter"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00148}00148                         \mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}} e = (\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}}) \mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{createObject}}(\textcolor{stringliteral}{"{}model.equipments."{}}+arg);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00149}00149                         f = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1map_1_1_shelter}{Shelter}}(e);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00150}00150                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00151}00151                     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00152}00152                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00153}00153                 \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00154}00154             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00155}00155             String eqType = options.get(\textcolor{stringliteral}{"{}Equipment"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00156}00156             \textcolor{keywordflow}{if} (eqType != \textcolor{keyword}{null})\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00157}00157                 f.\mbox{\hyperlink{classmodel_1_1map_1_1_field_ad7c5d60aaa2f60d3b08f83c99a74dd48}{Drop}}((\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}}) \mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{createObject}}(\textcolor{stringliteral}{"{}model.equipments."{}} + eqType));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00158}00158             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00159}00159             \textcolor{keywordflow}{if} (options.get(\textcolor{stringliteral}{"{}Name"{}}) == \textcolor{keyword}{null}) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(); \textcolor{comment}{//Name is mandatory!}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00160}00160             \textcolor{keywordflow}{if} (fields.get(options.get(\textcolor{stringliteral}{"{}Name"{}})) != \textcolor{keyword}{null}) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(); \textcolor{comment}{//Field with Name already Exists!}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00161}00161             f.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a8dea4616cbfe0aeda8f2884e744c02c6}{setName}}(options.get(\textcolor{stringliteral}{"{}Name"{}}));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00162}00162             fields.put(options.get(\textcolor{stringliteral}{"{}Name"{}}), f);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00163}00163             game.\mbox{\hyperlink{classmodel_1_1_game_a0ebeba5da79dcf4666ead63df0502dee}{AddField}}(f);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00164}00164         \} \textcolor{keywordflow}{catch} (Exception e)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00165}00165             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"{}Error in Field command format!"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00166}00166         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00167}00167     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00174}00174     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}Neighbours"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00175}\mbox{\hyperlink{classcontrol_1_1_controller_a4435f542989a8bc79c4e2bfd3a3eceb9}{00175}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a4435f542989a8bc79c4e2bfd3a3eceb9}{Neighbours}}(String[] params) throws Exception \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00176}00176         \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00177}00177             \textcolor{keywordflow}{if} (game == \textcolor{keyword}{null}) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00178}00178             String line;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00179}00179             \textcolor{keywordflow}{while} (!(line = sc.nextLine()).equals(\textcolor{stringliteral}{"{}end"{}}))\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00180}00180                 String[] command = line.split(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00181}00181                 \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f0 = fields.get(command[0]);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00182}00182                 \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f1 = fields.get(command[1]);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00183}00183                 f0.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a757f0149b40b99ffbf70b702bf07d924}{AddNeighbour}}(f1);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00184}00184                 f1.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a757f0149b40b99ffbf70b702bf07d924}{AddNeighbour}}(f0);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00185}00185             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00186}00186         \}\textcolor{keywordflow}{catch}(Exception e)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00187}00187             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"{}Error in Neighbours command format!"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00188}00188         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00189}00189     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00190}00190 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00196}00196     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}Virologist"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00197}\mbox{\hyperlink{classcontrol_1_1_controller_a5830fe8d72537689d238987bbe19b98f}{00197}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}(String[] params) throws Exception \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00198}00198         \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00199}00199             \textcolor{keywordflow}{if} (game == \textcolor{keyword}{null}) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00200}00200             String line;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00201}00201             \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v = \textcolor{keyword}{new} \mbox{\hyperlink{classcontrol_1_1_controller_a5830fe8d72537689d238987bbe19b98f}{Virologist}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00202}00202             String startingPos = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00203}00203             \textcolor{keywordflow}{while} (!(line = sc.nextLine()).equals(\textcolor{stringliteral}{"{}end"{}}))\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00204}00204                 String[] command = line.split(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00205}00205                 \textcolor{keywordflow}{switch}(command[0])\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00206}00206                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Name"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00207}00207                         v.\mbox{\hyperlink{classmodel_1_1_virologist_a710a9e0e4daf6b0f46183eaa0056b8ad}{setName}}(command[1]);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00208}00208                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00209}00209                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Equipment"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00210}00210                         v.\mbox{\hyperlink{classmodel_1_1_virologist_acdc0a195d4003d55b873ee4bf99cc9a3}{AddEquipment}}((\mbox{\hyperlink{classmodel_1_1equipments_1_1_equipment}{Equipment}}) \mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{createObject}}(\textcolor{stringliteral}{"{}model.equipments."{}} + command[1]));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00211}00211                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00212}00212                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Amino"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00213}00213                         v.\mbox{\hyperlink{classmodel_1_1_virologist_ac21f2c24d8c1fbc4e3fce465c2bbcb1d}{AddAminoAcid}}(Integer.parseInt(command[1]));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00214}00214                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00215}00215                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Nucleo"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00216}00216                         v.\mbox{\hyperlink{classmodel_1_1_virologist_a5466b7410761c8d91ea1ee9428631211}{AddNucleotide}}(Integer.parseInt(command[1]));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00217}00217                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00218}00218                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Agent"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00219}00219                         Class<?> c= Class.forName(\textcolor{stringliteral}{"{}model.agents."{}} + command[1]);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00220}00220                         \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} a = (\mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}}) c.getConstructor(Integer.TYPE).newInstance(Integer.parseInt(command[2]));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00221}00221                         a.\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a381129273ccfaab86ae7111250c8dc12}{Apply}}(v);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00222}00222                         v.\mbox{\hyperlink{classmodel_1_1_virologist_ab8a9bd66e2486382f8666e8725a61f94}{AddAgent}}(a);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00223}00223                         a.\mbox{\hyperlink{classmodel_1_1agents_1_1_agent_aab032ad3ebf0ef9a5121d666966e3386}{ApplyStrategy}}(v);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00224}00224                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00225}00225                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}StartingPos"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00226}00226                         startingPos = command[1]; \textcolor{comment}{//in case there are command after this that throw error we don't want to mess up the existing setup}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00227}00227                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00228}00228                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}GeneticCode"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00229}00229                         v.\mbox{\hyperlink{classmodel_1_1_virologist_a37a54ef95658e9dec18d308961448794}{AddGeneticCode}}((\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}}) \mbox{\hyperlink{classcontrol_1_1_controller_adcacb591607b10c6972903b2d54dba3b}{createObject}}(\textcolor{stringliteral}{"{}model.codes."{}} + command[1]));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00230}00230                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00231}00231                     \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}ActionCount"{}}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00232}00232                         v.SetActionCount(Integer.parseInt(command[1]));}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00233}00233                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00234}00234                     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00235}00235                         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00236}00236                 \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00237}00237             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00238}00238             fields.get(startingPos).AddVirologist(v);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00239}00239             game.\mbox{\hyperlink{classmodel_1_1_game_a9127645ec3aa9ac2d69ba195dbe55f74}{AddVirologist}}(v);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00240}00240         \} \textcolor{keywordflow}{catch} (Exception e)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00241}00241             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"{}Error in Virologist command format!"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00242}00242         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00243}00243     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00244}00244 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00251}00251     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}wau"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00252}\mbox{\hyperlink{classcontrol_1_1_controller_a0e2410c43e19b341ead3ceaf4b8277bd}{00252}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a0e2410c43e19b341ead3ceaf4b8277bd}{wau}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00253}00253         fields = \textcolor{keyword}{new} HashMap<>();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00254}00254         game.\mbox{\hyperlink{classmodel_1_1_game_ac35f95a8c68dfe369a416237affd00c0}{NewGame}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00255}00255     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00256}00256 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00262}00262     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}move"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00263}\mbox{\hyperlink{classcontrol_1_1_controller_aa2fb18fe3d9ce48b0605975e2351ff52}{00263}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_aa2fb18fe3d9ce48b0605975e2351ff52}{move}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00264}00264         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} currentPlayer = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00265}00265         \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} currentField = currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00266}00266         ArrayList<Field> options = currentField.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a524476cf5bbb297a764994345be03e9e}{GetNeighbours}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00267}00267         \textcolor{keywordflow}{if} (options.size() > 0)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00268}00268             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < options.size(); i++)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00269}00269                 System.out.println(i + \textcolor{stringliteral}{"{} -\/ "{}} + options.get(i).getName());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00270}00270             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00271}00271             \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} target = options.get(sc.nextInt());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00272}00272             currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_acb7df29e14ec16013cdc94b122fc82e4}{Move}}(target);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00273}00273             System.out.println(currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} tries moving from "{}} + currentField.\mbox{\hyperlink{classmodel_1_1map_1_1_field_ab12f08b6dd9768e3946bab1bd110d496}{getName}}() + \textcolor{stringliteral}{"{} to "{}} + target.\mbox{\hyperlink{classmodel_1_1map_1_1_field_ab12f08b6dd9768e3946bab1bd110d496}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00274}00274             \textcolor{comment}{//ha random mozog/nincs action stb.. nem oda fog menni feltétlen!!!}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00275}00275         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00276}00276     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00277}00277 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00283}00283     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}learn"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00284}\mbox{\hyperlink{classcontrol_1_1_controller_ab5d001bd1841ed62ea31417149d1fe6f}{00284}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_ab5d001bd1841ed62ea31417149d1fe6f}{learn}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00285}00285         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} currentPlayer = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00286}00286         currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_aae83bcaf15687b2b7ffbe03ec63dcbe7}{Learn}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00287}00287         System.out.println(currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} tries to learn on field named "{}} + currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}().\mbox{\hyperlink{classmodel_1_1map_1_1_field_ab12f08b6dd9768e3946bab1bd110d496}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00288}00288     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00289}00289 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00295}00295     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}collect"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00296}\mbox{\hyperlink{classcontrol_1_1_controller_adf79586c54bb4fefd61b9bc8fe237709}{00296}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_adf79586c54bb4fefd61b9bc8fe237709}{collect}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00297}00297         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} currentPlayer = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00298}00298         currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_a6a20e22b8554cb22bac1a1e629d15742}{Collect}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00299}00299         System.out.println(currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} tries to collect material on field named "{}} + currentPlayer.\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}().\mbox{\hyperlink{classmodel_1_1map_1_1_field_ab12f08b6dd9768e3946bab1bd110d496}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00300}00300     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00301}00301 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00309}00309     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}inject"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00310}\mbox{\hyperlink{classcontrol_1_1_controller_ab08878e5bf54a52830f8845fcb8676fd}{00310}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_ab08878e5bf54a52830f8845fcb8676fd}{inject}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00311}00311         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00312}00312         ArrayList<GeneticCode> codes = player.\mbox{\hyperlink{classmodel_1_1_virologist_a173f8d07675de6be0b872bd3bcd1af3d}{getGeneticCodes}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00313}00313         \textcolor{keywordflow}{if} (codes.size() > 0)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00314}00314             \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00315}00315             \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} code: codes) \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00316}00316                 System.out.println(i + \textcolor{stringliteral}{"{}: "{}} + code.getName());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00317}00317                 i++;}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00318}00318                 System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)tCost:"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00319}00319                 System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tNucleotide: "{}} + code.getNucleotidePrice());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00320}00320                 System.out.println(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tAmino acid: "{}} + code.getAminoAcidPrice());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00321}00321             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00322}00322             \textcolor{keywordtype}{int} codeId = sc.nextInt();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00323}00323             \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} target = ChooseNeighbour(player);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00324}00324             \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} c = codes.get(codeId);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00325}00325             player.\mbox{\hyperlink{classmodel_1_1_virologist_a13f0698d5bcc495b6a7f89c78f5fb263}{Inject}}(target, c);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00326}00326             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} trying to inject "{}} + target.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} with agent created from "{}} + c.\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code_abc7ef27ce08c4b061d2208a7789476d0}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00327}00327         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00328}00328     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00329}00329 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00335}00335     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}equip"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00336}\mbox{\hyperlink{classcontrol_1_1_controller_a63bda5193b22c758bd8297b212d38862}{00336}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a63bda5193b22c758bd8297b212d38862}{equip}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00337}00337         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00338}00338         player.\mbox{\hyperlink{classmodel_1_1_virologist_a358fb793bfc90fd038b77ffb43e3b7ff}{Equip}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00339}00339         System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} trying to pick up equipment from field named "{}} + player.\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}().\mbox{\hyperlink{classmodel_1_1map_1_1_field_ab12f08b6dd9768e3946bab1bd110d496}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00340}00340     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00341}00341 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00347}00347     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}lootEquipment"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00348}\mbox{\hyperlink{classcontrol_1_1_controller_a293b9c6d402cc1ccc9465305fdb96588}{00348}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a293b9c6d402cc1ccc9465305fdb96588}{lootEquipment}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00349}00349         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00350}00350         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} target = ChooseTarget(player);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00351}00351         \textcolor{keywordflow}{if} (target != \textcolor{keyword}{null})\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00352}00352             player.\mbox{\hyperlink{classmodel_1_1_virologist_a223b81dbbf607d6f67beadd6c155c3a4}{LootEquipmentFrom}}(target);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00353}00353             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} trying to loot equipment from "{}} + target.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00354}00354         \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00355}00355             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} has no one to loot equipment from"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00356}00356         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00357}00357     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00358}00358 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00364}00364     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}lootAmino"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00365}\mbox{\hyperlink{classcontrol_1_1_controller_ae512ae7c4173a3a29ff14666a24f2a9f}{00365}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_ae512ae7c4173a3a29ff14666a24f2a9f}{lootAmino}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00366}00366         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00367}00367         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} target = ChooseTarget(player);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00368}00368         \textcolor{keywordflow}{if} (target != \textcolor{keyword}{null})\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00369}00369             player.\mbox{\hyperlink{classmodel_1_1_virologist_a98a833937d25fb00a4972f0854278843}{LootAminoAcidFrom}}(target);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00370}00370             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} trying to loot amino acid from "{}} + target.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00371}00371         \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00372}00372             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} has no one to loot amino acid from"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00373}00373         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00374}00374     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00375}00375 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00381}00381     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}lootNucleotide"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00382}\mbox{\hyperlink{classcontrol_1_1_controller_abc15225c37754804a80be897eaa51033}{00382}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_abc15225c37754804a80be897eaa51033}{lootNucleotide}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00383}00383         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00384}00384         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} target = ChooseTarget(player);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00385}00385         \textcolor{keywordflow}{if} (target != \textcolor{keyword}{null})\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00386}00386             player.\mbox{\hyperlink{classmodel_1_1_virologist_aa72002e32d4923cf9a818c38cfae0436}{LootNucleotideFrom}}(target);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00387}00387             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} trying to loot nucleotide from "{}} + target.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00388}00388         \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00389}00389             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} has no one to loot nucleotide from"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00390}00390         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00391}00391     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00392}00392 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00397}00397     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}enemies"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00398}\mbox{\hyperlink{classcontrol_1_1_controller_a4ec27670e20f23cc0c56342ce0b73980}{00398}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a4ec27670e20f23cc0c56342ce0b73980}{enemies}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00399}00399         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00400}00400 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00401}00401         \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f = player.\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00402}00402         ArrayList<Virologist> neighbours = f.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a81a04b016490456ea0267d3b63375e9b}{GetVirologists}}(); \textcolor{comment}{//ebben saját maga is benne van, tehát nem lehet üres}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00403}00403         \textcolor{keywordflow}{if} (neighbours.size() == 1)\{ \textcolor{comment}{//player is benne van}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00404}00404             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} has no enemies"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00405}00405         \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00406}00406             System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} 's enemies are:"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00407}00407             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < neighbours.size(); j++)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00408}00408                 \textcolor{keywordflow}{if} (!neighbours.get(j).getName().equals(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}())) \textcolor{comment}{//Ha nem saját maga}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00409}00409                     System.out.println(neighbours.get(j).getName());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00410}00410             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00411}00411         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00412}00412     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00413}00413 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00419}00419     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}endTurn"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00420}\mbox{\hyperlink{classcontrol_1_1_controller_ae5a2028e254f3e41745e4871a2e35b89}{00420}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_ae5a2028e254f3e41745e4871a2e35b89}{endTurn}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00421}00421         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00422}00422         player.\mbox{\hyperlink{classmodel_1_1_virologist_a0eb75a8851d6d9701304c2e9377adf26}{EndTurn}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00423}00423         player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00424}00424         System.out.println(\textcolor{stringliteral}{"{}The next player is: "{}} + player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00425}00425     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00426}00426 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00432}00432     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}drop"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00433}\mbox{\hyperlink{classcontrol_1_1_controller_a0685c25180f1de924bef928fd1471ab8}{00433}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a0685c25180f1de924bef928fd1471ab8}{drop}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00434}00434         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00435}00435         player.\mbox{\hyperlink{classmodel_1_1_virologist_a7b2b2b0a78d978a656f7b2d70b62a397}{Drop}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00436}00436         System.out.println(player.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} trying to drop equipment on field named "{}} + player.\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}().\mbox{\hyperlink{classmodel_1_1map_1_1_field_ab12f08b6dd9768e3946bab1bd110d496}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00437}00437     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00438}00438 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00443}00443     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}randOn"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00444}\mbox{\hyperlink{classcontrol_1_1_controller_a9ec96fded9fc9bb4b444a9cde720b51f}{00444}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a9ec96fded9fc9bb4b444a9cde720b51f}{randOn}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00445}00445         game.\mbox{\hyperlink{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}{randOn}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00446}00446         System.out.println(\textcolor{stringliteral}{"{}Randomized mode on"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00447}00447     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00448}00448 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00456}00456     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}randOff"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00457}\mbox{\hyperlink{classcontrol_1_1_controller_a3f6c98c3554f643c2ef8b94b09ae7891}{00457}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a3f6c98c3554f643c2ef8b94b09ae7891}{randOff}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00458}00458         \textcolor{keywordflow}{if} (params.length > 0 \&\& params[0].equals(\textcolor{stringliteral}{"{}Hurrikan\_a\_legcukibb\_kutya!"{}})) \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00459}00459             game.\mbox{\hyperlink{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}{randOn}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00460}00460             System.out.println(\textcolor{stringliteral}{"{}Deterministic mode on!"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00461}00461         \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00462}00462             System.out.println(\textcolor{stringliteral}{"{}Access denied!"{}});}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00463}00463         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00464}00464     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00465}00465 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00471}00471     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}state"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00472}\mbox{\hyperlink{classcontrol_1_1_controller_aed4f8defbab0b53c1a532e4088857b6f}{00472}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_aed4f8defbab0b53c1a532e4088857b6f}{state}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00473}00473         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v :}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00474}00474                 game.\mbox{\hyperlink{classmodel_1_1_game_a1b637e2da889f1de5947a0118c5f8bee}{getVirologists}}()) \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00475}00475             v.bark();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00476}00476         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00477}00477     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00478}00478 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00485}00485     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}bark"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00486}\mbox{\hyperlink{classcontrol_1_1_controller_aa3a6301f7460549c5780a3a99a5efc0e}{00486}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_aa3a6301f7460549c5780a3a99a5efc0e}{bark}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00487}00487         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} player = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00488}00488         player.\mbox{\hyperlink{classmodel_1_1_virologist_a5d311ad90b702782a0811ca47a1b1971}{bark}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00489}00489     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00490}00490 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00496}00496     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}attack"{}}) \textcolor{comment}{//magát is megcsaphatja}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00497}\mbox{\hyperlink{classcontrol_1_1_controller_a905b5a26b1b43f732d1f2caed8b663d5}{00497}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a905b5a26b1b43f732d1f2caed8b663d5}{attack}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00498}00498         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v = game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00499}00499         \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} target = ChooseNeighbour(v);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00500}00500         System.out.println(v.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}() + \textcolor{stringliteral}{"{} attacking "{}} + target.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00501}00501         v.\mbox{\hyperlink{classmodel_1_1_virologist_a376e043feabdb1a8890a3a42de4969ae}{Attack}}(target);}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00502}00502     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00503}00503 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00509}00509     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}currentField"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00510}\mbox{\hyperlink{classcontrol_1_1_controller_a220a40ff0b2d779d9c3f8cdcd9029866}{00510}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_a220a40ff0b2d779d9c3f8cdcd9029866}{field}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00511}00511         game.\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}().\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}().\mbox{\hyperlink{classmodel_1_1map_1_1_field_a3a20d6985557ad2dff5bafed1f6158b7}{bark}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00512}00512     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00513}00513 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00518}00518     @\mbox{\hyperlink{interfacecontrol_1_1_proto_input}{ProtoInput}}(name=\textcolor{stringliteral}{"{}map"{}})}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00519}\mbox{\hyperlink{classcontrol_1_1_controller_ac11273875003b61aae3dd4b0f321bafc}{00519}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classcontrol_1_1_controller_ac11273875003b61aae3dd4b0f321bafc}{map}}(String[] params)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00520}00520         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f: game.\mbox{\hyperlink{classmodel_1_1_game_a2148c54ee2d136c0774ab595f87dd4b7}{GetFields}}()) \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00521}00521             f.bark();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00522}00522         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00523}00523     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00524}00524 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00531}00531     \textcolor{keyword}{private} \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} ChooseTarget(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v) \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00532}00532         \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f = v.\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00533}00533         ArrayList<Virologist> neighbours = f.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a81a04b016490456ea0267d3b63375e9b}{GetVirologists}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00534}00534         \textcolor{keywordflow}{if} (neighbours.size() > 1)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00535}00535 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00536}00536             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < neighbours.size(); j++) \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00537}00537                 \textcolor{keywordflow}{if} (!v.\mbox{\hyperlink{classmodel_1_1_virologist_ab985968b860eb69f016c14d08afe4210}{getName}}().equals(neighbours.get(j).getName()))\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00538}00538                     System.out.println(j + \textcolor{stringliteral}{"{} -\/ "{}} + neighbours.get(j).getName());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00539}00539 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00540}00540                 \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00541}00541             \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00542}00542             \textcolor{keywordflow}{return} neighbours.get(sc.nextInt());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00543}00543         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00544}00544         \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00545}00545     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00546}00546 }
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00553}00553     \textcolor{keyword}{private} \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} ChooseNeighbour(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v) \{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00554}00554         \mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f = v.\mbox{\hyperlink{classmodel_1_1_virologist_a9e69a33cde69efd6f63b2e9ca06ae47e}{getField}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00555}00555         ArrayList<Virologist> neighbours = f.\mbox{\hyperlink{classmodel_1_1map_1_1_field_a81a04b016490456ea0267d3b63375e9b}{GetVirologists}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00556}00556         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < neighbours.size(); j++)\{}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00557}00557             System.out.println(j + \textcolor{stringliteral}{"{} -\/ "{}} + neighbours.get(j).getName());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00558}00558         \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00559}00559         \textcolor{keywordflow}{return} neighbours.get(sc.nextInt());}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00560}00560     \}}
+\DoxyCodeLine{\Hypertarget{_controller_8java_source_l00561}00561 \}}
+
+\end{DoxyCode}
