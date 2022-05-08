@@ -1,0 +1,9 @@
+<map id="model.Virologist.Kill" name="model.Virologist.Kill">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,143,108"/>
+<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a0eb75a8851d6d9701304c2e9377adf26" title=" " alt="" coords="219,5,385,32"/>
+<area shape="rect" id="node5" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="202,56,402,83"/>
+<area shape="rect" id="node6" href="$classmodel_1_1map_1_1_field.html#af33e183a4fae2dc33642fd62c607b14e" title=" " alt="" coords="191,107,413,133"/>
+<area shape="rect" id="node7" href="$classmodel_1_1_game.html#a55296024bedbe423b6dbe6d27a5486e8" title=" " alt="" coords="202,157,402,184"/>
+<area shape="rect" id="node3" href="$classmodel_1_1_game.html#add9cd4a2652fca83de4574fdc7dcb412" title=" " alt="" coords="461,5,625,32"/>
+<area shape="rect" id="node4" href="$classmodel_1_1_game.html#a51945d5e9c78c687604723825bc5534e" title=" " alt="" coords="673,5,832,32"/>
+</map>

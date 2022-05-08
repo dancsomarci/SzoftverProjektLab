@@ -1,0 +1,7 @@
+<map id="model.Virologist.AddEquipment" name="model.Virologist.AddEquipment">
+<area shape="rect" id="node1" title=" " alt="" coords="496,71,700,98"/>
+<area shape="rect" id="node2" href="$classmodel_1_1strategy_1_1_looted.html#a564c8ea36ab0c82e1bd135433713708c" title=" " alt="" coords="237,5,432,47"/>
+<area shape="rect" id="node3" href="$classmodel_1_1map_1_1_field.html#ae6f3e27895e4bd2d708ac354a1de43d5" title=" " alt="" coords="221,71,448,98"/>
+<area shape="rect" id="node5" href="$classcontrol_1_1_controller.html#a5830fe8d72537689d238987bbe19b98f" title=" " alt="" coords="245,146,424,173"/>
+<area shape="rect" id="node4" href="$classmodel_1_1strategy_1_1_def_equip.html#a5123a603fd41494f8b3ba205e4961117" title=" " alt="" coords="5,64,173,105"/>
+</map>

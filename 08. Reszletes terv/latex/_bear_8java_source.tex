@@ -1,0 +1,34 @@
+\hypertarget{_bear_8java_source}{}\doxysection{Bear.\+java}
+\label{_bear_8java_source}\index{Proto/src/model/agents/Bear.java@{Proto/src/model/agents/Bear.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00001}00001 \textcolor{keyword}{package }model.agents;}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00003}00003 \textcolor{keyword}{import} model.Virologist;}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00004}00004 \textcolor{keyword}{import} model.map.Field;}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00005}00005 \textcolor{keyword}{import} model.strategy.BearMove;}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00006}00006 \textcolor{keyword}{import} model.strategy.IMoveStr;}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00012}\mbox{\hyperlink{classmodel_1_1agents_1_1_bear}{00012}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classmodel_1_1agents_1_1_bear}{Bear}} \textcolor{keyword}{extends} \mbox{\hyperlink{classmodel_1_1agents_1_1_agent}{Agent}} \{}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00016}\mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a0c29015a3cbc4910ed952d1ab188d46d}{00016}}     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a0c29015a3cbc4910ed952d1ab188d46d}{Bear}}()\{}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00017}00017         super(-\/1);}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00018}00018     \}}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00024}\mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a86a888e10fee747ccb177d68ab6eaaf2}{00024}}     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a86a888e10fee747ccb177d68ab6eaaf2}{Bear}}(\textcolor{keywordtype}{int} ttl) \{}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00025}00025         super(ttl);}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00026}00026     \}}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00031}00031     @Override}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00032}\mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a93317362a6ad889b6f383e1d6d84de88}{00032}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a93317362a6ad889b6f383e1d6d84de88}{getTimeToLive}}()\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}infinity"{}};\}}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00038}00038     @Override}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00039}\mbox{\hyperlink{classmodel_1_1agents_1_1_bear_aaed9b61a793be27936721d9d12b70b66}{00039}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_aaed9b61a793be27936721d9d12b70b66}{ApplyStrategy}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)\{}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00040}00040         v.\mbox{\hyperlink{classmodel_1_1_virologist_a778a8175170056e3a8cf2dcf0376b2f6}{SetMoveStr}}(\textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1strategy_1_1_bear_move}{BearMove}}());}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00041}00041     \}}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00047}00047     @Override}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00048}\mbox{\hyperlink{classmodel_1_1agents_1_1_bear_ad4dd8d976754cb8175e5ef126c9841d7}{00048}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_ad4dd8d976754cb8175e5ef126c9841d7}{Update}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)\{ \textcolor{comment}{//Sosem évül el}}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00049}00049     \}}
+\DoxyCodeLine{\Hypertarget{_bear_8java_source_l00050}00050 \}}
+
+\end{DoxyCode}

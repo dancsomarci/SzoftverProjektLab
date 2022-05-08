@@ -1,0 +1,7 @@
+<map id="control.Controller.enemies" name="control.Controller.enemies">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,179,108"/>
+<area shape="rect" id="node2" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="229,5,429,32"/>
+<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#a9e69a33cde69efd6f63b2e9ca06ae47e" title=" " alt="" coords="246,56,411,83"/>
+<area shape="rect" id="node4" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="243,107,414,133"/>
+<area shape="rect" id="node5" href="$classmodel_1_1map_1_1_field.html#a81a04b016490456ea0267d3b63375e9b" title=" " alt="" coords="227,157,431,184"/>
+</map>

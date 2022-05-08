@@ -1,0 +1,106 @@
+\hypertarget{_game_8java_source}{}\doxysection{Game.\+java}
+\label{_game_8java_source}\index{Proto/src/model/Game.java@{Proto/src/model/Game.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00001}00001 \textcolor{keyword}{package }model;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00003}00003 \textcolor{keyword}{import} model.codes.GeneticCode;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00004}00004 \textcolor{keyword}{import} model.map.Field;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00006}00006 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00007}00007 \textcolor{keyword}{import} java.util.List;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00008}00008 \textcolor{keyword}{import} control.Subject;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00017}\mbox{\hyperlink{classmodel_1_1_game}{00017}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classmodel_1_1_game}{Game}} \textcolor{keyword}{extends} \mbox{\hyperlink{classcontrol_1_1_subject}{Subject}}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00018}00018 \{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00019}00019     \textcolor{keyword}{public} \textcolor{keywordtype}{void} test()\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00020}00020         notifyAllObservers();}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00021}00021     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00026}00026     \textcolor{keyword}{private} List<Field> fields;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00030}\mbox{\hyperlink{classmodel_1_1_game_ad6ff40a7dddfe2c7737f57b687379e39}{00030}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classmodel_1_1_game_ad6ff40a7dddfe2c7737f57b687379e39}{playerCount}} = 0;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00034}00034     \textcolor{keyword}{private} List<GeneticCode> codes;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00039}\mbox{\hyperlink{classmodel_1_1_game_a1b637e2da889f1de5947a0118c5f8bee}{00039}}     \textcolor{keyword}{public} ArrayList<Virologist> \mbox{\hyperlink{classmodel_1_1_game_a1b637e2da889f1de5947a0118c5f8bee}{getVirologists}}() \{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00040}00040         \textcolor{keywordflow}{return} virologists;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00041}00041     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00047}\mbox{\hyperlink{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}{00047}}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \mbox{\hyperlink{classmodel_1_1_game_a38ad16db4494402a771e9f0f87eef866}{randOn}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00052}00052     \textcolor{keyword}{private} ArrayList<Virologist> virologists;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00057}00057     \textcolor{keyword}{private} \textcolor{keywordtype}{int} currentPlayer = 0;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00062}00062     \textcolor{keyword}{private} \mbox{\hyperlink{classmodel_1_1_game}{Game}}()\{\}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00066}00066     \textcolor{keyword}{private} \textcolor{keyword}{static} \mbox{\hyperlink{classmodel_1_1_game}{Game}} instance = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00072}\mbox{\hyperlink{classmodel_1_1_game_ad539420fd03ae5b4fe6c8b26a95543fc}{00072}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \mbox{\hyperlink{classmodel_1_1_game}{Game}} \mbox{\hyperlink{classmodel_1_1_game_ad539420fd03ae5b4fe6c8b26a95543fc}{Create}}()\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00073}00073         \textcolor{keywordflow}{if} (instance == \textcolor{keyword}{null})\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00074}00074             instance = \textcolor{keyword}{new} \mbox{\hyperlink{classmodel_1_1_game}{Game}}();}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00075}00075         \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00076}00076         \textcolor{keywordflow}{return} instance;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00077}00077     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00082}\mbox{\hyperlink{classmodel_1_1_game_ac35f95a8c68dfe369a416237affd00c0}{00082}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_game_ac35f95a8c68dfe369a416237affd00c0}{NewGame}}() \{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00083}00083         fields = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00084}00084         codes = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00085}00085         virologists = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00086}00086         currentPlayer = 0;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00093}\mbox{\hyperlink{classmodel_1_1_game_add9cd4a2652fca83de4574fdc7dcb412}{00093}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_game_add9cd4a2652fca83de4574fdc7dcb412}{NextPlayer}}(\textcolor{keywordtype}{int} codes)\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00094}00094         \textcolor{comment}{// A VIROLÓGUSNÁL KELL MEGKÉRDEZNI, HOGY MEGVAN-\/E AZ ÖSSZES KÓDJA}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00095}00095         \textcolor{comment}{// EZ ALAPJÁN KELL MEGFELELŐEN PARAMÉTEREZNI MAJD A FÜGGVÉNYHÍVÁST}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00096}00096         \textcolor{keywordflow}{if}(codes == this.codes.size())}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00097}00097             \mbox{\hyperlink{classmodel_1_1_game_a51945d5e9c78c687604723825bc5534e}{EndGame}}();}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00098}00098         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00099}00099             \textcolor{keywordflow}{for} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v: virologists) \{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00100}00100                 v.Update();}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00101}00101             \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00102}00102             currentPlayer++;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00103}00103             \textcolor{keywordflow}{if} (currentPlayer == virologists.size()) currentPlayer = 0;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00104}00104         \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00105}00105     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00110}\mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{00110}}     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} \mbox{\hyperlink{classmodel_1_1_game_a1b8d151aecead1ea262ab37ba81ba97c}{GetCurrentPlayer}}()\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00111}00111         \textcolor{keywordflow}{return} virologists.get(currentPlayer);}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00112}00112     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00117}\mbox{\hyperlink{classmodel_1_1_game_a51945d5e9c78c687604723825bc5534e}{00117}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_game_a51945d5e9c78c687604723825bc5534e}{EndGame}}()}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00118}00118     \{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00119}00119         System.out.println(virologists.get(currentPlayer).getName() + \textcolor{stringliteral}{"{} won the game!"{}});}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00120}00120         System.exit(0);}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00121}00121     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00127}\mbox{\hyperlink{classmodel_1_1_game_a9127645ec3aa9ac2d69ba195dbe55f74}{00127}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_game_a9127645ec3aa9ac2d69ba195dbe55f74}{AddVirologist}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00128}00128     \{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00129}00129         virologists.add(v);}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00130}00130         v.\mbox{\hyperlink{classmodel_1_1_virologist_ab9e9d0ac43d4ef0aa273d73934371ac1}{SetGame}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00131}00131         \mbox{\hyperlink{classmodel_1_1_game_ad6ff40a7dddfe2c7737f57b687379e39}{playerCount}}++;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00132}00132     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00138}\mbox{\hyperlink{classmodel_1_1_game_aaf58a8c40cc2ee478c30718ef7c33adb}{00138}}     \textcolor{keyword}{public} \mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} \mbox{\hyperlink{classmodel_1_1_game_aaf58a8c40cc2ee478c30718ef7c33adb}{AddGeneticCode}}(\mbox{\hyperlink{classmodel_1_1codes_1_1_genetic_code}{GeneticCode}} gc)\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00139}00139         \textcolor{keywordflow}{if} (!codes.contains(gc))\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00140}00140             codes.add(gc);}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00141}00141             \textcolor{keywordflow}{return} gc;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00142}00142         \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00143}00143             \textcolor{keywordflow}{return} codes.get(codes.indexOf(gc));}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00144}00144         \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00145}00145     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00151}\mbox{\hyperlink{classmodel_1_1_game_a0ebeba5da79dcf4666ead63df0502dee}{00151}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_game_a0ebeba5da79dcf4666ead63df0502dee}{AddField}}(\mbox{\hyperlink{classmodel_1_1map_1_1_field}{Field}} f)\{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00152}00152         fields.add(f);}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00153}00153     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00158}\mbox{\hyperlink{classmodel_1_1_game_a2148c54ee2d136c0774ab595f87dd4b7}{00158}}     \textcolor{keyword}{public} List<Field> \mbox{\hyperlink{classmodel_1_1_game_a2148c54ee2d136c0774ab595f87dd4b7}{GetFields}}()\{\textcolor{keywordflow}{return} fields;\}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00159}00159 }
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00164}\mbox{\hyperlink{classmodel_1_1_game_a55296024bedbe423b6dbe6d27a5486e8}{00164}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classmodel_1_1_game_a55296024bedbe423b6dbe6d27a5486e8}{RemoveVirologist}}(\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} virologist) \{}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00165}00165         \textcolor{keywordtype}{int} i = virologists.indexOf(virologist);}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00166}00166         \textcolor{keywordflow}{if} (i < currentPlayer)}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00167}00167             currentPlayer-\/-\/;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00168}00168         virologists.remove(virologist);}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00169}00169         \mbox{\hyperlink{classmodel_1_1_game_ad6ff40a7dddfe2c7737f57b687379e39}{playerCount}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00170}00170     \}}
+\DoxyCodeLine{\Hypertarget{_game_8java_source_l00171}00171 \}}
+
+\end{DoxyCode}

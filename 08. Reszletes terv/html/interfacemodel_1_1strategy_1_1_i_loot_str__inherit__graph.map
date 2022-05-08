@@ -1,0 +1,5 @@
+<map id="model.strategy.ILootStr" name="model.strategy.ILootStr">
+<area shape="rect" id="node1" title=" " alt="" coords="94,5,251,32"/>
+<area shape="rect" id="node2" href="$classmodel_1_1strategy_1_1_def_loot.html" title=" " alt="" coords="5,80,161,107"/>
+<area shape="rect" id="node3" href="$classmodel_1_1strategy_1_1_no_loot.html" title=" " alt="" coords="185,80,339,107"/>
+</map>

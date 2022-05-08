@@ -1,0 +1,142 @@
+\hypertarget{classmodel_1_1agents_1_1_bear}{}\doxysection{model.\+agents.\+Bear Class Reference}
+\label{classmodel_1_1agents_1_1_bear}\index{model.agents.Bear@{model.agents.Bear}}
+
+
+Inheritance diagram for model.\+agents.\+Bear\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classmodel_1_1agents_1_1_bear__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for model.\+agents.\+Bear\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classmodel_1_1agents_1_1_bear__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a0c29015a3cbc4910ed952d1ab188d46d}{Bear}} ()
+\item 
+\mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a86a888e10fee747ccb177d68ab6eaaf2}{Bear}} (int ttl)
+\item 
+String \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_a93317362a6ad889b6f383e1d6d84de88}{get\+Time\+To\+Live}} ()
+\item 
+void \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_aaed9b61a793be27936721d9d12b70b66}{Apply\+Strategy}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)
+\item 
+void \mbox{\hyperlink{classmodel_1_1agents_1_1_bear_ad4dd8d976754cb8175e5ef126c9841d7}{Update}} (\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}} v)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Medvevírus, mely automatikusan megfertőzi az ezzel már megfertőzött játékossal egy mezőn álló többi játékost. Illetve ha az illető lépni akarna, akkor azt random irányba fogja megtenni. 
+
+Definition at line \mbox{\hyperlink{_bear_8java_source_l00012}{12}} of file \mbox{\hyperlink{_bear_8java_source}{Bear.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_bear_a0c29015a3cbc4910ed952d1ab188d46d}\label{classmodel_1_1agents_1_1_bear_a0c29015a3cbc4910ed952d1ab188d46d}} 
+\index{model.agents.Bear@{model.agents.Bear}!Bear@{Bear}}
+\index{Bear@{Bear}!model.agents.Bear@{model.agents.Bear}}
+\doxysubsubsection{\texorpdfstring{Bear()}{Bear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily model.\+agents.\+Bear.\+Bear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Konstruktor, mely beállítja a vírus élettartamát végtelenre -\/melyet -\/1 -\/gyel jelölünk-\/. 
+
+Definition at line \mbox{\hyperlink{_bear_8java_source_l00016}{16}} of file \mbox{\hyperlink{_bear_8java_source}{Bear.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_bear_a86a888e10fee747ccb177d68ab6eaaf2}\label{classmodel_1_1agents_1_1_bear_a86a888e10fee747ccb177d68ab6eaaf2}} 
+\index{model.agents.Bear@{model.agents.Bear}!Bear@{Bear}}
+\index{Bear@{Bear}!model.agents.Bear@{model.agents.Bear}}
+\doxysubsubsection{\texorpdfstring{Bear()}{Bear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily model.\+agents.\+Bear.\+Bear (\begin{DoxyParamCaption}\item[{int}]{ttl }\end{DoxyParamCaption})}
+
+Konstruktor, mely beállítja a vírus élettartamát tetszőleges értékre. 
+\begin{DoxyParams}{Parameters}
+{\em ttl} & a beállítandó élettartam. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_bear_8java_source_l00024}{24}} of file \mbox{\hyperlink{_bear_8java_source}{Bear.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_bear_aaed9b61a793be27936721d9d12b70b66}\label{classmodel_1_1agents_1_1_bear_aaed9b61a793be27936721d9d12b70b66}} 
+\index{model.agents.Bear@{model.agents.Bear}!ApplyStrategy@{ApplyStrategy}}
+\index{ApplyStrategy@{ApplyStrategy}!model.agents.Bear@{model.agents.Bear}}
+\doxysubsubsection{\texorpdfstring{ApplyStrategy()}{ApplyStrategy()}}
+{\footnotesize\ttfamily void model.\+agents.\+Bear.\+Apply\+Strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{v }\end{DoxyParamCaption})}
+
+A vírus beállítja a célzott virológus mozgási stratégiáját a megfelelőre, így fejti majd ki a hatását. 
+\begin{DoxyParams}{Parameters}
+{\em v} & a célzott virológus. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_aab032ad3ebf0ef9a5121d666966e3386}{model.\+agents.\+Agent}}.
+
+
+
+Definition at line \mbox{\hyperlink{_bear_8java_source_l00039}{39}} of file \mbox{\hyperlink{_bear_8java_source}{Bear.\+java}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmodel_1_1agents_1_1_bear_aaed9b61a793be27936721d9d12b70b66_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_bear_a93317362a6ad889b6f383e1d6d84de88}\label{classmodel_1_1agents_1_1_bear_a93317362a6ad889b6f383e1d6d84de88}} 
+\index{model.agents.Bear@{model.agents.Bear}!getTimeToLive@{getTimeToLive}}
+\index{getTimeToLive@{getTimeToLive}!model.agents.Bear@{model.agents.Bear}}
+\doxysubsubsection{\texorpdfstring{getTimeToLive()}{getTimeToLive()}}
+{\footnotesize\ttfamily String model.\+agents.\+Bear.\+get\+Time\+To\+Live (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+az ágens hátralévő hatásideje szöveg típusként, így kiírható a végtelen. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_a3433c48619ba89bf70e2bd9f3bd04734}{model.\+agents.\+Agent}}.
+
+
+
+Definition at line \mbox{\hyperlink{_bear_8java_source_l00032}{32}} of file \mbox{\hyperlink{_bear_8java_source}{Bear.\+java}}.
+
+\mbox{\Hypertarget{classmodel_1_1agents_1_1_bear_ad4dd8d976754cb8175e5ef126c9841d7}\label{classmodel_1_1agents_1_1_bear_ad4dd8d976754cb8175e5ef126c9841d7}} 
+\index{model.agents.Bear@{model.agents.Bear}!Update@{Update}}
+\index{Update@{Update}!model.agents.Bear@{model.agents.Bear}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void model.\+agents.\+Bear.\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_virologist}{Virologist}}}]{v }\end{DoxyParamCaption})}
+
+Nem csinál semmit, ez a jelentőssége, mivel a többi ágens esetén csökkenteni kellene a hátralévő élettartamát. 
+\begin{DoxyParams}{Parameters}
+{\em v} & a tulajdonos virológus. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classmodel_1_1agents_1_1_agent_ab2a1dcf9ab63e308e091d4f7b06984ea}{model.\+agents.\+Agent}}.
+
+
+
+Definition at line \mbox{\hyperlink{_bear_8java_source_l00048}{48}} of file \mbox{\hyperlink{_bear_8java_source}{Bear.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Proto/src/model/agents/Bear.\+java\end{DoxyCompactItemize}
