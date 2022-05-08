@@ -201,7 +201,7 @@ public class Virologist extends Subject
 	/**
 	 * Az osztaly konstruktora, beallitja az alapertelmezett strategiakat.
 	 */
-	public Virologist(){	
+	public Virologist(){
 		equipments = new ArrayList<>(maxNumberOfItems);
 		codes = new ArrayList<>();
 		agents = new LinkedList<>();
@@ -452,6 +452,10 @@ public class Virologist extends Subject
 		return e;
 	}
 
+	public ArrayList<Equipment> GetEquipments() {
+		return equipments;
+	}
+
 	/**
 	 * A megtanult genetikai kodok listajat boviti
 	 * @param code Az uj kod
@@ -567,6 +571,12 @@ public class Virologist extends Subject
 	}
 
 	/**
+	 * Megadja a virológus hátralévő lépésszámát
+	 * @return hátralévő lépésszám
+	 */
+	public int getActionCount(){ return actionCount; }
+
+	/**
 	 * A parameter mertekevel noveli a birtokolt aminosav mennyiseget
 	 * @param delta a mennyiseg amivel novelunk
 	 */
@@ -648,6 +658,8 @@ public class Virologist extends Subject
 	{
 		return nucleotide;
 	}
+
+	public int GetMaterialLimit() { return limit; }
 
 	/**
 	 * Frissiti a virologus strategiait
