@@ -40,7 +40,7 @@ Prototípus implementáció
 
 Grafikus terv
 
-9)      link
+9)     https://bmeedu-my.sharepoint.com/:w:/g/personal/totha1_edu_bme_hu/EdsR5DY-N61OgpqO0V3vVJkBIWRN2L91F4koDtRHKBAF3A?e=tINRae
 
 Grafikus implementáció
 
