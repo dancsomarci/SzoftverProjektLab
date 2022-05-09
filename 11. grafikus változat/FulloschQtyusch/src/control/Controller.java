@@ -135,7 +135,7 @@ public class Controller extends Subject {
         currentPlayer.detach(window);
         currentPlayer = game.GetCurrentPlayer();
         currentPlayer.attach(window);
-
+        actionMessage = "";
     }
 
     /**

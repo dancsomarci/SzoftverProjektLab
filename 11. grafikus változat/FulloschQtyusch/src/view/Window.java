@@ -21,10 +21,6 @@ public class Window extends Observer{
      * Az utolsó üzenet tartalma
      */
     String msgText;
-    /**
-     * Az üzenet kiírási ideje
-     */
-    private int msgCountDown;
 
     private JMenuBar menuBar;
     private JButton endButton;
@@ -51,10 +47,8 @@ public class Window extends Observer{
     private JLayeredPane layeredPane;
     private JFrame frame;
 
-
-    // TODO ezek package lathatosaguak?
-    Controller controller;
-    Game game;
+    private Controller controller;
+    private Game game;
 
     public Window(){
         frame = new JFrame("Vilagtalan virologusok vilaga");
@@ -159,7 +153,10 @@ public class Window extends Observer{
 
         JMenuItem endTurn=new JMenuItem("endTurn");
         actions.add(endTurn);
-        endTurn.addActionListener((e) -> controller.endTurn());
+        endTurn.addActionListener((e) -> {
+            msgText = "";
+            controller.endTurn();
+        });
 
         drawInterface();
 
@@ -208,20 +205,16 @@ public class Window extends Observer{
             equipments.get(i).setIcon( new ImageIcon(equipmentSlotIcon));
         }
 
-        // uzenetek frissitese
+        //szovegbuborek frissitese
         if(!msgText.equals(controller.getActionMessage())){
-            msgCountDown = 2;
             msgText= controller.getActionMessage();
         }
-
-        if(msgCountDown > 0){
-            actionBubble.setVisible(true);
-            actionBubbleText.setVisible(true);
-            actionBubbleText.setText(msgText);
-            msgCountDown--;
-        }else{
-            actionBubbleText.setVisible(false);
+        if(msgText.equals("")){
             actionBubble.setVisible(false);
+            actionBubbleText.setVisible(false);
+        }
+        else {
+            actionBubbleText.setText(msgText);
         }
 
         //hatter frissitese
@@ -372,14 +365,13 @@ public class Window extends Observer{
                 "kiskugy a     dicsakbuksi    qugyulimugyuli    tyutya\n" +
                 "kisgutju    kisgyúgya    kigyugya    kisgugy";
 
-        actionBubbleText = new JTextArea("Hello vaksi virolog!\n"+msgText);
+        actionBubbleText = new JTextArea("Hello vak virologus!\n"+msgText);
         actionBubbleText.setBackground(Color.white);
         actionBubbleText.setBorder(BorderFactory.createEmptyBorder());
         actionBubbleText.setBounds(290,235, 170,50);
         actionBubbleText.setEditable(false);
         actionBubbleText.setFont(new Font("sans-serif", Font.BOLD, 12));
         actionBubbleText.setColumns(40);
-        msgCountDown = 0;
 
 
 
