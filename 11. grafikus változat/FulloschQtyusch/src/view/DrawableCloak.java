@@ -1,11 +1,20 @@
 package view;
 
 import model.equipments.Cloak;
-//TODO comment
+
+/**
+ * A köpenynek a képernyőre kirajzolható változata.
+ */
 public class DrawableCloak extends Cloak implements Drawable {
+
+    /**
+     * Visszatér a köpeny textúrájának az elérési útjával.
+     *
+     * @return Az elérési út
+     */
     @Override
     public String getTexture(){
-        // TODO
-        return null;
+        return "textures/kopeny.png";
     }
+
 }
