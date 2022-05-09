@@ -1,6 +1,7 @@
 package control;
 
 import model.Game;
+import view.Window;
 
 public class Main {
 
@@ -10,7 +11,8 @@ public class Main {
      */
     public static void main(String[] args){
         try {
-            Controller controller = new Controller(Game.Create());
+            new Window();
+            //Controller controller = new Controller(Game.Create());
         } catch (Exception e) {
             e.printStackTrace();
         }
