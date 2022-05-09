@@ -15,7 +15,7 @@ public class DrawableInfectedLaboratory extends InfectedLaboratory implements Dr
 
     @Override
     public String getTexture() {
-        // TODO
-        return null;
+        String picturePath = "textures/InfectedLaboratory.png";
+        return picturePath;
     }
 }

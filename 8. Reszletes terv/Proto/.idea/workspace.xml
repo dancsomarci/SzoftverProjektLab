@@ -1,35 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Skeleton:jar2" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd2791f1-4571-4bd4-92e3-4c27c8a8d598" name="Changes" comment="" />
+    <list default="true" id="532827c0-8dc2-4fa4-bb89-e3236a72d441" name="Changes" comment="7-es test is javitva" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="AnnotationType" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="26wYnhtLwoKvHrTpHgQbAvowI99" />
+  <component name="ProjectId" id="28AeaZRvZV1NO8fNxtTZkjiPfkQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,12 +23,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../11. grafikus változat/FulloschQtyusch" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pelcz\OneDrive\Dokumentumok\GitHub\SzoftverProjektLab\8. Reszletes terv\Proto\test\komplex6" />
+      <recent name="C:\Users\pelcz\OneDrive\Dokumentumok\GitHub\SzoftverProjektLab\8. Reszletes terv\Proto\test\komplex5" />
+      <recent name="C:\Users\pelcz\OneDrive\Dokumentumok\GitHub\SzoftverProjektLab\8. Reszletes terv\Proto\test\17" />
+      <recent name="C:\Users\pelcz\OneDrive\Dokumentumok\GitHub\SzoftverProjektLab\8. Reszletes terv\Proto\test\8" />
+      <recent name="C:\Users\pelcz\OneDrive\Dokumentumok\GitHub\SzoftverProjektLab\8. Reszletes terv\Proto\test\7" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -67,68 +60,56 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cd2791f1-4571-4bd4-92e3-4c27c8a8d598" name="Changes" comment="" />
-      <created>1648336286975</created>
+      <changelist id="532827c0-8dc2-4fa4-bb89-e3236a72d441" name="Changes" comment="" />
+      <created>1650663882084</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1648336286975</updated>
-      <workItem from="1648336291733" duration="805000" />
-      <workItem from="1648372049933" duration="15380000" />
-      <workItem from="1648387681969" duration="9000" />
-      <workItem from="1648398100444" duration="819000" />
-      <workItem from="1648400614630" duration="89000" />
-      <workItem from="1648401230875" duration="275000" />
-      <workItem from="1648414031303" duration="369000" />
-      <workItem from="1648414425848" duration="541000" />
-      <workItem from="1648417201219" duration="5308000" />
-      <workItem from="1648423227331" duration="36000" />
-      <workItem from="1648424150319" duration="957000" />
-      <workItem from="1649254509242" duration="4056000" />
-      <workItem from="1649275171309" duration="567000" />
-      <workItem from="1649276045768" duration="7555000" />
-      <workItem from="1649329422237" duration="820000" />
-      <workItem from="1649332805872" duration="675000" />
-      <workItem from="1649345172904" duration="8216000" />
-      <workItem from="1649366179798" duration="3683000" />
-      <workItem from="1649397821321" duration="558000" />
-      <workItem from="1649422386585" duration="30152000" />
-      <workItem from="1649509076887" duration="636000" />
-      <workItem from="1649540512359" duration="1078000" />
-      <workItem from="1649541902819" duration="810000" />
-      <workItem from="1649603207799" duration="9087000" />
-      <workItem from="1650184916415" duration="105000" />
-      <workItem from="1650289211495" duration="971000" />
-      <workItem from="1650291287511" duration="10248000" />
-      <workItem from="1650388501357" duration="55000" />
-      <workItem from="1650391113888" duration="2038000" />
-      <workItem from="1650393576929" duration="10000" />
-      <workItem from="1650446918458" duration="1085000" />
-      <workItem from="1650448477891" duration="565000" />
-      <workItem from="1650449105186" duration="251000" />
-      <workItem from="1650449468771" duration="169000" />
-      <workItem from="1650487455925" duration="95000" />
-      <workItem from="1650557998819" duration="4999000" />
-      <workItem from="1650808467653" duration="503000" />
-      <workItem from="1650816893373" duration="9000" />
-      <workItem from="1650832541337" duration="1178000" />
-      <workItem from="1650990545574" duration="15000" />
-      <workItem from="1651246138019" duration="524000" />
-      <workItem from="1651327953371" duration="210000" />
-      <workItem from="1651329016091" duration="26000" />
-      <workItem from="1651335113583" duration="3420000" />
-      <workItem from="1651351449166" duration="1599000" />
-      <workItem from="1651358593244" duration="282000" />
-      <workItem from="1651415605710" duration="1238000" />
-      <workItem from="1651420827405" duration="2072000" />
-      <workItem from="1651478826096" duration="84000" />
-      <workItem from="1651480206938" duration="245000" />
-      <workItem from="1651480788062" duration="666000" />
-      <workItem from="1651607548044" duration="19000" />
+      <updated>1650663882084</updated>
     </task>
+    <task id="LOCAL-00001" summary="5 teszt kész">
+      <created>1650665611904</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1650665611904</updated>
+    </task>
+    <task id="LOCAL-00002" summary="in progress">
+      <created>1650668065474</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650668065474</updated>
+    </task>
+    <task id="LOCAL-00003" summary="majdnem kész">
+      <created>1650752201511</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650752201511</updated>
+    </task>
+    <task id="LOCAL-00004" summary="működj">
+      <created>1650831116434</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650831116434</updated>
+    </task>
+    <task id="LOCAL-00005" summary="működj">
+      <created>1650831138637</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650831138637</updated>
+    </task>
+    <task id="LOCAL-00006" summary="7-es test is javitva">
+      <created>1650832009310</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1650832009310</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -140,5 +121,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="5 teszt kész" />
+    <MESSAGE value="in progress" />
+    <MESSAGE value="majdnem kész" />
+    <MESSAGE value="működj" />
+    <MESSAGE value="7-es test is javitva" />
+    <option name="LAST_COMMIT_MESSAGE" value="7-es test is javitva" />
   </component>
 </project>

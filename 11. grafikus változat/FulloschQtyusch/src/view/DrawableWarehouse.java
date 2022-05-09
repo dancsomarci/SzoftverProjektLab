@@ -6,6 +6,7 @@ public class DrawableWarehouse extends Warehouse  implements Drawable {
     @Override
     public String getTexture() {
         // TODO
-        return null;
+        String picturePath = "textures/Warehouse.png";
+        return picturePath;
     }
 }
