@@ -1,0 +1,1 @@
+Get-Content $PSScriptRoot\input.txt | java -jar $PSScriptRoot\Proto.jar > $PSScriptRoot\out.txt 2> $PSScriptRoot\err.txt 

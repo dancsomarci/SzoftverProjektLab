@@ -1,0 +1,70 @@
+Deterministic mode on!
+Virologist: v1
+	Number of actions left: 3
+	Currently on Field named: f1
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+Virologist: v2
+	Number of actions left: 3
+	Currently on Field named: w2
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+Virologist: v3
+	Number of actions left: 3
+	Currently on Field named: s3
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+Virologist: v4
+	Number of actions left: 3
+	Currently on Field named: l4
+	Amino acid: 0 / maximum: 20
+	Nucleotide: 0 / maximum: 20
+	Equipments:
+	Genetic codes:
+	Agents: (+ttl)
+InfectedLaboratory: il
+	Equipments:
+	Virologists:
+	Neighbours:
+		w2
+		f1
+Laboratory: l4
+	Equipments:
+	Virologists:
+		v4
+	Neighbours:
+Warehouse: w2
+	Equipments:
+	Material output:
+		Amount: 5
+	Virologists:
+		v2
+	Neighbours:
+		il
+		s3
+		f1
+Shelter: s3
+	Equipments:
+		Cloak
+	Virologists:
+		v3
+	Neighbours:
+		w2
+		f1
+Field: f1
+	Equipments:
+	Virologists:
+		v1
+	Neighbours:
+		w2
+		il
+		s3

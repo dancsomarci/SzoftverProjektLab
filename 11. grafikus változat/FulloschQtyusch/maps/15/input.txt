@@ -1,0 +1,60 @@
+randOff Hurrikan_a_legcukibb_kutya!
+wau
+Field
+Type Laboratory
+Param StunCode
+Name l1
+end
+Field
+Type Laboratory
+Param BlockCode
+Name l2
+end
+Field
+Type Field
+Name f1
+end
+Neighbours
+f1 l1
+l1 l2
+end
+Virologist
+Name v3
+GeneticCode ForgetCode
+Amino 15
+Nucleo 15
+StartingPos f1
+end
+Virologist
+Name v2
+Equipment Cloak
+Amino 20
+Nucleo 20
+GeneticCode ForgetCode
+StartingPos f1
+end
+Virologist
+Name v1
+Equipment Glove
+GeneticCode ForgetCode
+StartingPos f1
+end
+inject
+0
+1
+inject
+0
+2
+endTurn
+inject
+0
+2
+inject
+0
+2
+inject
+0
+2
+state
+map
+exit

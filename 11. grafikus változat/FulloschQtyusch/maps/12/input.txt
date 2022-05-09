@@ -1,0 +1,29 @@
+randOff Hurrikan_a_legcukibb_kutya!
+wau
+Field
+Type Laboratory
+Param StunCode
+Name l
+end
+Field
+Type Field
+Name f1
+end
+Neighbours
+f1 l
+end
+Virologist
+Name v1
+Equipment Glove
+StartingPos f1
+end
+Virologist
+Name v2
+StartingPos f1
+end
+drop
+endTurn
+equip
+state
+map
+exit
