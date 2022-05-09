@@ -190,7 +190,7 @@ public class Window extends Observer{
 
         //allapotsavok frissitese
         nucleoBar.setValue(player.GetNucleotide() / player.GetMaterialLimit());
-        aminoBar.setValue(player.GetAminoAcid() / player.GetAminoAcid());
+        aminoBar.setValue(player.GetAminoAcid() / player.GetMaterialLimit());
 
         //felszerelesek frissitese
         ArrayList<Equipment> equipment = player.GetEquipments();
@@ -301,7 +301,8 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-        actionBubbleText = new JTextArea("Hello vaksi virolog!\nkiskúgya    kunya    gúgyuszka    kiskufya\n" +
+        actionBubbleText = new JTextArea("Hello vaksi virolog!\n" +
+                "kiskúgya    kunya    gúgyuszka    kiskufya\n" +
                 "kiskugya    kútya    sulya    lislyuta\n" +
                 "kizskugka    kutja    kútja    kiskuhya\n" +
                 "gizsgugya    kuta    kutyna    kiskuxya\n" +
@@ -380,6 +381,7 @@ public class Window extends Observer{
         actionBubbleText.setFont(new Font("sans-serif", Font.BOLD, 12));
         actionBubbleText.setColumns(40);
         message = false;
+        msgCountDown = 0;
 
 
 
