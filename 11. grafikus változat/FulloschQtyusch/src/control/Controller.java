@@ -17,12 +17,12 @@ public class Controller extends Subject {
     /**
      * Az aktuálisan játszott játék.
      */
-    private Game game;
-    private Window window;
+    private final Game game;
+    private final Window window;
     private String actionMessage;
 
     public Controller(Game game) {
-        game = game;
+        this.game = game;
         window = new Window(this, game);
         attach(window);
         Virologist first = game.GetCurrentPlayer();

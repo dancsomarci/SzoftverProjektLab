@@ -11,17 +11,12 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+
+//TODO az ablak bezarasok nem all le az alkalmazas, nemtom miert
 
 public class Window extends Observer{
 
-    //TODO ezekbe kene beleirniuk a cselekveseket a dolgoknak, ha a Windowba kezelodnke az actionok akk elvileg lehet
-    // innnen irni, ha a modellbol irnank ki az infokat, akk lehet singletonna kene tenni a windowt es
-    // statikus publikus tagvaltozonak kene lennie az alabbi 2 dolognak
-    /**
-     * A felhasználónka új üzenet érkezett
-     */
-    boolean message;
+
     /**
      * Az utolsó üzenet tartalma
      */
@@ -35,6 +30,10 @@ public class Window extends Observer{
     private JButton endButton;
     private JProgressBar aminoBar;
     private JProgressBar nucleoBar;
+
+    //TODO ezek kellenek?                                      \ \
+    // eleg a progress bar, vagy kiirjuk fole az erteket is?   V V
+
     private JLabel aminoLabel;
     private JLabel nucleoLabel;
     private JLabel turnCounter;
@@ -47,9 +46,7 @@ public class Window extends Observer{
      */
     private JTextArea actionBubbleText;
     private ArrayList<JButton> equipments;
-    private JButton equipment1;
-    private JButton equipment2;
-    private JButton equipment3;
+
     private JLabel backGround;
     private JLayeredPane layeredPane;
     private JFrame frame;
@@ -212,8 +209,9 @@ public class Window extends Observer{
         }
 
         // uzenetek frissitese
-        if(message){
+        if(!msgText.equals(controller.getActionMessage())){
             msgCountDown = 2;
+            msgText= controller.getActionMessage();
         }
 
         if(msgCountDown > 0){
@@ -301,8 +299,7 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-        actionBubbleText = new JTextArea("Hello vaksi virolog!\n" +
-                "kiskúgya    kunya    gúgyuszka    kiskufya\n" +
+        msgText = "kiskúgya    kunya    gúgyuszka    kiskufya\n" +
                 "kiskugya    kútya    sulya    lislyuta\n" +
                 "kizskugka    kutja    kútja    kiskuhya\n" +
                 "gizsgugya    kuta    kutyna    kiskuxya\n" +
@@ -373,15 +370,17 @@ public class Window extends Observer{
                 "kufa    gúdzsus-mudzsus    kizs zslutya    qúdzsa\n" +
                 "qugyka    gudzsuska    qkútgya    kutguzska\n" +
                 "kiskugy a     dicsakbuksi    qugyulimugyuli    tyutya\n" +
-                "kisgutju    kisgyúgya    kigyugya    kisgugy");
+                "kisgutju    kisgyúgya    kigyugya    kisgugy";
+
+        actionBubbleText = new JTextArea("Hello vaksi virolog!\n"+msgText);
         actionBubbleText.setBackground(Color.white);
         actionBubbleText.setBorder(BorderFactory.createEmptyBorder());
         actionBubbleText.setBounds(290,235, 170,50);
         actionBubbleText.setEditable(false);
         actionBubbleText.setFont(new Font("sans-serif", Font.BOLD, 12));
         actionBubbleText.setColumns(40);
-        message = false;
         msgCountDown = 0;
+
 
 
 
