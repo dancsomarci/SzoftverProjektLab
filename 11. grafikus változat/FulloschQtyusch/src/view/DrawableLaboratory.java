@@ -15,7 +15,7 @@ public class DrawableLaboratory extends Laboratory implements Drawable{
 
     @Override
     public String getTexture() {
-        // TODO
-        return null;
+        String picturePath = "textures/Laboratory.png";
+        return picturePath;
     }
 }
