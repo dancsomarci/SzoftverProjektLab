@@ -1,11 +1,20 @@
 package view;
 
 import model.equipments.Glove;
-//TODO comment
+
+/**
+ * A kesztyűnek a képernyőre kirajzolható változata.
+ */
 public class DrawableGlove extends Glove implements Drawable {
+
+    /**
+     * Visszatér a kesztyű textúrájának az elérési útjával.
+     *
+     * @return Az elérési út
+     */
     @Override
     public String getTexture(){
-        // TODO
-        return null;
+        return "textures/kesztyu.png";
     }
+
 }
