@@ -11,10 +11,11 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Window extends Observer{
 
-    //ezekbe kene beleirniuk a cselekveseket a dolgoknak, ha a Windowba kezelodnke az actionok akk elvileg lehet
+    //TODO ezekbe kene beleirniuk a cselekveseket a dolgoknak, ha a Windowba kezelodnke az actionok akk elvileg lehet
     // innnen irni, ha a modellbol irnank ki az infokat, akk lehet singletonna kene tenni a windowt es
     // statikus publikus tagvaltozonak kene lennie az alabbi 2 dolognak
     /**
@@ -37,7 +38,13 @@ public class Window extends Observer{
     private JLabel aminoLabel;
     private JLabel nucleoLabel;
     private JLabel turnCounter;
+    /**
+     * Az üzenetbuborék
+     */
     private JLabel actionBubble;
+    /**
+     * Az üzenetbuborék szövege
+     */
     private JTextArea actionBubbleText;
     private ArrayList<JButton> equipments;
     private JButton equipment1;
@@ -47,6 +54,8 @@ public class Window extends Observer{
     private JLayeredPane layeredPane;
     private JFrame frame;
 
+
+    // TODO ezek package lathatosaguak?
     Controller controller;
     Game game;
 
@@ -204,13 +213,14 @@ public class Window extends Observer{
 
         // uzenetek frissitese
         if(message){
-            msgCountDown = 5;
+            msgCountDown = 2;
         }
 
         if(msgCountDown > 0){
             actionBubble.setVisible(true);
             actionBubbleText.setVisible(true);
             actionBubbleText.setText(msgText);
+            msgCountDown--;
         }else{
             actionBubbleText.setVisible(false);
             actionBubble.setVisible(false);
