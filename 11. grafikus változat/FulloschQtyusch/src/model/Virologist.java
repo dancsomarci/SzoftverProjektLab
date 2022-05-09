@@ -140,6 +140,8 @@ public class Virologist extends Subject
 	 */
 	private ArrayList<GeneticCode> codes;
 
+
+	//TODO ezt hasznaljuk vhol?
 	/**
 	 * Az aktuálisan birtokolt genetikai kódokat adja vissza.
 	 * @return A birtokolt kódok.

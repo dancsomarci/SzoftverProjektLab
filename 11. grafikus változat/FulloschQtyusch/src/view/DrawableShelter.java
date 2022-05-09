@@ -3,6 +3,8 @@ package view;
 import model.equipments.Equipment;
 import model.map.Shelter;
 
+//TODO comment
+
 public class DrawableShelter extends Shelter  implements Drawable {
     /**
      * Védőfelszerelés hozzáadása
@@ -15,7 +17,6 @@ public class DrawableShelter extends Shelter  implements Drawable {
 
     @Override
     public String getTexture() {
-        String picturePath = "textures/Shelter.png";
-        return picturePath;
+        return "textures/Shelter.png";
     }
 }

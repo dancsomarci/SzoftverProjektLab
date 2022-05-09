@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 //TODO az ablak bezarasok nem all le az alkalmazas, nemtom miert
-
+//TODO comment
 public class Window extends Observer{
 
 

@@ -3,6 +3,8 @@ package view;
 import model.codes.GeneticCode;
 import model.map.Laboratory;
 
+//TODO comment
+
 public class DrawableLaboratory extends Laboratory implements Drawable{
     /**
      * Genetikai kód hozzáadása a mezőhöz
@@ -15,7 +17,6 @@ public class DrawableLaboratory extends Laboratory implements Drawable{
 
     @Override
     public String getTexture() {
-        String picturePath = "textures/Laboratory.png";
-        return picturePath;
+        return "textures/Laboratory.png";
     }
 }

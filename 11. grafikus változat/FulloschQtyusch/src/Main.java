@@ -1,6 +1,7 @@
 import control.Controller;
 import control.Loader;
-
+//TODO comment
+//TODO 2 Main osztaly is van, sztem lehetne a controlban, de itt is jo akar
 public class Main {
     public static void main(String[] args){
         try {
