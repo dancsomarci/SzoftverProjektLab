@@ -241,6 +241,7 @@ public class Window extends Observer{
         } catch (IOException e) { }
     }
 
+
     public void drawInterface() {
         layeredPane  = new JLayeredPane();
         layeredPane.setBounds(0, 0, 600, 600);
