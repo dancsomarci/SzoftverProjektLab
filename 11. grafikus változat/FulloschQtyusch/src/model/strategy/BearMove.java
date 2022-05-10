@@ -14,11 +14,9 @@ public class BearMove implements IMoveStr{
         ArrayList<Field> neighbours = from.GetNeighbours();
         from.RemoveVirologist(v);
         Field randomNeighbour;
-        if (v.GetContext().randOn) {
-            randomNeighbour = neighbours.get(ThreadLocalRandom.current().nextInt(0, neighbours.size()));
-        } else{
-            randomNeighbour = neighbours.get(0);
-        }
+
+        randomNeighbour = neighbours.get(ThreadLocalRandom.current().nextInt(0, neighbours.size()));
+
         randomNeighbour.AddVirologist(v);
         randomNeighbour.DestroyMaterial();
         for (Virologist vir : randomNeighbour.GetVirologists()) {

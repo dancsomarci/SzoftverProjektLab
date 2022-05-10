@@ -541,7 +541,7 @@ public class Virologist extends Subject
 	{
 		codes.clear();
 		notifyAllObservers();
-		notifyAllObservers();
+
 	}
 
 	/**
@@ -550,7 +550,6 @@ public class Virologist extends Subject
 	public void RemoveAgents()
 	{
 		agents.clear();
-		notifyAllObservers();
 		notifyAllObservers();
 	}
 
@@ -570,6 +569,7 @@ public class Virologist extends Subject
 	{
 		actionCount = MaxActionCount;
 		game.NextPlayer(codes.size());
+		notifyAllObservers();
 	}
 
 	/**

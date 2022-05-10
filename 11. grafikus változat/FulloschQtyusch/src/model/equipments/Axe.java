@@ -34,7 +34,7 @@ public class Axe extends Equipment implements IAttackStr {
     public void Attack(Virologist attacker, Virologist target) {
         attacker.DecreaseActions();
         target.Kill();
-        used = false;
+        used = true;
         attacker.Reset();
     }
 }

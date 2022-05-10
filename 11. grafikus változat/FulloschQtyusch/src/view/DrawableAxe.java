@@ -14,7 +14,7 @@ public class DrawableAxe extends Axe implements Drawable {
      */
     @Override
     public String getTexture(){
-        return "textures/fejsze.png";
+        return "textures/fejszeSlot.png";
     }
 
 }

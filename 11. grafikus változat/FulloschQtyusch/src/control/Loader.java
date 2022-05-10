@@ -9,6 +9,7 @@ import model.map.Field;
 import model.map.InfectedLaboratory;
 import model.map.Laboratory;
 import model.map.Shelter;
+import view.*;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -49,7 +50,7 @@ public class Loader {
      */
     public Loader() throws Exception {
         try{
-            for (Method method : Controller.class.getDeclaredMethods()){
+            for (Method method : Loader.class.getDeclaredMethods()){
                 if (method.isAnnotationPresent(LoaderInput.class)){
                     inputs.put(method.getAnnotation(LoaderInput.class).name(), method);
                 }
@@ -129,7 +130,7 @@ public class Loader {
             String arg = options.get("Param");
 
             if (arg == null){ //default ctor
-                f = (Field) createObject("model.map." + options.get("Type"));
+                f = (Field) createObject("view.Drawable" + options.get("Type"));
             } else{
                 //csúnya, de ez van
                 switch(options.get("Type")){
