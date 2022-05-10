@@ -281,7 +281,6 @@ public class Virologist extends Subject
 				Random random = new Random();
 				Move(fields.get(random.nextInt(fields.size())));
 			}
-			actionCount--;
 		}
 		notifyAllObservers();
 	}
