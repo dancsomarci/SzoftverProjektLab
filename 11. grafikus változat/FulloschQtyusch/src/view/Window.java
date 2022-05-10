@@ -38,7 +38,7 @@ public class Window extends Observer{
      * Az üzenetbuborék szövege
      */
     private JTextArea actionBubbleText;
-    private ArrayList<JButton> equipments;
+    private ArrayList<JButton> equipmentButtons;
 
     private JLabel backGround;
     private final JFrame frame;
@@ -206,7 +206,7 @@ public class Window extends Observer{
                 } catch (IOException ignored) {}
             }
             assert equipmentSlotIcon != null;
-            equipments.get(i).setIcon( new ImageIcon(equipmentSlotIcon));
+            equipmentButtons.get(i).setIcon( new ImageIcon(equipmentSlotIcon));
         }
 
     //SZÖVEGBUBORÉK FRISSÍTÉSE
@@ -287,7 +287,7 @@ public class Window extends Observer{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        equipments = new ArrayList<>(3);
+        equipmentButtons = new ArrayList<>(3);
         int y = 340;
         for (int i = 0; i < 3; i++){
             JButton eq;
@@ -298,7 +298,7 @@ public class Window extends Observer{
             eq.setBorderPainted(false);
             eq.setContentAreaFilled(false);
             eq.setBorder(null);
-            equipments.add(eq);
+            equipmentButtons.add(eq);
             y += 60;
         }
 
@@ -428,9 +428,9 @@ public class Window extends Observer{
         layeredPane.add(endButton, Integer.valueOf(1));
         layeredPane.add(aminoBar, Integer.valueOf(1));
         layeredPane.add(nucleoBar, Integer.valueOf(1));
-        layeredPane.add(equipments.get(0), Integer.valueOf(1));
-        layeredPane.add(equipments.get(1), Integer.valueOf(1));
-        layeredPane.add(equipments.get(2), Integer.valueOf(1));
+        layeredPane.add(equipmentButtons.get(0), Integer.valueOf(1));
+        layeredPane.add(equipmentButtons.get(1), Integer.valueOf(1));
+        layeredPane.add(equipmentButtons.get(2), Integer.valueOf(1));
         layeredPane.add(turnCounter, Integer.valueOf(1));
         layeredPane.add(actionBubbleText, Integer.valueOf(2));
         layeredPane.add(nucleoLabel, Integer.valueOf(2));

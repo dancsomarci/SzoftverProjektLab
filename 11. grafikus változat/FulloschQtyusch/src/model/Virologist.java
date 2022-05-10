@@ -204,7 +204,7 @@ public class Virologist extends Subject
 	 * Az osztaly konstruktora, beallitja az alapertelmezett strategiakat.
 	 */
 	public Virologist(){
-		equipments = new ArrayList<>(maxNumberOfItems);
+		equipments = new ArrayList<>();
 		codes = new ArrayList<>();
 		agents = new LinkedList<>();
 
