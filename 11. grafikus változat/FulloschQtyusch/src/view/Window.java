@@ -190,9 +190,11 @@ public class Window extends Observer{
         turnCounter.setText(player.getActionCount() + " / 3");
 
         //allapotsavok frissitese
-        nucleoBar.setValue(player.GetNucleotide() / player.GetMaterialLimit()*100);
+        nucleoBar.setValue(player.GetNucleotide());
+        nucleoBar.setMaximum(player.GetMaterialLimit());
         nucleoLabel.setText( String.valueOf(player.GetNucleotide()));
-        aminoBar.setValue(player.GetAminoAcid() / player.GetMaterialLimit()*100);
+        aminoBar.setValue(player.GetAminoAcid());
+        aminoBar.setMaximum(player.GetMaterialLimit());
         aminoLabel.setText(String.valueOf(player.GetAminoAcid()));
 
         //felszerelesek frissitese
@@ -267,6 +269,8 @@ public class Window extends Observer{
 
         nucleoBar = new JProgressBar();
         nucleoBar.setBounds(215, 460, 170, 25);
+        nucleoBar.setMaximum(20);
+        nucleoBar.setMinimum(0);
         nucleoLabel = new JLabel("min");
         nucleoLabel.setBounds(215, 465, 170, 15);
         nucleoLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -274,6 +278,8 @@ public class Window extends Observer{
 
         aminoBar = new JProgressBar();
         aminoBar.setBounds(215, 495, 170, 25);
+        aminoBar.setMaximum(20);
+        aminoBar.setMinimum(0);
         aminoLabel = new JLabel("min");
         aminoLabel.setBounds(215, 500, 170, 15);
         aminoLabel.setHorizontalAlignment(JLabel.CENTER);
