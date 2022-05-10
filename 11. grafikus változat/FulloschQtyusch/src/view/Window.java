@@ -14,8 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-//TODO a kezdokep
-//  - megoldva egy simple update hivassal a drawcuccok vegen
+
 //TODO comment
 public class Window extends Observer{
 
@@ -25,12 +24,8 @@ public class Window extends Observer{
      */
     String msgText;
 
-    private JMenuBar menuBar;
-    private JButton endButton;
     private JProgressBar aminoBar;
     private JProgressBar nucleoBar;
-
-    //TODO 2 label a barhoz
 
     private JLabel aminoLabel;
     private JLabel nucleoLabel;
@@ -46,11 +41,10 @@ public class Window extends Observer{
     private ArrayList<JButton> equipments;
 
     private JLabel backGround;
-    private JLayeredPane layeredPane;
-    private JFrame frame;
+    private final JFrame frame;
 
-    private Controller controller;
-    private Game game;
+    private final Controller controller;
+    private final Game game;
 
     public Window(Controller controller, Game game){
 
@@ -166,9 +160,7 @@ public class Window extends Observer{
 
         JMenuItem endTurn=new JMenuItem("endTurn");
         actions.add(endTurn);
-        endTurn.addActionListener((e) -> {
-            controller.endTurn();
-        });
+        endTurn.addActionListener((e) -> controller.endTurn());
 
         drawInterface();
 
@@ -186,10 +178,10 @@ public class Window extends Observer{
     public void update(){
         Virologist player = game.GetCurrentPlayer();
 
-        //hatralevo korok szamanak frissitese
+    //AKCIÓSZÁMLÁLÓ FRISSÍTÉSE
         turnCounter.setText(player.getActionCount() + " / 3");
 
-        //allapotsavok frissitese
+    //ÁLLAPOTSÁVOK FRISSÍTÉSE
         nucleoBar.setValue(player.GetNucleotide());
         nucleoBar.setMaximum(player.GetMaterialLimit());
         nucleoLabel.setText( String.valueOf(player.GetNucleotide()));
@@ -197,7 +189,7 @@ public class Window extends Observer{
         aminoBar.setMaximum(player.GetMaterialLimit());
         aminoLabel.setText(String.valueOf(player.GetAminoAcid()));
 
-        //felszerelesek frissitese
+    //FELSZERELÉSEK FRISSÍTÉSE
         ArrayList<Equipment> equipment = player.GetEquipments();
         Image equipmentSlotIcon = null;
         for (int i = 0; i < 3; i++){
@@ -206,48 +198,50 @@ public class Window extends Observer{
                 try {
                     equipmentSlotIcon = ImageIO.read(new File(drawableEquipment.getTexture()));
                     equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                } catch (IOException exception) { }
+                } catch (IOException ignored) { }
             } else {
                 try {
                     equipmentSlotIcon = ImageIO.read(new File("textures/itemSlot.png"));
                     equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                } catch (IOException ioException) { }
+                } catch (IOException ignored) {}
             }
+            assert equipmentSlotIcon != null;
             equipments.get(i).setIcon( new ImageIcon(equipmentSlotIcon));
         }
 
+    //SZÖVEGBUBORÉK FRISSÍTÉSE
         if(!controller.getActionMessage().equals(""))
             msgText = player.getName()+": "+ controller.getActionMessage();
-
 
         if(msgText.equals("")){
             actionBubble.setVisible(false);
             actionBubbleText.setVisible(false);
         }
         else {
+
             actionBubbleText.setText(msgText);
             actionBubble.setVisible(true);
             actionBubbleText.setVisible(true);
         }
 
-        //hatter frissitese
+    //HÁTTÉR FRISSÍTÉSE
         Drawable drawableField = (Drawable) player.getField();
         Image backGroundIMG;
-        //backGround;
         try {
             String in = drawableField.getTexture();
             backGroundIMG = ImageIO.read(new File(in));
             backGroundIMG = backGroundIMG.getScaledInstance(600, 600, Image.SCALE_SMOOTH);
             backGround.setIcon(new ImageIcon(backGroundIMG));
             backGround.setBounds(0, 0, 600, 600);
-        } catch (IOException e) { }
+        } catch (IOException ignored) { }
     }
 
-
     public void drawInterface() {
-        layeredPane  = new JLayeredPane();
+
+        JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setBounds(0, 0, 600, 600);
 
+    //KÖRVÉGE GOMB BEÁLLÍTÁSA
         Image endButtonIcon = null;
         try {
             endButtonIcon = ImageIO.read(new File("textures/endButton.png"));
@@ -256,10 +250,9 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-        endButton = new JButton(new ImageIcon(endButtonIcon));
-        endButton.addActionListener((e)->{
-            controller.endTurn();
-        });
+        assert endButtonIcon != null;
+        JButton endButton = new JButton(new ImageIcon(endButtonIcon));
+        endButton.addActionListener((e)-> controller.endTurn());
         endButton.setBorder(null);
         endButton.setContentAreaFilled(false);
         endButton.setBorderPainted(false);
@@ -267,6 +260,7 @@ public class Window extends Observer{
         endButton.setOpaque(false);
         endButton.setBounds(480, 450, 70, 70);
 
+    //ANYAGSÁVOK BEÁLLÍTÁSA
         nucleoBar = new JProgressBar();
         nucleoBar.setBounds(215, 460, 170, 25);
         nucleoBar.setMaximum(20);
@@ -285,6 +279,7 @@ public class Window extends Observer{
         aminoLabel.setHorizontalAlignment(JLabel.CENTER);
         aminoLabel.setFont(new Font("sans-serif", Font.BOLD, 13));
 
+    //FELSZERELÉSEK BEÁLLÍTÁSA
         Image equipmentSlotIcon = null;
         try {
             equipmentSlotIcon = ImageIO.read(new File("textures/itemSlot.png"));
@@ -296,6 +291,7 @@ public class Window extends Observer{
         int y = 340;
         for (int i = 0; i < 3; i++){
             JButton eq;
+            assert equipmentSlotIcon != null;
             eq = new JButton(new ImageIcon(equipmentSlotIcon));
             eq.setBounds(15, y, 50, 50);
             eq.setFocusPainted(false);
@@ -306,11 +302,13 @@ public class Window extends Observer{
             y += 60;
         }
 
+    //KAKCIÓSZÁMLÁLÓ BEÁLLÍTÁSA
         turnCounter = new JLabel("3 / 3");
         turnCounter.setFont(new Font("sans-serif", Font.BOLD, 48));
         turnCounter.setForeground(Color.white);
         turnCounter.setBounds(480, 25, 160, 50);
 
+    //SZÖVEGBUBORÉK BEÁKKÍTÁSA
         Image actionBubbleIMG;
         ImageIcon actionBubbleIcon;
         try{
@@ -323,78 +321,83 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-        msgText = "kiskúgya    kunya    gúgyuszka    kiskufya\n" +
-                "kiskugya    kútya    sulya    lislyuta\n" +
-                "kizskugka    kutja    kútja    kiskuhya\n" +
+        msgText = "kiskúgya kunya gúgyuszka kiskufya\n" +
+                "kiskugya kútya sulya lislyuta\n" +
+                "kizskugka kutja kútja kiskuhya\n" +
                 "gizsgugya    kuta    kutyna    kiskuxya\n" +
                 "gizskutya    kislyutya    kutnya    kiskuya\n" +
                 "kiskutius    gidzsigegizsgutya    kitsikugya    kitsigugya\n" +
-                "hutya    kúgyugya    lizya    kûgyja\n" +
-                "kutsus    kogya    gidzsgudja    nyuta\n" +
-                "gizsgúgya    kutttya    qgya    pimbull \n" +
-                "gûtya    kizsgutya    kutgya    kugyja\n" +
+                "hutya        kúgyugya    lizya      kûgyja\n" +
+                "kutsus         kogya    gidzsgudja    nyuta\n" +
+                "gizsgúgya    kutttya    qgya        pimbull \n" +
+                "gûtya     kizsgutya    kutgya       kugyja\n" +
                 "kugyuzs    qúhggyah    qkútgyikah    gútjya\n" +
                 "guggya    gizsgyugya    kúdtja    gizskugya\n" +
-                "kuhya    kúja    kudgya     tutya\n" +
+
+                "kuhya    kúja    kudgya     tutya\n"+
                 "gúgyah    kugyha    qutja    kislutya\n" +
                 "kutsa    outya    kuyua    lizya\n" +
                 "lutyw    litya    kitya    lutxa\n" +
                 "kuxta    gidzsigegugyus    kuzxa    kikúgyka\n" +
+
                 "gútyja    kutxa    kigya    gugyuska\n" +
-                "gisguya    kuxgy    kurya    gogya\n" +
+                "gisguya      kuxgy    kurya    gogya\n" +
                 "kisgugytkya    jutya    kufya    gugklya\n" +
-                "kiskulya    gizsgugyuzsga    kucsa    kiskytya\n" +
+                "kiskulya       gizsgugyuzsga     kucsa    kiskytya\n" +
                 "kismulya    guty    gizsgutyi    kiskhtya\n" +
-                "kuva    vau    kizskugya    kiskjtya\n" +
-                "qutya    kúgyka    kiskutja    kugyus\n" +
-                "qugya    kuty    kulyuska    gutus \n" +
+                "kuva         vau    kizskugya    kiskjtya\n" +
+                "qutya     kúgyka    kiskutja    kugyus\n" +
+                "qugya      kuty    kulyuska    gutus \n" +
                 "gisgúgya    lugya    kuxa    tugya\n" +
-                "qúgya    gûgya    gúgyika    kutga\n" +
+                "qúgya      gûgya    gúgyika    kutga\n" +
+
                 "kuja    rót valter (rottweiler)    gi gutga    kisgutya\n" +
+
                 "kulya    kugta    kiekutya    kutuska\n" +
                 "kucus    mutya    kiwkutya    nyutya\n" +
-                "gizsigutygyja    gizs gugya    kiqkutya    kis kuta\n" +
-                "kukia    gízsgúgya    kikugya    kiskutyu\n" +
-                "gyutya    qtya    kikutya    kutyuli\n" +
-                "gutya    gigygugya    kiskurya     mutyuli\n" +
-                "zuka    qkutya    kizskutga    kizskuja\n" +
+                "gizsigutygyja      gizs gugya    kiqkutya    kis kuta\n" +
+                "kukia     gízsgúgya    kikugya    kiskutyu\n" +
+                "gyutya        qtya    kikutya    kutyuli\n" +
+                "gutya     gigygugya    kiskurya     mutyuli\n" +
+                "zuka       qkutya    kizskutga    kizskuja\n" +
                 "guta    qtyja     gisgutgya    kúgyús\n" +
-                "zutyi    guka    gizsgutya    kúgya\n" +
-                "könya    kuttya    tutus    kumgya\n" +
-                "kölya    putya    tuta    lutya\n" +
+                "zutyi      guka    gizsgutya    kúgya\n" +
+                "könya      kuttya    tutus    kumgya\n" +
+                "kölya        putya    tuta    lutya\n" +
                 "bidbulgugya    giszkutya    tyutyu    kúlya\n" +
-                "qtja    kizsgútya    tyutyus    gugyuzsga\n" +
-                "köjök kis kugya    kizsgugya    kuthya    gútyja\n" +
+
+                "qtja     kizsgútya    tyutyus    gugyuzsga\n" +
+                "köjök    kis kugya    kizsgugya    kuthya    gútyja\n" +
                 "gugyus    gugyusga    kutyhus    gudgya\n" +
                 "gizsgutga    kuya    gizsgutya    gizsgutya\n" +
                 "bidbugugya    kisgugya    gutyna    gizsgutyus\n" +
                 "kizskutja    kucuka    kismutya    ulya\n" +
-                "gudja    kuszus    kutyulimutyuli    qty\n" +
-                "kuzya    kutyha    kugdlya    gútyja\n" +
+                "gudja      kuszus    kutyulimutyuli    qty\n" +
+                "kuzya     kutyha     kugdlya           gútyja\n" +
                 "kissqutya    kûgyka    kudglya    gútygya\n" +
                 "kissqtya    qügya    dutya    kunyus \n" +
                 "kiss kutya    kis kutyuss    kuyga    kúnya\n" +
-                "kiskógya    kuggya    gi guya    ksigugyq\n" +
+                "kiskógya          kuggya     gi guya    ksigugyq\n" +
                 "kitzsikutynyuzska    kucs    kuryz    gizsgyutya\n" +
-                "kislutyuy    giskunya    gizs kugyúgya    kisgucsa\n" +
-                "kisgógya    giskugyulimugyuli    gyutyulimugyuli    kurgya\n" +
+                "kislutyuy         giskunya    gizs kugyúgya    kisgucsa\n" +
+                "kisgógya      giskugyulimugyuli    gyutyulimugyuli    kurgya\n" +
                 "gizs gudja    gisgugya    gisguya    kurtya\n" +
-                "guttya     qutgya     quttya     kis lutyuj \n" +
-                "glutya    gulytjya    kisluytuj     discsucsa\n" +
-                "kiskzóuyta    kutjda    katya    lutyiluty\n" +
-                "kutyika    kis kutsus    kútxa     kutxuzs\n" +
-                "kuyly    kuyla    kiskunyus    gugyja\n" +
+                "guttya         qutgya     quttya     kis lutyuj \n" +
+                "glutya       gulytjya    kisluytuj     discsucsa\n" +
+                "kiskzóuyta     kutjda    katya        lutyiluty\n" +
+                "kutyika     kis kutsus    kútxa     kutxuzs\n" +
+                "kuyly    kuyla    kiskunyus        gugyja\n" +
                 "kúfka    kúdka    kissgugyuska    kisskugyus\n" +
-                "kütya    gidzsigutya    gunyus    kisgunyus\n" +
-                "qs qtya    gugyuli-mugyuli    kizskzgya    kútdja\n" +
-                "krudja    krugyja    gizsguggya    kiskukia\n" +
-                "kutyulu    kislutuy    kisgugyja    gutyja\n" +
-                "kizs zsutyila    gúgyulka-mugyulka    kizsgudzsuka     kisgudzsus\n" +
-                "kigy gyuka    kúqggyuzska    kusugyulj    qizs qtya\n" +
-                "kufa    gúdzsus-mudzsus    kizs zslutya    qúdzsa\n" +
-                "qugyka    gudzsuska    qkútgya    kutguzska\n" +
+                "kütya    gidzsigutya    gunyus     kisgunyus\n" +
+                "qs qtya    gugyuli-mugyuli          kizskzgya    kútdja\n" +
+                "krudja       krugyja    gizsguggya    kiskukia\n" +
+                "kutyulu         kislutuy    kisgugyja    gutyja\n" +
+                "kizs zsutyila    gúgyulka-mugyulka        kizsgudzsuka     kisgudzsus\n" +
+                "kigy gyuka      kúqggyuzska    kusugyulj    qizs qtya\n" +
+                "kufa        gúdzsus-mudzsus    kizs zslutya    qúdzsa\n" +
+                "qugyka     gudzsuska    qkútgya    kutguzska\n" +
                 "kiskugy a     dicsakbuksi    qugyulimugyuli    tyutya\n" +
-                "kisgutju    kisgyúgya    kigyugya    kisgugy";
+                "kisgutju         kisgyúgya    kigyugya         kisgugy";
 
         actionBubbleText = new JTextArea("Hello vak virologus!\n"+msgText);
         actionBubbleText.setBackground(Color.white);
@@ -402,11 +405,10 @@ public class Window extends Observer{
         actionBubbleText.setBounds(290,235, 170,50);
         actionBubbleText.setEditable(false);
         actionBubbleText.setFont(new Font("sans-serif", Font.BOLD, 12));
-        actionBubbleText.setColumns(40);
+        actionBubbleText.setColumns(28);
+        actionBubbleText.setLineWrap(true);
 
-
-
-
+    //HÁTTÉRKÉP BEÁLLÍTÁSA
         Image backGroundIMG;
         ImageIcon backGroundIcon;
         backGround = new JLabel();
@@ -420,7 +422,7 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-
+    //ELRENDEZÉS BEÁLLÍTÁSA
         layeredPane.add(backGround, Integer.valueOf(0));
         layeredPane.add(actionBubble, Integer.valueOf(1));
         layeredPane.add(endButton, Integer.valueOf(1));

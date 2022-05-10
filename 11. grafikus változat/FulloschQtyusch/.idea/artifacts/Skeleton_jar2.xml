@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Skeleton:jar2">
-    <output-path>$USER_HOME$/Downloads</output-path>
-    <root id="archive" name="Skeleton.jar">
-      <element id="module-output" name="FulloschQtyusch" />
-    </root>
-  </artifact>
-</component>

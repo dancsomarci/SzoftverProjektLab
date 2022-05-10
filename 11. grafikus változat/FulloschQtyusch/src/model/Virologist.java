@@ -276,17 +276,12 @@ public class Virologist extends Subject
 	{
 		if (actionCount > 0) {
 			ArrayList<Field> fields = field.GetNeighbours();
-			if (game.randOn){
-				if (fields.size() != 0) {
-					Random random = new Random();
-					Move(fields.get(random.nextInt(fields.size())));
-				}
-			}else{
-				if (fields.size() > 0){
-				Field target = fields.get(0);
-				Move(target);
-				}
+
+			if (fields.size() != 0) {
+				Random random = new Random();
+				Move(fields.get(random.nextInt(fields.size())));
 			}
+			actionCount--;
 		}
 		notifyAllObservers();
 	}
