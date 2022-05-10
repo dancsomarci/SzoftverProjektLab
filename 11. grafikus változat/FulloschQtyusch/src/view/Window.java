@@ -255,6 +255,9 @@ public class Window extends Observer{
         }
 
         endButton = new JButton(new ImageIcon(endButtonIcon));
+        endButton.addActionListener((e)->{
+            controller.endTurn();
+        });
         endButton.setBorder(null);
         endButton.setContentAreaFilled(false);
         endButton.setBorderPainted(false);

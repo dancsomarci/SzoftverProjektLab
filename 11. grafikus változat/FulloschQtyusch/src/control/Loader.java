@@ -136,15 +136,15 @@ public class Loader {
                 switch(options.get("Type")){
                     case "Laboratory":
                         GeneticCode c1 = (GeneticCode) createObject("model.codes." + arg);
-                        f = new Laboratory(game.AddGeneticCode(c1));
+                        f = new DrawableLaboratory(game.AddGeneticCode(c1));
                         break;
                     case "InfectedLaboratory":
                         GeneticCode c2 = (GeneticCode) createObject("model.codes." + arg);
-                        f = new InfectedLaboratory(game.AddGeneticCode(c2));
+                        f = new DrawableInfectedLaboratory(game.AddGeneticCode(c2));
                         break;
                     case "Shelter":
-                        Equipment e = (Equipment) createObject("model.equipments."+arg);
-                        f = new Shelter(e);
+                        Equipment e = (Equipment) createObject("view.Drawable"+arg);
+                        f = new DrawableShelter(e);
                         break;
                     default:
                         break;
@@ -152,7 +152,7 @@ public class Loader {
             }
             String eqType = options.get("Equipment");
             if (eqType != null){
-                f.Drop((Equipment) createObject("model.equipments." + eqType));
+                f.Drop((Equipment) createObject("view.Drawable" + eqType));
             }
             if (options.get("Name") == null) throw new Exception(); //Name is mandatory!
             if (fields.get(options.get("Name")) != null) throw new Exception(); //Field with Name already Exists!
@@ -205,7 +205,7 @@ public class Loader {
                         v.setName(command[1]);
                         break;
                     case "Equipment":
-                        v.AddEquipment((Equipment) createObject("model.equipments." + command[1]));
+                        v.AddEquipment((Equipment) createObject("view.Drawable" + command[1]));
                         break;
                     case "Amino":
                         v.AddAminoAcid(Integer.parseInt(command[1]));
