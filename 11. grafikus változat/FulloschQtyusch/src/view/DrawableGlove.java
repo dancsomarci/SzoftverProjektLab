@@ -14,7 +14,7 @@ public class DrawableGlove extends Glove implements Drawable {
      */
     @Override
     public String getTexture(){
-        return "textures/kesztyuSlot.png";
+        return "/textures/kesztyuSlot.png";
     }
 
 }

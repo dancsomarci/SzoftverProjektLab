@@ -196,12 +196,12 @@ public class Window extends Observer{
             if (equipment.size() > i) {
                 Drawable drawableEquipment = (Drawable) equipment.get(i);
                 try {
-                    equipmentSlotIcon = ImageIO.read(new File(drawableEquipment.getTexture()));
+                    equipmentSlotIcon = ImageIO.read(getClass().getResourceAsStream(drawableEquipment.getTexture()));
                     equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                 } catch (IOException ignored) { }
             } else {
                 try {
-                    equipmentSlotIcon = ImageIO.read(new File("textures/itemSlot.png"));
+                    equipmentSlotIcon = ImageIO.read(getClass().getResourceAsStream("/textures/itemSlot.png"));
                     equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                 } catch (IOException ignored) {}
             }
@@ -228,8 +228,7 @@ public class Window extends Observer{
         Drawable drawableField = (Drawable) player.getField();
         Image backGroundIMG;
         try {
-            String in = drawableField.getTexture();
-            backGroundIMG = ImageIO.read(new File(in));
+            backGroundIMG = ImageIO.read(getClass().getResourceAsStream(drawableField.getTexture()));
             backGroundIMG = backGroundIMG.getScaledInstance(600, 600, Image.SCALE_SMOOTH);
             backGround.setIcon(new ImageIcon(backGroundIMG));
             backGround.setBounds(0, 0, 600, 600);
@@ -244,7 +243,7 @@ public class Window extends Observer{
     //KÖRVÉGE GOMB BEÁLLÍTÁSA
         Image endButtonIcon = null;
         try {
-            endButtonIcon = ImageIO.read(new File("textures/endButton.png"));
+            endButtonIcon = ImageIO.read(getClass().getResourceAsStream("/textures/endButton.png"));
             endButtonIcon = endButtonIcon.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
         } catch (IOException e) {
             e.printStackTrace();
@@ -282,7 +281,7 @@ public class Window extends Observer{
     //FELSZERELÉSEK BEÁLLÍTÁSA
         Image equipmentSlotIcon = null;
         try {
-            equipmentSlotIcon = ImageIO.read(new File("textures/itemSlot.png"));
+            equipmentSlotIcon = ImageIO.read(getClass().getResourceAsStream("/textures/itemSlot.png"));
             equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         } catch (IOException e) {
             e.printStackTrace();
@@ -312,7 +311,7 @@ public class Window extends Observer{
         Image actionBubbleIMG;
         ImageIcon actionBubbleIcon;
         try{
-            actionBubbleIMG = ImageIO.read(new File("textures/bubble.png"));
+            actionBubbleIMG = ImageIO.read(getClass().getResourceAsStream("/textures/bubble.png"));
             actionBubbleIMG = actionBubbleIMG.getScaledInstance(190, 88, Image.SCALE_SMOOTH);
             actionBubbleIcon = new ImageIcon(actionBubbleIMG);
             actionBubble = new JLabel(actionBubbleIcon);
@@ -413,7 +412,7 @@ public class Window extends Observer{
         ImageIcon backGroundIcon;
         backGround = new JLabel();
         try {
-            backGroundIMG = ImageIO.read(new File("textures/Field.png"));
+            backGroundIMG = ImageIO.read(getClass().getResourceAsStream("/textures/Field.png"));
             backGroundIMG = backGroundIMG.getScaledInstance(600, 600, Image.SCALE_SMOOTH);
             backGroundIcon = new ImageIcon(backGroundIMG);
             backGround = new JLabel(backGroundIcon);

@@ -14,7 +14,7 @@ public class DrawableBag extends Bag implements Drawable {
      */
     @Override
     public String getTexture(){
-        return "textures/BagSlot.png";
+        return "/textures/BagSlot.png";
     }
 
 }

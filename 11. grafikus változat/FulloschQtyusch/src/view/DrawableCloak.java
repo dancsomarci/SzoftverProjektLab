@@ -14,7 +14,7 @@ public class DrawableCloak extends Cloak implements Drawable {
      */
     @Override
     public String getTexture(){
-        return "textures/cloakSlot.png";
+        return "/textures/cloakSlot.png";
     }
 
 }

@@ -17,6 +17,6 @@ public class DrawableShelter extends Shelter  implements Drawable {
 
     @Override
     public String getTexture() {
-        return "textures/Shelter.png";
+        return "/textures/Shelter.png";
     }
 }
