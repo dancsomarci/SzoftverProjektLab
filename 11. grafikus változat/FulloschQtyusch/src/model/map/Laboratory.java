@@ -10,7 +10,7 @@ import model.codes.GeneticCode;
  */
 public class Laboratory extends Field
 {
-	private GeneticCode code;
+	private final GeneticCode code;
 
 	/**
 	 * Genetikai kód hozzáadása a mezőhöz

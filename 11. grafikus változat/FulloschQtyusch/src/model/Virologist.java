@@ -19,29 +19,6 @@ import java.util.Random;
 public class Virologist extends Subject
 {
 	/**
-	 * A virológus adatainak kiíratásáért felelő metódus. (részletekért lásd: dokumentáció)
-	 */
-	public void bark(){
-		System.out.println("Virologist: " + name);
-		System.out.println("\tNumber of actions left: " + actionCount);
-		System.out.println("\tCurrently on Field named: " + field.getName());
-		System.out.println("\tAmino acid: " + aminoAcid + " / maximum: "+ limit);
-		System.out.println("\tNucleotide: " + nucleotide+ " / maximum: "+ limit);
-		System.out.println("\tEquipments:");
-		for (Equipment e: equipments) {
-			System.out.println("\t\t" + e.getName()); // később dekorátor tervezési minta lesz -Vencel: Az milyen?
-		}
-		System.out.println("\tGenetic codes:");
-		for (GeneticCode c: codes) {
-			System.out.println("\t\t" + c.getName());
-		}
-		System.out.println("\tAgents: (+ttl)");
-		for (Agent a: agents) {
-			System.out.println("\t\t" + a.getName() + " " + a.getTimeToLive());
-		}
-	}
-
-	/**
 	 * A virológus aktuális kontextusát adja vissza, azaz, hogy éppen milyen játékban vesz részt.
 	 * @return
 	 */
@@ -85,7 +62,7 @@ public class Virologist extends Subject
 	/**
 	 * A maximálisan birtokolható tárgyak száma.
 	 */
-	private int maxNumberOfItems;
+	private final int maxNumberOfItems;
 
 	public void SetActionCount(int count){actionCount = count;}
 
@@ -133,12 +110,12 @@ public class Virologist extends Subject
 	/**
 	 *  Megtanult agensek listaja
 	 */
-	private LinkedList<Agent> agents;
+	private final LinkedList<Agent> agents;
 
 	/**
 	 * Az eddigi megtanult genetikai kodok listaja
 	 */
-	private ArrayList<GeneticCode> codes;
+	private final ArrayList<GeneticCode> codes;
 
 
 	//TODO ezt hasznaljuk vhol?
@@ -153,7 +130,7 @@ public class Virologist extends Subject
 	/**
 	 * A birtokolt felszerelesek listaja
 	 */
-	private ArrayList<Equipment> equipments;
+	private final ArrayList<Equipment> equipments;
 
 	/**
 	 * A virologus mozgasi startegiajat tarolja.
@@ -443,9 +420,8 @@ public class Virologist extends Subject
 	{
 		if (equipments.size() == 0)
 			throw new IndexOutOfBoundsException("ures a felszereles tarolo");
-		Equipment e = equipments.remove(equipments.size()-1);
 
-		return e;
+		return equipments.remove(equipments.size()-1);
 	}
 
 	public ArrayList<Equipment> GetEquipments() {
@@ -553,7 +529,7 @@ public class Virologist extends Subject
 	public void DecreaseActions()
 	{
 		if (actionCount > 0)
-		actionCount--;
+			actionCount--;
 	}
 
 	/**
@@ -662,8 +638,8 @@ public class Virologist extends Subject
 	 */
 	public void Update()
 	{
-		for(int i = 0; i < agents.size();i++){
-			agents.get(i).Update(this);
+		for (Agent agent : agents) {
+			agent.Update(this);
 		}
 	}
 

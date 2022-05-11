@@ -30,17 +30,17 @@ public class Loader {
     /**
      * Az aktuálisan játszott játék.
      */
-    private Game game;
+    private final Game game;
 
     /**
      * A pálya felépítéséhez szükséges átmeneti tároló, ami a név-mező összerendeléseket tartalmazza.
      */
-    private HashMap<String, Field> fields;
+    private final HashMap<String, Field> fields;
 
     /**
      * A bemeneti parancsokat, és a megvalósító metódusok kapcsolatát tároló objektum.
      */
-    private static LinkedHashMap<String, Method> inputs = new LinkedHashMap<>();
+    private static final LinkedHashMap<String, Method> inputs = new LinkedHashMap<>();
 
     /**
      * Az osztály inicializáláskor kigyűjti a bemeneti nyelv parancsaihoz tartozó metódusokat,
@@ -87,10 +87,7 @@ public class Loader {
                         throw new Exception("Unknown command in input file!");
                 }
             }
-        } catch (Exception e){
-            throw e;
-        }
-        finally{
+        } finally{
             if (sc != null)
                 sc.close();
         }
@@ -160,7 +157,7 @@ public class Loader {
             fields.put(options.get("Name"), f);
             game.AddField(f);
         } catch (Exception e){
-            throw new Exception("Error in Field command format!");
+            throw new Exception("Error in Field command format!", e);
         }
     }
 
@@ -182,7 +179,7 @@ public class Loader {
                 f1.AddNeighbour(f0);
             }
         }catch(Exception e){
-            throw new Exception("Error in Neighbours command format!");
+            throw new Exception("Error in Neighbours command format!", e);
         }
     }
 
@@ -236,7 +233,7 @@ public class Loader {
             fields.get(startingPos).AddVirologist(v);
             game.AddVirologist(v);
         } catch (Exception e){
-            throw new Exception("Error in Virologist command format!");
+            throw new Exception("Error in Virologist command format!", e);
         }
     }
 

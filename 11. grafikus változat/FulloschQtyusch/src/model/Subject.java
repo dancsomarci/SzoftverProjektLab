@@ -20,7 +20,7 @@ public class Subject {
         if (!observers.contains(observer)){
             observers.add(observer);
         }
-    };
+    }
 
     /**
      * Egy megfigyelő leválasztása
@@ -28,7 +28,7 @@ public class Subject {
      */
     public void detach(Observer observer){
         observers.remove(observer);
-    };
+    }
 
     /**
      * Az összes regisztrált megfigyelő értesítése

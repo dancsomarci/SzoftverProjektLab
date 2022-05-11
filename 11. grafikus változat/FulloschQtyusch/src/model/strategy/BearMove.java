@@ -7,6 +7,9 @@ import model.map.Field;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * TODO comment
+ */
 public class BearMove implements IMoveStr{
     @Override
     public void Move(Virologist v, Field from, Field to) {
