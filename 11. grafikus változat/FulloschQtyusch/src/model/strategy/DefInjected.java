@@ -24,10 +24,10 @@ public class DefInjected implements IInjectedStr
 	}
 
 	/**
-	 * //TODO
-	 * @param by
-	 * @param injected
-	 * @param a
+	 * Egy virológus beolt egy másikat a megadott ágenssel.
+	 * @param by A beoltó virológus
+	 * @param injected A beoltott virológus
+	 * @param a Az ágens
 	 */
 	@Override
 	public void Injected(Virologist by, Virologist injected, Agent a) {

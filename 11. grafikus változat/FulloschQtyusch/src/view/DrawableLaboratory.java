@@ -3,9 +3,11 @@ package view;
 import model.codes.GeneticCode;
 import model.map.Laboratory;
 
-//TODO comment
-
+/**
+ * A laboratóriumnak a képernyőre kirajzolható változata.
+ */
 public class DrawableLaboratory extends Laboratory implements Drawable{
+
     /**
      * Genetikai kód hozzáadása a mezőhöz
      *
@@ -15,8 +17,14 @@ public class DrawableLaboratory extends Laboratory implements Drawable{
         super(c);
     }
 
+    /**
+     * Visszatér a laboratórium textúrájának az elérési útjával.
+     *
+     * @return Az elérési út
+     */
     @Override
     public String getTexture() {
-        return "textures/Laboratory.png";
+        return "/textures/Laboratory.png";
     }
+
 }
