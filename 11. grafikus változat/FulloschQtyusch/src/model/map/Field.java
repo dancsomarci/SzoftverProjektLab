@@ -95,7 +95,8 @@ public class Field
 	 * @param f új szomszéd
 	 */
 	public void AddNeighbour(Field f) {
-		neighbours.add(f);
+		if(!neighbours.contains(f))
+			neighbours.add(f);
 	}
 
 	/**
