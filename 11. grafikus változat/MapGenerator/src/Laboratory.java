@@ -1,10 +1,16 @@
-import java.util.Random;
-
+/**
+ * A pályaleírónyelvben laboratóriumot jelképezõ osztály
+ */
 public class Laboratory extends Field{
+    /**
+     * Azonos típusú mezõ számlálója az automatikus elnevezéshez
+     */
     private static int counter = 1;
-
+    /**
+     * Konstruktor
+     */
     public Laboratory(){
-        name = "L"+ counter;
+        setName("L"+ counter);
         counter++;
 
         type = "Laboratory";

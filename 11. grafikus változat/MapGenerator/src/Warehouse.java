@@ -1,7 +1,7 @@
 public class Warehouse extends Field{
     private static int counter = 1;
     public Warehouse(){
-        name = "W"+ counter;
+        setName("W"+ counter);
         counter++;
 
         type = "Warehouse";

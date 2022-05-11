@@ -1,10 +1,16 @@
-import java.util.Random;
-
+/**
+ * A pályaleírónyelvben óvóhelyet jelképezõ osztály
+ */
 public class Shelter extends  Field {
+    /**
+     * Azonos típusú mezõ számlálója az automatikus elnevezéshez
+     */
     private static int counter = 1;
-
+    /**
+     * Konstruktor
+     */
     public Shelter(){
-        name = "S"+ counter;
+        setName("S"+ counter);
         counter++;
 
         type = "Shelter";

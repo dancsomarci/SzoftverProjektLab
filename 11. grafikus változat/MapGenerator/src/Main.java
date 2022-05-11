@@ -5,16 +5,48 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * A program vezérlõ osztálya
+ */
 public class Main {
-
+    /**
+     * A pályaleírónyelv által elfogadott felszerelések nevei
+     */
     public static String[] equipments = {"Axe", "Bag", "Cloak", "Glove"};
+    /**
+     * A pályaleírónyelv által elfogadott genetikai kódok nevei
+     */
     public static String[] codes = {"BlockCode", "StunCode", "ChoreaCode", "ForgetCode"};
+    /**
+     * A létrehozandó pálya méretének arányossági tényezõje
+     */
     private static int size = 5;
+    /**
+     * A létrehozandó virológusok nevei - opcionális
+     */
     private static ArrayList<String> names;
+    /**
+     * A létrehozott mezõk
+     */
     public static ArrayList<Field> fields;
-
+    /**
+     * A pályát file-ba kiíró eszköz
+     */
     public static  FileWriter fw;
+    /**
+     * Központi random generátor
+     */
     public static Random rnd;
+
+    /**
+     * A program belépési pontja
+     * @param args [játékosok száma: egész szám, kötelezõ], [a létrehozandó file elérési útja: ""-kel övezett szöveg, opcionális],
+     *             [a pálya mérete: egész szám, ennek a játékosok számával vett szorzatával fog megegyezni a mezõk száma, opcionális
+     *              - de feltétele a korábbi összes opcionális paraméter megadása kötelezõ jelleggel -], [a létrehozandó virológusok nevei:
+     *              egymás utan ""-kel övezve tetszõleges sok számú virológusnév megadható, opcionális
+     *              - de feltétele a korábbi összes opcionális paraméter megadása kötelezõ jellgel -]
+     * @throws IOException ha nem sikerült a file-ba írás
+     */
     public static void main(String[] args) throws IOException {
         if(args != null) {
 
@@ -47,6 +79,11 @@ public class Main {
         }
     }
 
+    /**
+     * Mezõk generálása
+     * @param playerCount játékosok száma
+     * @throws IOException ha nem sikerült a file-ba írás
+     */
     private static void createFields(int playerCount) throws IOException {
         fields = new ArrayList<>();
 
@@ -82,11 +119,11 @@ public class Main {
             for(int j = 0; j < i; j++){
                 boolean b = rnd.nextBoolean();
                 if(b){
-                    fw.append(fields.get(i).name).append(" ").append(fields.get(j).name).append("\n");
+                    fw.append(fields.get(i).getName()).append(" ").append(fields.get(j).getName()).append("\n");
                     break;
                 }
                 if(j == i-1){
-                    fw.append(fields.get(i).name).append(" ").append(fields.get(j).name).append("\n");
+                    fw.append(fields.get(i).getName()).append(" ").append(fields.get(j).getName()).append("\n");
                 }
             }
         }
@@ -98,7 +135,7 @@ public class Main {
                 if(i != j) {
                     int b = rnd.nextInt(100);
                     if (b%4 == 0) {
-                        fw.append(fields.get(i).name).append(" ").append(fields.get(j).name).append("\n");
+                        fw.append(fields.get(i).getName()).append(" ").append(fields.get(j).getName()).append("\n");
                     }
                 }
             }
@@ -107,6 +144,11 @@ public class Main {
         fw.append("end\n");
     }
 
+    /**
+     * Virológusok generálása
+     * @param playerCount játékosok száma
+     * @throws IOException ha nem sikerült a file-ba írás
+     */
     private static void createPlayers(int playerCount) throws IOException {
         for(int i = 0; i < playerCount; i++){
             Virologist v;

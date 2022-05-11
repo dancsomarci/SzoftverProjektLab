@@ -1,10 +1,17 @@
-import java.util.Random;
-
+/**
+ * A pályaleírónyelvben fertõzött laboratóriumot jelképezõ osztály
+ */
 public class InfectedLaboratory extends Field{
+    /**
+     * Azonos típusú mezõ számlálója az automatikus elnevezéshez
+     */
     private static int counter = 1;
 
+    /**
+     * Konstruktor
+     */
     public InfectedLaboratory(){
-        name = "IL"+ counter;
+        setName("IL"+ counter);
         counter++;
 
         type = "InfectedLaboratory";

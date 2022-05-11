@@ -1,18 +1,45 @@
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
-
+/**
+ * A pályaleírónyelvben a virológust jelképezõ osztály
+ */
 public class Virologist {
-    private String name;
-    private int actions;
-    private String equipment;
-    private int amino;
-    private int nucleo;
-    private String code;
-    private String pos;
-
+    /**
+     * Virológus neve
+     */
+    private final String name;
+    /**
+     * Virológus hátralévõ akciói
+     */
+    private final int actions;
+    /**
+     * Virológus felszerelése
+     */
+    private final String equipment;
+    /**
+     * Virológus aminosav mennyisége
+     */
+    private final int amino;
+    /**
+     * Virológus nukleotid mennyisége
+     */
+    private final int nucleo;
+    /**
+     * Virológus genetikai kódja
+     */
+    private final String code;
+    /**
+     * Virológus pozíciója
+     */
+    private final String pos;
+    /**
+     * Számláló az automatikus elnevezéshez
+     */
     private static int counter = 1;
 
+    /**
+     * Default konstruktor automata névadással
+     */
     public Virologist(){
 
 
@@ -36,9 +63,13 @@ public class Virologist {
         else
             code = Main.codes[choice-1];
 
-        pos = Main.fields.get(Main.rnd.nextInt(Main.fields.size())).name;
+        pos = Main.fields.get(Main.rnd.nextInt(Main.fields.size())).getName();
     }
 
+    /**
+     * Konstruktor speciális névadással
+     * @param name választott virológusnév
+     */
     public Virologist(String name){
         Random rnd = new Random();
 
@@ -61,9 +92,13 @@ public class Virologist {
         else
             code = Main.codes[choice-1];
 
-        pos = Main.fields.get(rnd.nextInt(Main.fields.size())).name;
+        pos = Main.fields.get(rnd.nextInt(Main.fields.size())).getName();
     }
 
+    /**
+     * Virológust kiíró függvény
+     * @throws IOException ha nem sikerült a file-ba írás
+     */
     public void print() throws IOException {
 
         Main.fw.append("Virologist\nName ").append(name).append("\nActionCount ").append(String.valueOf(actions)).append("\n");
