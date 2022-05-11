@@ -1,0 +1,100 @@
+Field
+Type Laboratory
+Param ForgetCode
+Name L1
+end
+Field
+Type Shelter
+Param Glove
+Name S1
+end
+Field
+Type Shelter
+Param Bag
+Name S2
+end
+Field
+Type Warehouse
+Name W1
+end
+Field
+Type Warehouse
+Name W2
+end
+Field
+Type Laboratory
+Param StunCode
+Name L2
+end
+Field
+Type Warehouse
+Name W3
+end
+Field
+Type Field
+Name F8
+Equipment Cloak
+end
+Field
+Type Warehouse
+Name W4
+end
+Field
+Type InfectedLaboratory
+Param ForgetCode
+Name IL1
+end
+Neighbours
+S1 L1
+S2 L1
+W1 L1
+W2 W1
+L2 L1
+W3 L2
+F8 L1
+W4 L1
+IL1 S2
+L1 F8
+L1 W4
+S1 L2
+S1 IL1
+S2 W3
+W1 S1
+W1 S2
+W1 W2
+W2 L1
+W2 S2
+W2 L2
+L2 S1
+L2 S2
+W3 S1
+W3 S2
+W3 W1
+W3 L2
+W3 W4
+W3 IL1
+F8 S1
+W4 L1
+W4 L2
+IL1 L1
+IL1 S1
+IL1 W1
+IL1 W3
+end
+Virologist
+Name V1
+ActionCount 2
+Equipment Axe
+Amino 19
+Nucleo 13
+GeneticCode ChoreaCode
+StartingPos S1
+end
+Virologist
+Name V1
+ActionCount 1
+Equipment Glove
+Amino 6
+Nucleo 17
+StartingPos S1
+end
