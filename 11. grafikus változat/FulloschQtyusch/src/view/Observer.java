@@ -1,12 +1,12 @@
 package view;
 
 /**
- * Megfigyelõ osztály, lehet értesíteni a feliratkozott objektumok felõl
- * ha változás történt
+ * MegfigyelÅ‘ osztÃ¡ly, lehet Ã©rtesÃ­teni a feliratkozott objektumok felÅ‘l
+ * ha vÃ¡ltozÃ¡s tÃ¶rtÃ©nt
  */
 public abstract class Observer{
     /**
-     * A megfigyelõt értesítõ függvény
+     * A megfigyelÅ‘t Ã©rtesÃ­tÅ‘ fÃ¼ggvÃ©ny
      */
     public abstract void update();
 }

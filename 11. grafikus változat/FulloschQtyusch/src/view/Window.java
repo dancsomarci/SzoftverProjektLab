@@ -20,7 +20,7 @@ public class Window extends Observer{
 
 
     /**
-     * Az utolsÛ ¸zenet tartalma
+     * Az utols√≥ √ºzenet tartalma
      */
     String msgText;
 
@@ -31,11 +31,11 @@ public class Window extends Observer{
     private JLabel nucleoLabel;
     private JLabel turnCounter;
     /**
-     * Az ¸zenetbuborÈk
+     * Az √ºzenetbubor√©k
      */
     private JLabel actionBubble;
     /**
-     * Az ¸zenetbuborÈk szˆvege
+     * Az √ºzenetbubor√©k sz√∂vege
      */
     private JTextArea actionBubbleText;
     private ArrayList<JButton> equipmentButtons;
@@ -178,10 +178,10 @@ public class Window extends Observer{
     public void update(){
         Virologist player = game.GetCurrentPlayer();
 
-    //AKCI”SZ¡ML¡L” FRISSÕT…SE
+    //AKCI√ìSZ√ÅML√ÅL√ì FRISS√çT√âSE
         turnCounter.setText(player.getActionCount() + " / 3");
 
-    //¡LLAPOTS¡VOK FRISSÕT…SE
+    //√ÅLLAPOTS√ÅVOK FRISS√çT√âSE
         nucleoBar.setValue(player.GetNucleotide());
         nucleoBar.setMaximum(player.GetMaterialLimit());
         nucleoLabel.setText( String.valueOf(player.GetNucleotide()));
@@ -189,7 +189,7 @@ public class Window extends Observer{
         aminoBar.setMaximum(player.GetMaterialLimit());
         aminoLabel.setText(String.valueOf(player.GetAminoAcid()));
 
-    //FELSZEREL…SEK FRISSÕT…SE
+    //FELSZEREL√âSEK FRISS√çT√âSE
         ArrayList<Equipment> equipment = player.GetEquipments();
         Image equipmentSlotIcon = null;
         for (int i = 0; i < 3; i++){
@@ -209,7 +209,7 @@ public class Window extends Observer{
             equipmentButtons.get(i).setIcon( new ImageIcon(equipmentSlotIcon));
         }
 
-    //SZ÷VEGBUBOR…K FRISSÕT…SE
+    //SZ√ñVEGBUBOR√âK FRISS√çT√âSE
         if(!controller.getActionMessage().equals(""))
             msgText = player.getName()+": "+ controller.getActionMessage();
 
@@ -224,7 +224,7 @@ public class Window extends Observer{
             actionBubbleText.setVisible(true);
         }
 
-    //H¡TT…R FRISSÕT…SE
+    //H√ÅTT√âR FRISS√çT√âSE
         Drawable drawableField = (Drawable) player.getField();
         Image backGroundIMG;
         try {
@@ -241,7 +241,7 @@ public class Window extends Observer{
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setBounds(0, 0, 600, 600);
 
-    //K÷RV…GE GOMB BE¡LLÕT¡SA
+    //K√ñRV√âGE GOMB BE√ÅLL√çT√ÅSA
         Image endButtonIcon = null;
         try {
             endButtonIcon = ImageIO.read(new File("textures/endButton.png"));
@@ -260,7 +260,7 @@ public class Window extends Observer{
         endButton.setOpaque(false);
         endButton.setBounds(480, 450, 70, 70);
 
-    //ANYAGS¡VOK BE¡LLÕT¡SA
+    //ANYAGS√ÅVOK BE√ÅLL√çT√ÅSA
         nucleoBar = new JProgressBar();
         nucleoBar.setBounds(215, 460, 170, 25);
         nucleoBar.setMaximum(20);
@@ -279,7 +279,7 @@ public class Window extends Observer{
         aminoLabel.setHorizontalAlignment(JLabel.CENTER);
         aminoLabel.setFont(new Font("sans-serif", Font.BOLD, 13));
 
-    //FELSZEREL…SEK BE¡LLÕT¡SA
+    //FELSZEREL√âSEK BE√ÅLL√çT√ÅSA
         Image equipmentSlotIcon = null;
         try {
             equipmentSlotIcon = ImageIO.read(new File("textures/itemSlot.png"));
@@ -302,13 +302,13 @@ public class Window extends Observer{
             y += 60;
         }
 
-    //KAKCI”SZ¡ML¡L” BE¡LLÕT¡SA
+    //KAKCI√ìSZ√ÅML√ÅL√ì BE√ÅLL√çT√ÅSA
         turnCounter = new JLabel("3 / 3");
         turnCounter.setFont(new Font("sans-serif", Font.BOLD, 48));
         turnCounter.setForeground(Color.white);
         turnCounter.setBounds(480, 25, 160, 50);
 
-    //SZ÷VEGBUBOR…K BE¡KKÕT¡SA
+    //SZ√ñVEGBUBOR√âK BE√ÅKK√çT√ÅSA
         Image actionBubbleIMG;
         ImageIcon actionBubbleIcon;
         try{
@@ -321,83 +321,83 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-        msgText = "kisk˙gya kunya g˙gyuszka kiskufya\n" +
-                "kiskugya k˙tya sulya lislyuta\n" +
-                "kizskugka kutja k˙tja kiskuhya\n" +
+        msgText = "kisk√∫gya kunya g√∫gyuszka kiskufya\n" +
+                "kiskugya k√∫tya sulya lislyuta\n" +
+                "kizskugka kutja k√∫tja kiskuhya\n" +
                 "gizsgugya    kuta    kutyna    kiskuxya\n" +
                 "gizskutya    kislyutya    kutnya    kiskuya\n" +
                 "kiskutius    gidzsigegizsgutya    kitsikugya    kitsigugya\n" +
-                "hutya        k˙gyugya    lizya      k˚gyja\n" +
+                "hutya        k√∫gyugya    lizya      k≈±gyja\n" +
                 "kutsus         kogya    gidzsgudja    nyuta\n" +
-                "gizsg˙gya    kutttya    qgya        pimbull \n" +
-                "g˚tya     kizsgutya    kutgya       kugyja\n" +
-                "kugyuzs    q˙hggyah    qk˙tgyikah    g˙tjya\n" +
-                "guggya    gizsgyugya    k˙dtja    gizskugya\n" +
+                "gizsg√∫gya    kutttya    qgya        pimbull \n" +
+                "g≈±tya     kizsgutya    kutgya       kugyja\n" +
+                "kugyuzs    q√∫hggyah    qk√∫tgyikah    g√∫tjya\n" +
+                "guggya    gizsgyugya    k√∫dtja    gizskugya\n" +
 
-                "kuhya    k˙ja    kudgya     tutya\n"+
-                "g˙gyah    kugyha    qutja    kislutya\n" +
+                "kuhya    k√∫ja    kudgya     tutya\n"+
+                "g√∫gyah    kugyha    qutja    kislutya\n" +
                 "kutsa    outya    kuyua    lizya\n" +
                 "lutyw    litya    kitya    lutxa\n" +
-                "kuxta    gidzsigegugyus    kuzxa    kik˙gyka\n" +
+                "kuxta    gidzsigegugyus    kuzxa    kik√∫gyka\n" +
 
-                "g˙tyja    kutxa    kigya    gugyuska\n" +
+                "g√∫tyja    kutxa    kigya    gugyuska\n" +
                 "gisguya      kuxgy    kurya    gogya\n" +
                 "kisgugytkya    jutya    kufya    gugklya\n" +
                 "kiskulya       gizsgugyuzsga     kucsa    kiskytya\n" +
                 "kismulya    guty    gizsgutyi    kiskhtya\n" +
                 "kuva         vau    kizskugya    kiskjtya\n" +
-                "qutya     k˙gyka    kiskutja    kugyus\n" +
+                "qutya     k√∫gyka    kiskutja    kugyus\n" +
                 "qugya      kuty    kulyuska    gutus \n" +
-                "gisg˙gya    lugya    kuxa    tugya\n" +
-                "q˙gya      g˚gya    g˙gyika    kutga\n" +
+                "gisg√∫gya    lugya    kuxa    tugya\n" +
+                "q√∫gya      g≈±gya    g√∫gyika    kutga\n" +
 
-                "kuja    rÛt valter (rottweiler)    gi gutga    kisgutya\n" +
+                "kuja    r√≥t valter (rottweiler)    gi gutga    kisgutya\n" +
 
                 "kulya    kugta    kiekutya    kutuska\n" +
                 "kucus    mutya    kiwkutya    nyutya\n" +
                 "gizsigutygyja      gizs gugya    kiqkutya    kis kuta\n" +
-                "kukia     gÌzsg˙gya    kikugya    kiskutyu\n" +
+                "kukia     g√≠zsg√∫gya    kikugya    kiskutyu\n" +
                 "gyutya        qtya    kikutya    kutyuli\n" +
                 "gutya     gigygugya    kiskurya     mutyuli\n" +
                 "zuka       qkutya    kizskutga    kizskuja\n" +
-                "guta    qtyja     gisgutgya    k˙gy˙s\n" +
-                "zutyi      guka    gizsgutya    k˙gya\n" +
-                "kˆnya      kuttya    tutus    kumgya\n" +
-                "kˆlya        putya    tuta    lutya\n" +
-                "bidbulgugya    giszkutya    tyutyu    k˙lya\n" +
+                "guta    qtyja     gisgutgya    k√∫gy√∫s\n" +
+                "zutyi      guka    gizsgutya    k√∫gya\n" +
+                "k√∂nya      kuttya    tutus    kumgya\n" +
+                "k√∂lya        putya    tuta    lutya\n" +
+                "bidbulgugya    giszkutya    tyutyu    k√∫lya\n" +
 
-                "qtja     kizsg˙tya    tyutyus    gugyuzsga\n" +
-                "kˆjˆk    kis kugya    kizsgugya    kuthya    g˙tyja\n" +
+                "qtja     kizsg√∫tya    tyutyus    gugyuzsga\n" +
+                "k√∂j√∂k    kis kugya    kizsgugya    kuthya    g√∫tyja\n" +
                 "gugyus    gugyusga    kutyhus    gudgya\n" +
                 "gizsgutga    kuya    gizsgutya    gizsgutya\n" +
                 "bidbugugya    kisgugya    gutyna    gizsgutyus\n" +
                 "kizskutja    kucuka    kismutya    ulya\n" +
                 "gudja      kuszus    kutyulimutyuli    qty\n" +
-                "kuzya     kutyha     kugdlya           g˙tyja\n" +
-                "kissqutya    k˚gyka    kudglya    g˙tygya\n" +
-                "kissqtya    q¸gya    dutya    kunyus \n" +
-                "kiss kutya    kis kutyuss    kuyga    k˙nya\n" +
-                "kiskÛgya          kuggya     gi guya    ksigugyq\n" +
+                "kuzya     kutyha     kugdlya           g√∫tyja\n" +
+                "kissqutya    k≈±gyka    kudglya    g√∫tygya\n" +
+                "kissqtya    q√ºgya    dutya    kunyus \n" +
+                "kiss kutya    kis kutyuss    kuyga    k√∫nya\n" +
+                "kisk√≥gya          kuggya     gi guya    ksigugyq\n" +
                 "kitzsikutynyuzska    kucs    kuryz    gizsgyutya\n" +
-                "kislutyuy         giskunya    gizs kugy˙gya    kisgucsa\n" +
-                "kisgÛgya      giskugyulimugyuli    gyutyulimugyuli    kurgya\n" +
+                "kislutyuy         giskunya    gizs kugy√∫gya    kisgucsa\n" +
+                "kisg√≥gya      giskugyulimugyuli    gyutyulimugyuli    kurgya\n" +
                 "gizs gudja    gisgugya    gisguya    kurtya\n" +
                 "guttya         qutgya     quttya     kis lutyuj \n" +
                 "glutya       gulytjya    kisluytuj     discsucsa\n" +
-                "kiskzÛuyta     kutjda    katya        lutyiluty\n" +
-                "kutyika     kis kutsus    k˙txa     kutxuzs\n" +
+                "kiskz√≥uyta     kutjda    katya        lutyiluty\n" +
+                "kutyika     kis kutsus    k√∫txa     kutxuzs\n" +
                 "kuyly    kuyla    kiskunyus        gugyja\n" +
-                "k˙fka    k˙dka    kissgugyuska    kisskugyus\n" +
-                "k¸tya    gidzsigutya    gunyus     kisgunyus\n" +
-                "qs qtya    gugyuli-mugyuli          kizskzgya    k˙tdja\n" +
+                "k√∫fka    k√∫dka    kissgugyuska    kisskugyus\n" +
+                "k√ºtya    gidzsigutya    gunyus     kisgunyus\n" +
+                "qs qtya    gugyuli-mugyuli          kizskzgya    k√∫tdja\n" +
                 "krudja       krugyja    gizsguggya    kiskukia\n" +
                 "kutyulu         kislutuy    kisgugyja    gutyja\n" +
-                "kizs zsutyila    g˙gyulka-mugyulka        kizsgudzsuka     kisgudzsus\n" +
-                "kigy gyuka      k˙qggyuzska    kusugyulj    qizs qtya\n" +
-                "kufa        g˙dzsus-mudzsus    kizs zslutya    q˙dzsa\n" +
-                "qugyka     gudzsuska    qk˙tgya    kutguzska\n" +
+                "kizs zsutyila    g√∫gyulka-mugyulka        kizsgudzsuka     kisgudzsus\n" +
+                "kigy gyuka      k√∫qggyuzska    kusugyulj    qizs qtya\n" +
+                "kufa        g√∫dzsus-mudzsus    kizs zslutya    q√∫dzsa\n" +
+                "qugyka     gudzsuska    qk√∫tgya    kutguzska\n" +
                 "kiskugy a     dicsakbuksi    qugyulimugyuli    tyutya\n" +
-                "kisgutju         kisgy˙gya    kigyugya         kisgugy";
+                "kisgutju         kisgy√∫gya    kigyugya         kisgugy";
 
         actionBubbleText = new JTextArea("Hello vak virologus!\n"+msgText);
         actionBubbleText.setBackground(Color.white);
@@ -408,7 +408,7 @@ public class Window extends Observer{
         actionBubbleText.setColumns(28);
         actionBubbleText.setLineWrap(true);
 
-    //H¡TT…RK…P BE¡LLÕT¡SA
+    //H√ÅTT√âRK√âP BE√ÅLL√çT√ÅSA
         Image backGroundIMG;
         ImageIcon backGroundIcon;
         backGround = new JLabel();
@@ -422,7 +422,7 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-    //ELRENDEZ…S BE¡LLÕT¡SA
+    //ELRENDEZ√âS BE√ÅLL√çT√ÅSA
         layeredPane.add(backGround, Integer.valueOf(0));
         layeredPane.add(actionBubble, Integer.valueOf(1));
         layeredPane.add(endButton, Integer.valueOf(1));

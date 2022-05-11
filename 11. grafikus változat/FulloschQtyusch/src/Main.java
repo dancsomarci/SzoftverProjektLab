@@ -5,7 +5,7 @@ import control.Loader;
 public class Main {
 
     /**
-     * Alkalmaz·s belÈpÈsi pontja.
+     * Alkalmaz√°s bel√©p√©si pontja.
      * @param args parancsori argumentumok.
      */
     public static void main(String[] args){
