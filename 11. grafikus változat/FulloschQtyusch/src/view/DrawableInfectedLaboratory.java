@@ -3,9 +3,11 @@ package view;
 import model.codes.GeneticCode;
 import model.map.InfectedLaboratory;
 
-//TODO comment
-
+/**
+ * A fertőzött laborítóriumnak a képernyőre kirajzolható változata.
+ */
 public class DrawableInfectedLaboratory extends InfectedLaboratory implements Drawable {
+
     /**
      * Genetikai kód hozzáadása a mezőhöz
      *
@@ -15,8 +17,14 @@ public class DrawableInfectedLaboratory extends InfectedLaboratory implements Dr
         super(c);
     }
 
+    /**
+     * Visszatér a fertőzött laborítórium textúrájának az elérési útjával.
+     *
+     * @return Az elérési út
+     */
     @Override
     public String getTexture() {
         return "/textures/InfectedLaboratory.png";
     }
+
 }

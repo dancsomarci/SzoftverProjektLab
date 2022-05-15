@@ -14,8 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
-//TODO comment
+/**
+ * Az ablak, amiben az egész játék meg van jelenítve.
+ */
 public class Window extends Observer{
 
 
@@ -24,30 +25,83 @@ public class Window extends Observer{
      */
     String msgText;
 
+    /**
+     * Aminosav mennyiségét megjelenítő sáv.
+     */
     private JProgressBar aminoBar;
+
+    /**
+     * Nukleotid mennyiségét megjelenítő sáv.
+     */
     private JProgressBar nucleoBar;
 
+    /**
+     * Aminosav felirat.
+     */
     private JLabel aminoLabel;
+
+    /**
+     * Nukleotid felirat.
+     */
     private JLabel nucleoLabel;
+
+    /**
+     * Hátralévő akciók számát megjelenítő felirat.
+     */
     private JLabel turnCounter;
+
     /**
      * Az üzenetbuborék
      */
     private JLabel actionBubble;
+
     /**
      * Az üzenetbuborék szövege
      */
     private JTextArea actionBubbleText;
+
     private ArrayList<JButton> equipmentButtons;
 
+
+    /**
+     * Az üzenetbuborék szövege
+     */
+    private ArrayList<JButton> equipmentButtons;
+
+    /**
+     * A háttér
+     */
     private JLabel backGround;
+
+    /**
+     * A keret, ami az ablakot reprezentálja
+     */
+    private final JFrame frame;
+
+    /**
+     * A külvilággal való kommunikációért felelős osztály példánya
+     */
+    private final Controller controller;
+
+    /**
+     * A játék kezeléséért felelős osztály
+     */
+    private final Game game;
+
+    /**
+     * Létrehoz egy ablakot a megadott kontroller és játék osztályokkal
+     *
+     * @param controller A kontroller
+     * @param game A játék
+     */
+    public Window(Controller controller, Game game){
+
     private final JFrame frame;
 
     private final Controller controller;
     private final Game game;
 
     public Window(Controller controller, Game game){
-
         this.controller = controller;
         this.game = game;
 
@@ -174,6 +228,10 @@ public class Window extends Observer{
         update();
     }
 
+    /**
+     * Az ablak frissítésekor meghívott függvény.
+     * Újrarajzolja az egész ablakot.
+     */
     @Override
     public void update(){
         Virologist player = game.GetCurrentPlayer();
@@ -235,6 +293,9 @@ public class Window extends Observer{
         } catch (IOException ignored) { }
     }
 
+    /**
+     * A felhasználói interfész kirajzolásakor meghívott függvény.
+     */
     public void drawInterface() {
 
         JLayeredPane layeredPane = new JLayeredPane();
