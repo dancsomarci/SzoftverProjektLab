@@ -27,7 +27,7 @@ public class Controller extends Subject {
      * @param game
      */
     public Controller(Game game) {
-        actionMessage = "";
+        actionMessage = "My turn...";
         this.game = game;
         window = new Window(this, game);
         attach(window);
@@ -70,8 +70,6 @@ public class Controller extends Subject {
         Virologist currentPlayer = game.GetCurrentPlayer();
         actionMessage = "Trying to drop an equipmnet...";
         currentPlayer.Drop();
-
-
     }
 
     /**

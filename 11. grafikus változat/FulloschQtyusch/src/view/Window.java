@@ -93,19 +93,102 @@ public class Window extends Observer{
         this.controller = controller;
         this.game = game;
 
-        //SETUP FRAME & MENUBAR
+        //SETUP FRAME
         frame = new JFrame("Vilagtalan virologusok vilaga");
+
+        //POPULATE FRAME
+        drawInterface();
+
+        frame.setSize(600,600);
+        frame.setResizable(false);
+        frame.setLayout(null);
+        frame.setVisible(true);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    /**
+     * Az ablak frissítésekor meghívott függvény.
+     * Újrarajzolja az egész ablakot, a modell (Game) aktuális állapota alapján.
+     */
+    @Override
+    public void update(){
+        Virologist player = game.GetCurrentPlayer();
+
+    //AKCIÓSZÁMLÁLÓ FRISSÍTÉSE
+        turnCounter.setText(player.getActionCount() + " / 3");
+
+    //ÁLLAPOTSÁVOK FRISSÍTÉSE
+        nucleoBar.setValue(player.GetNucleotide());
+        nucleoBar.setMaximum(player.GetMaterialLimit());
+        nucleoLabel.setText( String.valueOf(player.GetNucleotide()));
+        aminoBar.setValue(player.GetAminoAcid());
+        aminoBar.setMaximum(player.GetMaterialLimit());
+        aminoLabel.setText(String.valueOf(player.GetAminoAcid()));
+
+    //FELSZERELÉSEK FRISSÍTÉSE
+        ArrayList<Equipment> equipment = player.GetEquipments();
+        Image equipmentSlotIcon = null;
+        for (int i = 0; i < 3; i++){
+            if (equipment.size() > i) {
+                Drawable drawableEquipment = (Drawable) equipment.get(i);
+                try {
+                    equipmentSlotIcon = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(drawableEquipment.getTexture())));
+                    equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+                } catch (IOException ignored) { }
+            } else {
+                try {
+                    equipmentSlotIcon = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/textures/itemSlot.png")));
+                    equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+                } catch (IOException ignored) {}
+            }
+            assert equipmentSlotIcon != null;
+            equipmentButtons.get(i).setIcon( new ImageIcon(equipmentSlotIcon));
+        }
+
+    //SZÖVEGBUBORÉK FRISSÍTÉSE
+        if(!controller.getActionMessage().equals(""))
+            msgText = player.getName()+": "+ controller.getActionMessage();
+
+        if(msgText.equals("")){
+            actionBubble.setVisible(false);
+            actionBubbleText.setVisible(false);
+        }
+        else {
+            actionBubbleText.setText(msgText);
+            actionBubble.setVisible(true);
+            actionBubbleText.setVisible(true);
+        }
+
+    //HÁTTÉR FRISSÍTÉSE
+        Drawable drawableField = (Drawable) player.getField();
+        Image backGroundIMG;
+        try {
+            backGroundIMG = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(drawableField.getTexture())));
+            backGroundIMG = backGroundIMG.getScaledInstance(600, 600, Image.SCALE_SMOOTH);
+            backGround.setIcon(new ImageIcon(backGroundIMG));
+            backGround.setBounds(0, 0, 600, 600);
+        } catch (IOException ignored) { }
+    }
+
+    /**
+     * A felhasználói interfész kirajzolásakor meghívott függvény.
+     */
+    public void drawInterface() {
+        JLayeredPane layeredPane = new JLayeredPane();
+        layeredPane.setBounds(0, 0, 600, 600);
+
+        //SETUP MENUBAR
         JMenuBar mainMenu = new JMenuBar();
         JMenu actions = new JMenu("Actions");
         mainMenu.add(actions);
-        frame.setJMenuBar(mainMenu);
 
         //SETUP SUBMENUS
         JMenu attack= new JMenu("attack");
         actions.add(attack);
         attack.addMenuListener(new ViewMenuListener(()->{
             attack.removeAll();
-           Virologist v = game.GetCurrentPlayer();
+            Virologist v = game.GetCurrentPlayer();
             for (Virologist vir : v.getField().GetVirologists() ) {
                 JMenuItem item = new JMenuItem(vir.getName());
                 item.addActionListener((e)->controller.attack(vir));
@@ -206,89 +289,6 @@ public class Window extends Observer{
         actions.add(endTurn);
         endTurn.addActionListener((e) -> controller.endTurn());
 
-        drawInterface();
-
-        frame.setSize(600,600);
-        frame.setResizable(false);
-        frame.setLayout(null);
-        frame.setVisible(true);
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        update();
-    }
-
-    /**
-     * Az ablak frissítésekor meghívott függvény.
-     * Újrarajzolja az egész ablakot.
-     */
-    @Override
-    public void update(){
-        Virologist player = game.GetCurrentPlayer();
-
-    //AKCIÓSZÁMLÁLÓ FRISSÍTÉSE
-        turnCounter.setText(player.getActionCount() + " / 3");
-
-    //ÁLLAPOTSÁVOK FRISSÍTÉSE
-        nucleoBar.setValue(player.GetNucleotide());
-        nucleoBar.setMaximum(player.GetMaterialLimit());
-        nucleoLabel.setText( String.valueOf(player.GetNucleotide()));
-        aminoBar.setValue(player.GetAminoAcid());
-        aminoBar.setMaximum(player.GetMaterialLimit());
-        aminoLabel.setText(String.valueOf(player.GetAminoAcid()));
-
-    //FELSZERELÉSEK FRISSÍTÉSE
-        ArrayList<Equipment> equipment = player.GetEquipments();
-        Image equipmentSlotIcon = null;
-        for (int i = 0; i < 3; i++){
-            if (equipment.size() > i) {
-                Drawable drawableEquipment = (Drawable) equipment.get(i);
-                try {
-                    equipmentSlotIcon = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(drawableEquipment.getTexture())));
-                    equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                } catch (IOException ignored) { }
-            } else {
-                try {
-                    equipmentSlotIcon = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/textures/itemSlot.png")));
-                    equipmentSlotIcon = equipmentSlotIcon.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                } catch (IOException ignored) {}
-            }
-            assert equipmentSlotIcon != null;
-            equipmentButtons.get(i).setIcon( new ImageIcon(equipmentSlotIcon));
-        }
-
-    //SZÖVEGBUBORÉK FRISSÍTÉSE
-        if(!controller.getActionMessage().equals(""))
-            msgText = player.getName()+": "+ controller.getActionMessage();
-
-        if(msgText.equals("")){
-            actionBubble.setVisible(false);
-            actionBubbleText.setVisible(false);
-        }
-        else {
-            actionBubbleText.setText(msgText);
-            actionBubble.setVisible(true);
-            actionBubbleText.setVisible(true);
-        }
-
-    //HÁTTÉR FRISSÍTÉSE
-        Drawable drawableField = (Drawable) player.getField();
-        Image backGroundIMG;
-        try {
-            backGroundIMG = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(drawableField.getTexture())));
-            backGroundIMG = backGroundIMG.getScaledInstance(600, 600, Image.SCALE_SMOOTH);
-            backGround.setIcon(new ImageIcon(backGroundIMG));
-            backGround.setBounds(0, 0, 600, 600);
-        } catch (IOException ignored) { }
-    }
-
-    /**
-     * A felhasználói interfész kirajzolásakor meghívott függvény.
-     */
-    public void drawInterface() {
-        JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setBounds(0, 0, 600, 600);
-
     //KÖRVÉGE GOMB BEÁLLÍTÁSA
         Image endButtonIcon = null;
         try {
@@ -385,7 +385,7 @@ public class Window extends Observer{
         ImageIcon backGroundIcon;
         backGround = new JLabel();
         try {
-            backGroundIMG = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/textures/Field.png")));
+            backGroundIMG = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/textures/Shelter.png")));
             backGroundIMG = backGroundIMG.getScaledInstance(600, 600, Image.SCALE_SMOOTH);
             backGroundIcon = new ImageIcon(backGroundIMG);
             backGround = new JLabel(backGroundIcon);
@@ -394,19 +394,46 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-    //ELRENDEZÉS BEÁLLÍTÁSA
+        //ELRENDEZÉS BEÁLLÍTÁSA
         layeredPane.add(backGround, Integer.valueOf(0));
         layeredPane.add(actionBubble, Integer.valueOf(1));
-        layeredPane.add(endButton, Integer.valueOf(1));
-        layeredPane.add(aminoBar, Integer.valueOf(1));
-        layeredPane.add(nucleoBar, Integer.valueOf(1));
-        layeredPane.add(equipmentButtons.get(0), Integer.valueOf(1));
-        layeredPane.add(equipmentButtons.get(1), Integer.valueOf(1));
-        layeredPane.add(equipmentButtons.get(2), Integer.valueOf(1));
-        layeredPane.add(turnCounter, Integer.valueOf(1));
         layeredPane.add(actionBubbleText, Integer.valueOf(2));
-        layeredPane.add(nucleoLabel, Integer.valueOf(2));
-        layeredPane.add(aminoLabel, Integer.valueOf(2));
+
+        //START BUTTON
+        Image startButtonIcon = null;
+        try {
+            startButtonIcon = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/textures/startButton.png")));
+            startButtonIcon = startButtonIcon.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert startButtonIcon != null;
+        JButton startButton = new JButton(new ImageIcon(startButtonIcon));
+        startButton.setBorder(null);
+        startButton.setContentAreaFilled(false);
+        startButton.setBorderPainted(false);
+        startButton.setBackground(Color.BLACK);
+        startButton.setOpaque(false);
+        startButton.setBounds(400, 400, 150, 150);
+
+        startButton.addActionListener((e)->{
+            layeredPane.remove(startButton);
+
+            frame.setJMenuBar(mainMenu);
+            layeredPane.add(endButton, Integer.valueOf(1));
+            layeredPane.add(aminoBar, Integer.valueOf(1));
+            layeredPane.add(nucleoBar, Integer.valueOf(1));
+            layeredPane.add(equipmentButtons.get(0), Integer.valueOf(1));
+            layeredPane.add(equipmentButtons.get(1), Integer.valueOf(1));
+            layeredPane.add(equipmentButtons.get(2), Integer.valueOf(1));
+            layeredPane.add(turnCounter, Integer.valueOf(1));
+            layeredPane.add(nucleoLabel, Integer.valueOf(2));
+            layeredPane.add(aminoLabel, Integer.valueOf(2));
+
+            update();
+        });
+        layeredPane.add(startButton, Integer.valueOf(2));
+
         frame.add(layeredPane);
     }
 }
