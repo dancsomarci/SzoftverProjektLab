@@ -68,7 +68,7 @@ public class Controller extends Subject {
      */
     public void drop(){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        actionMessage = "Trying to drop an equipmnet...";
+        actionMessage = "Trying to drop an equipment...";
         currentPlayer.Drop();
 
 
@@ -92,7 +92,7 @@ public class Controller extends Subject {
      */
     public void lootNucleoFrom(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        actionMessage = "Trying to nucleotide acid form " + v.getName() + "...";
+        actionMessage = "Trying to loot nucleotide form " + v.getName() + "...";
         currentPlayer.LootNucleotideFrom(v);
 
 
@@ -104,7 +104,7 @@ public class Controller extends Subject {
      */
     public void lootEquipmentFrom(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        actionMessage = "Trying to equipment acid form " + v.getName() + "...";
+        actionMessage = "Trying to loot equipment form " + v.getName() + "...";
         currentPlayer.LootEquipmentFrom(v);
 
 
