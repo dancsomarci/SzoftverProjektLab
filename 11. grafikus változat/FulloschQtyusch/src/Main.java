@@ -1,12 +1,11 @@
 import control.Controller;
 import control.Loader;
-//TODO comment
-//TODO 2 Main osztaly is van, sztem lehetne a controlban, de itt is jo akar
+
 public class Main {
 
     /**
      * Alkalmazás belépési pontja.
-     * @param args parancsori argumentumok.
+     * @param args parancsori argumentumok, amiben az indulási pálya leírásának elérési útvonalát kapja meg.
      */
     public static void main(String[] args){
         try {

@@ -218,7 +218,7 @@ public class Loader {
                         a.ApplyStrategy(v);
                         break;
                     case "StartingPos":
-                        startingPos = command[1]; //in case there are command after this that throw error we don't want to mess up the existing setup
+                        startingPos = command[1];
                         break;
                     case "GeneticCode":
                         v.AddGeneticCode((GeneticCode) createObject("model.codes." + command[1]));
@@ -236,5 +236,4 @@ public class Loader {
             throw new Exception("Error in Virologist command format!", e);
         }
     }
-
 }

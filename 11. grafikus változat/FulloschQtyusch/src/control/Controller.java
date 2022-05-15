@@ -21,6 +21,11 @@ public class Controller extends Subject {
     private final Window window;
     private String actionMessage;
 
+    /**
+     * Inicializálja az ablakot. Felcsatolja saját magára, hogy értesíteni tudja, az actionMessage változásáról, valamint
+     * Gondoskodik róla, hogy a Window értesüljön az aktuálisan körön lévő virológus lehetséges változásairól is.
+     * @param game
+     */
     public Controller(Game game) {
         actionMessage = "";
         this.game = game;
