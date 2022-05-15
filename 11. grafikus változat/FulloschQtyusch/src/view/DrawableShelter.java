@@ -3,9 +3,11 @@ package view;
 import model.equipments.Equipment;
 import model.map.Shelter;
 
-//TODO comment
-
+/**
+ * A óvóhelynek a képernyőre kirajzolható változata.
+ */
 public class DrawableShelter extends Shelter  implements Drawable {
+
     /**
      * Védőfelszerelés hozzáadása
      *
@@ -15,8 +17,14 @@ public class DrawableShelter extends Shelter  implements Drawable {
         super(e);
     }
 
+    /**
+     * Visszatér a óvóhely textúrájának az elérési útjával.
+     *
+     * @return Az elérési út
+     */
     @Override
     public String getTexture() {
         return "/textures/Shelter.png";
     }
+
 }
