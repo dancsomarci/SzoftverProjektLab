@@ -9,6 +9,7 @@ import model.map.Field;
 import model.map.InfectedLaboratory;
 import model.map.Laboratory;
 import model.map.Shelter;
+import view.*;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -29,17 +30,17 @@ public class Loader {
     /**
      * Az aktuálisan játszott játék.
      */
-    private Game game;
+    private final Game game;
 
     /**
      * A pálya felépítéséhez szükséges átmeneti tároló, ami a név-mező összerendeléseket tartalmazza.
      */
-    private HashMap<String, Field> fields;
+    private final HashMap<String, Field> fields;
 
     /**
      * A bemeneti parancsokat, és a megvalósító metódusok kapcsolatát tároló objektum.
      */
-    private static LinkedHashMap<String, Method> inputs = new LinkedHashMap<>();
+    private static final LinkedHashMap<String, Method> inputs = new LinkedHashMap<>();
 
     /**
      * Az osztály inicializáláskor kigyűjti a bemeneti nyelv parancsaihoz tartozó metódusokat,
@@ -49,7 +50,7 @@ public class Loader {
      */
     public Loader() throws Exception {
         try{
-            for (Method method : Controller.class.getDeclaredMethods()){
+            for (Method method : Loader.class.getDeclaredMethods()){
                 if (method.isAnnotationPresent(LoaderInput.class)){
                     inputs.put(method.getAnnotation(LoaderInput.class).name(), method);
                 }
@@ -86,10 +87,7 @@ public class Loader {
                         throw new Exception("Unknown command in input file!");
                 }
             }
-        } catch (Exception e){
-            throw e;
-        }
-        finally{
+        } finally{
             if (sc != null)
                 sc.close();
         }
@@ -129,21 +127,21 @@ public class Loader {
             String arg = options.get("Param");
 
             if (arg == null){ //default ctor
-                f = (Field) createObject("model.map." + options.get("Type"));
+                f = (Field) createObject("view.Drawable" + options.get("Type"));
             } else{
                 //csúnya, de ez van
                 switch(options.get("Type")){
                     case "Laboratory":
                         GeneticCode c1 = (GeneticCode) createObject("model.codes." + arg);
-                        f = new Laboratory(game.AddGeneticCode(c1));
+                        f = new DrawableLaboratory(game.AddGeneticCode(c1));
                         break;
                     case "InfectedLaboratory":
                         GeneticCode c2 = (GeneticCode) createObject("model.codes." + arg);
-                        f = new InfectedLaboratory(game.AddGeneticCode(c2));
+                        f = new DrawableInfectedLaboratory(game.AddGeneticCode(c2));
                         break;
                     case "Shelter":
-                        Equipment e = (Equipment) createObject("model.equipments."+arg);
-                        f = new Shelter(e);
+                        Equipment e = (Equipment) createObject("view.Drawable"+arg);
+                        f = new DrawableShelter(e);
                         break;
                     default:
                         break;
@@ -151,7 +149,7 @@ public class Loader {
             }
             String eqType = options.get("Equipment");
             if (eqType != null){
-                f.Drop((Equipment) createObject("model.equipments." + eqType));
+                f.Drop((Equipment) createObject("view.Drawable" + eqType));
             }
             if (options.get("Name") == null) throw new Exception(); //Name is mandatory!
             if (fields.get(options.get("Name")) != null) throw new Exception(); //Field with Name already Exists!
@@ -159,7 +157,7 @@ public class Loader {
             fields.put(options.get("Name"), f);
             game.AddField(f);
         } catch (Exception e){
-            throw new Exception("Error in Field command format!");
+            throw new Exception("Error in Field command format!", e);
         }
     }
 
@@ -181,7 +179,7 @@ public class Loader {
                 f1.AddNeighbour(f0);
             }
         }catch(Exception e){
-            throw new Exception("Error in Neighbours command format!");
+            throw new Exception("Error in Neighbours command format!", e);
         }
     }
 
@@ -204,7 +202,7 @@ public class Loader {
                         v.setName(command[1]);
                         break;
                     case "Equipment":
-                        v.AddEquipment((Equipment) createObject("model.equipments." + command[1]));
+                        v.AddEquipment((Equipment) createObject("view.Drawable" + command[1]));
                         break;
                     case "Amino":
                         v.AddAminoAcid(Integer.parseInt(command[1]));
@@ -235,7 +233,7 @@ public class Loader {
             fields.get(startingPos).AddVirologist(v);
             game.AddVirologist(v);
         } catch (Exception e){
-            throw new Exception("Error in Virologist command format!");
+            throw new Exception("Error in Virologist command format!", e);
         }
     }
 

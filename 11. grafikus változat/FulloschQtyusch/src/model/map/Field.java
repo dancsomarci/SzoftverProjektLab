@@ -26,25 +26,6 @@ public class Field
 	protected ArrayList<Equipment> equipments;
 
 	/**
-	 * Listázza a mezőt, felszereléseket, virológusokat és a szomszédos mezőket
-	 */
-	public void bark(){
-		System.out.println(this.getClass().getSimpleName() + ": " + name);
-		System.out.println("\tEquipments:");
-		for (Equipment e: equipments) {
-			System.out.println("\t\t" + e.getName());
-		}
-		System.out.println("\tVirologists:");
-		for (Virologist v: virologists) {
-			System.out.println("\t\t" + v.getName());
-		}
-		System.out.println("\tNeighbours:");
-		for (Field f: neighbours) {
-			System.out.println("\t\t" + f.getName());
-		}
-	}
-
-	/**
 	 * Mező neve
 	 */
 	protected String name;
@@ -95,7 +76,8 @@ public class Field
 	 * @param f új szomszéd
 	 */
 	public void AddNeighbour(Field f) {
-		neighbours.add(f);
+		if(!neighbours.contains(f))
+			neighbours.add(f);
 	}
 
 	/**

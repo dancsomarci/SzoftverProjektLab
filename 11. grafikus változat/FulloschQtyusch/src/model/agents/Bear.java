@@ -1,9 +1,7 @@
 package model.agents;
 
 import model.Virologist;
-import model.map.Field;
 import model.strategy.BearMove;
-import model.strategy.IMoveStr;
 
 /**
  * Medvevírus, mely automatikusan megfertőzi az ezzel már megfertőzött játékossal egy mezőn álló többi játékost.

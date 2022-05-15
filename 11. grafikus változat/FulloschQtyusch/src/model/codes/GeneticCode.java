@@ -1,7 +1,6 @@
 package model.codes;
 
 
-import model.Game;
 import model.Virologist;
 import model.agents.Agent;
 

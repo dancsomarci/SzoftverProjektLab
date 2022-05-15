@@ -11,7 +11,7 @@ public class Bag extends Equipment
 	/**
 	 * Növelendő mennyiség
 	 */
-	private int delta;
+	private final int delta;
 
 	/**
 	 * Zsák felszerelés létrehozása

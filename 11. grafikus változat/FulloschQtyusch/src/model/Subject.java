@@ -4,34 +4,34 @@ import view.Observer;
 import java.util.ArrayList;
 
 /**
- * Egy megfigyelt oszt·ly, melynek v·ltoz·saira fel lehet iratkozniuk Observereknek
+ * Egy megfigyelt oszt√°ly, melynek v√°ltoz√°saira fel lehet iratkozniuk Observereknek
  */
 public class Subject {
     /**
-     * Observerek - megfigyelık list·ja
+     * Observerek - megfigyel≈ëk list√°ja
      */
     ArrayList<Observer> observers = new ArrayList<>();
 
     /**
-     * Egy megfigyelı regisztr·l·sa
-     * @param observer a hozz·adandÛ megfigyelı
+     * Egy megfigyel≈ë regisztr√°l√°sa
+     * @param observer a hozz√°adand√≥ megfigyel≈ë
      */
     public void attach(Observer observer){
         if (!observers.contains(observer)){
             observers.add(observer);
         }
-    };
+    }
 
     /**
-     * Egy megfigyelı lev·laszt·sa
-     * @param observer az elt·volÌtandÛ megfigyelı
+     * Egy megfigyel≈ë lev√°laszt√°sa
+     * @param observer az elt√°vol√≠tand√≥ megfigyel≈ë
      */
     public void detach(Observer observer){
         observers.remove(observer);
-    };
+    }
 
     /**
-     * Az ˆsszes regisztr·lt megfigyelı ÈrtesÌtÈse
+     * Az √∂sszes regisztr√°lt megfigyel≈ë √©rtes√≠t√©se
      */
     public void notifyAllObservers(){
         for (Observer o : observers) {

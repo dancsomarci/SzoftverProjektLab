@@ -2,10 +2,8 @@ package model.map;
 
 
 import model.Virologist;
-import model.equipments.Equipment;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * Olyan mező, amelyen anyag gyüjthető
@@ -40,27 +38,5 @@ public class Warehouse extends Field
 	@Override
 	public void DestroyMaterial(){
 		delta = 0;
-	}
-
-	/**
-	 * Listázza a mezőt, felszereléseket, a mező anyag kibocsátásának mennyiségét, virológusokat és a szomszédos mezőket
-	 */
-	@Override
-	public void bark(){
-		System.out.println(this.getClass().getSimpleName() + ": " + name);
-		System.out.println("\tEquipments:");
-		for (Equipment e: equipments) {
-			System.out.println("\t\t" + e.getName());
-		}
-		System.out.println("\tMaterial output:");
-		System.out.println("\t\tAmount: " + delta);
-		System.out.println("\tVirologists:");
-		for (Virologist v: virologists) {
-			System.out.println("\t\t" + v.getName());
-		}
-		System.out.println("\tNeighbours:");
-		for (Field f: neighbours) {
-			System.out.println("\t\t" + f.getName());
-		}
 	}
 }

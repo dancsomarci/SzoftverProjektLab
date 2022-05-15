@@ -60,6 +60,9 @@ public class Window extends Observer{
      */
     private JTextArea actionBubbleText;
 
+    private ArrayList<JButton> equipmentButtons;
+
+
     /**
      * Az üzenetbuborék szövege
      */
@@ -93,6 +96,12 @@ public class Window extends Observer{
      */
     public Window(Controller controller, Game game){
 
+    private final JFrame frame;
+
+    private final Controller controller;
+    private final Game game;
+
+    public Window(Controller controller, Game game){
         this.controller = controller;
         this.game = game;
 

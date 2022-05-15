@@ -3,6 +3,7 @@ package model;
 import model.codes.GeneticCode;
 import model.map.Field;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,8 +87,6 @@ public class Game extends Subject
 	 * @param codes a megismert genetikai kódok száma
 	 */
 	public void NextPlayer(int codes){
-		// A VIROLÓGUSNÁL KELL MEGKÉRDEZNI, HOGY MEGVAN-E AZ ÖSSZES KÓDJA
-		// EZ ALAPJÁN KELL MEGFELELŐEN PARAMÉTEREZNI MAJD A FÜGGVÉNYHÍVÁST
 		if(codes == this.codes.size())
 			EndGame();
 		else {
@@ -111,7 +110,8 @@ public class Game extends Subject
 	 */
 	public void EndGame()
 	{
-		System.out.println(virologists.get(currentPlayer).getName() + " won the game!");
+		JFrame parent = new JFrame();
+		JOptionPane.showMessageDialog(parent, virologists.get(currentPlayer).getName() + " won the game!");
 		System.exit(0);
 	}
 

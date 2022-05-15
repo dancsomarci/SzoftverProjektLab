@@ -22,12 +22,12 @@ public class Controller extends Subject {
     private String actionMessage;
 
     public Controller(Game game) {
+        actionMessage = "";
         this.game = game;
         window = new Window(this, game);
         attach(window);
         Virologist first = game.GetCurrentPlayer();
         first.attach(window);
-        actionMessage = "";
     }
 
     /**
@@ -36,7 +36,15 @@ public class Controller extends Subject {
      */
     public void attack(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        actionMessage = currentPlayer.getName() + " trying to attack" + v.getName() + "...";
+        actionMessage = v.getName() + " might be dead by now▄";
+        currentPlayer.Attack(v);
+        if(!currentPlayer.equals(game.GetCurrentPlayer())){
+            currentPlayer.detach(window);
+            currentPlayer = game.GetCurrentPlayer();
+            currentPlayer.attach(window);
+            actionMessage = "My turn...";
+            notifyAllObservers();
+        }
     }
 
     /**
@@ -45,8 +53,9 @@ public class Controller extends Subject {
      */
     public void move(Field f){
         Virologist currentPlayer = game.GetCurrentPlayer();
+        actionMessage =  "Trying to move to " + f.getName() + "...";
         currentPlayer.Move(f);
-        actionMessage = currentPlayer.getName() + " trying to move to " + f.getName() + "...";
+
     }
 
     /**
@@ -54,8 +63,10 @@ public class Controller extends Subject {
      */
     public void drop(){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        currentPlayer.EndTurn();
-        actionMessage = currentPlayer.getName() + " trying to drop an equipmnet...";
+        actionMessage = "Trying to drop an equipmnet...";
+        currentPlayer.Drop();
+
+
     }
 
     /**
@@ -64,8 +75,10 @@ public class Controller extends Subject {
      */
     public void lootAminoFrom(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
+        actionMessage = "Trying to loot amino acid form " + v.getName() + "...";
         currentPlayer.LootAminoAcidFrom(v);
-        actionMessage = currentPlayer.getName() + " trying to loot amino acid form " + v.getName() + "...";
+
+
     }
 
     /**
@@ -74,8 +87,10 @@ public class Controller extends Subject {
      */
     public void lootNucleoFrom(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
+        actionMessage = "Trying to nucleotide acid form " + v.getName() + "...";
         currentPlayer.LootNucleotideFrom(v);
-        actionMessage = currentPlayer.getName() + " trying to nucleotide acid form " + v.getName() + "...";
+
+
     }
 
     /**
@@ -84,8 +99,10 @@ public class Controller extends Subject {
      */
     public void lootEquipmentFrom(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
+        actionMessage = "Trying to equipment acid form " + v.getName() + "...";
         currentPlayer.LootEquipmentFrom(v);
-        actionMessage = currentPlayer.getName() + " trying to equipment acid form " + v.getName() + "...";
+
+
     }
 
     /**
@@ -93,8 +110,9 @@ public class Controller extends Subject {
      */
     public void collect(){
         Virologist currentPlayer = game.GetCurrentPlayer();
+        actionMessage = "Trying to collect material...";
         currentPlayer.Collect();
-        actionMessage = currentPlayer.getName() + " trying to collect material...";
+
     }
 
     /**
@@ -102,8 +120,9 @@ public class Controller extends Subject {
      */
     public void learn(){
         Virologist currentPlayer = game.GetCurrentPlayer();
+        actionMessage = "Trying to learn a genetic code...";
         currentPlayer.Learn();
-        actionMessage = currentPlayer.getName() + " trying to learn a genetic code...";
+
     }
 
     /**
@@ -111,8 +130,9 @@ public class Controller extends Subject {
      */
     public void equip(){
         Virologist currentPlayer = game.GetCurrentPlayer();
+        actionMessage = "Trying to equip an equipment...";
         currentPlayer.Equip();
-        actionMessage = currentPlayer.getName() + " trying to equip an equipment...";
+
     }
 
     /**
@@ -122,8 +142,9 @@ public class Controller extends Subject {
      */
     public void inject(Virologist v, GeneticCode code){
         Virologist currentPlayer = game.GetCurrentPlayer();
+        actionMessage =  "Trying to inject " + v.getName() + " with " + code.getName() + "...";
         currentPlayer.Inject(v, code);
-        actionMessage = currentPlayer.getName() + " trying to inject " + v.getName() + " with " + code.getName() + "...";
+
     }
 
     /**
@@ -135,7 +156,8 @@ public class Controller extends Subject {
         currentPlayer.detach(window);
         currentPlayer = game.GetCurrentPlayer();
         currentPlayer.attach(window);
-
+        actionMessage = "My turn...";
+        notifyAllObservers();
     }
 
     /**
