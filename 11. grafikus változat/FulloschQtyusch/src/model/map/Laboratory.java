@@ -1,7 +1,5 @@
 package model.map;
 
-
-
 import model.Virologist;
 import model.codes.GeneticCode;
 

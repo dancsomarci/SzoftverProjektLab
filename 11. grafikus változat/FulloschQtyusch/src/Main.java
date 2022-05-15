@@ -1,6 +1,9 @@
 import control.Controller;
 import control.Loader;
 
+/**
+ * Az alkalmazás belépési pontja.
+ */
 public class Main {
 
     /**

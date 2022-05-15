@@ -19,16 +19,9 @@ import java.util.Random;
 public class Virologist extends Subject
 {
 	/**
-	 * A virológus aktuális kontextusát adja vissza, azaz, hogy éppen milyen játékban vesz részt.
-	 * @return
-	 */
-	public Game GetContext(){return game;} //randomitás kikapcsolása stb..
-
-	/**
 	 * Prototípusban a nevük alapján jelennek meg a virológusok, ezt szimbolizálja a tagváltozó.
-	 * A végleges verzióban majd komolyabb grafikus megjelenítést fog kapni, pl.: decorator minta elvei szerint
 	 */
-	private String name; //kiíratáshoz (grafikusnál majd decorator minta)
+	private String name;
 
 	/**
 	 * Beállítja a virológus nevét.
@@ -64,14 +57,30 @@ public class Virologist extends Subject
 	 */
 	private final int maxNumberOfItems;
 
-	public void SetActionCount(int count){actionCount = count;}
-
 	/**
 	 *  Azt a mennyiseget tarolja, hogy mennyi lepest tud vegre hajtani a korben a virologus.
 	 * */
 	private int actionCount;
 
+	/**
+	 * A maximum lehetséges akciószám.
+	 */
 	private final int MaxActionCount = 3;
+
+	/**
+	 * A virológus akciószámának beállításáért felelős függvény.
+	 * Ha a megengedettnél nagyobb számot akarunk beállítani, akkor az akciószám MAXActionCount értéke lesz. (értékét lásd: dokumentáció)
+	 * Hasonlóan, ha nullánál kisebb számot akaruk beállítani, akkor 0-ra állítja.
+	 * @param count A kívánt akciószám.
+	 */
+	public void SetActionCount(int count){
+		if (count < 0)
+			actionCount = 0;
+		else if (actionCount > MaxActionCount)
+			actionCount = MaxActionCount;
+		else
+			actionCount = count;
+	}
 
 	/**
 	 *  A virologus altal birtokolt aminosav mennyiseget tarolja.
@@ -117,8 +126,6 @@ public class Virologist extends Subject
 	 */
 	private final ArrayList<GeneticCode> codes;
 
-
-	//TODO ezt hasznaljuk vhol?
 	/**
 	 * Az aktuálisan birtokolt genetikai kódokat adja vissza.
 	 * @return A birtokolt kódok.

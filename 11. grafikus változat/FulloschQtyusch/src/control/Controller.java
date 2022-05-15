@@ -7,7 +7,7 @@ import model.codes.GeneticCode;
 import model.map.*;
 import model.Subject;
 import view.Window;
-//TODO comment
+
 /**
  * Prototípus külvilággal való kommunikációjáért felelős osztály.
  * Megvalósítja a dokumentációban leírt bemeneti nyelv funkcióit, valamint közvetít a modell és a felhasználó(k) között.
