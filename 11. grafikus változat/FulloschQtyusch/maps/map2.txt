@@ -83,7 +83,7 @@ IL1 W3
 end
 Virologist
 Name V1
-ActionCount 2
+ActionCount 3
 Equipment Axe
 Amino 19
 Nucleo 13
@@ -91,8 +91,8 @@ GeneticCode ChoreaCode
 StartingPos S1
 end
 Virologist
-Name V1
-ActionCount 1
+Name V2
+ActionCount 3
 Equipment Glove
 Amino 6
 Nucleo 17
