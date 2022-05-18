@@ -14,49 +14,93 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
-//TODO comment
+/**
+ * Az ablak, amiben az egész játék meg van jelenítve.
+ */
 public class Window extends Observer{
-
-
     /**
      * Az utolsó üzenet tartalma
      */
     String msgText;
 
+    /**
+     * Aminosav mennyiségét megjelenítő sáv.
+     */
     private JProgressBar aminoBar;
+
+    /**
+     * Nukleotid mennyiségét megjelenítő sáv.
+     */
     private JProgressBar nucleoBar;
 
+    /**
+     * Aminosav felirat.
+     */
     private JLabel aminoLabel;
+
+    /**
+     * Nukleotid felirat.
+     */
     private JLabel nucleoLabel;
+
+    /**
+     * Hátralévő akciók számát megjelenítő felirat.
+     */
     private JLabel turnCounter;
+
     /**
      * Az üzenetbuborék
      */
     private JLabel actionBubble;
+
     /**
      * Az üzenetbuborék szövege
      */
     private JTextArea actionBubbleText;
+
+    /**
+     * Az üzenetbuborék szövege
+     */
     private ArrayList<JButton> equipmentButtons;
 
+    /**
+     * A háttér
+     */
     private JLabel backGround;
+
+    /**
+     * A keret, ami az ablakot reprezentálja
+     */
     private final JFrame frame;
 
+    /**
+     * A külvilággal való kommunikációért felelős osztály példánya
+     */
     private final Controller controller;
+
+    /**
+     * A játék kezeléséért felelős osztály
+     */
     private final Game game;
 
+    /**
+     * Létrehoz egy ablakot a megadott kontroller és játék osztályokkal
+     *
+     * @param controller A kontroller
+     * @param game A játék
+     */
     public Window(Controller controller, Game game){
-
         this.controller = controller;
         this.game = game;
 
+        //SETUP FRAME & MENUBAR
         frame = new JFrame("Vilagtalan virologusok vilaga");
         JMenuBar mainMenu = new JMenuBar();
         JMenu actions = new JMenu("Actions");
         mainMenu.add(actions);
         frame.setJMenuBar(mainMenu);
 
+        //SETUP SUBMENUS
         JMenu attack= new JMenu("attack");
         actions.add(attack);
         attack.addMenuListener(new ViewMenuListener(()->{
@@ -174,6 +218,10 @@ public class Window extends Observer{
         update();
     }
 
+    /**
+     * Az ablak frissítésekor meghívott függvény.
+     * Újrarajzolja az egész ablakot.
+     */
     @Override
     public void update(){
         Virologist player = game.GetCurrentPlayer();
@@ -218,7 +266,6 @@ public class Window extends Observer{
             actionBubbleText.setVisible(false);
         }
         else {
-
             actionBubbleText.setText(msgText);
             actionBubble.setVisible(true);
             actionBubbleText.setVisible(true);
@@ -235,8 +282,10 @@ public class Window extends Observer{
         } catch (IOException ignored) { }
     }
 
+    /**
+     * A felhasználói interfész kirajzolásakor meghívott függvény.
+     */
     public void drawInterface() {
-
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setBounds(0, 0, 600, 600);
 
@@ -301,7 +350,7 @@ public class Window extends Observer{
             y += 60;
         }
 
-    //KAKCIÓSZÁMLÁLÓ BEÁLLÍTÁSA
+    //AKCIÓSZÁMLÁLÓ BEÁLLÍTÁSA
         turnCounter = new JLabel("3 / 3");
         turnCounter.setFont(new Font("sans-serif", Font.BOLD, 48));
         turnCounter.setForeground(Color.white);
@@ -320,85 +369,9 @@ public class Window extends Observer{
             e.printStackTrace();
         }
 
-        msgText = "kiskúgya kunya gúgyuszka kiskufya\n" +
-                "kiskugya kútya sulya lislyuta\n" +
-                "kizskugka kutja kútja kiskuhya\n" +
-                "gizsgugya    kuta    kutyna    kiskuxya\n" +
-                "gizskutya    kislyutya    kutnya    kiskuya\n" +
-                "kiskutius    gidzsigegizsgutya    kitsikugya    kitsigugya\n" +
-                "hutya        kúgyugya    lizya      kűgyja\n" +
-                "kutsus         kogya    gidzsgudja    nyuta\n" +
-                "gizsgúgya    kutttya    qgya        pimbull \n" +
-                "gűtya     kizsgutya    kutgya       kugyja\n" +
-                "kugyuzs    qúhggyah    qkútgyikah    gútjya\n" +
-                "guggya    gizsgyugya    kúdtja    gizskugya\n" +
+        msgText = "Hello vak virologus!\nWelcome to the Jurassic Park\n";
 
-                "kuhya    kúja    kudgya     tutya\n"+
-                "gúgyah    kugyha    qutja    kislutya\n" +
-                "kutsa    outya    kuyua    lizya\n" +
-                "lutyw    litya    kitya    lutxa\n" +
-                "kuxta    gidzsigegugyus    kuzxa    kikúgyka\n" +
-
-                "gútyja    kutxa    kigya    gugyuska\n" +
-                "gisguya      kuxgy    kurya    gogya\n" +
-                "kisgugytkya    jutya    kufya    gugklya\n" +
-                "kiskulya       gizsgugyuzsga     kucsa    kiskytya\n" +
-                "kismulya    guty    gizsgutyi    kiskhtya\n" +
-                "kuva         vau    kizskugya    kiskjtya\n" +
-                "qutya     kúgyka    kiskutja    kugyus\n" +
-                "qugya      kuty    kulyuska    gutus \n" +
-                "gisgúgya    lugya    kuxa    tugya\n" +
-                "qúgya      gűgya    gúgyika    kutga\n" +
-
-                "kuja    rót valter (rottweiler)    gi gutga    kisgutya\n" +
-
-                "kulya    kugta    kiekutya    kutuska\n" +
-                "kucus    mutya    kiwkutya    nyutya\n" +
-                "gizsigutygyja      gizs gugya    kiqkutya    kis kuta\n" +
-                "kukia     gízsgúgya    kikugya    kiskutyu\n" +
-                "gyutya        qtya    kikutya    kutyuli\n" +
-                "gutya     gigygugya    kiskurya     mutyuli\n" +
-                "zuka       qkutya    kizskutga    kizskuja\n" +
-                "guta    qtyja     gisgutgya    kúgyús\n" +
-                "zutyi      guka    gizsgutya    kúgya\n" +
-                "könya      kuttya    tutus    kumgya\n" +
-                "kölya        putya    tuta    lutya\n" +
-                "bidbulgugya    giszkutya    tyutyu    kúlya\n" +
-
-                "qtja     kizsgútya    tyutyus    gugyuzsga\n" +
-                "köjök    kis kugya    kizsgugya    kuthya    gútyja\n" +
-                "gugyus    gugyusga    kutyhus    gudgya\n" +
-                "gizsgutga    kuya    gizsgutya    gizsgutya\n" +
-                "bidbugugya    kisgugya    gutyna    gizsgutyus\n" +
-                "kizskutja    kucuka    kismutya    ulya\n" +
-                "gudja      kuszus    kutyulimutyuli    qty\n" +
-                "kuzya     kutyha     kugdlya           gútyja\n" +
-                "kissqutya    kűgyka    kudglya    gútygya\n" +
-                "kissqtya    qügya    dutya    kunyus \n" +
-                "kiss kutya    kis kutyuss    kuyga    kúnya\n" +
-                "kiskógya          kuggya     gi guya    ksigugyq\n" +
-                "kitzsikutynyuzska    kucs    kuryz    gizsgyutya\n" +
-                "kislutyuy         giskunya    gizs kugyúgya    kisgucsa\n" +
-                "kisgógya      giskugyulimugyuli    gyutyulimugyuli    kurgya\n" +
-                "gizs gudja    gisgugya    gisguya    kurtya\n" +
-                "guttya         qutgya     quttya     kis lutyuj \n" +
-                "glutya       gulytjya    kisluytuj     discsucsa\n" +
-                "kiskzóuyta     kutjda    katya        lutyiluty\n" +
-                "kutyika     kis kutsus    kútxa     kutxuzs\n" +
-                "kuyly    kuyla    kiskunyus        gugyja\n" +
-                "kúfka    kúdka    kissgugyuska    kisskugyus\n" +
-                "kütya    gidzsigutya    gunyus     kisgunyus\n" +
-                "qs qtya    gugyuli-mugyuli          kizskzgya    kútdja\n" +
-                "krudja       krugyja    gizsguggya    kiskukia\n" +
-                "kutyulu         kislutuy    kisgugyja    gutyja\n" +
-                "kizs zsutyila    gúgyulka-mugyulka        kizsgudzsuka     kisgudzsus\n" +
-                "kigy gyuka      kúqggyuzska    kusugyulj    qizs qtya\n" +
-                "kufa        gúdzsus-mudzsus    kizs zslutya    qúdzsa\n" +
-                "qugyka     gudzsuska    qkútgya    kutguzska\n" +
-                "kiskugy a     dicsakbuksi    qugyulimugyuli    tyutya\n" +
-                "kisgutju         kisgyúgya    kigyugya         kisgugy";
-
-        actionBubbleText = new JTextArea("Hello vak virologus!\n"+msgText);
+        actionBubbleText = new JTextArea(msgText);
         actionBubbleText.setBackground(Color.white);
         actionBubbleText.setBorder(BorderFactory.createEmptyBorder());
         actionBubbleText.setBounds(290,235, 170,50);
@@ -436,5 +409,4 @@ public class Window extends Observer{
         layeredPane.add(aminoLabel, Integer.valueOf(2));
         frame.add(layeredPane);
     }
-
 }

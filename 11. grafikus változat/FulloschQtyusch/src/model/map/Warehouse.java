@@ -1,6 +1,5 @@
 package model.map;
 
-
 import model.Virologist;
 
 import java.util.Random;

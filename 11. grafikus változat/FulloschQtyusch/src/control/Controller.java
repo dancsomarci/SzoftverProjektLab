@@ -7,7 +7,7 @@ import model.codes.GeneticCode;
 import model.map.*;
 import model.Subject;
 import view.Window;
-//TODO comment
+
 /**
  * Prototípus külvilággal való kommunikációjáért felelős osztály.
  * Megvalósítja a dokumentációban leírt bemeneti nyelv funkcióit, valamint közvetít a modell és a felhasználó(k) között.
@@ -21,6 +21,11 @@ public class Controller extends Subject {
     private final Window window;
     private String actionMessage;
 
+    /**
+     * Inicializálja az ablakot. Felcsatolja saját magára, hogy értesíteni tudja, az actionMessage változásáról, valamint
+     * Gondoskodik róla, hogy a Window értesüljön az aktuálisan körön lévő virológus lehetséges változásairól is.
+     * @param game
+     */
     public Controller(Game game) {
         actionMessage = "";
         this.game = game;
@@ -63,7 +68,7 @@ public class Controller extends Subject {
      */
     public void drop(){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        actionMessage = "Trying to drop an equipmnet...";
+        actionMessage = "Trying to drop an equipment...";
         currentPlayer.Drop();
 
 
@@ -87,7 +92,7 @@ public class Controller extends Subject {
      */
     public void lootNucleoFrom(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        actionMessage = "Trying to nucleotide acid form " + v.getName() + "...";
+        actionMessage = "Trying to loot nucleotide form " + v.getName() + "...";
         currentPlayer.LootNucleotideFrom(v);
 
 
@@ -99,7 +104,7 @@ public class Controller extends Subject {
      */
     public void lootEquipmentFrom(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        actionMessage = "Trying to equipment acid form " + v.getName() + "...";
+        actionMessage = "Trying to loot equipment form " + v.getName() + "...";
         currentPlayer.LootEquipmentFrom(v);
 
 
