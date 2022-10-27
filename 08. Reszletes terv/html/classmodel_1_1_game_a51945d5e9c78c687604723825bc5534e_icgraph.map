@@ -1,8 +1,0 @@
-<map id="model.Game.EndGame" name="model.Game.EndGame">
-<area shape="rect" id="node1" title=" " alt="" coords="896,31,1055,57"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_game.html#add9cd4a2652fca83de4574fdc7dcb412" title=" " alt="" coords="684,31,848,57"/>
-<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#a0eb75a8851d6d9701304c2e9377adf26" title=" " alt="" coords="469,31,636,57"/>
-<area shape="rect" id="node4" href="$classcontrol_1_1_controller.html#ae5a2028e254f3e41745e4871a2e35b89" title=" " alt="" coords="251,5,421,32"/>
-<area shape="rect" id="node5" href="$classmodel_1_1_virologist.html#ae9e6fc89c43fdffaf0044692cf403021" title=" " alt="" coords="267,56,405,83"/>
-<area shape="rect" id="node6" href="$classmodel_1_1equipments_1_1_axe.html#aac332f2fa15a304b0c7661d4c0671d5b" title=" " alt="" coords="5,56,203,83"/>
-</map>

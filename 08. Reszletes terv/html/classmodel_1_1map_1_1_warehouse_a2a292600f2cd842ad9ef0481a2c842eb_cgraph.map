@@ -1,7 +1,0 @@
-<map id="model.map.Warehouse.CollectMaterial" name="model.map.Warehouse.CollectMaterial">
-<area shape="rect" id="node1" title=" " alt="" coords="5,78,205,119"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#ac21f2c24d8c1fbc4e3fce465c2bbcb1d" title=" " alt="" coords="253,5,459,32"/>
-<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#a5466b7410761c8d91ea1ee9428631211" title=" " alt="" coords="255,56,457,83"/>
-<area shape="rect" id="node4" href="$classcontrol_1_1_single_ton_scanner.html#a252ef2d7a44bcaad4cae422f8cb8ac75" title=" " alt="" coords="269,107,443,149"/>
-<area shape="rect" id="node5" href="$classmodel_1_1_virologist.html#a4afb1f3dc63d85ea548dcf9712cff08d" title=" " alt="" coords="263,173,449,200"/>
-</map>

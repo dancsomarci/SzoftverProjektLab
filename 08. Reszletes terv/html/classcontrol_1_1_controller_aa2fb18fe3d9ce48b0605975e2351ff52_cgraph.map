@@ -1,9 +1,0 @@
-<map id="control.Controller.move" name="control.Controller.move">
-<area shape="rect" id="node1" title=" " alt="" coords="5,132,160,159"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="208,5,408,32"/>
-<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#a9e69a33cde69efd6f63b2e9ca06ae47e" title=" " alt="" coords="225,56,391,83"/>
-<area shape="rect" id="node4" href="$classmodel_1_1map_1_1_field.html#ab12f08b6dd9768e3946bab1bd110d496" title=" " alt="" coords="221,107,395,133"/>
-<area shape="rect" id="node5" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="223,157,393,184"/>
-<area shape="rect" id="node6" href="$classmodel_1_1map_1_1_field.html#a524476cf5bbb297a764994345be03e9e" title=" " alt="" coords="456,245,664,272"/>
-<area shape="rect" id="node7" href="$classmodel_1_1_virologist.html#acb7df29e14ec16013cdc94b122fc82e4" title=" " alt="" coords="233,283,383,309"/>
-</map>

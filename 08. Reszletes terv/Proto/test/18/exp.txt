@@ -1,2 +1,0 @@
-Deterministic mode on!
-v1 won the game!

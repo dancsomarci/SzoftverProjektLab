@@ -1,9 +1,0 @@
-<map id="control.Controller.equip" name="control.Controller.equip">
-<area shape="rect" id="node1" title=" " alt="" coords="5,114,160,141"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a358fb793bfc90fd038b77ffb43e3b7ff" title=" " alt="" coords="232,13,384,39"/>
-<area shape="rect" id="node4" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="208,63,408,90"/>
-<area shape="rect" id="node5" href="$classmodel_1_1_virologist.html#a9e69a33cde69efd6f63b2e9ca06ae47e" title=" " alt="" coords="225,114,391,141"/>
-<area shape="rect" id="node6" href="$classmodel_1_1map_1_1_field.html#ab12f08b6dd9768e3946bab1bd110d496" title=" " alt="" coords="221,165,395,191"/>
-<area shape="rect" id="node7" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="223,215,393,242"/>
-<area shape="rect" id="node3" href="$interfacemodel_1_1strategy_1_1_i_equip_str.html#aeba9f55d1982359bed5356cec6456473" title=" " alt="" coords="456,5,625,47"/>
-</map>

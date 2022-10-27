@@ -1,6 +1,0 @@
-<map id="model.strategy.DefLoot.LootAmino" name="model.strategy.DefLoot.LootAmino">
-<area shape="rect" id="node1" title=" " alt="" coords="5,35,191,76"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a631d5664b8655669b8b0c1ae7137bb33" title=" " alt="" coords="257,5,432,47"/>
-<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#a674ae6856eae5bb6e30a09619377df6b" title=" " alt="" coords="239,71,451,98"/>
-<area shape="rect" id="node4" href="$interfacemodel_1_1strategy_1_1_i_looted_str.html#ac7e05de5a0107052b3cfc78396a4d0fc" title=" " alt="" coords="499,64,673,105"/>
-</map>

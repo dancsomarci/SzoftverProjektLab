@@ -1,7 +1,0 @@
-<map id="model.map.Field.RemoveVirologist" name="model.map.Field.RemoveVirologist">
-<area shape="rect" id="node1" title=" " alt="" coords="501,56,724,83"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#ae9e6fc89c43fdffaf0044692cf403021" title=" " alt="" coords="283,5,421,32"/>
-<area shape="rect" id="node4" href="$classmodel_1_1strategy_1_1_bear_move.html#abf5f36832348af4c36ed6f4f90bab761" title=" " alt="" coords="251,56,453,83"/>
-<area shape="rect" id="node5" href="$classmodel_1_1strategy_1_1_def_move.html#ab6a0fb789b73128f5e00e95ccbae806d" title=" " alt="" coords="255,107,449,133"/>
-<area shape="rect" id="node3" href="$classmodel_1_1equipments_1_1_axe.html#aac332f2fa15a304b0c7661d4c0671d5b" title=" " alt="" coords="5,5,203,32"/>
-</map>

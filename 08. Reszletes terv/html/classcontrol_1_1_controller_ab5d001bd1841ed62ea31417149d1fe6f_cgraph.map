@@ -1,9 +1,0 @@
-<map id="control.Controller.learn" name="control.Controller.learn">
-<area shape="rect" id="node1" title=" " alt="" coords="5,107,157,133"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="205,5,405,32"/>
-<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#a9e69a33cde69efd6f63b2e9ca06ae47e" title=" " alt="" coords="223,56,388,83"/>
-<area shape="rect" id="node4" href="$classmodel_1_1map_1_1_field.html#ab12f08b6dd9768e3946bab1bd110d496" title=" " alt="" coords="218,107,393,133"/>
-<area shape="rect" id="node5" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="220,157,391,184"/>
-<area shape="rect" id="node6" href="$classmodel_1_1_virologist.html#aae83bcaf15687b2b7ffbe03ec63dcbe7" title=" " alt="" coords="230,208,381,235"/>
-<area shape="rect" id="node7" href="$interfacemodel_1_1strategy_1_1_i_learn_str.html#addf8d28c8b8a02c052ab26d88ee58680" title=" " alt="" coords="453,201,621,242"/>
-</map>

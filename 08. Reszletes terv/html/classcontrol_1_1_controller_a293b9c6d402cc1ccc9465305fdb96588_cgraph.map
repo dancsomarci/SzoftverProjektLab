@@ -1,7 +1,0 @@
-<map id="control.Controller.lootEquipment" name="control.Controller.lootEquipment">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,212,83"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="278,5,478,32"/>
-<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="293,56,463,83"/>
-<area shape="rect" id="node4" href="$classmodel_1_1_virologist.html#a223b81dbbf607d6f67beadd6c155c3a4" title=" " alt="" coords="260,107,496,133"/>
-<area shape="rect" id="node5" href="$interfacemodel_1_1strategy_1_1_i_loot_str.html#aa88c4989620592a21454d23eb3834afb" title=" " alt="" coords="544,99,705,141"/>
-</map>

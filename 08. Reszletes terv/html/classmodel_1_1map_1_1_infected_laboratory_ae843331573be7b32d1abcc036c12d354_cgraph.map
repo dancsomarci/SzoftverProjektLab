@@ -1,5 +1,0 @@
-<map id="model.map.InfectedLaboratory.AddVirologist" name="model.map.InfectedLaboratory.AddVirologist">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,205,47"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a22ca51e54fef5fba6dd9aa1e8d639e05" title=" " alt="" coords="253,13,449,39"/>
-<area shape="rect" id="node3" href="$interfacemodel_1_1strategy_1_1_i_injected_str.html#a286c2815ec68c4ada3ea30d48a2d02ea" title=" " alt="" coords="497,5,657,47"/>
-</map>

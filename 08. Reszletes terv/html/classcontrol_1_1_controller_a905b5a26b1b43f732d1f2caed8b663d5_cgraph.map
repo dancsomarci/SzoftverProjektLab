@@ -1,7 +1,0 @@
-<map id="control.Controller.attack" name="control.Controller.attack">
-<area shape="rect" id="node1" title=" " alt="" coords="5,63,165,90"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a376e043feabdb1a8890a3a42de4969ae" title=" " alt="" coords="235,13,392,39"/>
-<area shape="rect" id="node4" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="213,63,413,90"/>
-<area shape="rect" id="node5" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="228,114,399,141"/>
-<area shape="rect" id="node3" href="$interfacemodel_1_1strategy_1_1_i_attack_str.html#a5ffd925afda558dff0a1de81a6010afe" title=" " alt="" coords="461,5,636,47"/>
-</map>

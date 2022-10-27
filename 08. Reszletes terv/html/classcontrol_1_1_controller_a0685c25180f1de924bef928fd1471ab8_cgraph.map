@@ -1,9 +1,0 @@
-<map id="control.Controller.drop" name="control.Controller.drop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,107,155,133"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a7b2b2b0a78d978a656f7b2d70b62a397" title=" " alt="" coords="229,5,376,32"/>
-<area shape="rect" id="node4" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="203,56,403,83"/>
-<area shape="rect" id="node5" href="$classmodel_1_1_virologist.html#a9e69a33cde69efd6f63b2e9ca06ae47e" title=" " alt="" coords="220,107,385,133"/>
-<area shape="rect" id="node6" href="$classmodel_1_1map_1_1_field.html#ab12f08b6dd9768e3946bab1bd110d496" title=" " alt="" coords="215,157,390,184"/>
-<area shape="rect" id="node7" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="217,208,388,235"/>
-<area shape="rect" id="node3" href="$interfacemodel_1_1strategy_1_1_i_drop_str.html#aed7d5400d7f0b0daaed77252d4234024" title=" " alt="" coords="451,5,641,32"/>
-</map>

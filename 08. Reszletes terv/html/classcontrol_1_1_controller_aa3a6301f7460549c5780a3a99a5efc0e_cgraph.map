@@ -1,6 +1,0 @@
-<map id="control.Controller.bark" name="control.Controller.bark">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,155,57"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a5d311ad90b702782a0811ca47a1b1971" title=" " alt="" coords="231,5,375,32"/>
-<area shape="rect" id="node4" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="203,56,403,83"/>
-<area shape="rect" id="node3" href="$classmodel_1_1map_1_1_field.html#ab12f08b6dd9768e3946bab1bd110d496" title=" " alt="" coords="451,5,625,32"/>
-</map>

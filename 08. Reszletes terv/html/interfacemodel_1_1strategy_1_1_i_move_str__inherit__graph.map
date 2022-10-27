@@ -1,6 +1,0 @@
-<map id="model.strategy.IMoveStr" name="model.strategy.IMoveStr">
-<area shape="rect" id="node1" title=" " alt="" coords="198,5,361,32"/>
-<area shape="rect" id="node2" href="$classmodel_1_1strategy_1_1_bear_move.html" title=" " alt="" coords="5,80,175,107"/>
-<area shape="rect" id="node3" href="$classmodel_1_1strategy_1_1_def_move.html" title=" " alt="" coords="199,80,360,107"/>
-<area shape="rect" id="node4" href="$classmodel_1_1strategy_1_1_no_move.html" title=" " alt="" coords="384,80,543,107"/>
-</map>

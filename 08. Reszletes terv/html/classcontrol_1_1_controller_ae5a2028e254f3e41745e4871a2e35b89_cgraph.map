@@ -1,8 +1,0 @@
-<map id="control.Controller.endTurn" name="control.Controller.endTurn">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,176,83"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a0eb75a8851d6d9701304c2e9377adf26" title=" " alt="" coords="241,5,407,32"/>
-<area shape="rect" id="node5" href="$classmodel_1_1_game.html#a1b8d151aecead1ea262ab37ba81ba97c" title=" " alt="" coords="224,56,424,83"/>
-<area shape="rect" id="node6" href="$classmodel_1_1_virologist.html#ab985968b860eb69f016c14d08afe4210" title=" " alt="" coords="239,107,409,133"/>
-<area shape="rect" id="node3" href="$classmodel_1_1_game.html#add9cd4a2652fca83de4574fdc7dcb412" title=" " alt="" coords="472,5,636,32"/>
-<area shape="rect" id="node4" href="$classmodel_1_1_game.html#a51945d5e9c78c687604723825bc5534e" title=" " alt="" coords="684,5,843,32"/>
-</map>

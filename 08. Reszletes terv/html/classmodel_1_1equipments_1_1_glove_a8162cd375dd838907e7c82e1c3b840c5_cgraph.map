@@ -1,7 +1,0 @@
-<map id="model.equipments.Glove.Injected" name="model.equipments.Glove.Injected">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,219,83"/>
-<area shape="rect" id="node2" href="$classmodel_1_1_virologist.html#a372b69edb94a0f51f92d199f9586b5ff" title=" " alt="" coords="267,5,493,32"/>
-<area shape="rect" id="node3" href="$classmodel_1_1_virologist.html#a72b161c7d34a61b12028a7b647cb0231" title=" " alt="" coords="303,56,457,83"/>
-<area shape="rect" id="node4" href="$classmodel_1_1_virologist.html#a22ca51e54fef5fba6dd9aa1e8d639e05" title=" " alt="" coords="282,107,478,133"/>
-<area shape="rect" id="node5" href="$interfacemodel_1_1strategy_1_1_i_injected_str.html#a286c2815ec68c4ada3ea30d48a2d02ea" title=" " alt="" coords="541,99,701,141"/>
-</map>
