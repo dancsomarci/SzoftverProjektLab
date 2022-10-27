@@ -31,12 +31,12 @@ jar cvfm0 ..\Qtyusch.jar META-INF/MANIFEST.MF *
 
 # Screenshots from the game:
 ## Shelter:
-![ScreenShot](\screenshots\1.png)
+![ScreenShot](screenshots\1.png)
 
 ## Warehouse:
-![ScreenShot](\screenshots\2.png)
+![ScreenShot](screenshots\2.png)
 
 ## Infected Laboratory:
-![ScreenShot](\screenshots\3.png)
+![ScreenShot](screenshots\3.png)
 
 
